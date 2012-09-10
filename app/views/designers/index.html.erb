@@ -1,0 +1,17 @@
+<h1>Upload your Cliiz Template</h1>
+<p>You can upload your designed Cliiz Template by below form</p>
+<div class='box w748 talign detailed'>
+  <div class='top'></div>
+  <div class='main'>
+    <form action='/designers/upload' method='POST' enctype="multipart/form-data">
+      <label>Full Name</label><span><input class='input' name='[name]' value=''/><div class='help inline' tip='Your fullname'></div></span>
+      <label>Team Name</label><span><input class='input' name='[team]' value=''/><div class='help inline' tip='Please enter your team name, if you or any member of your team subscribed/applied at Cliiz previously.'></div></span>
+      <label>Email</label><span><input class='input' name='[email]' value=''/><div class='help inline' tip='Enter your email address so we can contact you.'></div></span>
+      <label>Template(zip file)</label><span><input type='file' name='zipfile' style='width: auto; height: auto; background: none;'/></span>
+      <div class='menu'>
+        <div class='left'></div><div class='main'><a submit='true'>Upload</a>|<a href='/panel/designers'>Cancel</a></div><div class='right'></div>
+      </div>
+    </form>
+  </div>
+  <div class='bottom'></div>
+</div>

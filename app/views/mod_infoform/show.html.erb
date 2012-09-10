@@ -1,0 +1,14 @@
+<h1>Contacts</h1>
+<div class='box detailed w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Contact detail</h2>
+    <%@fields.each do |f|%>
+      <label><%= f %></label><span><%= @contact.read_attribute f %></span>
+    <%end%>
+    <div class='menu'>
+      <div class='left'></div><div class='main'><a href='/panel/contact_books/<%=@uc.id%>'>back</a></div><div class='right'></div>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>

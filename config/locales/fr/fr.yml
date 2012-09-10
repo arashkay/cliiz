@@ -1,0 +1,55 @@
+fr:
+  site:
+    title: "Cliiz.com: Créez votre site web gratuitement en 5 minutes"
+    language: 'Français '
+    links:
+      new_site: "Besoin d'un site" #
+      designers: "Concepteur" #
+      already_member: 'Je suis un membre' #
+      where_am_i: "12 raisons d'aimer Cliiz" #
+      start: 'cliquez pour commencer!' #
+  modules:
+    names:
+      sitebuilder: 'Site Builder'
+      infoform: 'Info. Form'
+      content: 'Content / Text'
+      locationmark: 'Location Mark'
+    sitebuilder:
+      home: 'La page d’accueil'
+      about: 'A propos'
+      contact: 'Contactez- nous'
+    content:
+      for: 'Le contenu pour'
+    infoform:
+      for: 'La formulaire pour'
+      name: 'Nom'
+      email: 'l’adresse Mail'
+      url: 'Le site Web'
+      phone: 'Portable'
+      phone2:  'Maison'
+      address: 'Adresse'
+      subject: 'Sujet'
+      message: 'Message'
+#basics
+  address: 'Adresse'
+  advanced: 'Avancés'
+  basic: 'Base'
+  cellphone_no: 'Portable'
+  close: 'fermer'
+  compatible_with: 'compatible avec' #
+  email: 'L’adresse mail'
+  fax: 'Fax'
+  fullname: 'Nom'
+  height: 'hauteur'
+  hide: 'cacher'
+  home_no: 'Maison'
+  login: 'Entrer' #
+  message: 'Message'
+  need_help: 'Vous avez besoin d’aide?'
+  or: 'ou'
+  phone: 'Téléphone'
+  subject: 'Sujet'
+  submit: 'Soumettre'
+  website: 'Site web'
+  width: 'largeur'
+  click_here: 'Cliquez ici'

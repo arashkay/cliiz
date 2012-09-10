@@ -1,0 +1,41 @@
+<h1>Blog</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <div class='menu righted'>
+      <div class='left'></div><div class='main'><a href='/panel/blogging/new'>New post</a>|<a href='/panel/blogging/'>All posts</a>|<a href='/panel/blogging/archive'>Archive</a></div><div class='right'></div>
+    </div>
+    <%if action_name=='archive'%>
+      <h2>Archive</h2>
+    <%else%>
+      <h2>Posts</h2>
+    <%end%>
+    <%if @blog.blank?%>
+      <p>First activate blogging package <a href='/panel/edit/home/'>here</a>.</p>
+    <%else%>
+      <%unless @posts.blank? %>
+        <div class='fn-list' auto='true'>
+          <div class='row header'>
+            <div class='cell simple w20'></div>
+            <div class='cell w308'>Title</div>
+            <div class='cell w100'>Publish Date</div>
+          </div>
+          <%@posts.each do |p|%>
+          <div class='row fn-row'>
+            <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=p.id%>"/></div>
+            <div class='cell w308'><a href='/panel/blogging/<%=p.id%>/edit'><%= p.title %></a></div>
+            <div class='cell w120'><%= p.publish_date.strftime "%a. %d %b %Y" %></div>
+          </div>
+          <%end%>
+          <div class='menu fn-menu'>
+            <div class='arrow'></div>
+            <div class='left'></div><div class='main'><div class='checkall fn-checkall'><input type='checkbox'/></div><%if action_name=='archive'%><a method='post' autohide='true' remote='/panel/blogging/<%=@blog.id%>/restore' class='fn-restore'>Restore</a><%else%><a method='delete' autohide='true' remote='/panel/blogging/<%=@blog.id%>/delete'>Delete</a><%end%></div><div class='right'></div>
+          </div>
+        </div>
+      <%else%>
+        <p>No post submitted yet.</p>
+      <%end%>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

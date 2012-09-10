@@ -1,0 +1,14 @@
+<h1>Contacts</h1>
+<div class='box w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Contact forms</h2>
+    <p>List of forms you have in order to collect information from your vistors. <b>To check the list click on them</b></p>
+    <div class='listing'>
+      <% @uc.each do |m| %>
+      <div class='item'><a href='/panel/contact_books/<%=m.id%>'><img src='/images/blank.gif' class='icon small <%=m.component.uname%>'/><span><%=m.component.name%></span><span class='info'>(<%=m.page%> page)</span></a></div>
+      <%end%>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>

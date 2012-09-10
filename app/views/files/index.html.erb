@@ -1,0 +1,53 @@
+<%content_for :head do%>
+  <script src="/javascripts/file.js" type="text/javascript"></script>
+<%end%>
+<h1>File Manager</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <div class='menu righted'>
+      <div class='left'></div><div class='main'><a href='/panel/files/new/<%=params[:id]%>'>Upload file</a>|<a href='/panel/files/new_folder/<%=params[:id]%>'>Create folder</a>|<a href='/panel/files/'>Root folder</a></div><div class='right'></div>
+    </div>
+    <h2>Files</h2>
+    <h3>Current folder '<%= @parent.blank? ? 'root' : @parent.name%>'</h3>
+    <%if @files.blank? && @folders.blank? %>
+      <p>No file uploaded here yet. <a href='/panel/files/new/<%=params[:id]%>'>Click here</a> to upload files in this folder.</p>
+    <%else%>
+      <div class='fn-list thumbs' auto='true'>
+        <% unless @parent.id.nil? %>
+          <div class='thumb fn-row fn-droppable' folderid='<%=@parent.folder.id unless (@parent.blank?||@parent.folder.blank?) %>'>
+            <img src='/images/panel/folderup.png' class='no-border' />
+            <div><a href='/panel/files/<%=@parent.folder.id unless (@parent.blank?||@parent.folder.blank?)%>'><%= (@parent.blank?||@parent.folder.blank?) ? 'root' : @parent.folder.name %></a></div>
+          </div>
+        <%end%>
+        <%@folders.each do |f|%>
+          <div class='thumb fn-row fn-draggable fn-droppable' folderid='<%=f.id%>'>
+            <img src='/images/panel/folder.png' class='no-border' />
+            <div class='cell simple w20'><input type='checkbox'/><input type='hidden' name='folders' value="<%=f.id%>"/></div>
+            <div class='info'>
+              <a href='/panel/files/<%=f.id%>'><%= f.name %></a>
+              <br/>
+              <%= f.created_at.strftime "%a. %d %b %Y" %>
+            </div>
+          </div>
+        <%end%>
+        <%@files.each do |f|%>
+          <div class='thumb fn-row fn-draggable' fileid='<%=f.id%>'>
+            <%= image_tag f.entity.url(:thumb), :preview => f.entity.url(:medium) %>
+            <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=f.id%>"/></div>
+            <div class='info'>
+              <a href='/panel/files/<%=f.id%>/edit'><%= f.entity_file_name %></a>
+              <br/>
+              <%= f.created_at.strftime "%a. %d %b %Y" %>
+            </div>
+          </div>
+        <%end%>
+        <div class='menu fn-menu'>
+          <div class='arrow'></div>
+          <div class='left'></div><div class='main'><div class='checkall fn-checkall'><input type='checkbox'/></div><a method='delete' autohide='true' remote='/panel/files/delete'>Delete</a></div><div class='right'></div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

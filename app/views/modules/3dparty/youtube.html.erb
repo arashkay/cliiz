@@ -1,0 +1,10 @@
+<div class='cliiz-module' cliiz='module' cliiz-type='youtube' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block' cliiz='block'>
+    <object style="height:<%=setting[:height]%>px;width:<%=setting[:width]%>px">
+      <param name="movie" value="https://www.youtube.com/v/<%=setting[:code]%>?version=3&feature=player_embedded&feature=player_embedded">
+      <param name="allowFullScreen" value="true">
+      <param name="allowScriptAccess" value="always">
+      <embed src="https://www.youtube.com/v/<%=setting[:code]%>?version=3&feature=player_embedded&feature=player_embedded" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" height="<%=setting[:height]%>" width="<%=setting[:width]%>">
+    </object>
+  </div>
+</div>

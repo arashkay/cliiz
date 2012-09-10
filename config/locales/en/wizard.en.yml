@@ -1,0 +1,62 @@
+en:
+  wizard:
+    steps:
+      first: "Name"
+      second: "Layout"
+      third: "Features"
+    loading:
+      default: "Please wait while loading ..."
+      builder: "loading builder"
+    basic:
+      name:
+        label: "Website Name"
+        error: "At least 3 characters"
+        server_error: "Already taken!"
+        success: "Good name!"
+        tip: "Choose a name for your website"
+      email:
+        label: 'Email Address'
+        error: 'Enter valid email address'
+        server_error: "Previously registered!"
+        success: 'Fresh email address!'
+        tip: 'Your current email address'
+      password:
+        label: 'Choose a Password'
+        error: 'At least 6 Characters'
+        success: 'Good choice!'
+        tip: 'Choose a password'
+      login: 'Want to login and reset? enter your password and' #
+      login_link: 'click here!'
+      current_user: 'You are logged in as'
+      startover: 'logout / start new account'
+      continue: 'Click next button to continue'
+    features:
+      contact_fields: "Contact Form's Fields"
+      contact_fields_title: 'Fields Display Name'
+      added_list: 'Added Components'
+      add_to: 'Add it to'
+      site_builder:
+        title: 'Congratulation!'
+        intro: 'You have enabled your <b>Site Builder</b> feature! Now, you have 3 pages, Home, About, Contact Pages.'
+        home_and_about: 'Home Page and About'
+        how_to_add_content: 'You need a <b>Content / Text</b> component to create each of Home page and About page. You can find it in <b>upper list of components</b>.'
+        contact: 'Contact Page and Contact Form'
+        how_to_add_form: 'You need an <b>Info. Form</b> to create a contact form in your contact page. First you have to <b>scroll right by clicking arrow pointing right</b> in upper list of components. Then add the Info. Form component'
+    finished:
+      pay: 'Have it at your domain name' #
+      confirmation_email: 'Shortly you will receive an email on how to use your new website features.' #
+      how_to_pay: 'To publish your website under your domain name, login to your <b>Administration Panel</b> and follow the instruction.' #
+      congratulation: 'Congratulation! Your site is ready.'
+      panel: 'If you want to administrate your site you can do it here:'
+      site_address: 'Website address'
+      admin_address: 'Administration Panel'
+      site: 'You can check your website at this address:'
+    tips:
+      close_layout: 'You can minimize the wizard after selecting a layout to view it fully'
+      add_module: '<span>Click the <b>Green Button</b> to add <b>Site Builder Component</b> to your site. You can add other components with the same technique!</span>'
+      scroll_right: 'You can use this arrow to scroll right and explore more components.'
+      add_more_module: '<span>Click the <b>Green Add Button</b> to add <b>Content / Text Component</b>! Using this button you can add other components as well!</span>'
+      swap_modules: '<span>Here is the list of components added by you! You can <b>swap between them</b> by clicking these icons!</span>'
+      swap_pages: '<span>If you want to have the <b>duplication of this component</b> for <b>another page</b> you must add new one from upper list.</span>'
+      max_of_modules: '<span>You have reached <b>maximum number of enabled components</b> for your site! You can remove some to add other components.</span>'
+      start: '<span>Click here to start creating your website for free!</span>'

@@ -1,0 +1,26 @@
+<h1>File Manager</h1>
+<div class='box w748 talign detailed'>
+  <div class='top'></div>
+  <div class='main fn-blogForm'>
+    <h2>Upload a file</h2>
+    <img src='<%=@file.entity.url(:medium)%>'/><br/>
+    <label>Small:</label>
+    <span><%=@file.entity.url(:thumb).split('?')[0]%></span>
+    <label>Medium:</label>
+    <span><%=@file.entity.url(:medium).split('?')[0]%></span>
+    <label>Large:</label>
+    <span><%=@file.entity.url(:large).split('?')[0]%></span>
+    <label>Original:</label>
+    <span><%=@file.entity.url.split('?')[0]%></span>
+    <%= form_for @file, :as => :file, :url => file_path(@file), :html =>{ :multipart => true} do |f| %>
+      <%unless @parent.blank?%>
+        <label>Parent Folder</label><span><%= text_field_tag :parent, @parent.name, :class => 'input', :disabled => true %></span>
+      <%end%>
+      <label>Replace with</label><span><%= f.file_field 'entity' %><div class='help inline' tip='Select the image you want to upload!'></div></span>
+      <div class='menu'>
+        <div class='left'></div><div class='main'><a submit='true'>Save</a>|<a href='/panel/files'>Cancel</a></div><div class='right'></div>
+      </div>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

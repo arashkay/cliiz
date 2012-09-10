@@ -1,0 +1,184 @@
+.wizard .form .input{
+  background: url(/images/forms/label-left.jpg) no-repeat;
+  margin: 8px 0px;
+  height: 25px;
+  width: 300px;
+  position: relative;
+}
+.wizard .form .input .label,
+.wizard .form .input label,
+.wizard .form .input .main,
+.wizard .form .input input,
+.wizard .form .input span,
+.wizard .form .input .bottom *{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+}
+.wizard .form .input .right{
+  background: url(/images/forms/input-right.jpg) right no-repeat;
+  height: 25px;
+  width: 298px;
+  margin-left: 2px;
+}
+.wizard .form .input .label{
+  background: url(/images/forms/label-right.jpg) right no-repeat;
+  height: 25px;
+  width: 100px;
+}
+.wizard .form .input label{
+  background: url(/images/forms/label-rep.jpg) repeat-x;
+  height: 25px;
+  width: 94px;
+  color: #222;
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: bold;
+  padding: 0px 2px;
+}
+.wizard .form .input .main{
+  background: url(/images/forms/input-rep.jpg) repeat-x;
+  width: 196px;
+  height: 25px;
+}
+.wizard .form .input input{
+  width: 190px;
+  height: 25px;
+  padding: 0px 3px;
+  margin: 0px;
+  line-height: 24px;
+  font-size: 13px;
+  color: #333;
+  border: transparent;
+  background: none;
+}
+.wizard .form .input .display{
+  background: url(/images/forms/input-sep.jpg) right no-repeat;
+  width: 169px;
+  height: 25px;
+  line-height: 24px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+.wizard .form .input img{
+  background: url(/images/forms/input-arrow.png) no-repeat;
+  width: 16px;
+  height: 15px;
+  margin: 5px 0px 0px 3px;
+  cursor: pointer;
+}
+.wizard .form .input img:hover {
+  background-position: 0px -15px;
+}
+.wizard .form .input .dropbox{
+  background: url(/images/forms/input-drop-top.jpg) no-repeat;
+  width: 200px;
+  height: 120px;
+  position: absolute;
+  right: 0px;
+  z-index: 7000;
+}
+.wizard .form .input .list{
+  background: url(/images/forms/input-drop-rep.jpg) repeat-y;
+  width: 200px;
+  margin-top: 2px;
+}
+.wizard .form .input .list .option{
+  background: url(/images/forms/input-left.jpg) repeat-y;
+  width: 197px;
+  height: 25px;
+  margin: 2px 1px 0px;
+  cursor: pointer;
+}
+.wizard .form .input .list .option .right{
+  width: 195px;
+}
+.wizard .form .input .list .option .main{
+  width: 189px;
+  color: #333;
+  line-height: 24px;
+  font-size: 13px;
+  padding: 0px 2px;
+}
+.wizard .form .input .list .option:hover {
+  background-image: url(/images/forms/label-left.jpg);
+}
+.wizard .form .input .list .option:hover .right{
+  background-image: url(/images/forms/label-right.jpg);
+}
+.wizard .form .input .list .option:hover .main{
+  background-image: url(/images/forms/label-rep.jpg);
+}
+.wizard .form .input .bottom{
+  background: url(/images/forms/input-drop-bottom.jpg) no-repeat;
+  width: 200px;
+  height: 18px;
+  text-align: right;
+  padding-top: 2px;
+}
+.wizard .form .input .bottom .up{
+  background: url(/images/forms/input-drop-arrow.png) no-repeat;
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+}
+.wizard .form .input .bottom .down{
+  background: url(/images/forms/input-drop-arrow.png) -17px 0px no-repeat;
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.wizard .form .input .bottom .up:hover {
+  background-position: 0px -15px;
+}
+.wizard .form .input .bottom .down:hover {
+  background-position: -17px -15px;
+}
+.wizard .form .input.solid{
+  width: 500px;
+}
+.wizard .form .input.dbl{
+  background-image: url(/images/forms/label-dbl-left.jpg);
+  height: 50px;
+}
+.wizard .form .input.solid .right{
+  background-image: url(/images/forms/solid-right.jpg);
+  width: 498px;
+}
+.wizard .form .input.dbl .right{
+  background-image: url(/images/forms/solid-dbl-right.jpg);
+  height: 50px;
+}
+.wizard .form .input.dbl .label{
+  background-image: url(/images/forms/label-dbl-right.jpg);
+  height: 50px;
+}
+.wizard .form .input.dbl .label label{
+  background-image: url(/images/forms/label-dbl-rep.jpg);
+  height: 50px;
+}
+.wizard .form .input.solid .main{
+  background-image: url(/images/forms/solid-rep.jpg);
+  width: 396px;
+  color: #000;
+}
+.wizard .form .input.dbl .main{
+  background-image: url(/images/forms/solid-dbl-rep.jpg);
+  height: 50px;
+}
+.wizard .form .input.solid span{
+  padding: 0px 2px 2px 18px;
+  cursor: pointer;
+  margin: 5px 7px 3px;
+  background: url(/images/forms/input-checkbox.gif) no-repeat;
+}
+.wizard .form .input.solid span:hover {
+  background-position: 0px -30px;
+}
+.wizard .form .input.solid span.selected{
+  background-position: 0px -60px;
+}

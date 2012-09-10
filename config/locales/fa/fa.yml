@@ -1,0 +1,56 @@
+fa:
+  site:
+    title: "Cliiz.com: سایت خود را رایگان در ۵ دقیقه ایجاد کنید"
+    language: 'فارسی'
+    links:
+      new_site: 'سایت می خواهم'
+      designers: 'طراح هستم'
+      already_member: 'کاربر هستم'
+      where_am_i: 'چگونه Cliiz کسب و کار شما را متحول میکند؟'
+      start: 'برای شروع کلیک کنید!'
+  modules:
+    names:
+      sitebuilder: 'سایت ساز'
+      infoform: 'فرم ساز'
+      content: 'متن ساز'
+      locationmark: 'نقشه مکان'
+    sitebuilder:
+      home: 'صفحه اصلی'
+      about: 'صفحه درباره ما'
+      contact: 'صفحه تماس با ما'
+    content:
+      for: 'محتوا برای'
+    infoform:
+      for: 'فرم برای'
+      name: 'نام'
+      email: 'ایمیل'
+      url: 'وب سایت'
+      phone: 'شماره همراه'
+      phone2:  'تلفن ثابت'
+      address: 'آدرس'
+      subject: 'عنوان پیغام'
+      message: 'متن پیغام'
+#basics
+  address: 'آدرس'
+  advanced: 'پیشرفته'
+  basic: 'ابتدایی'
+  cellphone_no: 'شماره همراه'
+  close: 'بستن'
+  compatible_with: 'سازگار با'
+  email: 'آدرس ایمیل '
+  fax: 'فکس'
+  fullname: 'نام و نام خانوادگی'
+  height: 'ارتفاع'
+  hide: 'پنهان کردن'
+  home_no: 'تلفن ثابت'
+  login: 'ورود'
+  feature-list: 'لیست امکانات'
+  message: 'متن پیغام'
+  need_help: 'کمک لازم دارید؟'
+  or: 'یا'
+  phone: 'تلفن'
+  subject: 'عنوان'
+  submit: 'ثبت'
+  website: 'وب سایت'
+  width: 'عرض'
+  click_here: 'اینجا کلیک کنید'

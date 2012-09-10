@@ -1,4 +1,0 @@
-cliiz
-=====
-
-Cliiz Website Builder

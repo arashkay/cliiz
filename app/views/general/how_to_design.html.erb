@@ -1,0 +1,185 @@
+<h1>How to Design a Cliiz Template</h1>
+<p>Here we explain how to create Cliiz Template using your HTML and CSS skills.</p>
+<p>There is a good <b>How To Convert HTML Template to Cliiz Template in Less Than 10 Minutes</b> at scribd website. To read it click <a href='http://www.scribd.com/doc/67131766/Convert-HTML-Template-to-Cliiz-Template-in-Less-Than-10-Minutes' target='_blank'>here</a> or follow below instruction.</p>
+<div class='box w748 talign'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>1) Create your normal HTML template</h2>
+    <p>First create your folder structure as below:</p>
+    <p><b>
+      -template\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-default.html<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-images\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- ...&nbsp;&nbsp;(image files)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-stylesheets\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- ...&nbsp;&nbsp;(css files)<br/>
+      </b>
+    </p>
+    <p>
+      <b>default.html</b> is the <b>mandatory</b> template which will be used for all pages by default. There is a list of optional pages you can have to make your layout different for pages such as <b>about</b>, <b>contact</b> or <b>home</b>.
+    </p>
+    <p>
+      -template\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-default.html<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;<b>|-home.html<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-about.html<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-contact.html<br/></b>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-images\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- ...&nbsp;&nbsp;(image files)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;|-stylesheets\<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- ...&nbsp;&nbsp;(css files)<br/>
+    </p>
+    <h3>note:</h3>
+    <ul>
+      <li>As Cliiz system is case sensitive you should name all these files and folder in lowercase.</li>
+      <li>Current version of Cliiz is not supporting JavaScript nor Flash. So please avoid adding JS effects in your templates or including Flash header.</li>
+      <li>
+        <p>
+          Always use relative path in your html or css files:<br/> 
+          In this case for including CSS files we have the below relative address:
+          <pre>&lt;link href='<i>stylesheets/main.css</i>' media="screen" rel="stylesheet" type="text/css" /&gt;</pre>
+          Or in CSS files we have this relative address for including image files:
+          <pre>background: url(<i>../images/cliiz-logo.png</i>);</pre>
+          Or you can download our sample package from <a href='/cliiz-template.zip'>here</a> and work on it. 
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class='bottom'></div>
+</div>
+<div class='box w748 talign'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>2) Menues</h2>
+    <p>Normally menu is a set of repetitive tags. But in many cases the first or last item is visually different from others.</p>
+    <p>Below you can see a sample menu with repetitive items. All items including first and last menu item have the same style</p>
+    <div class='menu-sample'>
+      <ul><li>Home</li><li>About</li><li>Contact</li></ul>
+    </div>
+    <pre>
+    &lt;div class='menu'&gt;
+      &lt;a href=''&gt;Home&lt;/a&gt;
+      &lt;a href=''&gt;About&lt;/a&gt;
+      &lt;a href=''&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;</pre>
+    <p>Below you can see another menu which has different style for first element. As you see there is a border on left hand of each menu item except the first item.
+    </p>
+    <div class='menu-sample'>
+      <ul><li>Home</li><li class='with-left-border'>Services</li><li class='with-left-border'>About</li><li class='with-left-border'>Contact</li></ul>
+    </div>
+    <pre>
+    &lt;div class='menu'&gt;
+      &lt;a href=''&gt;Home&lt;/a&gt;
+      &lt;a href='' class='with-left-border'&gt;Services&lt;/a&gt;
+      &lt;a href='' class='with-left-border'&gt;About&lt;/a&gt;
+      &lt;a href='' class='with-left-border'&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;</pre>
+    <p>And it can even grow by repeating the same tag:</p>
+    <div class='menu-sample'>
+      <ul><li>Home</li><li class='with-left-border'>Services</li><li class='with-left-border'>Products</li><li class='with-left-border'>About</li><li class='with-left-border'>Contact</li></ul>
+    </div>
+    <p>As the first and last menu item might have different styling (in this case first item has no left border) we have separated them from the rest. Knowing this, Cliiz engine can read following menu template and generate above menu:</p>
+    <pre>
+    &lt;div class='menu' <b>data-cliiz='menu'</b>&gt;
+      &lt;a href='<i>#cliiz</i>' <b>data-menu='first'</b>&gt;<i>#cliiz</i>&lt;/a&gt;
+      &lt;a href='<i>#cliiz</i>' <b>data-menu='loop'</b> class='with-left-border'&gt;<i>#cliiz</i>&lt;/a&gt;
+      &lt;a href='<i>#cliiz</i>' <b>data-menu='last'</b> class='with-left-border'&gt;<i>#cliiz</i>&lt;/a&gt;
+    &lt;/div&gt;</pre>
+    <p>As you see we have just added some special tags which are interpreted by Cliiz engine:</p>
+    <ul>
+      <li><i class='green'>data-cliiz=’menu’</i> indicates it is block of menu items. Therefore Cliiz engine looks for three type of items: <i class='green'>first</i>, <i class='green'>loop</i> and <i class='green'>last</i> items and uses them as the structure to clone and make real menu items.</li>
+      <li><i class='green'>data-menu=’first’</i> and <i class='green'>data-menu=’last’</i> are used to create the first and last menu item. <i class='green'>data-menu=’loop’</i> is used as the template to create all middle menu items.</li>
+      <li><i class='green'>#cliiz</i> and <i class='green'>href=’#cliiz’</i> will be replaced automatically with correct menu name and menu url at the run-time.</li>
+    </ul>
+    <h3>Selected Class</h3>
+    Cliiz system adds the 'selected' class to the current selected menu item. To make current selected item different from other elements define <b class='green'>'.selected'</b> in your CSS.
+    <div class='menu-sample'>
+      <ul><li>Home</li><li class='selected with-left-border'>About</li><li class='with-left-border'>Blog</li><li class='with-left-border'>Contact</li></ul>
+    </div>
+    <p>In this case we have defined '.selected' as below:</p>
+    <pre>
+    .menu <b>.selected</b>{
+        background: #3A5663;
+        color: #B8D3E1;
+    }</pre>
+  </div>
+  <div class='bottom'></div>
+</div>
+<div class='box w748 talign'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>3) Partitions</h2>
+    <p>Partitions are used to load content at runtime. Usually a partition is a DIV tag. To make a tag act as a partition, you have to add partition atrribute to it.</p>
+    <pre>
+    &lt;div <b>data-partition='1'</b>&gt;&lt;/div&gt;</pre>
+    <p>Having following HTML structure:</p>
+    <pre>
+    &lt;div&gt;
+      &lt;div class='main'&gt;&lt;/div&gt;
+      &lt;div class='leftPanel'&gt;&lt;/div&gt;
+    &lt;/div&gt;</pre>
+    <p>By adding <b>data-partition='<i class='green'>priorityIndex</i>'</b> you can tell Cliiz engine to load content in them at run-time:</p>
+    <pre>
+    &lt;div&gt;
+      &lt;div class='main' <b>data-partition='1'</b>&gt;&lt;/div&gt;
+      &lt;div class='leftPanel' <b>data-partition='2'</b>&gt;&lt;/div&gt;
+    &lt;/div&gt;</pre>
+    <ul>
+      <li><i class='green'>data-partition=’1’</i> is mandatory as your template should have at least one area to load content.</li>
+      <li><i class='green'>data-partition=’2’</i>, <i class='green'>data-partition=’3’</i> and <i class='green'>data-partition=’...’</i>. If you have more than one place to load content you can add as many <b>data-partition</b> you want but remember to increase the priority index each time.</li>
+      <li>It doesn’t matter if you have different template for <i class='green'>home.html</i> and <i class='green'>about.html</i>. You should start the main area for each of them by <i class='green'>data-partition=’1’</i> and increase it as your partitions are increasing in each of them. For example you may end up having <i class='green'>data-partition=’1’</i>, <i class='green'>data-partition=’2’</i> and <i class='green'>data-partition=’3’</i> for <i class='green'>home.html</i>; and <i class='green'>data-partition=’1’</i> and <i class='green'>data-partition=’2’</i> for <i class='green'>about.html.</i></li>
+    </ul>
+  </div>
+  <div class='bottom'></div>
+</div>
+<div class='box w748 talign'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>4) Special tags</h2>
+    <h3>Mandatory tags</h3>
+    <p>You know the important of the tags such as <b>title</b> and meta tags such as <b>description</b> and <b>keywords</b>. Add them to your <b>HEAD</b> tag with the following format and Cliiz engine will put right value instead of <i class='green'>#title, #description</i> and <i class='green'>#keywords</i> at run-time.</p>
+    <pre>
+    &lt;title&gt;<b>#title</b>&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;<b>#description</b>&quot; /&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;<b>#keywords</b>&quot; /&gt;</pre>
+    <h3>Company name and logo</h3>
+    <p>It is good to let users to show their company name in their template. In order to have this feature you should create a <b>DIV</b> or <b>SPAN</b> tag with <i class='green'>data-cliiz="info" data-info="name"</i> attributes as below.</p>
+    <pre>
+    &lt;div class='company-name' <b>data-cliiz="info" data-info="name"</b>&gt;&lt;/div&gt;</pre>
+    <p>You can also let the user to assign their logo with the same technique but this time use <i class='green'>data-info="logo"</i>.</p>
+    <pre>
+    &lt;div class='company-logo' <b>data-cliiz="info" data-info="logo"</b>&gt;&lt;/div&gt;</pre>
+    <p><b>note:</b> We strongly recommend using both of them as most of the users love to have their name and logo to be displayed on their website.</p>
+    <h3>Social tags</h3>
+    <p>Connecting a website to social medias are important. And the implementation can vary based on the targeted website. The complexity of the implementation is handled by Cliiz engine at the run-time. The only thing you have to do is to create the right tag as described below:</p>
+    <ul>
+      <li><b>Connect to Twitter</b><br/>
+      <p>You can connect let users connect their site to twitter by adding the <i class='green'>data-cliiz=’twitter’ data-twitter=’follow’</i> to you’re <b>A tag</b>. This <b>A tag</b> can contains any text or image you like and you can use <b>display: block; or inline-block</b> to position it nicely. Cliiz engine will add right functionality to this <b>A tag</b> to connect the site to twitter account at run-time.</p>
+      <pre>
+    &lt;a <b>data-cliiz="twitter"</b> <b>data-twitter="follow"</b>&gt;follow us @ twitter&lt;/a&gt;
+    &lt;a <b>data-cliiz="twitter"</b> <b>data-twitter="follow"</b>&gt;&lt;img src="images/twitter-icon.jpg"&gt;&lt;/a&gt;</pre>
+      </li>
+      <li><b>Add Facebook like button</b><br/>
+      <p>To add like button to your template you should create a DIV tag with following attributes:</p>
+      <pre>
+    &lt;div <b>data-cliiz="facebook"</b> <b>data-facebook="like"</b>
+         <b>data-width="450"</b> <b>data-show-faces="false"</b>&gt;&lt;/div&gt;</pre>
+      <p>As Facebook is loading content in this area you should set data-width and data-show-faces carefully.</p>
+      <ul>
+        <li>We recommend choosing data-width equal to 450 or more.</li>
+        <li>Also set data-show-faces=’true’ only if you have enough space vertically in your layout.</li>
+      </ul>
+      </li>
+  </div>
+  <div class='bottom'></div>
+</div>
+<div class='box w748 talign'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Start now</h2>
+    <p>If you are ready to start your first template, download our <a href='/cliiz-template.zip'>sample package</a> and modify it.</p>
+    <h3>We are here to help</h3>
+    <p>Do not feel alone. If you have any question contact us at <b>developers@cliiz.com</b> or our facebook page at <a href='http://www.facebook.com/cliiz'>http://www.facebook.com/cliiz</a></p>
+  </div>
+  <div class='bottom'></div>
+</div>

@@ -1,0 +1,50 @@
+<%content_for :head do%>
+  <script src="/javascripts/pay.js" type="text/javascript"></script>
+<%end%>
+<h1>Enable Your Domain</h1>
+<div class='box detailed w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Setup</h2>
+    <div class='fn-form fn-payform' remote='/panel/check_domain.json' autoform='true'>
+      <h3>1) Set Domain</h3>
+      <p>Enter your current domain name or any name you want to register.</p>
+      <label>Domain name</label><span><input class='input' name='domain' value='<%=@company.domain.blank? ? "#{@company.name}.com" : @company.domain%>'/><div class='help inline' tip='It can be any name as long as it is .com or .net'></div></span>
+      <div class='menu'>
+        <div class='left'></div><div class='main'><a remote-submit='true' scope='fn-form'>Check availability & reserve</a>|<a remote-submit='true' remote-url='/panel/save_domain'>I own it, just save!</a></div><div class='right'></div>
+      </div>
+      <div class='hidden success fn-reserved'><b class='fn-domain'></b> is available. Proceed to payment!</div>
+      <div class='hidden failure fn-taken'><b class='fn-domain'></b> is taken. Choose another one!</div>
+      <div class='hidden success fn-own'>Your domain "<b class='fn-domain'></b>" is saved in our system. Proceed to payment!</div>
+      <h3>2) Payment setup</h3>
+    </div>
+    <p>To publish your website in your domain, set up your payment using PayPal system.</p>
+    <% if Rails.env != 'production'%>
+      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick"/>
+        <input type="hidden" name="hosted_button_id" value="ZP9KN6BYQV48J"/>
+        <input type="hidden" name="cbt" value="Return to Clizz"/>
+        <input type="hidden" name="custom" value="<%=current_company.name%>">
+        <input type="image" class='paypal' src="/images/blank.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online."/>
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1"/>
+      </form>
+    <%else%>
+      <form class='hidden' action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick"/>
+        <input type="hidden" name="hosted_button_id" value="ZP9KN6BYQV48J"/>
+        <input type="hidden" name="cbt" value="Return to Clizz"/>
+        <input type="hidden" name="custom" value="<%=current_company.name%>">
+        <input type="image" class='paypal' src="/images/blank.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online."/>
+        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1"/>
+      </form>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="MFTQWNUJQJ5FW">
+        <input type="image" class='paypal' src="/images/blank.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    <%end%>
+    <p>We have chosen PayPal to make your payment secure. You can be PayPal member or use your MasterCard or Visa in order to submit the payment. Read more <a target='_blank' href='https://www.paypal.com/cgi-bin/webscr?cmd=xpt/Help/general/TopQuestion6-outside'>here</a> and <a target='_blank' href='http://en.wikipedia.org/wiki/PayPal'>here</a> to understand why <b>cliiz.com and ebay.com are using PayPal</b>.</p>
+  </div>
+  <div class='bottom'></div>
+</div>

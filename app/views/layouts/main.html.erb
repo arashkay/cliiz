@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title><%=t 'site.title'%></title>
+  <meta name="description" content="Free of charge and fastest way to create a website for your small/medium business. In 3 easy steps you have your own website, blog, photo gallery, eshop and more." />
+  <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
+  <link href='/stylesheets/inner.css' media="screen" rel="stylesheet" type="text/css" />
+  <link href='/stylesheets/locale_<%=locale%>.css' media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/core/jquery.min.js" type="text/javascript"></script>
+  <script src="/javascripts/core.js" type="text/javascript"></script>
+  <%= csrf_meta_tag %>
+  <% if Rails.env == 'production'%>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12817957-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <%end%>
+</head>
+<body>
+  <div class='menu inlined dbld'>
+    <a class='fn-extend-page'>
+      <span class='left'></span>
+      <span class='main'><%=t 'feature-list' %></span>
+      <span class='right'></span>
+    </a>
+    <a href='/plans.html'>
+      <span class='left'></span>
+      <span class='main'><%=t 'plans' %></span>
+      <span class='right'></span>
+    </a>
+    <div class='language fn-language'>
+      <div class='left'></div>
+      <div class='main'>
+        <img class='arrow' src='/images/blank.gif' />
+        <span class='fn-name' value='<%= cookies[:locale] %>'><%=t 'site.language' %></span>
+      </div>
+      <div class='right'></div>
+      <div class='drop'>
+        <div class='fn-language-expanded list'>
+          <div class='inner'>
+            <div class='item fn-item' locale='en'>English</div>
+            <div class='item fn-item' locale='fa'>فارسی</div>
+            <div class='item fn-item' locale='fr'>Français</div>
+          </div>
+        </div>
+        <div class='bottom inlined'>
+          <div class='left'></div>
+          <div class='main'></div>
+          <div class='right'></div>
+        </div>
+      </div>
+    </div>
+    <a href='/panel'>
+      <span class='left'></span>
+      <span class='main'><%=t 'login' %></span>
+      <span class='right'></span>
+    </a>
+  </div>
+  <div class='wrapper'>
+    <%= yield %>
+  </div>
+  <div class='footer'><span>© Tectual</span>|<a href='/'>Home</a>|<a href='http://blog.cliiz.com/blog'>Blog</a>|<a href='/plans'>Plans</a>|<a href='/panel'>Your Panel</a>|<a href='/panel/designers'>Designers</a></div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div class='clz-middle clz-panel fclz-panel clz-layouts-comp'>
+  <div class='clz-left'>
+    <div class='clz-main fclz-layouts' scroll='.fclz-scroll' panel='.fclz-scrollable' >
+      <div class='clz-scrollbar fclz-scroll' handle='.fclz-handle'>
+        <div class='clz-handle fclz-handle'></div>
+      </div>
+      <div class='clz-layouts clz-inlined fclz-scrollable'>
+        <% frames.each do |f| %>
+          <img class='clz-layout fclz-layout' layoutid='<%=f.id%>' layoutname='<%=f.name%>' src='/images/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h1>File Manager</h1>
+<div class='box w748 talign detailed'>
+  <div class='top'></div>
+  <div class='main fn-blogForm'>
+    <h2>Upload a file</h2>
+    <%= form_for @file, :as => :file, :url => files_path, :html =>{ :multipart => true} do |f| %>
+      <%= hidden_field_tag 'file[folder_id]', @parent.id %>
+      <%unless @parent.blank?%>
+        <label>Parent Folder</label><span><%= text_field_tag :parent, @parent.name, :class => 'input', :disabled => true %></span>
+      <%end%>
+      <label>File 1</label><span><%= file_field_tag 'files[]' %><div class='help inline' tip='Select the image you want to upload!'></div></span>
+      <label>File 2</label><span><%= file_field_tag 'files[]' %><div class='help inline' tip='Select the image you want to upload!'></div></span>
+      <label>File 3</label><span><%= file_field_tag 'files[]' %><div class='help inline' tip='Select the image you want to upload!'></div></span>
+      <label>File 4</label><span><%= file_field_tag 'files[]' %><div class='help inline' tip='Select the image you want to upload!'></div></span>
+      <div class='menu'>
+        <div class='left'></div><div class='main'><a submit='true'>Save</a>|<a href='/panel/files'>Cancel</a></div><div class='right'></div>
+      </div>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

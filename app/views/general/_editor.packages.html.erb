@@ -1,0 +1,37 @@
+<div class='clz-middle clz-panel fclz-panel clz-packages-comp'>
+  <div class='clz-left'>
+    <div class='clz-main'>
+      <div class='clz-modules fclz-packages'>
+        <% packages.each do |p| %>
+          <div class='clz-module-box fclz-package' uname='<%=p.uname%>' name='<%=p.name%>' >
+            <div class='clz-top'>
+              <div class='clz-left'></div>
+              <div class='clz-main'></div>
+              <div class='clz-right'></div>
+            </div>
+            <div class='clz-main'>
+              <div class='clz-inner clz-inlined'>
+                <div class='clz-module'>
+                  <img src='/images/blank.gif' class='clz-module-icon clz-icon-<%=p.uname%>'/>
+                </div>
+                <div class='clz-info'>
+                  <span><%=p.name%></span><br/>
+                  <% if used_packages.include?(p) %>
+                    <span class='clz-action clz-yellow fclz-disable'>click to disable</span>
+                  <%else%>
+                    <span class='clz-action fclz-enable'>click to enable</span>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+            <div class='clz-bottom'>
+              <div class='clz-left'></div>
+              <div class='clz-main'></div>
+              <div class='clz-right'></div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

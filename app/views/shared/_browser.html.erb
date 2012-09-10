@@ -1,0 +1,27 @@
+<div style='display:none;' class='fn-templates'>
+  <div class='fn-folderup thumb'>
+    <img src='/images/panel/folderup.png' />
+  </div>
+  <div class='fn-folder thumb' loop='true' folderid='%#id%' object='folder'>
+    <img src='/images/panel/folder.png' />
+  </div>
+  <div class='fn-file thumb' loop='true' fileid='%#id%' object='image'>
+    <img src='%#thumb_url%' />
+  </div>
+</div>
+<div class='box list w748 fn-file-browser float' style='display:none;'>
+  <div class='top'></div>
+  <div class='main'>
+    <div class='menu righted'>
+      <div class='left'></div><div class='main'><a class='fn-cancel-image'>Cancel</a></div><div class='right'></div>
+    </div>
+    <h3>File Browser</h3>
+    <div class='fn-browser thumbs browser' scroll='.fn-scroll' panel='.fn-files' >
+      <div class='scrollbar fn-scroll' handle='.fn-handle'>
+        <div class='handle fn-handle'></div>
+      </div>
+      <div class='files fn-files' style='position:absolute;'></div>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>

@@ -1,0 +1,18 @@
+<h1>File Manager</h1>
+<div class='box w748 talign detailed'>
+  <div class='top'></div>
+  <div class='main fn-blogForm'>
+    <h2>Create a folder</h2>
+    <%= form_for @folder, :as => :folder, :url => '/panel/files/create_folder' do |f| %>
+      <%= hidden_field_tag 'folder[folder_id]', @parent.id %>
+      <%unless @parent.blank?%>
+        <label>Parent Folder</label><span><%= text_field_tag :parent, @parent.name, :class => 'input', :disabled => true %></span>
+      <%end%>
+      <label>Name</label><span><%= f.text_field :name, :class => 'input' %><div class='help inline' tip='Choose a folder name!'></div></span>
+      <div class='menu'>
+        <div class='left'></div><div class='main'><a submit='true'>Save</a>|<a href='/panel/files'>Cancel</a></div><div class='right'></div>
+      </div>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

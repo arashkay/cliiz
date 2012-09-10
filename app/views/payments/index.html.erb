@@ -1,0 +1,30 @@
+<h1>Payments</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Payments list</h2>
+    <%unless @payments.blank? %>
+      <div class='fn-list' auto='true'>
+        <div class='row header'>
+          <div class='cell simple w20'></div>
+          <div class='cell w170'>Full name</div>
+          <div class='cell w80'>Country</div>
+          <div class='cell w170'>Email</div>
+          <div class='cell w80'>Period</div>
+        </div>
+        <%@payments.each do |p|%>
+        <div class='row fn-row'>
+          <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=p.id%>"/></div>
+          <div class='cell w170'><%=p.transaction_info[:first_name]%> <%=p.transaction_info[:last_name]%></div>
+          <div class='cell w80'><%=p.transaction_info[:residence_country]%></div>
+          <div class='cell w170'><%=p.transaction_info[:payer_email]%></div>
+          <div class='cell w80 last'><%=p.transaction_info[:period3]%></div>
+        </div>
+        <%end%>
+      </div>
+    <%else%>
+      <p>More payments on the way.</p>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

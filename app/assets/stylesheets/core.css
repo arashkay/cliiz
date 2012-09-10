@@ -1,0 +1,44 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  font-family: arial, tahoma;
+}
+h1, h2, h3, h4, h5{
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.rightfloat{ float: right; }
+.clear{ clear: both; }
+.hidden{ display: none; }
+.inline{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.pointer{
+  cursor: pointer;
+}
+.inlined.dbld > *,
+.inlined{
+  font-size: 0px;
+}
+.inlined > *{
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+  font-size: 12px;
+}
+.inlined.dbld > *{
+  font-size: 0px;
+}
+.inlined.dbld > * > *{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  font-size: 12px;
+}

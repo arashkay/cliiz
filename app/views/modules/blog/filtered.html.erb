@@ -1,0 +1,21 @@
+<div class='cliiz-module' cliiz='module' cliiz-type='postfilter' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block cliiz-posts' cliiz='block'>
+    <% if posts.nil? || posts.empty? %>
+      <h3>No posts available!</h3>
+    <%else%>
+      <% posts.each do |p| %>
+        <div class='cliiz-post'>
+          <div class='cliiz-image'>
+            <img src='<%=p.thumb%>' />
+          </div>
+          <div class='cliiz-detail'>
+            <h2><a href='/blog/<%=p.id%>/<%= "#{p.title}".gsub( /[\.\/\$\#\@\!\?]/,'') %>.html'><%= p.title %></a></h2>
+            <div class='cliiz-summary'>
+              <%= truncate(p.summary, :length=>30) %>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

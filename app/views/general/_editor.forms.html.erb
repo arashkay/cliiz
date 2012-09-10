@@ -1,0 +1,317 @@
+  <div formfor='content'>
+    <h2>Change content</h2>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Content</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main'><textarea class='fclz-editor'></textarea></div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div formfor='infoform'>
+    <h2>Form builder</h2>
+    <h3>Which fields to display?</h3>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Which fields?</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main clz-options fn-fields'>
+            <%Component.default_for('infoform')[:all_fields].each do |f|%>
+              <div class='clz-option'>
+                <input class='fclz-field' type='checkbox' value='<%=f%>' /><span><%=t "modules.infoform.#{f}"%></span>
+              </div>
+            <%end%>
+          </div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+    <h3>Title for each field (optional)</h3>
+    <div class='clz-inlined'>
+      <%Component.default_for('infoform')[:all_fields].each do |f|%>
+        <div class='clz-field fclz-field-name' style='display:none;'>
+          <div class='clz-label'>
+            <div class='clz-left'></div>
+            <div class='clz-main'><%=t "modules.infoform.#{f}"%></div>
+            <div class='clz-right'></div>
+          </div>
+          <div class='clz-main'>
+            <div class='clz-left'></div>
+            <div class='clz-input'><input name='<%=f%>' value='<%=t "#{Component.default_for('infoform')[:names][f.to_sym].to_sym}"%>'/></div>
+            <div class='clz-right'></div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  <div formfor='locationmark'>
+    <h2>Mark your store/office</h2>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'><%=t "address"%></div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-main'>
+        <div class='clz-left'></div>
+        <div class='clz-input'><input name='address' value='<%= Component.default_for('locationmark')[:address] %>'/></div>
+        <div class='clz-button fclz-locate'>
+          <div class='clz-left'></div>
+          <div class='clz-main'>Locate</div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+    <div class='clz-field clz-510'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Preview</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main'>
+            <div class="fn-map-preview" style="width: 500px; height: 200px"></div>
+          </div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+    <div class='clz-inlined'>
+      <div class='clz-field'>
+        <div class='clz-label'>
+          <div class='clz-left'></div>
+          <div class='clz-main'><%=t "phone"%></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-main'>
+          <div class='clz-left'></div>
+          <div class='clz-input'><input name='phone' value='<%= Component.default_for('locationmark')[:phone] %>'/></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+      <div class='clz-field'>
+        <div class='clz-label'>
+          <div class='clz-left'></div>
+          <div class='clz-main'><%=t "fax"%></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-main'>
+          <div class='clz-left'></div>
+          <div class='clz-input'><input name='fax' value='<%= Component.default_for('locationmark')[:fax] %>'/></div>
+          <div class='clz-right'></div>
+        </div>
+      </div><br/>
+      <div class='clz-field clz-disabled'>
+        <div class='clz-label'>
+          <div class='clz-left'></div>
+          <div class='clz-main'>Map size</div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-main'>
+          <div class='clz-left'></div>
+          <div class='clz-input'>
+            <div class='clz-label'>Width</div>
+            <div class='clz-left'></div>
+            <div class='clz-input'>
+              <input name='width' value='<%= Component.default_for('locationmark')[:viewport][0] %>'/>
+            </div>
+            <div class='clz-right'></div>
+            <div class='clz-label'>px</div>
+            <div class='clz-label'>Height</div>
+            <div class='clz-left'></div>
+            <div class='clz-input'>
+              <input name='height' value='<%= Component.default_for('locationmark')[:viewport][1] %>'/>
+            </div>
+            <div class='clz-right'></div>
+            <div class='clz-label'>px</div>
+          </div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+      <input type='hidden' name='latlng' value='<%= Component.default_for('locationmark')[:latlng][0] %>,<%= Component.default_for('locationmark')[:latlng][1] %>' />
+    </div>
+  </div>
+  <div formfor='postfilter'>
+    <h2>Post Filter</h2>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Size</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-main'>
+        <div class='clz-left'></div>
+        <div class='clz-input'><input name='size' value='<%= Component.default_for('postfilter')[:size] %>'/></div>
+        <div class='clz-right'></div>
+      </div>
+    </div>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Type</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main clz-options fn-fields'>
+            <%Component.default_for('postfilter')[:config][:types].each do |f|%>
+              <div class='clz-option'>
+                <input class='fclz-field' name='type' type='radio' value='<%=f%>' /><span><%= f%></span>
+              </div>
+            <%end%>
+          </div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div formfor='youtube'>
+    <h2>Youtube Video</h2>
+    <div class='clz-field'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Video Code / URL</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-main'>
+        <div class='clz-left'></div>
+        <div class='clz-input'><input name='code' value='<%= Component.default_for('youtube')[:code] %>'/></div>
+        <div class='clz-right'></div>
+      </div>
+    </div>
+    <div class='clz-field clz-disabled'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Player size</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-main'>
+        <div class='clz-left'></div>
+        <div class='clz-input'>
+          <div class='clz-label'>Width</div>
+          <div class='clz-left'></div>
+          <div class='clz-input'>
+            <input name='width' value='<%= Component.default_for('youtube')[:width] %>'/>
+          </div>
+          <div class='clz-right'></div>
+          <div class='clz-label'>px</div>
+          <div class='clz-label'>Height</div>
+          <div class='clz-left'></div>
+          <div class='clz-input'>
+            <input name='height' value='<%= Component.default_for('youtube')[:height] %>'/>
+          </div>
+          <div class='clz-right'></div>
+          <div class='clz-label'>px</div>
+        </div>
+        <div class='clz-right'></div>
+      </div>
+    </div>
+  </div>
+  <div formfor='gallery'>
+    <div class='clz-field clz-disabled'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>Galleries<span class='clz-crumb fclz-gallery-crumb'></span></div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main clz-inlined clz-gallery fclz-gallery-browser' scroll='.fclz-scroll' panel='.fclz-images' >
+            <div class='clz-scrollbar fclz-scroll' handle='.fclz-handle'>
+              <div class='clz-handle fclz-handle'></div>
+            </div>
+            <div class='clz-album-image'>
+              <img class='clz-cover fclz-cover' src="/images/blank.gif"/>
+            </div>
+            <div class='clz-images clz-inlined fclz-images'>
+              <div class='clz-add-album fclz-add-album'></div>
+            </div>
+          </div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+    <div class='clz-field clz-disabled'>
+      <div class='clz-label'>
+        <div class='clz-left'></div>
+        <div class='clz-main'>File Browser</div>
+        <div class='clz-right'></div>
+      </div>
+      <div class='clz-block'>
+        <div class='clz-top'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-middle'>
+          <div class='clz-main clz-inlined clz-file-browser fclz-file-browser' scroll='.fclz-scroll' panel='.fclz-files' >
+            <div class='clz-scrollbar fclz-scroll' handle='.fclz-handle'>
+              <div class='clz-handle fclz-handle'></div>
+            </div>
+            <div class='clz-files clz-inlined fclz-files'></div>
+          </div>
+        </div>
+        <div class='clz-bottom'>
+          <div class='clz-left'></div>
+          <div class='clz-main'></div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+  </div>

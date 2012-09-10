@@ -1,0 +1,29 @@
+<h1>Administration Panel</h1>
+<div class='box detailed w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Site summary</h2>
+    <label>Name</label><span><%= current_company.name %></span>
+    <label>URL</label><span>http://<%= current_company.name %>.cliiz.com <a class='motivate inline' href='/panel/pay'><span class='innerleft'><span class='innerright'>click to convert to <b>http://www.<%=current_company.name%>.com</b></span></span></a></span>
+    <label>Email</label><span><%= current_company.email %></span>
+    <label>Description</label><span><%= current_company.setting[:description] %></span>
+    <label>Keywords</label><span><%= current_company.setting[:keywords] %></span>
+    <div class='menu'>
+      <div class='left'></div><div class='main'><a href='<%=profile_path%>'>Edit</a>|<a href='/panel/edit/Home'>Change Website</a>|<a href='/panel/pay'>Enable Your Domain</a>|<a>Close Account</a></div><div class='right'></div>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>
+<div class='box w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Features</h2>
+    <h3>List of enabled features:</h3>
+    <div class='listing'>
+      <% @modules.each do |m| %>
+      <div class='item'><img src='/images/blank.gif' class='icon small <%=m.component.uname%>'/><span class='info'><%=m.total%></span><span><%=m.component.name%></span></div>
+      <%end%>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>

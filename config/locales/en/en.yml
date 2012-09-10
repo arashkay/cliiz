@@ -1,0 +1,60 @@
+en:
+  site:
+    title: "Cliiz.com: Make a free website for your business in 5 minutes"
+    language: 'English'
+    links:
+      new_site: "I need a website" #
+      designers: "I am a designer" #
+      already_member: 'I am a member' #
+      where_am_i: 'How can Cliiz change your business?' #
+      start: 'Click to Start!' #
+  modules:
+    names:
+      sitebuilder: 'Site Builder'
+      infoform: 'Info. Form'
+      content: 'Content / Text'
+      locationmark: 'Location Mark'
+      gallery: 'Gallery' #
+    sitebuilder:
+      home: 'Home Page'
+      about: 'About Page'
+      contact: 'Contact Page'
+    content:
+      for: 'Content for'
+    infoform:
+      for: 'Form for'
+      name: 'Name'
+      email: 'Email'
+      url: 'Website'
+      phone: 'Cellphone no.'
+      phone2:  'Home no.'
+      address: 'Address'
+      subject: 'Subject'
+      message: 'Message'
+    files:
+      file_browser: 'File browser'
+#basics
+  address: 'Address'
+  advanced: 'Advanced'
+  basic: 'Basic'
+  cellphone_no: 'Cellphone no.'
+  close: 'Close'
+  compatible_with: 'Compatible with' #
+  email: 'Email'
+  fax: 'Fax'
+  fullname: 'Full name'
+  height: 'Height'
+  hide: 'Hide'
+  home_no: 'Home no.'
+  login: 'Login' #
+  plans: 'Plans' #
+  feature-list: 'Features List' #
+  message: 'Message'
+  need_help: 'Need help?'
+  or: 'or'
+  phone: 'Phone'
+  subject: 'Subject'
+  submit: 'Submit'
+  website: 'Website'
+  width: 'Width'
+  click_here: 'Click here'

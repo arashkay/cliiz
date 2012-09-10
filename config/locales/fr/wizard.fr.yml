@@ -1,0 +1,60 @@
+fr:
+  wizard:
+    steps:
+      first: "Nom"
+      second: "Mise en page"
+      third: "Caractéristiques"
+    loading:
+      default: "Chargement est en cours, Veuillez patienter ..."
+      builder: "Chargement du builder"
+    basic:
+      name:
+        label: "Nom du site web"
+        error: "Au moins 3 caractères"
+        server_error: "déjà pris!"
+        success: "Nom est bon!"
+        tip: 'Choisissez un nom pour votre site web. Cela est une adresse web que vous pouvez donner aux autres afin de visiter votre site web. Il est préférable de choisir un même nom que votre entreprise'
+      email:
+        label: 'Adresse mail'
+        error: 'Entrez une adresse mail valide'
+        server_error: "Déjà enregistré"
+        success: 'L’adresse mail est valide!'
+        tip: 'Entrezvotre adresse mail actuelle que vous vérifiez régulièrement, il peut être un compte sur Gmail, Hotmail, Yahoo ou tout autre messagerie.'
+      password:
+        label: 'Choisir un mot de passe'
+        error: 'Au moins 6 caractères'
+        success: 'Bon choix'
+        tip: 'Ayant facile à retenir et mot de passe fort est indispensable. Vous pouvez changer votre mot de passe ou de le récupérer par votre adresse mail à tout moment. Il ya une limite de six caractères afin de sécuriser votre compte.'
+      login: 'Want to login and rest? enter your password and' #
+      login_link: 'Cliquez ici'
+      current_user: 'Vous êtes connecté en tant que'
+      startover: 'Déconnexion / essayer un nouveau compte'
+      continue: 'cliquez sur le bouton suivant pour continuer'
+    features:
+      contact_fields: 'champs de formulaire de contact'
+      contact_fields_title: "nom d'affichage des champs"
+      added_list: 'Composants ajoutés'
+      add_to: 'Ajouter à'
+      site_builder:
+        title: 'Félicitation!'
+        intro: 'Vous venez d’activer votre <b>Site Builder</b>! Maintenant, vous avez 3 pages: Accueil, A propos, Contact'
+        home_and_about: 'Page d’accueil et A propos'
+        how_to_add_content: "Vous avez besoin d'une <b>Contenu / Texte</b> de composants pour créer chacune de page d'accueil et A propos. Vous pouvez le trouver dans la liste supérieure <b>de composants</b>."
+        contact: 'Page de contact et formulaire de contact'
+        how_to_add_form: "Vous avez besoin d'une <b>Info Form (formulaire d’infomation)</b> pour créer un formulaire de contact dans votre page de contact. Vous devez d'abord <b>défiler à droite en cliquant sur les touches  flèches (arrow key)</b> dans la liste supérieure de composants. Puis ajouter l'info form composant"
+    finished:
+      pay: 'Payez simplement' #
+      congratulation: 'Félicitation, votre site web est prêt'
+      panel: 'Voulez-vous administrer votre site web, vous pouvez le faire ici:'
+      site_address: 'L’adresse de votre site web'
+      admin_address: 'Administration Panel' #
+      site: 'Vous pouvez vérifier votre site à cette adresse:'
+    tips:
+      close_layout: "Dans cette étape, vous pouvez fermer cet assistant après avoir sélectionné une mise en page afin de voir la mise en page claireemnt. Ensuite, vous pouvez rouvrir l'Assistant par le bouton Restaurer."
+      add_module: "<span>Cliquez sur <b>le bouton vert</b> pour ajouter <b>des composants 'site Builder'</b> à votre site web. Vous pouvez ajouter d'autres composants avec la même technique!</span>"
+      scroll_right: 'Vous pouvez utiliser cette flèche pour faire défiler à droite et à explorer plusieurs composants.'
+      add_more_module: "<span> Cliquez sur <b>le  bouton vert  Ajouter</b>pour ajouter <b>du contenu / composant texte</b>! En utilisant ce bouton, vous pouvez également ajouter d'autres composants!</span>"
+      swap_modules: "<span>Voici la liste des composants ajoutés par vous! Vous pouvez <b>basculer entre cette dernière</b> en cliquant sur ces icônes!</span>"
+      swap_pages: "<span>Si vous voulez (avoir) la duplication <b>de cette composante</b> pour <b>une autre page</b>, vous devez ajouter une nouvelle  composant dans la liste supérieure.</span>"
+      max_of_modules: "<span>Vous avez atteint le nombre maximum de composants pour votre site! Vous pouvez supprimer certains afin d'ajouter d'autres.</span>"
+      start: 'Cliquez ici pour créer votre site web gratuitement'

@@ -1,0 +1,230 @@
+.cliiz-mini-box .cliiz-mini-box-input{
+  background: url(/images/forms/label-left.jpg) no-repeat;
+  margin: 8px 0px;
+  height: 25px;
+  width: 300px;
+  position: relative;
+  font-size: 0px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-label,
+.cliiz-mini-box .cliiz-mini-box-input label,
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-main,
+.cliiz-mini-box .cliiz-mini-box-input input,
+.cliiz-mini-box .cliiz-mini-box-input span,
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom *,
+.cliiz-mini-box .cliiz-mini-thumb,
+.cliiz-mini-box .cliiz-mini-thumb-folder{
+  display: inline-block;
+  *display: inline;
+  *zoom: 0;
+  vertical-align: top;
+  font-size: 0px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-right{
+  background: url(/images/forms/input-right.jpg) right no-repeat;
+  height: inherit;
+  width: 298px;
+  margin-left: 2px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-label{
+  background: url(/images/forms/label-right.jpg) right no-repeat;
+  height: inherit;
+  width: 100px;
+}
+.cliiz-mini-box .cliiz-mini-box-input label{
+  background: url(/images/forms/label-rep.jpg) repeat-x;
+  height: inherit;
+  width: 94px;
+  color: #222;
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: bold;
+  padding: 0px 2px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-main{
+  background: url(/images/forms/input-rep.jpg) repeat-x;
+  width: 196px;
+  height: inherit;
+}
+.cliiz-mini-box .cliiz-mini-box-input input{
+  width: 190px;
+  height: inherit;
+  padding: 0px 3px;
+  margin: 0px;
+  line-height: 24px;
+  font-size: 13px;
+  color: #333;
+  border: transparent;
+  background: none;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-display{
+  background: url(/images/forms/input-sep.jpg) right no-repeat;
+  width: 169px;
+  height: inherit;
+  line-height: 24px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+.cliiz-mini-box .cliiz-mini-box-input img{
+  background: url(/images/forms/input-arrow.png) no-repeat;
+  width: 16px;
+  height: 15px;
+  margin: 5px 0px 0px 3px;
+  cursor: pointer;
+}
+.cliiz-mini-box .cliiz-mini-box-input img:hover {
+  background-position: 0px -15px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-dropbox{
+  background: url(/images/forms/input-drop-top.jpg) no-repeat;
+  width: 200px;
+  height: 120px;
+  position: absolute;
+  right: 0px;
+  z-index: 7000;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list{
+  background: url(/images/forms/input-drop-rep.jpg) repeat-y;
+  width: 200px;
+  margin-top: 2px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option{
+  background: url(/images/forms/input-left.jpg) repeat-y;
+  width: 197px;
+  height: 25px;
+  margin: 2px 1px 0px;
+  cursor: pointer;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option .cliiz-mini-box-input-right{
+  width: 195px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option .cliiz-mini-box-input-main{
+  width: 189px;
+  color: #333;
+  line-height: 24px;
+  font-size: 13px;
+  padding: 0px 2px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option:hover {
+  background-image: url(/images/forms/label-left.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option:hover .cliiz-mini-box-input-right{
+  background-image: url(/images/forms/label-right.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-list .cliiz-mini-box-input-option:hover .cliiz-mini-box-input-main{
+  background-image: url(/images/forms/label-rep.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom{
+  background: url(/images/forms/input-drop-bottom.jpg) no-repeat;
+  width: 200px;
+  height: 18px;
+  text-align: right;
+  padding-top: 2px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom .cliiz-mini-box-input-up{
+  background: url(/images/forms/input-drop-arrow.png) no-repeat;
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom .cliiz-mini-box-input-down{
+  background: url(/images/forms/input-drop-arrow.png) -17px 0px no-repeat;
+  width: 16px;
+  height: 15px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom .cliiz-mini-box-input-up:hover {
+  background-position: 0px -15px;
+}
+.cliiz-mini-box .cliiz-mini-box-input .cliiz-mini-box-input-bottom .cliiz-mini-box-input-down:hover {
+  background-position: -17px -15px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid{
+  width: 500px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.dbl{
+  background-image: url(/images/forms/label-dbl-left.jpg);
+  height: 50px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid .cliiz-mini-box-input-right{
+  background-image: url(/images/forms/solid-right.jpg);
+  width: 498px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.dbl .cliiz-mini-box-input-right{
+  background-image: url(/images/forms/solid-dbl-right.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input.dbl .cliiz-mini-box-input-label{
+  background-image: url(/images/forms/label-dbl-right.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input.dbl .cliiz-mini-box-input-label label{
+  background-image: url(/images/forms/label-dbl-rep.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid .cliiz-mini-box-input-main{
+  background-image: url(/images/forms/solid-rep.jpg);
+  width: 396px;
+  color: #000;
+}
+.cliiz-mini-box .cliiz-mini-box-input.dbl .cliiz-mini-box-input-main{
+  background-image: url(/images/forms/solid-dbl-rep.jpg);
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid span{
+  padding: 0px 2px 2px 18px;
+  cursor: pointer;
+  margin: 5px 7px 3px;
+  background: url(/images/forms/input-checkbox.gif) no-repeat;
+  font-size: 12px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid span:hover {
+  background-position: 0px -30px;
+}
+.cliiz-mini-box .cliiz-mini-box-input.solid span.selected{
+  background-position: 0px -60px;
+}
+.cliiz-mini-box .cliiz-mini-box-wysiwyg{
+  width: 600px;
+  margin: auto;
+}
+/* folders */
+.cliiz-mini-box .cliiz-mini-file-browser,
+.cliiz-mini-box .cliiz-mini-gallery-browser{
+  width: 650px;
+  height: 150px;
+  font-size: 0px;
+  overflow: auto;
+}
+.cliiz-mini-box .cliiz-mini-gallery-browser{
+  background: #1C5061;
+}
+.cliiz-mini-box .cliiz-mini-thumb,
+.cliiz-mini-thumb,
+.cliiz-mini-box .cliiz-mini-thumb-folder{
+  width: 120px;
+  padding: 8px;
+  height: 130px;
+  margin: 3px;
+  font-size: 11px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: move;
+}
+.cliiz-mini-box .cliiz-mini-thumb-folder{
+  cursor: pointer;
+}
+.cliiz-mini-box .cliiz-mini-thumb img,
+.cliiz-mini-thumb img{
+  border: #333 1px solid;
+}
+.cliiz-mini-box .cliiz-mini-thumb img.no-border{
+  border: none;
+}
+.cliiz-mini-thumb:hover,
+.cliiz-mini-box .cliiz-mini-thumb:hover {
+  background: #fff;
+  border: #777 1px dashed;
+  padding: 7px;
+  color: #222;
+}

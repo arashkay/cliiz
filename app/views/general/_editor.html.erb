@@ -1,0 +1,175 @@
+<script type='text/javascript'>
+$(function(){
+  cliiz.mini.letsWalk = <%= !company.first_edit_done %>
+  cliiz.mini.modules = <%=components.html_safe%>; 
+  cliiz.mini.page= '<%=page%>'; 
+  cliiz.mini.init(); 
+});
+</script>
+<div class='clz-walk fclz-walk'>
+  <div id='fclz-walk-top' class='clz-walktru clz-top'></div>
+  <div id='fclz-walk-left' class='clz-walktru clz-left'></div>
+  <div id='fclz-walk-right' class='clz-walktru clz-right'></div>
+  <div id='fclz-walk-bottom' class='clz-walktru clz-bottom'></div>
+  <div id='fclz-tooltip' class='clz-tooltip'>
+    <div class='clz-arrow clz-shadow'></div>
+    <div class='clz-arrow'></div>
+    <div class='clz-content fclz-content'>
+      <div class='clz-step clz-step1'>
+        <h5>Toolbox</h5>
+        <p>Use this toolbox to change your website content and design. Click on each of these icons to see your options.</p>
+        <div class='clz-actions'>
+          <a class='clz-skip fclz-skip'>Skip</a>
+          <a class='clz-next fclz-next' next-step='clz-step3'>Next</a>
+        </div>
+      </div>
+      <div class='clz-step clz-step2'>
+        <h5>Publish changes</h5>
+        <p>In order to apply your changes, always press Publish button before leaving the page.</p>
+        <div class='clz-actions'>
+          <a class='clz-skip fclz-skip'>Skip</a>
+          <a class='clz-next fclz-next' next-step='clz-step5'>Next</a>
+        </div>
+      </div>
+      <div class='clz-step clz-step3'>
+        <h5>Edit, delete, move</h5>
+        <p>Use this blue menu on right top of each feature to edit or delete them. Also change the order or position by dragging and dropping them. Click on this icon <img src='/images/blank.gif' class='clz-setting fclz-next' next-step='clz-step4'/> to open Edit Panel.</p>
+        <div class='clz-actions'>
+          <a class='clz-skip fclz-skip'>Skip</a>
+          <a class='clz-next fclz-next' next-step='clz-step4'>Next</a>
+        </div>
+      </div>
+      <div class='clz-step clz-step4'>
+        <h5>Edit Panel</h5>
+        <p>Use this panel to customize your features and check changes live on the page after pressing save button.</p>
+        <div class='clz-actions'>
+          <a class='clz-skip fclz-skip'>Skip</a>
+          <a class='clz-next fclz-next' next-step='clz-step2'>Next</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style='display:none;' class='fclz-templates'>
+  <div class='clz-player fclz-player'></div>
+  <div class="clz-editing">
+    <div class="clz-menu">
+      <div class="clz-delete fclz-delete"></div>
+      <div class="clz-setting fclz-setting"></div>
+    </div>
+  </div>
+  <div class='fclz-folderup'>
+    <img src='/images/panel/folderup.png' />
+    <div class='clz-info fclz-info'></div>
+  </div>
+  <div class='fclz-folder' loop='true' folderid='%#id%' object='folder'>
+    <img src='/images/panel/folder.png' />
+    <div class='clz-info'>%#name%</div>
+  </div>
+  <div class='fclz-image clz-image' loop='true' title='%#title%' isalbum='%#is_album%' fileid='%#id%' object='mod_gallery'>
+    <div class='clz-extend'>
+      <div class='clz-top'>
+        <img src='%#thumb_url%'/>
+        <div class='clz-delete fclz-delete'></div>
+      </div>
+      <div class='clz-main'>
+        <label>Caption</label> <input value='%#title%' /> <button>update</button>
+      </div>
+    </div>
+    <img class='clz-shadow' src='%#thumb_url%' />
+    <img src='%#thumb_url%'/>
+  </div>
+  <div class='fclz-file clz-file' loop='true' fileid='%#id%' object='image'>
+    <img src='%#thumb_url%' />
+  </div>
+  <%= render :partial => 'general/editor.forms' %>
+</div>
+<div class='clz-blocker fclz-blocker'><div class='clz-loading'>loading ...</div></div>
+<!--global-->
+<div class='clz-globalbox fclz-globalbox clz-box clz-at-left'>
+  <div class='clz-middle'>
+    <div class='clz-left'>
+      <div class='clz-main clz-actions clz-inlined'>
+        <div class='clz-swing fclz-swing clz-left'></div>
+        <div class='clz-dbl-button'>
+          <div class='clz-left'></div>
+          <div class='clz-first fclz-close'>Close</div>
+          <div class='clz-sep'></div>
+          <div class='clz-second fclz-publish'>Publish</div>
+          <div class='clz-right'></div>
+        </div>
+        <div class='clz-swing fclz-swing clz-right'></div>
+      </div>
+    </div>
+  </div>
+  <div class='clz-footer'>
+    <div class='clz-left'></div>
+    <div class='clz-main'></div>
+    <div class='clz-right'></div>
+  </div>
+</div>
+<!--form-->
+<div class='clz-form-blocker fclz-formblocker' style='display:none;'></div>
+<div class='clz-formbox clz-box fclz-formbox' style='display:none;'>
+ <div class='clz-header fclz-header'>
+    <div class='clz-left'></div>
+    <div class='clz-main'>Editor</div>
+    <div class='clz-right'></div>
+  </div>
+  <div class='clz-middle'>
+    <div class='clz-left'>
+      <div class='clz-main fclz-forms'>
+      </div>
+      <div class='clz-main clz-actions'>
+        <div class='clz-dbl-button'>
+          <div class='clz-left'></div>
+          <div class='clz-first fclz-cancel'>Cancel</div>
+          <div class='clz-sep'></div>
+          <div class='clz-second fclz-update'>Save</div>
+          <div class='clz-right'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='clz-footer'>
+    <div class='clz-left'></div>
+    <div class='clz-main'></div>
+    <div class='clz-right'></div>
+  </div>
+</div>
+<!--toolbox-->
+<div class='clz-toolbox clz-box fclz-toolbox'>
+  <div class='clz-header fclz-header'>
+    <div class='clz-left'></div>
+    <div class='clz-main'><img src='/images/blank.gif'/>Toolbox</div>
+    <div class='clz-right'></div>
+  </div>
+  <div class='clz-middle'>
+    <div class='clz-left'>
+      <div class='clz-main'>
+        <div class='clz-menu clz-inlined'>
+          <div title='Features' class='clz-menu-item clz-modules-menu' data-toolbox='clz-show-features'><div class='clz-arrow'></div></div>
+          <div class='clz-menu-sep'></div>
+          <div title='Layouts' class='clz-menu-item clz-layouts-menu' data-toolbox='clz-show-layouts'><div class='clz-arrow'></div></div>
+          <div class='clz-menu-sep'></div>
+          <div title='Packages' class='clz-menu-item clz-packages-menu' data-toolbox='clz-show-packages'><div class='clz-arrow'></div></div>
+          <div class='clz-menu-sep'></div>
+          <div title='Setting' class='clz-menu-item clz-setting-menu' data-toolbox='clz-show-setting'><div class='clz-arrow'></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='clz-title clz-features-comp'>Features</div>
+  <div class='clz-title clz-layouts-comp'>Layouts</div>
+  <div class='clz-title clz-packages-comp'>Packages</div>
+  <div class='clz-title clz-setting-comp'>Setting</div>
+  <%= render :partial => 'general/editor.features' %>
+  <%= render :partial => 'general/editor.layouts', :locals => { :frames => frames } %>
+  <%= render :partial => 'general/editor.packages', :locals => { :packages => packages, :used_packages => used_packages } %>
+  <%= render :partial => 'general/editor.setting' %>
+  <div class='clz-footer'>
+    <div class='clz-left'></div>
+    <div class='clz-main'></div>
+    <div class='clz-right'></div>
+  </div>
+</div>

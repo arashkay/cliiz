@@ -1,0 +1,33 @@
+<h1>Contacts</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <h2>Contact list</h2>
+    <%unless @contacts.blank? %>
+      <div class='fn-list' auto='true'>
+        <div class='row header'>
+          <div class='cell simple w20'></div>
+          <%@fields.each do |f|%>
+          <div class='cell w170'><%=f%></div>
+          <%end%>
+        </div>
+        <%@contacts.each do |c|%>
+        <div class='row fn-row'>
+          <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=c.id%>"/></div>
+          <div class='cell w170'><a href='/panel/contact/<%=@uc.id%>/<%=c.id%>'><%=c.read_attribute @fields.first%></a></div>
+          <%@fields[1..2].each do |f|%>
+            <div class='cell w170'><%=c.read_attribute f%></div>
+          <%end%>
+        </div>
+        <%end%>
+        <div class='menu'>
+          <div class='arrow'></div>
+          <div class='left'></div><div class='main'><div class='checkall fn-checkall'><input type='checkbox'/></div><a method='delete' autohide='true' remote='/panel/contacts/<%=params[:id]%>/delete' class='fn-delete'>Delete</a>|<a remote='/panel/contacts/star' class='fn-star' style='display:none'>Add Star</a>|<a remote='/panel/contacts/nostar' class='fn-nostar' style='display:none'>Remove Star</a></div><div class='right'></div>
+        </div>
+      </div>
+    <%else%>
+      <p>No contact available.</p>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

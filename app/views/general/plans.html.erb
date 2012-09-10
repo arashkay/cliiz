@@ -1,0 +1,111 @@
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=136380103122486";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<h1>Website Plans</h1>
+<div class='plans inlined'>
+  <div class='like'>
+    <div class="fb-like" data-href="http://www.facebook.com/cliiz" data-send="false" data-layout="button_count" data-width="130" data-show-faces="false" data-action="recommend"></div>
+    <span>businesses recommend it in </span>
+    <a target='_blank' href='http://facebook.com/cliiz'><img src='/images/inner/facebook.jpg'/></a>
+  </div>
+  <div class='list'>
+    <h2>Unlimited Designs</h2>
+    <p>Change your designs whenever you like. Choose a layout from Cliiz Design Gallery and set it by one click.</p>
+    <h2>Home, About and Contact</h2>
+    <p>All pages are editable. You can add/remove text, images and videos by drag and drop.</p>
+    <h2>Business Locator Map</h2>
+    <p>Show your office or store location to your customers using maps.</p>
+    <h2>Embed Videos</h2>
+    <p>Add Youtube videos in your pages.</p>
+    <h2>Image Gallery</h2>
+    <p>Show products and other images online to your audience and prospects.</p>
+    <h2>Blog</h2>
+    <p>Start posting on your website and share information with your customers</p>
+    <h2>Business Domain</h2>
+    <p>Have all these features at your own business address.</p>
+    <h2>Email, Calendar and more</h2>
+    <p>Have a business email address at your domain, calendar, chat many other Google integrated Apps.</p>
+    <h2>Free Storage</h2>
+    <p>Upload images, videos and posts without limitation</p>
+    <h2>Sell Online</h2>
+    <p>Start selling your products/services online using e-commerce solution.</p>
+    <h2></h2>
+  </div>
+  <div class='features'>
+    <div class='top'></div>
+    <div class='main'>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick-filled.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick.png'/>
+        <img src='/images/inner/tick-filled.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+      <div class='row'>
+        <img src='/images/inner/tick.png'/>
+        <img src='/images/inner/tick.png' class='middle'/>
+        <img src='/images/inner/tick-filled.png'/>
+      </div>
+    </div>
+    <div class='bottom'>
+      <span class='free'>$0/mo</span>
+      <span class='plan1'>$9.99/mo</span>
+      <span class='plan2'>$18.99/mo</span>
+    </div>
+    <a href='/#start' class='tooltip'>Click to Start Trial</a>
+  </div>
+</div>
+<h2>Choose a Free Design</h2>
+<div class='layouts inlined'>
+  <% @frames.each do |f| %>
+    <a class='layout fn-layout' href='/#start?id=<%=f.id%>'><span class='frame'><img src='/images/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></span></a>
+  <%end%>
+  <a class='layout fn-layout' href='/#start'>
+    <span class='frame'><span class='more'>view more...</span></span>
+  </a>
+</div>

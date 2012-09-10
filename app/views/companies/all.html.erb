@@ -1,0 +1,35 @@
+<h1>Companies</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <div class='menu righted'>
+      <div class='left'></div><div class='main'><a href='/admin/'>Back</a></div><div class='right'></div>
+    </div>
+    <div class='fn-list' auto='true'>
+      <div class='row header'>
+        <div class='cell simple w20'></div>
+        <div class='cell w20'>id</div>
+        <div class='cell w150'>Name</div>
+        <div class='cell w40'>Login</div>
+        <div class='cell w200'>Email</div>
+        <div class='cell w150'>Created on</div>
+      </div>
+      <%cnt=0%>
+      <%@companies.each do |p|%>
+      <div class='row fn-row'>
+        <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=p.id%>"/></div>
+        <div class='cell w20'><%= cnt+=1 %></div>
+        <div class='cell w150'><a href='http://<%=p.name%>.cliiz.com' target='_blank'><%= p.name %></a></div>
+        <div class='cell w40'><%= p.sign_in_count %></div>
+        <div class='cell w200'><%= p.email %></div>
+        <div class='cell w150'><%= p.created_at.strftime "%a. %d %b %Y" %></div>
+      </div>
+      <%end%>
+      <div class='menu fn-menu'>
+        <div class='arrow'></div>
+        <div class='left'></div><div class='main'><div class='checkall fn-checkall'><input type='checkbox'/></div><a method='post' autohide='true' remote='/admin/email/send'>Send</a></div><div class='right'></div>
+      </div>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>

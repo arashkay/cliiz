@@ -1,0 +1,47 @@
+fa:
+  errors:
+    messages:
+      not_found: "یافت نشد"
+      already_confirmed: "قبلا تایید شده است"
+      not_locked: "قفل نشده است"
+      not_saved:
+        one: "۱ خطا جلوی ذخیره %{resource} را گرفت:"
+        other: "%{count} خطا جلوی ذخیره این %{resource} را گرفت:"
+
+  devise:
+    failure:
+      already_authenticated: 'وارد سیستم هستید.'
+      unauthenticated: 'پیش از ادامه باید ورود یا ثبت نام کنید.'
+      unconfirmed: 'باید حسابتان را قبل از ادامه تایید کنید.'
+      locked: 'حسابتان قفل شده است.'
+      invalid: 'ایمیل یا رمز عبور غیر معتبر.'
+      invalid_token: 'نشان اعتبار نامعتبر.'
+      timeout: 'نشست شما منقضی شده است. برای ادامه دوباره وارد شوید.'
+      inactive: 'حساب شما هنوز فعال نشده است.'
+    sessions:
+      signed_in: 'ورود موفق.'
+      signed_out: 'خروج موفق.'
+    passwords:
+      send_instructions: 'ظرف چند دقیقه آینده ایمیلی حاوی راهنمای بازگرداندن رمز عبورتان دریافت خواهید کرد.'
+      updated: 'رمز عبورتان با موفقیت تغییر کرد. اکنون وارد شدید.'
+    confirmations:
+      send_instructions: 'ظرف چند دقیقه آینده ایمیلی حاوی راهنمای تایید حسابتان دریافت خواهید کرد.'
+      confirmed: 'حسابتان با موفقیت تایید شد. هم اکنون وارد شدید.'
+    registrations:
+      signed_up: 'خوش آمدید! با موفقیت ثبت نام کردید.'
+      inactive_signed_up: 'با موفقیت ثبت نام کردید. اگر چه، امکان ورود شما نیست، زیرا %{reason}.'
+      updated: 'به روز رسانی حسابتان با موفقیت انجام شد.'
+      destroyed: 'بدرود! حسابتان لغو شد. به امید دیدار دوباره.'
+    unlocks:
+      send_instructions: 'ایمیلی حاوی راهنمای باز کردن حسابتان در چند دقیقه آینده به شما ارسال خواهد شد.'
+      unlocked: 'حسابتان با موفقیت باز شد. اکنون وارد شدید.'
+    omniauth_callbacks:
+      success: 'با موفقیت مجوز استفاده از %{kind} دریافت شد.'
+      failure: 'امکان استفاده از مجوز %{kind} نبود زیرا "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'راهنمای تایید'
+      reset_password_instructions:
+        subject: 'راهنمای بازنشانی رمز عبور'
+      unlock_instructions:
+        subject: 'راهنمای باز کردن'

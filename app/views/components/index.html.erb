@@ -1,0 +1,20 @@
+<h1>Components</h1>
+
+<div class='listing'>
+  <% @components.each do |component| %>
+    <div class='block'>
+      <h2><%= component.name %></h2>
+      <p><%= component.uname %></p>
+      <p><%= component.description %></p>
+      <p><%= component.setting.to_json %></p>
+      <div>
+        <%= link_to 'Edit', edit_component_path(component) %> | 
+        <%= link_to 'Destroy', component, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br />
+
+<a href='/components/reinit'>reinit all components</a>

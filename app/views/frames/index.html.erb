@@ -1,0 +1,12 @@
+<div>
+  <h1>Frames</h1>
+  <b><a href='/frames/new'>new frame</a></b><br/>
+  <%@frames.each do |f|%>
+    <div class='inline'>
+      <h3><%=f.name%></h3>
+      <%=f.tags%><br/>
+      <a href='<%=edit_frame_path f%>'><img src='<%=f.image.url(:thumb)%>'/><br/>
+      <b>edit</b></a>
+    </div>
+  <%end%>
+</div>

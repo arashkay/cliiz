@@ -1,0 +1,23 @@
+<h1>Company Profile</h1>
+<div class='box detailed w748'>
+  <div class='top'></div>
+  <div class='main fn-form' remote='/panel/update_profile.json' autoform='true'>
+    <h2>Basic Information</h2>
+    <label>Full Name</label><span><input class='input' name='company[display_name]' value='<%=@company.setting[:display_name]%>'/><div class='help inline' tip='This is your business fullname. It will be used as website title'></div></span>
+    <label>Logo URL</label><span><input class='input' name='company[logo]' value='<%=@company.setting[:logo]%>'/><div class='help inline' tip='Enter URL of your Company Logo. You have to upload the logo first in our system or any other systems.'></div></span>
+    <h2>SEO</h2>
+    <label class='talign'>Description</label><span><textarea name='company[description]' limited='200' class='b400x50 talign'><%=@company.setting[:description]%></textarea><div class='help inline' tip='This description will be shown below your link in search result of Google, Yahoo and other search engines. Around 80 Characters is ideal.'></div></span>
+    <label class='talign'>Keywords</label><span><textarea name='company[keywords]' limited='200' class='b400x50 talign'><%=@company.setting[:keywords]%></textarea><div class='help inline' tip='Keywords is used by search engines. List keywords related to your business here and separate them by comma. Avoid repeating same word. Around 8-10 words.'></div></span>
+    <h2>Social Networking</h2>
+    <label>Facebook (Full URL)</label><span><input class='input' name='company[facebookpage]' value='<%=@company.setting[:facebookpage]%>'/><div class='help inline' tip='Enter your Facebook Page address or your website full name here. This will be used for Facebook Like button in your site or as a link to your Facebook Page.'></div></span>
+    <label>Twitter Name</label><span><input class='input' name='company[twitter]' value='<%=@company.setting[:twitter]%>'/><div class='help inline' tip='You can connect your twitter account to yoursite. This will be used for follow me button in your site.'></div></span>
+    <h2>Analytic & Google Apps (email, calendar ...)</h2>
+    <label>Google App Code</label><span><input class='input' name='company[google_verify]' value='<%=@company.setting[:google_verify]%>'/><div class='help inline' tip='If you have enabled Google Application such as Email or Docs. You should put verification code here.'></div></span>
+    <label>Google Analytic ID</label><span><input class='input' name='company[google_analytic]' value='<%=@company.setting[:google_analytic]%>'/><div class='help inline' tip='If you have enabled Google Analytic. You have to add your Web Property ID here. You can find it in your Analytic profile at Tracking Code section.'></div></span>
+    <div class='hidden success'>Profile is updated successfully!</div>
+    <div class='menu'>
+      <div class='left'></div><div class='main'><a remote-submit='true' scope='fn-form'>Update</a>|<a href='/panel'>Cancel</a></div><div class='right'></div>
+    </div>
+  </div>
+  <div class='bottom'></div>
+</div>
