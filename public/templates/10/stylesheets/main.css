@@ -1,0 +1,195 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: url(../images/background.png) #272a2b repeat-x;
+  font-size: 15px;
+  font-family: arial;
+}
+
+.logo,
+.company {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.company {
+  font-size: 30px;
+  margin: 0px 0 0 20px;
+  color: #ffffff;
+  vertical-align: middle;
+}
+.logo {
+  width: 250px;
+  height: 80px;
+  margin: 13px 0;
+  background-position: left center;
+  vertical-align: middle;
+}
+
+
+.menuplace {
+  background: url(../images/menu.png) no-repeat right;
+  padding-right: 15px;
+  float: left
+}
+
+.menu {
+  list-style: none;
+  padding: 0px 0px 0px 15px;
+  margin: 0px;
+  font-size: 0px;
+  background: url(../images/menu.png) no-repeat left;
+  height: 45px;
+  float: left
+}
+
+.menu li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  font-size: 18px;
+  background: url(../images/loopmenu.png) repeat-x;
+}
+
+.menu li a {
+  color: #ffffff;
+  padding: 12px 30px;
+}
+
+.menu li a:hover {
+  background: url(../images/hovermenu.png) repeat-x;
+}
+
+.menu li a.selected {
+  background: url(../images/hovermenu.png) repeat-x;
+}
+
+a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-decoration: none;
+}
+
+.extra1 {
+  font-size: 12px;
+  float: left;
+  margin: 20px 0;
+}
+
+.extra1 a {
+  color: #ffffff;
+  margin: 0 10px;
+}
+
+.socialtags {
+  font-size: 12px;
+  color: #ffffff;
+  float: left;
+  margin: 20px 20px;
+}
+
+.socialtags .twitter {
+  float: left;
+  color: #fff;
+}
+
+.socialtags .facebook {
+  float: left;
+  margin: 0px 0px 0px 20px;
+}
+
+.extra2 {
+  font-size: 12px;
+  float: right;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.extra2 a {
+  color: #ffffff;
+  margin: 0 10px;
+}
+
+.main {
+  width: 1000px;
+  margin: auto;
+}
+
+.main .header {
+  height: 325px;
+  padding: 20px;
+  background: url(../images/header.png) no-repeat;
+}
+
+.container .mainspace {
+  background: url(../images/mainspace.png) #ededed repeat-x top;
+  float: left;
+  width: 1000px;
+}
+
+.container .extraspace {
+  background: url(../images/extraspace.png) no-repeat;
+  float: left;
+  width: 1000px;
+  height: 20px
+}
+
+.container .box1, .container .box2, .container .box3, .container .box4 {
+  float: left;
+  padding: 25px;
+  width: 200px;
+  background: url(../images/box.png) no-repeat;
+  height: 140px;
+}
+
+.container .content {
+  margin: 20px;
+}
+
+.container .content h1 {
+  font-size: 30px;
+  color: #940500;
+  margin: 0;
+}
+
+.container .content p {
+  font-size: 17px;
+  padding: 0;
+  margin: 10px 0;
+  color: #383737
+}
+
+.container .box1 h1, .container .box2 h1, .container .box3 h1, .container .box4 h1 {
+  font-size: 18px;
+  color: #692b28;
+  margin: 0;
+  text-align: center;
+}
+
+.container .box1 .margin, .container .box2 .margin, .container .box3 .margin, .container .box4 .margin {
+  float: left;
+  height: 145px;
+  overflow: hidden;
+  width: 200px
+}
+
+.container .box1 p, .container .box2 p, .container .box3 p, .container .box4 p {
+  padding: 0;
+  margin: 10px 0;
+  color: #383737
+}
+
+.text1 {
+  width: 410px;
+  font-size: 26px;
+  font-style: italic;
+  line-height: 150%;
+  color: #383737;
+  height: 270px;
+  overflow: hidden;
+  float: left
+}
+.clear {
+  clear: left
+}

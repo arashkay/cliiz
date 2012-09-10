@@ -1,0 +1,118 @@
+body{
+  background: #5e5536 url(../images/back.jpg) repeat-x;
+  font-size: 12px;
+  padding: 0px;
+  margin: 0px;
+  font-family: arial, tahoma;
+}
+.clear{
+  clear: both;
+}
+.header{
+  background: url(../images/header-rep.png);
+  width: 708px;
+  height: 60px;
+  margin: auto;
+}
+.container{
+  background: url(../images/body-rep.png);
+  width: 700px;
+  height: 760px;
+  margin: auto;
+  padding: 0px 4px;
+  overflow: hidden;
+}
+.footer{
+  background: url(../images/footer-rep.png) repeat-x;
+  padding-top: 5px;
+  margin-top: -5px;
+  position: relative;
+}
+.footer .main{
+  background: #5e5536;
+  height: 75px;
+  margin: auto;
+}
+.footer ul{
+  margin: 0px auto;
+  display: block;
+  text-align: center;
+  padding: 10px 0px;
+  list-style: none;
+  color: #DFC884;
+}
+.footer ul a{
+  color: #DFC884;
+  text-decoration: none;
+}
+.footer li{
+  display: inline-block;
+  *display: inline;
+  *zoom: 0;
+  margin: 0px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.footer .twitter{
+  background: url(../images/tweeter.jpg);
+  width: 103px;
+  height: 66px;
+  position: absolute;
+  display: block;
+  right: 30px;
+  cursor: pointer;
+  top: 7px;
+}
+.container .top{
+  background: url(../images/header.jpg);
+  width: 700px;
+  height: 250px;
+}
+.container .left{
+  background: url(../images/roundborder.jpg) 10px 160px no-repeat;
+  width: 300px;
+  height: 500px;
+  float: left;
+}
+.container .left .heading{
+  background: url(../images/left-header.jpg) no-repeat;
+  width: 300px;
+  height: 150px;
+}
+.container .left .main{
+  padding: 5px 15px;
+}
+.container .left .main h2,
+.container .left .main h3{
+  color: #746434;
+}
+.container .left .main h2{
+  font-size: 14px;
+}
+.container .left .main h3{
+  font-size: 12px;
+}
+.container > .main{
+  float: right;
+  width: 390px;
+  padding: 5px;
+  overflow: auto;
+}
+.container > .main h1,
+.container > .main h2,
+.container > .main h3{
+  color: #373223;
+}
+.container > .main h1{
+  font-size: 20px;
+}
+.container > .main h2{
+  font-size: 18px;
+}
+.container > .main h3{
+  font-size: 16px;
+}
+.container .left,
+.container .main{
+  height: 500px;
+}

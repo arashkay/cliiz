@@ -1,0 +1,133 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: arial, tahoma;
+  font-size: 12px;
+  color: #434d54;
+  background: url(../images/back.jpg) left top no-repeat;
+}
+.inline{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.container{
+  padding-left: 270px;
+}
+.company-logo{
+  background-repeat: none;
+  background-position: center center;
+  width: 115px;
+  height: 115px;
+  vertical-align: middle;
+}
+.company-name{
+  color: #4e6e7d;
+  font-size: 30px;
+  padding-left: 10px;
+}
+.menu-wrapper{
+  width: 950px;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  font-size: 0px;
+}
+.menu-back{
+  background: url(../images/menu-rep.png) right;
+  width: 780px;
+  height: 95px;
+  vertical-align: top;
+}
+.menu-right{
+  background: url(../images/menu-right.jpg);
+  width: 90px;
+  height: 112px;
+  vertical-align: top;
+}
+.menu{
+  position: absolute;
+  top: 35px;
+  left: 20px;
+}
+.menu a{
+  font-size: 24px;
+  font-weight: bold;
+  height: 40px;
+  margin: 0px 15px;
+  text-decoration: none;
+  color: #fff;
+}
+.menu a.selected{
+  color: #253C4F;
+}
+.container .main{
+  padding-top: 90px;
+  width: 680px;
+}
+.social{
+  text-align: right;
+  width: 950px;
+  margin-top: 10px;
+}
+.social a{
+  margin: 0px 5px;
+}
+
+/* common-> */
+a{ color: #118dff; cursor: pointer; }
+a img{ border: none; }
+h1, h2, h3, h4, h5{
+  color: #3f7fa7;
+  font-size: 14px;
+  margin: 0px;
+  padding: 5px 0px 3px;
+}
+h1 a, h2 a, h3 a{ color: #3f7fa7; text-decoration: none; }
+h1{ font-size: 20px; }
+h2{
+  font-size: 18px;
+  color: #1f597d;
+}
+h3{
+  font-size: 16px;
+  padding: 5px 0px 3px;
+  color: #0d87d4;
+}
+p{
+  margin: 0px;
+  padding: 5px 0px;
+}
+.cliiz-blog .cliiz-detail{
+  position: relative;
+  height: 100px;
+  width: 480px;
+}
+.cliiz-blog .cliiz-info{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+}
+.cliiz-blog .cliiz-post{
+  border-bottom: #aaa 1px dashed;
+  margin-top: 5px;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+.cliiz-blog .cliiz-date{
+  color: #4B8D9C;
+}
+.cliiz-blog .cliiz-more{
+  margin-top: 3px;
+  margin-left: 10px; 
+}
+div.cliiz-module div.cliiz-posts div.cliiz-post{
+  width: 335px;
+}
+div.cliiz-module div.cliiz-posts div.cliiz-detail{
+  width: 265px;
+  padding: 0px 0px 10px;
+}
+/* <-common */
+

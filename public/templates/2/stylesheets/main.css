@@ -1,0 +1,209 @@
+body{
+  background: url(../images/back.jpg);
+  font-size: 12px;
+  padding: 0px;
+  margin: 0px;
+  font-family: arial, tahoma;
+}
+.container{
+  margin: 40px auto 20px;
+  width: 708px;
+  position: relative;
+}
+.container > .top,
+.container > .bottom{
+  background: url(../images/main-top.png) no-repeat;
+  width: 708px;
+  height: 14px;
+}
+.container .bottom{
+  background-image: url(../images/main-bottom.png);
+}
+.container .menu{
+  position: absolute;
+  width: 708px;
+  height: 265px;
+  top: -20px;
+  list-style: none;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+.container .menu li{
+  background: url(../images/menu.png) no-repeat;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 170px;
+  height: 265px;
+  margin: 0px;
+  padding: 0px;
+}
+.container .menu li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  padding-top: 16px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  font-weight: bold;
+  width: 170px;
+  height: 20px;
+  position: relative;
+}
+.container .menu li a:hover {
+  color: #ccc;
+}
+.container .menu li.home{
+  background-position: 0px 0px;
+}
+.container .menu li.contact{
+  background-position: -172px 0px;
+}
+.container .menu li.about{
+  background-position: -344px 0px;
+}
+.container .menu li.services{
+  background-position: -516px 0px;
+}
+.container > .main{
+  background: url(../images/main-rep.png) repeat-y;
+  width: 700px;
+  padding: 250px 4px 0px;
+  height: 490px;
+  overflow: hidden;
+}
+.container > .main *{
+  vertical-align: top;
+}
+.footer{
+  width: 422px;
+  height: 43px;
+  position: relative;
+  bottom: 20px;
+  margin: 0px auto;
+  text-align: center;
+}
+.footer *{
+  vertical-align: top;
+}
+.footer .left{
+  background: url(../images/footer-left.png) no-repeat;
+  width: 11px;
+  height:43px;
+  display: table-cell;
+  *display: inline;
+  *zoom: 1;
+}
+.footer .main{
+  background: url(../images/footer-rep.png) repeat-x;
+  width: 400px;
+  padding-top: 13px;
+  height: 30px;
+  display: table-cell;
+  *display: inline;
+  *zoom: 1;
+  color: #777;
+}
+.footer .right{
+  background: url(../images/footer-right.png) no-repeat;
+  width: 11px;
+  height:43px;
+  display: table-cell;
+  *display: inline;
+  *zoom: 1;
+}
+.footer .main a{
+  color: #fff;
+  font-size: 12px;
+  padding: 0px 5px;
+  text-decoration: none;
+}
+.footer .main a:hover {
+  color: #ccc;
+}
+.container > .main .bar{
+  width: 208px;
+  height: 400px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 5px;
+}
+.container > .main .bar .top{
+  background: url(../images/left-top.png) no-repeat;
+  width: 208px;
+  height: 105px;
+}
+.container > .main .bar .main{
+  background: url(../images/left-rep.png) repeat-y;
+  width: 188px;
+  height: 180px;
+  padding: 10px;
+}
+.container > .main .bar .bottom{
+  background: url(../images/left-bottom.png) no-repeat;
+  width: 208px;
+  height: 14px;
+}
+.container > .main .content{
+  width: 478px;
+  height: 478px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+}
+.container > .main .content .top{
+  background: url(../images/content-top.png) no-repeat;
+  width: 478px;
+  height: 14px;
+}
+.container > .main .content .main{
+  background: url(../images/content-rep.png) repeat-y;
+  width: 458px;
+  height: 430px;
+  padding: 10px;
+}
+.container > .main .content .inner{
+  width: 458px;
+  overflow: auto;
+  height: inherit;
+}
+.container > .main .content .bottom{
+  background: url(../images/content-bottom.png) no-repeat;
+  width: 478px;
+  height: 14px;
+}
+/*text*/
+.container .bar h2,
+.container .bar h3{
+  color: #746434;
+}
+.container .bar h2{
+  font-size: 14px;
+}
+.container .bar h3{
+  font-size: 12px;
+}
+.container > .main h1,
+.container > .main h2,
+.container > .main h3{
+  color: #373223;
+  margin: 0px;
+  padding: 5px 0px 3px;
+}
+.container > .main h1{
+  font-size: 20px;
+}
+.container > .main h2{
+  font-size: 18px;
+}
+.container > .main h3{
+  font-size: 16px;
+}
+.container > .main p{
+  margin: 0px;
+  padding: 3px 0px;
+}

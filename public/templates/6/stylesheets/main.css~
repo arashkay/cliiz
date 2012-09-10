@@ -1,0 +1,131 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: arial, tahoma;
+  background: url(../images/back.jpg);
+}
+a img{
+  border: none;
+}
+.clear{
+  clear: both;
+}
+.container{
+  width: 960px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+.company{
+  color: #33190a;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+.header{
+  background: url(../images/header.jpg) bottom no-repeat;
+  height: 296px;
+  width: 956px;
+  border: #824f2f 2px solid;
+  text-align: right;
+}
+.menu{
+  background: url(../images/menu-back.jpg);
+  height: 50px;
+  margin: 5px 0px 10px;
+  overflow: hidden;
+}
+.menu a{
+  display: inline-block;
+  *display: inline;
+  *zoom: 0;
+  height: 21px;
+  margin: 7px 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #513a2c;
+  padding: 7px 30px;
+  text-decoration: none;
+}
+.menu a.selected{
+  background: #7e654e;
+  color: #d5c9ab;
+}
+.main{
+  width: 960px;
+  padding: 5px 0px 10px 0px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
+  color: #4b3427;
+}
+.bar{
+  margin-top: 5px;
+  background: url(../images/extra.jpg);
+  width: 960px;
+  height: 447px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
+  color: #dcd1b4;
+  overflow: auto;
+}
+h1,
+h2,
+h3{
+  color: #6e4126;
+  font-size: 20px;
+  margin: 0px;
+  padding: 8px 0px 5px;
+}
+h2{
+  color: #eac21d;
+}
+.bar h1,
+.bar h2{
+  color: #dcd1b4;
+}
+h3{
+  color: #238cae;
+  font-size: 18px;
+  padding: 5px 0px 3px;
+}
+.bar h3{
+  color: #dcd1b4;
+}
+.extra{
+  width: 300px;
+  padding: 5px 10px;
+  height: 190px;
+  margin-top: 240px;
+  float: left;
+}
+.separator{
+  background: url(../images/extra-top.jpg);
+  margin-left: 8px;
+  height: 50px;
+  width: 760px;
+}
+.footer{
+  width: 860px;
+  margin: 40px auto;
+}
+.footer .left{
+  width: 13px;
+  height: 55px;
+  background: url(../images/footer-left.png);
+  float: left;
+}
+.footer .center{
+  float: left;
+  width: 834px;
+  height: 55px;
+  text-align: center;
+  background: #fff url(../images/facebook.jpg) 10px center no-repeat;
+}
+.footer .right{
+  background: url(../images/footer-right.png);
+  width: 13px;
+  height: 55px;
+  float: left;
+}

@@ -1,0 +1,93 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  color: #222;
+  font-family: arial;
+}
+.container{
+  background: url(../images/back.jpg) no-repeat;
+  width: 748px;
+  height: 886px;
+  margin: 10px auto;
+  position: relative;
+  color: #4D2A1D;
+}
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+a img{
+  border: none;
+}
+.menu{
+  padding-left: 170px;
+  position: absolute;
+  margin-top: -3px;
+}
+.menu a{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 103px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  margin: 0px 3px;
+  color: #4D2A1D;
+  vertical-align: top;
+}
+.menu .first{
+  width: 110px;
+}
+.menu .item{
+  background: url(../images/menu-item.png);
+  height: 30px;
+}
+.menu a.selected{
+  font-weight: bold;
+  color: #CA5C12;
+}
+.rss{
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  top: 48px;
+  left: 50px;
+  display: block;
+}
+.twitter{
+  width: 80px;
+  height: 95px;
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  display: block;
+}
+.main{
+  width: 420px;
+  height: 310px;
+  position: absolute;
+  top: 380px;
+  left: 50px;
+  overflow: auto;
+}
+.contact{
+  width: 165px;
+  height: 150px;
+  position: absolute;
+  top: 456px;
+  right: 65px;
+  overflow: auto;
+}
+.extra{
+  width: 400px;
+  height: 120px;
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  overflow: auto;
+}
+.highlight{
+  border: #196C8F 2px dashed;
+}

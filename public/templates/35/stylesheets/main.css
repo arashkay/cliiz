@@ -1,0 +1,221 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: arial, tahoma;
+  font-size: 12px;
+  color: #393939;
+  background: #ebebeb;
+}
+.header{
+  width: 100%;
+  height: 454px;
+  background: url(../images/header-rep.jpg) repeat-x;
+  margin-top: 6px;
+}
+.wrap{
+  font-size: 0px;
+  width: 958px;
+  margin: auto;
+  position: relative;
+}
+.menu{
+  padding-top: 30px;
+  text-align: right;
+  margin: 0px 20px;
+  height: 59px;
+}
+.menu a,
+.social a,
+.header .image,
+.inline{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.menu a{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 8px;
+  margin: 0px 5px;
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 3px transparent solid;
+}
+.menu a.selected{
+  border-color: #2d3b58;
+}
+.intro-top{
+  width: 350px;
+  height: 104px;
+  background: url(../images/intro-top.png) no-repeat;
+  position: absolute;
+  top: -6px;
+  left: 4px;
+}
+.head{
+  font-size: 0px;
+  height: 365px;
+  width: 958px;
+  vertical-align: top;
+  background: url(../images/head-rep.png) repeat-y;
+}
+.head .image{
+  height: 365px;
+  width: 600px;
+  background: url(../images/header.jpg);
+  vertical-align: top;
+  position: relative;
+}
+.company-logo{
+  background-repeat: none;
+  background-position: center center;
+  width: 115px;
+  height: 115px;
+}
+.company-name{
+  color: #e8e8e8;
+  font-size: 30px;
+}
+.intro{
+  width: 320px;
+  padding: 5px;
+  height: 430px;
+  margin-left: 14px;
+  font-size: 12px;
+  color: #fff;
+  padding-top: 10px;
+  overflow: hidden;
+  position: relative;
+  top: -80px;
+  text-align: center;
+}
+.intro .main{
+  padding-top: 30px;
+  text-align: left;
+  height: 240px;
+}
+.intro h1,
+.intro h2,
+.intro h3,
+.intro h1 a,
+.intro h2 a,
+.intro h3 a{
+  font-size: 14px;
+  color: #fff;
+}
+.social{
+  height: 46px;
+  padding: 27px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #3e1e12;
+  line-height: 28px;
+  text-align: right;
+}
+.social a{
+  background: url(../images/social.png);
+  width: 30px;
+  height: 30px;
+  margin: 0px 5px;
+}
+.social .rss{ background-position: 0px 0px; }
+.social .twitter{ background-position: -33px 0px; }
+.social .facebook{ background-position: -67px 0px; }
+.social .rss:hover { background-position: -133px 0px; }
+.social .twitter:hover { background-position: -166px 0px; }
+.social .facebook:hover { background-position: -200px 0px; }
+
+.container .wrap{
+  background: url(../images/back-rep.jpg);
+}
+.connector{
+  width: 958px;
+  height: 63px;
+  background: url(../images/connector.jpg);
+  margin-bottom: 10px;
+}
+.container{
+  color: #393939;
+  margin-bottom: 25px;
+}
+.container .panel{
+  font-size: 12px;
+  width: 305px;
+  padding: 20px 5px 20px 10px;
+  vertical-align: top;
+}
+.container .main{
+  font-size: 12px;
+  width: 615px;
+  padding: 20px 5px;
+  vertical-align: top;
+  background: url(../images/vertical-border.jpg) left repeat-y;
+}
+.footer{
+  background: url(../images/footer.jpg);
+  height: 8px;
+}
+
+/* common-> */
+a{ color: #5c583f; cursor: pointer; }
+a img{ border: none; }
+h1, h2, h3, h4, h5{
+  color: #1d1d1f;
+  font-size: 14px;
+  margin: 0px;
+  padding: 5px 0px 3px;
+}
+h1 a, h2 a, h3 a{ color: #6c6341; text-decoration: none; }
+h1{ font-size: 20px; }
+h2{
+  font-size: 18px;
+  color: #6c6341;
+}
+h3{
+  font-size: 16px;
+  padding: 5px 0px 3px;
+  color: #6c6341;
+}
+p{
+  margin: 0px;
+  padding: 5px 0px;
+}
+.cliiz-blog .cliiz-detail{
+  position: relative;
+  height: 100px;
+  width: 480px;
+}
+.cliiz-blog .cliiz-info{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+}
+.cliiz-blog .cliiz-post{
+  border-bottom: #6c6341 1px dashed;
+  margin-top: 5px;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+.cliiz-blog .cliiz-date{
+  color: #1d1d1f;
+}
+.cliiz-blog .cliiz-more{
+  margin-top: 3px;
+  margin-left: 10px; 
+}
+div.cliiz-module div.cliiz-posts div.cliiz-post{
+  width: 335px;
+}
+div.cliiz-module div.cliiz-posts div.cliiz-detail{
+  width: 265px;
+  padding: 0px 0px 10px;
+}
+.footer div.cliiz-module div.cliiz-posts div.cliiz-post{
+  width: 298px;
+}
+.footer div.cliiz-module div.cliiz-posts div.cliiz-detail{
+  width: 233px;
+}
+/* <-common */
+
