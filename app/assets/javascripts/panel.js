@@ -6,7 +6,7 @@ cliiz.panel = $.namespace({
   init: function(){
     $.fn.tip.setup( { wrapper: '<div class="fn-tooltip tooltip"><div class="arrow"></div><div class="arrow-border"></div><div class="tip jl-tip-content"></div></div>', mood: 'hover', my: 'left top', at: 'left bottom', offset: '-15 12', onShow: function(){ $('.fn-tooltip').hide(); this.show(); } } );
     $('body').watermarks().find('[tip]').tip();
-    $('.fn-login-form').bind( 'ajaxCallback', function(e,d){ if(d.company!=undefined) document.location = '/panel' } )
+    $('.fn-login-form').bind( 'ajaxCallback', function(e,d){ if(d.email!=undefined) document.location = '/panel' } )
     this.menu();
     this.parse();
   },

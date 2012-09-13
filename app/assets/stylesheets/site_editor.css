@@ -45,7 +45,7 @@ div.cliiz-mini-menu .cliiz-drop{
 div.cliiz-mini-menu .cliiz-move{
   width: 46px;
   height: 20px;
-  background: url(/images/mini/move.png) no-repeat;
+  background: url(/assets/mini/move.png) no-repeat;
   position: absolute;
   top: 0px;
   left: 20px;
@@ -55,22 +55,22 @@ div.cliiz-mini-menu .cliiz-move{
 div.cliiz-mini-menu .cliiz-left{
   height: 45px;
   width: 21px;
-  background: url(/images/mini/menu-left.png) no-repeat;
+  background: url(/assets/mini/menu-left.png) no-repeat;
 }
 div.cliiz-mini-menu .cliiz-right{
   height: 45px;
   width: 21px;
-  background: url(/images/mini/menu-right.png) no-repeat;
+  background: url(/assets/mini/menu-right.png) no-repeat;
 }
 div.cliiz-mini-menu .cliiz-main{
   height: 45px;
   width: 320px;
-  background: url(/images/mini/menu-rep.png) repeat-x;
+  background: url(/assets/mini/menu-rep.png) repeat-x;
 }
 div.cliiz-mini-menu .cliiz-bar .cliiz-prev{
   width: 18px;
   height: 26px;
-  background: url(/images/mini/prev-next.png) no-repeat;
+  background: url(/assets/mini/prev-next.png) no-repeat;
   margin-top: 3px;
   margin-left: 20px;
   cursor: pointer;
@@ -88,7 +88,7 @@ div.cliiz-mini-menu .cliiz-bar .cliiz-title{
 div.cliiz-mini-menu .cliiz-bar .cliiz-next{
   width: 18px;
   height: 26px;
-  background: url(/images/mini/prev-next.png) -19px 0px no-repeat;
+  background: url(/assets/mini/prev-next.png) -19px 0px no-repeat;
   margin-top: 3px;
   cursor: pointer;
 }
@@ -110,12 +110,12 @@ div.cliiz-mini-menu .cliiz-drop .cliiz-current-title{
 div.cliiz-mini-menu .cliiz-drop .cliiz-content{
   width: 162px;
   padding: 10px;
-  background: url(/images/mini/drop-rep.png) repeat-y;
+  background: url(/assets/mini/drop-rep.png) repeat-y;
 }
 div.cliiz-mini-menu .cliiz-drop .cliiz-bottom{
   height: 131px;
   width: 182px;
-  background: url(/images/mini/drop-bottom.png) no-repeat;
+  background: url(/assets/mini/drop-bottom.png) no-repeat;
   text-align: center;
   padding-top: 10px;
 }
@@ -140,24 +140,24 @@ div.cliiz-module-menu.shorten .cliiz-bar{
 div.cliiz-module-menu .cliiz-left{
   height: 45px;
   width: 21px;
-  background: url(/images/mini/menu-left.png) no-repeat;
+  background: url(/assets/mini/menu-left.png) no-repeat;
 }
 div.cliiz-module-menu .cliiz-right{
   height: 45px;
   width: 21px;
-  background: url(/images/mini/menu-right.png) no-repeat;
+  background: url(/assets/mini/menu-right.png) no-repeat;
 }
 div.cliiz-module-menu .cliiz-main{
   height: 45px;
   width: 72px;
-  background: url(/images/mini/menu-rep.png) repeat-x;
+  background: url(/assets/mini/menu-rep.png) repeat-x;
 }
 div.cliiz-module-menu.shorten .cliiz-main{
   width: 42px;
 }
 /* menu item*/
 div.cliiz-mini-menu .cliiz-bar .cliiz-item{
-  background: url(/images/mini/menu-iconset.png);
+  background: url(/assets/mini/menu-iconset.png);
   height: 30px;
   width: 30px;
   cursor: pointer;
@@ -215,7 +215,7 @@ div.cliiz-mini-green-button,
 div.cliiz-mini-box-button,
 div.cliiz-mini-gray-button{
   cursor: pointer;
-  background: url(/images/mini/box-buttons.jpg) repeat-x;
+  background: url(/assets/mini/box-buttons.jpg) repeat-x;
   display: inline-block;
   *display: inline;
   *zoom: 1;
@@ -260,7 +260,7 @@ div.cliiz-mini-menu .cliiz-layout{
 }
 /* layout */
 div.cliiz-mini-menu .cliiz-layout .cliiz-frame{
-  background: url(/images/wizard/template-frame.png) no-repeat;
+  background: url(/assets/wizard/template-frame.png) no-repeat;
   height: 162px;
   width: 162px;
   position: relative;
@@ -269,10 +269,10 @@ div.cliiz-mini-menu .cliiz-layout .cliiz-frame{
 }
 div.cliiz-mini-menu .cliiz-layout.selected .cliiz-frame,
 div.cliiz-mini-menu .cliiz-layout:hover .cliiz-frame{
-  background-image: url(/images/wizard/template-frame-selected.png);
+  background-image: url(/assets/wizard/template-frame-selected.png);
 }
 div.cliiz-mini-menu .cliiz-layout .cliiz-info{
-  background: url(/images/wizard/template-info-bar.png) no-repeat;
+  background: url(/assets/wizard/template-info-bar.png) no-repeat;
   width: 78px;
   height: 24px;
   margin: -10px;
@@ -333,7 +333,7 @@ div.cliiz-mini-menu .fn-cliiz-disable{
 
 /* icons */
 .cliiz-module-icon{
-  background: url("/images/iconset.png") repeat scroll 0 0 transparent;
+  background: url("/assets/iconset.png") repeat scroll 0 0 transparent;
   height: 60px;
   width: 60px;
 }
@@ -364,7 +364,7 @@ div.cliiz-mini-menu .fn-cliiz-disable{
   overflow: auto;
 }
 .cliiz-mini-box-top{
-  background: url(/images/mini/box-top.png);
+  background: url(/assets/mini/box-top.png);
   height: 26px;
   cursor: move;
   position: relative;
@@ -372,7 +372,7 @@ div.cliiz-mini-menu .fn-cliiz-disable{
 .cliiz-mini-box-container-wrapper{
   width: 680px;
   padding: 15px;
-  background: url(/images/mini/box-rep.png) repeat-y;
+  background: url(/assets/mini/box-rep.png) repeat-y;
   height: 420px;
   position: relative;
 }
@@ -384,7 +384,7 @@ div.cliiz-mini-menu .fn-cliiz-disable{
 }
 .cliiz-mini-box-close{
   cursor: pointer;
-  background: url(/images/mini/box-close.jpg);
+  background: url(/assets/mini/box-close.jpg);
   width: 10px;
   height: 10px;
   position: absolute;
@@ -403,12 +403,12 @@ div.cliiz-mini-menu .fn-cliiz-disable{
   background-position: -10px 0px;
 }
 .cliiz-mini-box-bottom{
-  background: url(/images/mini/box-bottom.png);
+  background: url(/assets/mini/box-bottom.png);
   height: 16px;
 }
 
 .cliiz-partition-active{
-  background: url(/images/grid.png);
+  background: url(/assets/grid.png);
 }
 .fn-cliiz-partition-active .clz-module,
 .clz-module:hover {

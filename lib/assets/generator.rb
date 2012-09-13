@@ -40,20 +40,20 @@ class Generator
   def edit_page(type, company, components, security_tag)
     layout = company.setting[:temp_frame_id].blank? ? company.frame : Frame.find( company.setting[:temp_frame_id] )
     edit_scripts = %(
-      <link href="/stylesheets/toolbox.css" media="screen" rel="stylesheet" type="text/css">
-      <link href="/stylesheets/site_editor_form.css" media="screen" rel="stylesheet" type="text/css">
-      <link href='/javascripts/core/editor/jquery.wysiwyg.css' media='screen' rel='stylesheet' type='text/css' />
-      <script src='/javascripts/core/jquery.ui.min.js' type='text/javascript'></script>
-      <script src='/javascripts/core/editor/jquery.wysiwyg.js' type='text/javascript'></script>
-      <script src='/javascripts/core/jquery.mousewheel.min.js' type='text/javascript'></script>
-      <script src='/javascripts/core/jquery.extension.js' type='text/javascript'></script>
-      <script src='/javascripts/core/validation.js' type='text/javascript'></script>
-      <script src='/javascripts/core/template.js' type='text/javascript'></script>
-      <script src='/javascripts/core/tip.js' type='text/javascript'></script>
-      <script src='/javascripts/core.js' type='text/javascript'></script>
+      <link href="/assets/toolbox.css" media="screen" rel="stylesheet" type="text/css">
+      <link href="/assets/site_editor_form.css" media="screen" rel="stylesheet" type="text/css">
+      <link href='/assets/core/editor/jquery.wysiwyg.css' media='screen' rel='stylesheet' type='text/css' />
+      <script src='/assets/core/jquery.ui.min.js' type='text/javascript'></script>
+      <script src='/assets/core/editor/jquery.wysiwyg.js' type='text/javascript'></script>
+      <script src='/assets/core/jquery.mousewheel.min.js' type='text/javascript'></script>
+      <script src='/assets/core/jquery.extension.js' type='text/javascript'></script>
+      <script src='/assets/core/validation.js' type='text/javascript'></script>
+      <script src='/assets/core/template.js' type='text/javascript'></script>
+      <script src='/assets/core/tip.js' type='text/javascript'></script>
+      <script src='/assets/core.js' type='text/javascript'></script>
       <script src='/javascripts/config.js' type='text/javascript'></script>
       <script src='http://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script>
-      <script src='/javascripts/cliiz.editor.js' type='text/javascript'></script>)
+      <script src='/assets/cliiz.editor.js' type='text/javascript'></script>)
     @doc = page type, company, layout, components, security_tag
     add_editor company, components, type
     @doc.at_css('head').inner_html += edit_scripts

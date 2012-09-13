@@ -6,7 +6,7 @@
     <p>List of forms you have in order to collect information from your vistors. <b>To check the list click on them</b></p>
     <div class='listing'>
       <% @uc.each do |m| %>
-      <div class='item'><a href='/panel/contact_books/<%=m.id%>'><img src='/images/blank.gif' class='icon small <%=m.component.uname%>'/><span><%=m.component.name%></span><span class='info'>(<%=m.page%> page)</span></a></div>
+      <div class='item'><a href='/panel/contact_books/<%=m.id%>'><img src='/assets/blank.gif' class='icon small <%=m.component.uname%>'/><span><%=m.component.name%></span><span class='info'>(<%=m.page%> page)</span></a></div>
       <%end%>
     </div>
   </div>

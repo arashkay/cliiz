@@ -1,5 +1,5 @@
 <%content_for :head do%>
-  <script src="/javascripts/file.js" type="text/javascript"></script>
+  <%= javascript_include_tag "file.js" %>
 <%end%>
 <h1>File Manager</h1>
 <div class='box list w748'>
@@ -16,13 +16,13 @@
       <div class='fn-list thumbs' auto='true'>
         <% unless @parent.id.nil? %>
           <div class='thumb fn-row fn-droppable' folderid='<%=@parent.folder.id unless (@parent.blank?||@parent.folder.blank?) %>'>
-            <img src='/images/panel/folderup.png' class='no-border' />
+            <img src='/assets/panel/folderup.png' class='no-border' />
             <div><a href='/panel/files/<%=@parent.folder.id unless (@parent.blank?||@parent.folder.blank?)%>'><%= (@parent.blank?||@parent.folder.blank?) ? 'root' : @parent.folder.name %></a></div>
           </div>
         <%end%>
         <%@folders.each do |f|%>
           <div class='thumb fn-row fn-draggable fn-droppable' folderid='<%=f.id%>'>
-            <img src='/images/panel/folder.png' class='no-border' />
+            <img src='/assets/panel/folder.png' class='no-border' />
             <div class='cell simple w20'><input type='checkbox'/><input type='hidden' name='folders' value="<%=f.id%>"/></div>
             <div class='info'>
               <a href='/panel/files/<%=f.id%>'><%= f.name %></a>

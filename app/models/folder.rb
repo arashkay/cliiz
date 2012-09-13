@@ -1,5 +1,6 @@
 class Folder < ActiveRecord::Base
   
+  attr_accessible :folder_id, :folder, :company_id, :company, :name
   validates_presence_of :name, :company_id
 
   belongs_to :folder

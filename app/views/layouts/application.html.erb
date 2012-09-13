@@ -4,14 +4,8 @@
   <title>Welcome to Administration Panel</title>
   <meta name="description" content="Free of charge and fastest way to create your website for your small/medium business. In 3 easy steps you have your own website, blog, eshop and more. Also if you want to expand your current website use our on-click addons to enable shops, blogs, forums, user management and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
-  <link href='/stylesheets/panel.css' media="screen" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/core/jquery.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core/jquery.ui.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core/jquery.extension.js" type="text/javascript"></script>
-  <script src="/javascripts/core/tip.js" type="text/javascript"></script>
-  <script src="/javascripts/core/form.watermark.js" type="text/javascript"></script>
-  <script src="/javascripts/core.js" type="text/javascript"></script>
-  <script src="/javascripts/panel.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'panel' %>
+  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/tip.js", "core/form.watermark.js", "core.js" ,"panel.js" %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
@@ -56,7 +50,7 @@
   </div>
   <div class='fn-blocker blocker hidden'></div>
   <div class='fn-loading freezer hidden'>
-    <div class='noticebox'><img src='/images/wizard/loading-circ.gif'/><span>in progress ...</span></div>
+    <div class='noticebox'><img src='/assets/wizard/loading-circ.gif'/><span>in progress ...</span></div>
   </div>
 </body>
 </html>

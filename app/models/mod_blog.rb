@@ -1,4 +1,6 @@
 class ModBlog < ActiveRecord::Base
+
+  attr_accessible :title, :content, :used_component_id, :publish_date, :image_id, :image, :summary
   validates_presence_of :title, :content, :used_component_id
   before_save :add_summary
   belongs_to :image

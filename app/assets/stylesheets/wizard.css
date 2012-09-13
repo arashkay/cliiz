@@ -28,7 +28,7 @@
   top: 8px;
   cursor: pointer;
   color: #0387b9;
-  background: url(/images/wizard/tooltip-close.jpg) no-repeat;
+  background: url(/assets/wizard/tooltip-close.jpg) no-repeat;
   width: 10px;
   height: 10px;
 }
@@ -72,7 +72,7 @@
   left: -17px;
 }
 .tooltip .tip{
-  background: #333 url(/images/wizard/tooltip-back.jpg) bottom no-repeat;
+  background: #333 url(/assets/wizard/tooltip-back.jpg) bottom no-repeat;
   border: 2px #0387b9 solid;
   width: 180px;
   padding: 15px 10px 20px;
@@ -82,7 +82,7 @@
 }
 .wizard{
   border: 2px #fff solid;
-  background: url(/images/wizard/wizard-back.png);
+  background: url(/assets/wizard/wizard-back.png);
   width: 900px;
   height: 600px;
   position: absolute;
@@ -101,17 +101,17 @@
   position: relative;
 }
 .wizard .top-menu .left{
-  background: url(/images/wizard/wizard-menu-left.png);
+  background: url(/assets/wizard/wizard-menu-left.png);
   height: 58px;
   width: 14px;
 }
 .wizard .top-menu .right{
-  background: url(/images/wizard/wizard-menu-right.png);
+  background: url(/assets/wizard/wizard-menu-right.png);
   height: 58px;
   width: 14px;
 }
 .wizard .top-menu .main{
-  background: url(/images/wizard/wizard-menu-rep.png);
+  background: url(/assets/wizard/wizard-menu-rep.png);
   height: 58px;
   width: 700px;
   list-style: none;
@@ -135,12 +135,12 @@
   text-align: center;
 }
 .wizard .top-menu .main li.selected{
-  background: url(/images/wizard/wizard-menu-selected.png) no-repeat;
+  background: url(/assets/wizard/wizard-menu-selected.png) no-repeat;
   height: 78px;
   color: #23700f;
 }
 .wizard .top-menu .close{
-  background: url(/images/wizard/close.png) no-repeat;
+  background: url(/assets/wizard/close.png) no-repeat;
   width: 29px;
   height: 29px;
   position: absolute;
@@ -160,17 +160,17 @@
   z-index: 10;
 }
 .wizard .info-bar .left{
-  background: url(/images/wizard/info-bar-left.png) no-repeat;
+  background: url(/assets/wizard/info-bar-left.png) no-repeat;
   height: 50px;
   width: 9px;
 }
 .wizard .info-bar .main{
-  background: url(/images/wizard/info-bar-rep.png) repeat-x;
+  background: url(/assets/wizard/info-bar-rep.png) repeat-x;
   height: 50px;
   width: 300px;
 }
 .wizard .info-bar .right{
-  background: url(/images/wizard/info-bar-right.png) no-repeat;
+  background: url(/assets/wizard/info-bar-right.png) no-repeat;
   height: 50px;
   width: 9px;
 }
@@ -193,7 +193,7 @@
   cursor: pointer;
 }
 .wizard .prev-step{
-  background: url(/images/wizard/back-big.png) 0px -60px no-repeat;
+  background: url(/assets/wizard/back-big.png) 0px -60px no-repeat;
   width: 76px;
   height: 58px;
 }
@@ -201,7 +201,7 @@
   background-position: 0px 0px;
 }
 .wizard .next-step{
-  background: url(/images/wizard/next-big.png) 0px -60px no-repeat;
+  background: url(/assets/wizard/next-big.png) 0px -60px no-repeat;
   width: 132px;
   height: 58px;
 }
@@ -216,15 +216,15 @@
   margin-top: 10px;
 }
 .wizard .paragraph .top{
-  background: url(/images/wizard/content-top.png);
+  background: url(/assets/wizard/content-top.png);
   height: 14px;
 }
 .wizard .paragraph .inner{
-  background: url(/images/wizard/content-rep.png);
+  background: url(/assets/wizard/content-rep.png);
   padding: 0px 20px;
 }
 .wizard .paragraph .bottom{
-  background: url(/images/wizard/content-bottom.png);
+  background: url(/assets/wizard/content-bottom.png);
   height: 14px;
 }
 .wizard .paragraph p{
@@ -292,17 +292,17 @@
   z-index: 1;
 }
 .wizard .input > .left{
-  background: url(/images/wizard/wizard-input-left.png) no-repeat;
+  background: url(/assets/wizard/wizard-input-left.png) no-repeat;
   height: 58px;
   width: 18px;
 }
 .wizard .input > .main{
-  background: url(/images/wizard/wizard-input-rep.png) repeat-x;
+  background: url(/assets/wizard/wizard-input-rep.png) repeat-x;
   height: 58px;
   width: 250px;
 }
 .wizard .input > .right{
-  background: url(/images/wizard/wizard-input-right.png) no-repeat;
+  background: url(/assets/wizard/wizard-input-right.png) no-repeat;
   height: 58px;
   width: 18px;
 }
@@ -371,23 +371,23 @@
 }
 .wizard .input .hint.error .main,
 .wizard .input .hint.server-error .main{
-  background: url(/images/wizard/wizard-error-rep.png) repeat-x;
+  background: url(/assets/wizard/wizard-error-rep.png) repeat-x;
 }
 .wizard .input .hint.correct .main{
-  background: url(/images/wizard/wizard-correct-rep.png) repeat-x;
+  background: url(/assets/wizard/wizard-correct-rep.png) repeat-x;
 }
 .wizard .input .hint.info .main{
-  background: url(/images/wizard/wizard-info-rep.png) repeat-x;
+  background: url(/assets/wizard/wizard-info-rep.png) repeat-x;
 }
 .wizard .input .hint.error .right,
 .wizard .input .hint.server-error .right{
-  background: url(/images/wizard/wizard-error-right.png) no-repeat;
+  background: url(/assets/wizard/wizard-error-right.png) no-repeat;
 }
 .wizard .input .hint.correct .right{
-  background: url(/images/wizard/wizard-correct-right.png) no-repeat;
+  background: url(/assets/wizard/wizard-correct-right.png) no-repeat;
 }
 .wizard .input .hint.info .right{
-  background: url(/images/wizard/wizard-info-right.png) no-repeat;
+  background: url(/assets/wizard/wizard-info-right.png) no-repeat;
 }
 .wizard .input .icon{
   width: 34px;
@@ -398,13 +398,13 @@
 }
 .wizard .input .hint.error .icon,
 .wizard .input .hint.server-error .icon{
-  background: url(/images/wizard/wizard-error.png) no-repeat;
+  background: url(/assets/wizard/wizard-error.png) no-repeat;
 }
 .wizard .input .hint.correct .icon{
-  background: url(/images/wizard/wizard-correct.png) no-repeat;
+  background: url(/assets/wizard/wizard-correct.png) no-repeat;
 }
 .wizard .input .hint.info .icon{
-  background: url(/images/wizard/wizard-info.png) no-repeat;
+  background: url(/assets/wizard/wizard-info.png) no-repeat;
 }
 .wizard .input .hint a{
   color: #0A3C4C;
@@ -442,7 +442,7 @@
   position: relative;
 }
 .wizard .layout .frame{
-  background: url(/images/wizard/template-frame.png) no-repeat;
+  background: url(/assets/wizard/template-frame.png) no-repeat;
   height: 162px;
   width: 162px;
   position: relative;
@@ -451,10 +451,10 @@
 }
 .wizard .layout.selected .frame,
 .wizard .layout:hover .frame{
-  background-image: url(/images/wizard/template-frame-selected.png);
+  background-image: url(/assets/wizard/template-frame-selected.png);
 }
 .wizard .layout .info{
-  background: url(/images/wizard/template-info-bar.png) no-repeat;
+  background: url(/assets/wizard/template-info-bar.png) no-repeat;
   width: 78px;
   height: 24px;
   margin: -10px;
@@ -480,12 +480,12 @@
   padding: 0px 0px 5px;
 }
 .wizard .list .top{
-  background: url(/images/wizard/list/top.png);
+  background: url(/assets/wizard/list/top.png);
   width: 178px;
   height: 14px;
 }
 .wizard .list > .main{
-  background: url(/images/wizard/list/rep.png) repeat-y;
+  background: url(/assets/wizard/list/rep.png) repeat-y;
   width: 158px;
   padding: 0px 10px;
 }
@@ -494,12 +494,12 @@
   margin: 2px auto 0px;
 }
 .wizard .list .item .left{
-  background: url(/images/wizard/list/item-left.png) no-repeat;
+  background: url(/assets/wizard/list/item-left.png) no-repeat;
   width: 6px;
   height: 44px;
 }
 .wizard .list .item .main{
-  background: url(/images/wizard/list/item-rep.png) repeat-x;
+  background: url(/assets/wizard/list/item-rep.png) repeat-x;
   width: 145px;
   height: 34px;
   font-size: 18px;
@@ -508,30 +508,30 @@
   padding-top: 10px;
 }
 .wizard .list .item .right{
-  background: url(/images/wizard/list/item-right.png) no-repeat;
+  background: url(/assets/wizard/list/item-right.png) no-repeat;
   width: 6px;
   height: 44px;
 }
 .wizard .list .item.selected .main,
 .wizard .list .item:hover .main{
-  background: url(/images/wizard/list/item-selected-rep.png) repeat-x;
+  background: url(/assets/wizard/list/item-selected-rep.png) repeat-x;
   color: #c4e0ec;
 }
 .wizard .list .item.selected .left,
 .wizard .list .item:hover .left{
-  background: url(/images/wizard/list/item-selected-left.png) no-repeat;
+  background: url(/assets/wizard/list/item-selected-left.png) no-repeat;
 }
 .wizard .list .item.selected .right,
 .wizard .list .item:hover .right{
-  background: url(/images/wizard/list/item-selected-right.png) no-repeat;
+  background: url(/assets/wizard/list/item-selected-right.png) no-repeat;
 }
 .wizard .list .bottom{
-  background: url(/images/wizard/list/bottom.png);
+  background: url(/assets/wizard/list/bottom.png);
   width: 178px;
   height: 14px;
 }
 .wizard .scrollbar{
-  background: url(/images/wizard/scroll-bar.png) repeat-x;
+  background: url(/assets/wizard/scroll-bar.png) repeat-x;
   width: 300px;
   height: 10px;
   margin: 10px auto auto;
@@ -547,12 +547,12 @@
   margin-left: -34px;
 }
 .wizard .scrollbar .forward{
-  background: url(/images/wizard/scroll-bar-handle.png) -34px 0px no-repeat;
+  background: url(/assets/wizard/scroll-bar-handle.png) -34px 0px no-repeat;
   width: 34px;
   height: 39px;
 }
 .wizard .scrollbar .backward{
-  background: url(/images/wizard/scroll-bar-handle.png) no-repeat;
+  background: url(/assets/wizard/scroll-bar-handle.png) no-repeat;
   width: 34px;
   height: 39px;
 }
@@ -570,12 +570,12 @@
   height: 39px;
 }
 .wizard .mini-menu .left{
-  background: url(/images/wizard/small-menu-left.png) no-repeat;
+  background: url(/assets/wizard/small-menu-left.png) no-repeat;
   height: 39px;
   width: 10px;
 }
 .wizard .mini-menu .main{
-  background: url(/images/wizard/small-menu-rep.png) repeat-x;
+  background: url(/assets/wizard/small-menu-rep.png) repeat-x;
   font-size: 14px;
   height: 39px;
   font-weight: bold;
@@ -588,12 +588,12 @@
   cursor: pointer;
 }
 .wizard .mini-menu .main a.selected{
-  background: url(/images/wizard/small-indicator.jpg) center bottom no-repeat;
+  background: url(/assets/wizard/small-indicator.jpg) center bottom no-repeat;
   color: #444;
   cursor: default;
 }
 .wizard .mini-menu .right{
-  background: url(/images/wizard/small-menu-right.png) no-repeat;
+  background: url(/assets/wizard/small-menu-right.png) no-repeat;
   height: 39px;
   width: 10px;
 }
@@ -617,18 +617,18 @@
 .wizard .module .left{
   width: 16px;
   height: 122px;
-  background: url(/images/wizard/module/left.png) 0px -122px;
+  background: url(/assets/wizard/module/left.png) 0px -122px;
 }
 .wizard .module .main{
   width: 300px;
   height: 122px;
   position: relative;
-  background: url(/images/wizard/module/rep.png) 0px -122px;
+  background: url(/assets/wizard/module/rep.png) 0px -122px;
 }
 .wizard .module .right{
   width: 16px;
   height: 122px;
-  background: url(/images/wizard/module/right.png) 0px -122px;
+  background: url(/assets/wizard/module/right.png) 0px -122px;
 }
 .wizard .module:hover .left,
 .wizard .module:hover .main,
@@ -641,14 +641,14 @@
   cursor: default;
 }
 .wizard .module .icon{
-  background: url(/images/wizard/module/icon.png);
+  background: url(/assets/wizard/module/icon.png);
   width: 60px;
   height: 60px;
   padding: 2px;
   margin-top: 20px;
 }
 .wizard .module:hover .icon{
-  background: url(/images/wizard/module/icon-selected.png);
+  background: url(/assets/wizard/module/icon-selected.png);
 }
 .wizard .module .main h2{
   font-size: 14px;
@@ -671,7 +671,7 @@
   display: block;
   width: 40px;
   height: 40px;
-  background: url(/images/wizard/module/add.png) -40px 0px;
+  background: url(/assets/wizard/module/add.png) -40px 0px;
   position: absolute;
   bottom: 15px;
   right: 0px;
@@ -690,12 +690,12 @@
 .wizard .form .top{
   width: 708px;
   height: 9px;
-  background: url(/images/wizard/form/top.png);
+  background: url(/assets/wizard/form/top.png);
 }
 .wizard .form > .main{
   width: 708px;
   height: 260px;
-  background: url(/images/wizard/form/rep.png);
+  background: url(/assets/wizard/form/rep.png);
   position: relative;
   overflow: hidden;
 }
@@ -756,7 +756,7 @@
 .wizard .form .bottom{
   width: 708px;
   height: 9px;
-  background: url(/images/wizard/form/bottom.png);
+  background: url(/assets/wizard/form/bottom.png);
 }
 .wizard .selected-modules-list{
   width: 626px;
@@ -767,12 +767,12 @@
   margin-left: -313px;
 }
 .wizard .selected-modules-list .left{
-  background: url(/images/wizard/select-bar-left.png);
+  background: url(/assets/wizard/select-bar-left.png);
   width: 13px;
   height: 68px;
 }
 .wizard .selected-modules-list .main{
-  background: url(/images/wizard/select-bar-rep.png);
+  background: url(/assets/wizard/select-bar-rep.png);
   width: 600px;
   height: 68px;
 }
@@ -786,7 +786,7 @@
   text-align: center;
 }
 .wizard .selected-modules-list .right{
-  background: url(/images/wizard/select-bar-right.png);
+  background: url(/assets/wizard/select-bar-right.png);
   width: 13px;
   height: 68px;
 }
@@ -801,7 +801,7 @@
   margin: 15px 12px;
 }
 .wizard .selected-modules-list .item:hover .delete{
-  background: url(/images/wizard/module/remove.png);
+  background: url(/assets/wizard/module/remove.png);
   width: 24px;
   height: 24px;
   position: absolute;
@@ -812,7 +812,7 @@
   background-position: -24px 0px;
 }
 .wizard .selected-modules-list .item.selected{
-  background: url(/images/wizard/select-bar-selected.png);
+  background: url(/assets/wizard/select-bar-selected.png);
 }
 
 /* finished */

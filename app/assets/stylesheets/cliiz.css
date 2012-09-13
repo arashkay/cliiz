@@ -70,7 +70,7 @@ body{
   height: auto;
 }
 .loading{
-  background: url(/images/loading.gif) center bottom no-repeat;
+  background: url(/assets/loading.gif) center bottom no-repeat;
   width: 200px;
   height: 50px;
   margin: auto;
@@ -95,7 +95,7 @@ body{
   text-decoration: none;
 }
 .mainbox > .menu > * > *{
-  background: url(/images/home/menu-item-set.png) repeat-x;
+  background: url(/assets/home/menu-item-set.png) repeat-x;
   vertical-align: top;
   height: 40px;
   width: 6px;
@@ -133,7 +133,7 @@ body{
   padding: 0px 20px 0px 4px;
 }
 .mainbox .language .arrow{
-  background: url(/images/home/box-arrow.png) no-repeat;
+  background: url(/assets/home/box-arrow.png) no-repeat;
   width: 22px;
   height: 17px;
   margin-top: 5px;
@@ -159,10 +159,10 @@ body{
   width: 152px;
   position: relative;
   height: auto;
-  background: #101719 url(/images/home/menu-item-left.png) repeat-y;
+  background: #101719 url(/assets/home/menu-item-left.png) repeat-y;
 }
 .mainbox .language.open .list .inner{
-  background: url(/images/home/menu-item-right.png) right repeat-y;
+  background: url(/assets/home/menu-item-right.png) right repeat-y;
   width: 132px;
   line-height: 30px;
   font-size: 14px;
@@ -179,7 +179,7 @@ body{
 .mainbox .language.open .bottom *{
   width: 6px;
   height: 5px;
-  background: url(/images/home/menu-item-set.png) repeat-x;
+  background: url(/assets/home/menu-item-set.png) repeat-x;
 }
 .mainbox .language.open .bottom .left{
   background-position: 0px -200px;
@@ -195,7 +195,7 @@ body{
 
 
 .footer{
-  background: url(/images/extend-bar-rep.jpg) 0px 30px repeat-x;
+  background: url(/assets/extend-bar-rep.jpg) 0px 30px repeat-x;
   height: 91px;
   text-align: center;
   position: fixed;
@@ -206,7 +206,7 @@ body{
   color: #B7DAED;
 }
 .compatible{
-  background: url(/images/compatibility.png) right center no-repeat;
+  background: url(/assets/compatibility.png) right center no-repeat;
   margin: auto;
   width: 150px;
   text-align: right;
@@ -223,7 +223,7 @@ body{
   text-align: center;
 }
 .footer-menu a{
-  background: url(/images/extended-arrow.jpg) right top no-repeat;
+  background: url(/assets/extended-arrow.jpg) right top no-repeat;
   cursor: pointer;
   color: #B7DAED;
   font-size: 18px;
@@ -291,7 +291,7 @@ body{
   height: 30px;
 }
 .mainbox .video-screen .actions .dbl-button > *{
-  background: url(/images/toolbox/toolbox-set.png);
+  background: url(/assets/toolbox/toolbox-set.png);
   height: 30px;
   width: 5px;
   font-size: 12px;
@@ -343,7 +343,7 @@ body{
 }
 .mainbox .box .top *,
 .mainbox .box .bottom *{
-  background: url(/images/home/box-set.png);
+  background: url(/assets/home/box-set.png);
   vertical-align: top;
   height: 10px;
   width: 10px;
@@ -384,13 +384,13 @@ body{
   background-position: 0px -110px;
 }
 .mainbox .box > .main{
-  background: #151718 url(/images/home/box-left.png) repeat-y;
+  background: #151718 url(/assets/home/box-left.png) repeat-y;
 }
 .mainbox .box.dark > .main{
-  background: #2F2F2F url(/images/home/box-dark-left.png) repeat-y;
+  background: #2F2F2F url(/assets/home/box-dark-left.png) repeat-y;
 }
 .mainbox .box > .main > .inner{
-  background: url(/images/home/box-right.png) right repeat-y;
+  background: url(/assets/home/box-right.png) right repeat-y;
   padding: 0px 10px;
   line-height: 20px;
   font-size: 20px;
@@ -398,7 +398,7 @@ body{
   color: #fff;
 }
 .mainbox .box.dark > .main > .inner{
-  background: url(/images/home/box-dark-right.png) right repeat-y;
+  background: url(/assets/home/box-dark-right.png) right repeat-y;
 }
 .mainbox .box.w350,
 .mainbox .box.w350 > .top,
@@ -531,15 +531,15 @@ body{
   margin-top: 10px;
 }
 .wizard .paragraph .top{
-  background: url(/images/wizard/content-top.png);
+  background: url(/assets/wizard/content-top.png);
   height: 14px;
 }
 .wizard .paragraph .inner{
-  background: url(/images/wizard/content-rep.png);
+  background: url(/assets/wizard/content-rep.png);
   padding: 0px 20px;
 }
 .wizard .paragraph .bottom{
-  background: url(/images/wizard/content-bottom.png);
+  background: url(/assets/wizard/content-bottom.png);
   height: 14px;
 }
 .wizard .paragraph p{
@@ -563,7 +563,7 @@ body{
   width: 10px;
   height: 40px;
   position: absolute;
-  background: url(/images/home/v-handle.png);
+  background: url(/assets/home/v-handle.png);
   cursor: pointer;
   top: 0px;
 }
@@ -572,7 +572,7 @@ body{
   position: relative;
 }
 .input > *{
-  background: url(/images/home/input-set.png) repeat-x;
+  background: url(/assets/home/input-set.png) repeat-x;
   height: 41px;
   width: 7px;
 }
@@ -605,11 +605,11 @@ body{
 }
 .input.error > .main input{
   color: #5f0411;
-  background: url(/images/home/input-error.png) right no-repeat;
+  background: url(/assets/home/input-error.png) right no-repeat;
 }
 .input.correct > .main input{
   color: #0a5409;
-  background: url(/images/home/input-correct.png) right no-repeat;
+  background: url(/assets/home/input-correct.png) right no-repeat;
 }
 .input .right{
   background-position: 0px -328px;
@@ -674,7 +674,7 @@ body{
 }
 .inputbox > .top > *,
 .inputbox > .bottom > *{
-  background: url(/images/home/input-box-set.png) repeat-x;
+  background: url(/assets/home/input-box-set.png) repeat-x;
   height: 40px;
   width: 7px;
 }
@@ -695,10 +695,10 @@ body{
   background-position: 0px -103px;
 }
 .inputbox > .main{
-  background: #fff url(/images/home/input-box-left.png) repeat-y;
+  background: #fff url(/assets/home/input-box-left.png) repeat-y;
 }
 .inputbox > .main > .inner{
-  background: url(/images/home/input-box-right.png) right repeat-y;
+  background: url(/assets/home/input-box-right.png) right repeat-y;
   width: 750px;
   padding: 5px 0px 10px;
 }
@@ -731,7 +731,7 @@ body{
 
 .layout .frame{
   display: block;
-  background: url(/images/wizard/template-frame.png) -144px 0px no-repeat;
+  background: url(/assets/wizard/template-frame.png) -144px 0px no-repeat;
   height: 144px;
   width: 144px;
   position: relative;
@@ -740,7 +740,7 @@ body{
 }
 .layout.selected .frame,
 .layout:hover .frame{
-  background: url(/images/wizard/template-frame.png) no-repeat;
+  background: url(/assets/wizard/template-frame.png) no-repeat;
 }
 .layout img{
   width: 120px;
@@ -749,7 +749,7 @@ body{
 }
 
 .scrollbar{
-  background: url(/images/wizard/scroll-bar.png) repeat-x;
+  background: url(/assets/wizard/scroll-bar.png) repeat-x;
   width: 300px;
   height: 10px;
   margin: 10px auto auto;
@@ -765,12 +765,12 @@ body{
   margin-left: -34px;
 }
 .scrollbar .forward{
-  background: url(/images/wizard/scroll-bar-handle.png) -34px 0px no-repeat;
+  background: url(/assets/wizard/scroll-bar-handle.png) -34px 0px no-repeat;
   width: 34px;
   height: 39px;
 }
 .scrollbar .backward{
-  background: url(/images/wizard/scroll-bar-handle.png) no-repeat;
+  background: url(/assets/wizard/scroll-bar-handle.png) no-repeat;
   width: 34px;
   height: 39px;
 }
@@ -843,7 +843,7 @@ body{
   cursor: pointer;
 }
 .wizard .prev-step{
-  background: url(/images/wizard/back-big.png) 0px -60px no-repeat;
+  background: url(/assets/wizard/back-big.png) 0px -60px no-repeat;
   width: 76px;
   height: 58px;
 }
@@ -851,7 +851,7 @@ body{
   background-position: 0px 0px;
 }
 .wizard .next-step{
-  background: url(/images/wizard/next-big.png) 0px -60px no-repeat;
+  background: url(/assets/wizard/next-big.png) 0px -60px no-repeat;
   width: 132px;
   height: 58px;
 }
@@ -966,7 +966,7 @@ body{
   top: -5px;
   border-bottom: #0692c6 1px solid;
   font-size: 14px;
-  background: url(/images/wizard/option-arrow.png) right bottom no-repeat;
+  background: url(/assets/wizard/option-arrow.png) right bottom no-repeat;
   color: #0692c6;
   line-height: 20px;
   padding: 5px 15px 5px 15px;
@@ -998,30 +998,30 @@ body{
 }
 .wizard .list .item.selected .main,
 .wizard .list .item:hover .main{
-  background: #131C21 url(/images/wizard/option-arrow.png) right bottom no-repeat;
+  background: #131C21 url(/assets/wizard/option-arrow.png) right bottom no-repeat;
   color: #0692c6;
 }
 .wizard .list .item.selected .left,
 .wizard .list .item:hover .left{
-  background: url(/images/home/list/item-selected-left.png) no-repeat;
+  background: url(/assets/home/list/item-selected-left.png) no-repeat;
 }
 .wizard .list .item.selected .right,
 .wizard .list .item:hover .right{
-  background: url(/images/home/list/item-selected-right.png) no-repeat;
+  background: url(/assets/home/list/item-selected-right.png) no-repeat;
 }
 .wizard .list .item.disabled .left{
-  background: url(/images/home/list/item-left.png) no-repeat;
+  background: url(/assets/home/list/item-left.png) no-repeat;
 }
 .wizard .list .item.disabled .main{
-  background: url(/images/home/list/item-rep.png) repeat-x;
+  background: url(/assets/home/list/item-rep.png) repeat-x;
   color: #222;
   cursor: default;
 }
 .wizard .list .item.disabled .right{
-  background: url(/images/home/list/item-right.png) no-repeat;
+  background: url(/assets/home/list/item-right.png) no-repeat;
 }
 .wizard .list .bottom{
-  background: url(/images/home/list/bottom.png);
+  background: url(/assets/home/list/bottom.png);
   width: 178px;
   height: 14px;
 }
@@ -1030,7 +1030,7 @@ body{
 .sitebuilder-icon,
 .content-icon,
 .infoform-icon{
-  background: url(/images/iconset.png);
+  background: url(/assets/iconset.png);
   width: 60px;
   height: 60px;
 }
@@ -1063,7 +1063,7 @@ body{
   color: #59A1BB;
   height: 35px;
   width: 40px;
-  background: url(/images/home/upper.png);
+  background: url(/assets/home/upper.png);
   text-align: center;
   padding: 33px 0px 0px 5px;
   cursor: pointer;
@@ -1081,7 +1081,7 @@ body{
   width: 902px;
   height: 1151px;
   margin: auto;
-  background: url('/images/content/infobox.jpg');
+  background: url('/assets/content/infobox.jpg');
 }
 .infobox .box{
   font-size: 12px;
@@ -1146,22 +1146,22 @@ body{
 .infobox .box4{
   height: 210px;
   width: 280px;
-  background: url(/images/content/google.png) right bottom no-repeat;
+  background: url(/assets/content/google.png) right bottom no-repeat;
 }
 .infobox .box5{
   height: 210px;
   width: 280px;
-  background: url(/images/content/social.png) 130px 130px no-repeat;
+  background: url(/assets/content/social.png) 130px 130px no-repeat;
 }
 .infobox .box6{
   height: 210px;
   width: 580px;
-  background: url(/images/content/analytic.png) right bottom no-repeat;
+  background: url(/assets/content/analytic.png) right bottom no-repeat;
 }
 .infobox .box7{
   height: 210px;
   width: 280px;
-  background: url(/images/content/map.png) 160px 100px no-repeat;
+  background: url(/assets/content/map.png) 160px 100px no-repeat;
 }
 .infobox .box8{
   height: 210px;
@@ -1170,17 +1170,17 @@ body{
 .infobox .box9{
   height: 210px;
   width: 280px;
-  background: url(/images/content/rss.png) 100px 100px no-repeat;
+  background: url(/assets/content/rss.png) 100px 100px no-repeat;
 }
 .infobox .box10{
   height: 210px;
   width: 280px;
-  background: url(/images/content/youtube-player.png) center 120px no-repeat;
+  background: url(/assets/content/youtube-player.png) center 120px no-repeat;
 }
 .infobox .box11{
   height: 237px;
   width: 279px;
-  background: url(/images/content/blog.jpg) 3px 3px no-repeat;
+  background: url(/assets/content/blog.jpg) 3px 3px no-repeat;
 }
 
 .infobox .box1 .step{
@@ -1191,23 +1191,23 @@ body{
   font-size: 14px;
 }
 .infobox .box1 .pencil{
-  background: url(/images/content/pencil.png) center top no-repeat;
+  background: url(/assets/content/pencil.png) center top no-repeat;
 }
 .infobox .box1 .name{
-  background: url(/images/content/name.png) center top no-repeat;
+  background: url(/assets/content/name.png) center top no-repeat;
   margin-left: 60px;
 }
 .infobox .box1 .world{
-  background: url(/images/content/world.png) center top no-repeat;
+  background: url(/assets/content/world.png) center top no-repeat;
 }
 .infobox .gallery{
-  background: url(/images/content/gallery.png) center top no-repeat;
+  background: url(/assets/content/gallery.png) center top no-repeat;
   width: 232px;
   height: 124px;
   margin: 30px auto 25px;
 }
 .infobox .start{
-  background: url(/images/content/start.png) center top no-repeat;
+  background: url(/assets/content/start.png) center top no-repeat;
   width: 198px;
   height: 43px;
   color: #fff;

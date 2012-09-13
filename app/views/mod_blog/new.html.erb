@@ -1,12 +1,6 @@
 <%content_for :head do%>
-  <link href='/javascripts/core/ui/ui.css' media='screen' rel='stylesheet' type='text/css' />
-  <script src="/javascripts/core/jquery.datepicker.min.js" type="text/javascript"></script>
-  <link href='/javascripts/core/editor/jquery.wysiwyg.css' media='screen' rel='stylesheet' type='text/css' />
-  <script src='/javascripts/core/editor/jquery.wysiwyg.js' type='text/javascript'></script>
-  <script src='/javascripts/core/jquery.mousewheel.min.js' type='text/javascript'></script>
-  <script src='/javascripts/core/template.js' type='text/javascript'></script>
-  <script src="/javascripts/browser.js" type="text/javascript"></script>
-  <script src="/javascripts/post.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'core/ui/ui.css', 'core/editor/jquery.wysiwyg.css' %>
+  <%= javascript_include_tag "core/jquery.datepicker.min.js", "core/editor/jquery.wysiwyg.js", "core/jquery.mousewheel.min.js", "core/template.js", "browser.js", "post.js" %>
 <%end%>
 <%= render :partial => 'shared/browser' %>
 <h1>Post</h1>
@@ -23,7 +17,7 @@
       <%end%>
       <input type='hidden' name='post[image_id]' value='<%= @post.image_id%>' />
       <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token %>' />
-      <img class='item-image pointer fn-post-image fn-choose-image' src='<%=@post.image.blank? ? '/images/noimage100.jpg' : @post.image.entity.url(:thumb)%>' />
+      <img class='item-image pointer fn-post-image fn-choose-image' src='<%=@post.image.blank? ? '/assets/noimage100.jpg' : @post.image.entity.url(:thumb)%>' />
       <div class='partial byimage'>
         <label>Title</label><span><input class='input' name='post[title]' value='<%=@post.title%>'/><div class='help inline' tip='Post title'></div></span>
         <label>Publish Date</label><span><input class='input' name='post[publish_date]' value='<%=@post.publish_date.strftime "%m/%d/%Y"%>'/><div class='help inline' tip='This date will be shown to users as publish date'></div></span>

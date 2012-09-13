@@ -3,7 +3,7 @@ body{
   margin: 0px;
   font-size: 12px;
   font-family: arial, tahoma;
-  background: url(/images/panel/back-rep.jpg) top repeat-x;
+  background: url(/assets/panel/back-rep.jpg) top repeat-x;
   color: #4b4b4b;
 }
 h1, h2, h3, h4, h5{
@@ -138,7 +138,7 @@ button{
   width: 250px;
   height: 40px;
   padding: 14px 9px;
-  background: url(/images/panel/msg-box.png);
+  background: url(/assets/panel/msg-box.png);
   top: 10px;
   left: 50%;
   margin-left: -134px;
@@ -198,7 +198,7 @@ button{
   width: 100%;
 }
 .mainmenu{
-  background: url(/images/panel/menu-rep.jpg) repeat-x;
+  background: url(/assets/panel/menu-rep.jpg) repeat-x;
   height: 80px; /*originally 130px*/
   position: absolute;
   bottom: 0px;
@@ -218,16 +218,16 @@ button{
 .mainmenu .item .left{
   width: 18px;
   height: 34px;
-  background: url(/images/panel/menu-item-left.jpg) bottom no-repeat;
+  background: url(/assets/panel/menu-item-left.jpg) bottom no-repeat;
 }
 .mainmenu .item .right{
   width: 18px;
   height: 34px;
-  background: url(/images/panel/menu-item-right.jpg) bottom no-repeat;
+  background: url(/assets/panel/menu-item-right.jpg) bottom no-repeat;
 }
 .mainmenu .item .label{
   width: 90px;
-  background: url(/images/panel/menu-item-rep.jpg) bottom repeat-x;
+  background: url(/assets/panel/menu-item-rep.jpg) bottom repeat-x;
   height: 34px;
   position: relative;
   z-index: 1;
@@ -247,16 +247,16 @@ button{
 .mainmenu .item.selected .left{
   width: 25px;
   height: 41px;
-  background-image: url(/images/panel/menu-item-selected-left.jpg);
+  background-image: url(/assets/panel/menu-item-selected-left.jpg);
 }
 .mainmenu .item.selected .right{
   width: 25px;
   height: 41px;
-  background-image: url(/images/panel/menu-item-selected-right.jpg);
+  background-image: url(/assets/panel/menu-item-selected-right.jpg);
 }
 .mainmenu .item.selected .label{
   height: 41px;
-  background-image: url(/images/panel/menu-item-selected-rep.jpg);
+  background-image: url(/assets/panel/menu-item-selected-rep.jpg);
 }
 .mainmenu .item.selected .label span{
   display: none;
@@ -295,7 +295,7 @@ button{
   position: relative;
 }
 .submenu .arrow{
-  background: url(/images/panel/sub-menu-arrow.png) no-repeat;
+  background: url(/assets/panel/sub-menu-arrow.png) no-repeat;
   position: absolute;
   top: -10px;
   left: 20px;
@@ -303,17 +303,17 @@ button{
   height: 18px;
 }
 .submenu .left{
-  background: url(/images/panel/sub-menu-left.png) no-repeat;
+  background: url(/assets/panel/sub-menu-left.png) no-repeat;
   width: 12px;
   height: 48px;
 }
 .submenu .main{
-  background: url(/images/panel/sub-menu-rep.png) repeat-x;
+  background: url(/assets/panel/sub-menu-rep.png) repeat-x;
   width: 200px;
   height: 48px;
 }
 .submenu .right{
-  background: url(/images/panel/sub-menu-right.png) no-repeat;
+  background: url(/assets/panel/sub-menu-right.png) no-repeat;
   width: 12px;
   height: 48px;
 }
@@ -367,7 +367,7 @@ button{
 }
 /* icons */
 .icon{
-  background: url(/images/panel/icons.png);
+  background: url(/assets/panel/icons.png);
   width: 50px;
   height: 50px;
 }
@@ -403,7 +403,7 @@ button{
 .icon.files{ background-position: -650px 0px; }
 .icon.files.small{ background-position: -650px -50px; }
 .help{
-  background: url(/images/panel/help.png);
+  background: url(/assets/panel/help.png);
   width: 16px;
   height: 16px;
   margin: auto 5px;
@@ -411,7 +411,7 @@ button{
   cursor: pointer;
 }
 .help.small{
-  background: url(/images/panel/help-big.png);
+  background: url(/assets/panel/help-big.png);
   width: 20px;
   height: 20px;
 }
@@ -443,26 +443,26 @@ button{
   width: inherit;
   height: 7px;
 }
-.box.w308 > .top{ width:308px; background-image: url(/images/panel/box-308-top.png); }
-.box.w408 > .top{ width:408px; background-image: url(/images/panel/box-408-top.png); }
-.box.w748 > .top{ width:748px; background-image: url(/images/panel/box-748-top.png); }
-.list.w748 .top, .detailed.w748 > .top{ background-image: url(/images/panel/list-748-top.png); }
+.box.w308 > .top{ width:308px; background-image: url(/assets/panel/box-308-top.png); }
+.box.w408 > .top{ width:408px; background-image: url(/assets/panel/box-408-top.png); }
+.box.w748 > .top{ width:748px; background-image: url(/assets/panel/box-748-top.png); }
+.list.w748 .top, .detailed.w748 > .top{ background-image: url(/assets/panel/list-748-top.png); }
 .box > .main{
   padding: 12px 15px 2px;
   display: relative;
 }
-.box.w308 > .main{ width:278px; background-image: url(/images/panel/box-308-rep.png); }
-.box.w408 > .main{ width:378px; background-image: url(/images/panel/box-408-rep.png); }
-.box.w748 > .main{ width:718px; background-image: url(/images/panel/box-748-rep.png); }
-.list.w748 > .main, .detailed.w748 > .main{ background-image: url(/images/panel/list-748-rep.png); }
+.box.w308 > .main{ width:278px; background-image: url(/assets/panel/box-308-rep.png); }
+.box.w408 > .main{ width:378px; background-image: url(/assets/panel/box-408-rep.png); }
+.box.w748 > .main{ width:718px; background-image: url(/assets/panel/box-748-rep.png); }
+.list.w748 > .main, .detailed.w748 > .main{ background-image: url(/assets/panel/list-748-rep.png); }
 .box .bottom{
   width: inherit;
   height: 32px;
 }
-.box.w308 .bottom{ width:308px; background-image: url(/images/panel/box-308-bottom.png); }
-.box.w408 .bottom{ width:408px; background-image: url(/images/panel/box-408-bottom.png); }
-.box.w748 .bottom{ width:748px; background-image: url(/images/panel/box-748-bottom.png); }
-.list.w748 .bottom, .detailed.w748 .bottom{ background-image: url(/images/panel/list-748-bottom.png); }
+.box.w308 .bottom{ width:308px; background-image: url(/assets/panel/box-308-bottom.png); }
+.box.w408 .bottom{ width:408px; background-image: url(/assets/panel/box-408-bottom.png); }
+.box.w748 .bottom{ width:748px; background-image: url(/assets/panel/box-748-bottom.png); }
+.list.w748 .bottom, .detailed.w748 .bottom{ background-image: url(/assets/panel/list-748-bottom.png); }
 
 .detailed .partial{
   vertical-align: top;
@@ -479,7 +479,7 @@ button{
 .container .box .motivate {
   height: 26px;
   margin: 0px 9px;
-  background: url(/images/panel/highlight-rep.jpg);
+  background: url(/assets/panel/highlight-rep.jpg);
 }
 .container a.motivate:hover {
   text-decoration: none;
@@ -490,7 +490,7 @@ button{
 .container .box .motivate .innerleft{
   width: auto;
   margin: 0px;
-  background: url(/images/panel/highlight-left.jpg) left no-repeat;
+  background: url(/assets/panel/highlight-left.jpg) left no-repeat;
 }
 .container .box .motivate .innerright{
   height: 26px;
@@ -499,7 +499,7 @@ button{
   padding: 0px 15px;
   line-height: 24px;
   color: #333;
-  background: url(/images/panel/highlight-right.jpg) right no-repeat;
+  background: url(/assets/panel/highlight-right.jpg) right no-repeat;
 }
 
 
@@ -519,7 +519,7 @@ button{
   width: 10px;
   height: 40px;
   position: absolute;
-  background: url(/images/home/v-handle.png);
+  background: url(/assets/home/v-handle.png);
   cursor: pointer;
   top: 0px;
 }
@@ -529,7 +529,7 @@ button{
 .box .paypal{
   width: 170px;
   height: 40px;
-  background: url(/images/paypal.jpg);
+  background: url(/assets/paypal.jpg);
 }
 .box .paypal:hover {
   background-position: 0px -40px;
@@ -609,7 +609,7 @@ button{
   left: 0px;
   right: 0px;
   width: 130px;
-  background: url('/images/blocker-thick.png');
+  background: url('/assets/blocker-thick.png');
   margin: 0px;
   color: #000;
 }
@@ -627,7 +627,7 @@ button{
   vertical-align: middle;
   padding: 2px;
   cursor: default;
-  background: url(/images/panel/list-sep.gif) right no-repeat;
+  background: url(/assets/panel/list-sep.gif) right no-repeat;
 }
 .box.list .row .cell.simple,
 .box.list .row.header .cell{
@@ -685,7 +685,7 @@ button{
 .detailed .menu{ margin: 5px 0px 0px; }
 .detailed .menu.top{ margin: 0px 0px 5px; }
 .list .menu .arrow{
-  background: url(/images/panel/list-action-arrow.jpg) no-repeat;
+  background: url(/assets/panel/list-action-arrow.jpg) no-repeat;
   position: absolute;
   top: -9px;
   left: 20px;
@@ -694,13 +694,13 @@ button{
 }
 .list .menu .left,
 .detailed .menu .left{
-  background: url(/images/panel/list-action-left.jpg) no-repeat;
+  background: url(/assets/panel/list-action-left.jpg) no-repeat;
   width: 11px;
   height: 36px;
 }
 .list .menu .main,
 .detailed .menu .main{
-  background: url(/images/panel/list-action-rep.jpg) repeat-x;
+  background: url(/assets/panel/list-action-rep.jpg) repeat-x;
   height: 25px;
   padding: 11px 0px 0px;
   overflow: hidden;
@@ -709,12 +709,12 @@ button{
 }
 .list .menu .right,
 .detailed .menu .right{
-  background: url(/images/panel/list-action-right.jpg) no-repeat;
+  background: url(/assets/panel/list-action-right.jpg) no-repeat;
   width: 11px;
   height: 36px;
 }
 .list .menu .main .checkall{
-  background: url(/images/panel/list-action-select-all.jpg) no-repeat;
+  background: url(/assets/panel/list-action-select-all.jpg) no-repeat;
   width: 32px;
   height: 22px;
   margin: -4px 0px 0px 10px;

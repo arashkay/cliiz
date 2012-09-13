@@ -4,10 +4,8 @@
   <title><%=t 'site.title'%></title>
   <meta name="description" content="Free of charge and fastest way to create a website for your small/medium business. In 3 easy steps you have your own website, blog, photo gallery, eshop and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
-  <link href='/stylesheets/inner.css' media="screen" rel="stylesheet" type="text/css" />
-  <link href='/stylesheets/locale_<%=locale%>.css' media="screen" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/core/jquery.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'inner', "locale_#{locale}" %>
+  <%= javascript_include_tag "core/jquery.min.js", "core.js" %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
   <script type="text/javascript">
@@ -24,7 +22,7 @@
 </head>
 <body>
   <div class='menu inlined dbld'>
-    <a class='fn-extend-page'>
+    <a href='/#features'>
       <span class='left'></span>
       <span class='main'><%=t 'feature-list' %></span>
       <span class='right'></span>
@@ -37,7 +35,7 @@
     <div class='language fn-language'>
       <div class='left'></div>
       <div class='main'>
-        <img class='arrow' src='/images/blank.gif' />
+        <img class='arrow' src='/assets/blank.gif' />
         <span class='fn-name' value='<%= cookies[:locale] %>'><%=t 'site.language' %></span>
       </div>
       <div class='right'></div>

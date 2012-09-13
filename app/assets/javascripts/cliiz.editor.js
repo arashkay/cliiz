@@ -57,7 +57,7 @@ cliiz.mini = $.namespace({
     $.each(
       data,
       function(){
-        $(cliiz.mini.module+'[uname='+this.component.uname+']').dto(this.component);
+        $(cliiz.mini.module+'[uname='+this.uname+']').dto(this);
       }
     );
     $(cliiz.mini.module,'.fclz-modules').draggable( 
@@ -109,7 +109,7 @@ cliiz.mini = $.namespace({
     $.each(
       this.modules,
       function(){
-        $('[cliiz-uid='+this.used_component.uid+']').dto(this.used_component);
+        $('[cliiz-uid='+this.uid+']').dto(this);
       }
     );
   },
@@ -424,18 +424,20 @@ cliiz.mini = $.namespace({
     );
   },
   refreshedBlock: function(block, data){
+    console.log(data);
     $('[cliiz=block]', block).html(data.content);
   },
   deleted: [],
   publish: function(){
     cliiz.mini.showLoading();
-    var modules = [];
+    var modules = {};
+    var i = 0;
     $('[data-partition]').each(function(){
       var block = $(this);
       $('[cliiz=module][data-edited]', block).each(function(){
         $(this).data('cliiz.module.dto').partition = block.attr('data-partition');
         $(this).data('cliiz.module.dto').page = cliiz.mini.page;
-        modules.push($(this).data('cliiz.module.dto'));
+        modules[i++] = $(this).data('cliiz.module.dto');
       });
     });
     $.send( '/used_components/update.json', { modules: modules , removed: cliiz.mini.deleted }, function(){ location.reload(true) } );

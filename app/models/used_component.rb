@@ -1,4 +1,6 @@
 class UsedComponent < ActiveRecord::Base
+
+  attr_accessible :partition, :component, :company, :setting, :component_id, :company_id, :disabled, :ordering, :page
   
   belongs_to :company
   belongs_to :component

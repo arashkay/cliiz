@@ -18,15 +18,15 @@ cliiz.browser = $.namespace({
     var scope = $('.fn-browser .fn-files').empty();
     var folder = $('.fn-templates .fn-folder').clone();
     var file = $('.fn-templates .fn-file').clone();
-    if(d.parent.folder.id)
-      $('.fn-templates .fn-folderup').clone().appendTo(scope).attr('folderid', d.parent.folder.folder_id).find('.fn-info').text(d.parent.folder.name);
+    if(d.parent.id)
+      $('.fn-templates .fn-folderup').clone().appendTo(scope).attr('folderid', d.parent.folder_id).find('.fn-info').text(d.parent.name);
     folder.template( d.folders, { appendTo: scope } );
     var files = file.template( d.files, { appendTo: scope } );
     $('.fn-folder, .fn-folderup', scope).unbind().click( function() { 
       var id = $(this).attr('folderid');
       $.send( '/panel/files/'+id+'.json', function(d){ cliiz.browser.files(d, id) }, true );
     });
-    if(d.parent.folder.folder_id==null) //fix first level sub folder (roots folder) which has parent_id null 
+    if(d.parent.folder_id==null) //fix first level sub folder (roots folder) which has parent_id null 
       $('.fn-folderup', scope).unbind().click( function() { $.send( '/panel/files.json', cliiz.browser.files, true ); } ).find('.fn-info').text('...');
     files.unbind().click( cliiz.browser.runEvents )
   },

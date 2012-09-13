@@ -3,7 +3,7 @@
   <div class='top'></div>
   <div class='main'>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class='row'><input name='company[email]' marker='.fn-login-user' autosubmit='enter'/><label class='watermark fn-login-user'>Username</label><img src='/images/blank.gif' class='help small' tip='Username is the email you entered at registeration' /></div>
+      <div class='row'><input name='company[email]' marker='.fn-login-user' autosubmit='enter'/><label class='watermark fn-login-user'>Username</label><img src='/assets/blank.gif' class='help small' tip='Username is the email you entered at registeration' /></div>
       <div class='row'><input name='company[password]' marker='.fn-login-password' type='password' autosubmit='enter'/><label class='watermark fn-login-password'>Password</label></div>
       <% if devise_mapping.rememberable? -%>
         <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>

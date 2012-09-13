@@ -4,18 +4,8 @@
   <title><%=t 'site.title'%></title>
   <meta name="description" content="Free of charge and fastest way to create a website for your small/medium business. In 3 easy steps you have your own website, blog, photo gallery, eshop and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
-  <link href='/stylesheets/main.css' media="screen" rel="stylesheet" type="text/css" />
-  <link href='/stylesheets/locale_<%=locale%>.css' media="screen" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/core/jquery.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core/jquery.ui.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core/jquery.mousewheel.min.js" type="text/javascript"></script>
-  <script src="/javascripts/core/jquery.extension.js" type="text/javascript"></script>
-  <script src="/javascripts/core/validation.js" type="text/javascript"></script>
-  <script src="/javascripts/core/form.watermark.js" type="text/javascript"></script>
-  <script src="/javascripts/core.js" type="text/javascript"></script>
-  <script src="/javascripts/config.js" type="text/javascript"></script>
-  <script src="/javascripts/showtime.js" type="text/javascript"></script>
-  <script src="/javascripts/wizard.js" type="text/javascript"></script>
+  <%= stylesheet_link_tag 'main', "locale_#{locale}" %>
+  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/jquery.mousewheel.min.js", "core/validation.js", "core/tip.js", "core/form.watermark.js", "core.js" , "/javascripts/config.js", "showtime.js", "wizard.js" %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
   <script type="text/javascript">
@@ -63,7 +53,7 @@
       <div class='language fn-language'>
         <div class='left'></div>
         <div class='main'>
-          <img class='arrow' src='/images/blank.gif' />
+          <img class='arrow' src='/assets/blank.gif' />
           <span class='fn-name' value='<%= cookies[:locale] %>'><%=t 'site.language' %></span>
         </div>
         <div class='right'></div>
@@ -95,15 +85,15 @@
         <div class='frame-partition fn-start'>
           <div class='layouts'>
             <% @frames[0..2].each do |f| %>
-            <div class='layout'><div class='frame'><img src='/images/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
+            <div class='layout'><div class='frame'><img src='/assets/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
             <%end%>
           </div>
           <div class='scrollbar'><div class='handler'><div class='backward inline'></div><div class='forward inline'></div></div></div>
         </div>
         <h2 class='faded'>Step 2: Register Your Website</h2>
-        <img src='/images/home/text-publish.png'/>
+        <img src='/assets/home/text-publish.png'/>
         <h2 class='faded'>Step 3: Add Your Content</h2>
-        <img src='/images/home/text-content.png'/>
+        <img src='/assets/home/text-content.png'/>
       </div>
       <div class='extra-partition'>
         <!--
@@ -115,8 +105,8 @@
           </div>
           <div class='main'>
             <div class='inner'>
-              <h3 class='fn-video'><img src='/images/home/play.jpg'/>How it works</h3>
-              <img class='fn-video' src='/images/home/movie.jpg'/>
+              <h3 class='fn-video'><img src='/assets/home/play.jpg'/>How it works</h3>
+              <img class='fn-video' src='/assets/home/movie.jpg'/>
             </div>
           </div>
           <div class='bottom'>
@@ -189,7 +179,7 @@
             <div class='layout-list-mask'>
               <div class='layout-list fn-layouts-scroll inlined'>
                 <% @frames.each do |f| %>
-                  <div class='layout fn-layout' url='/templates/<%=f.id%>/home.html' layoutid='<%=f.id%>' layoutname='<%=f.name%>' tags='<%=f.tags%>' ><div class='frame'><img src='/images/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
+                  <div class='layout fn-layout' url='/templates/<%=f.id%>/home.html' layoutid='<%=f.id%>' layoutname='<%=f.name%>' tags='<%=f.tags%>' ><div class='frame'><img src='/assets/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
                 <%end%>
               </div>
             </div>

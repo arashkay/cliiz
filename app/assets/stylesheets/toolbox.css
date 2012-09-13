@@ -9,12 +9,12 @@ body.clz-fixed{
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: url(/images/toolbox/blocker-thick.png);
+  background: url(/assets/toolbox/blocker-thick.png);
   z-index: 10010;
 }
 .clz-form-blocker{
   z-index: 10004;
-  background: url(/images/toolbox/blocker-thick.png);
+  background: url(/assets/toolbox/blocker-thick.png);
 }
 .clz-blocker .clz-loading{
   background: #222;
@@ -99,7 +99,7 @@ body.clz-fixed{
   z-index: 10001;
 }
 .clz-box > * > *{
-  background: url(/images/toolbox/toolbox-set.png) repeat-x;
+  background: url(/assets/toolbox/toolbox-set.png) repeat-x;
 }
 .clz-box .clz-header *{
   font-size: 11px;
@@ -116,7 +116,7 @@ body.clz-fixed{
 }
 .clz-formbox .clz-header .clz-main{ width: 803px; }
 .clz-box .clz-header .clz-main img{
-  background: url(/images/toolbox/icon-set.png) 0px -80px no-repeat;
+  background: url(/assets/toolbox/icon-set.png) 0px -80px no-repeat;
   width: 10px;
   height: 10px;
   margin: 0px 2px;
@@ -124,20 +124,20 @@ body.clz-fixed{
 }
 .clz-box .clz-header .clz-right{ background-position: 0px -60px; }
 .clz-box .clz-middle{
-  background: url(/images/toolbox/toolbox-right.png) right repeat-y;
+  background: url(/assets/toolbox/toolbox-right.png) right repeat-y;
   width: 213px;
 }
 .clz-formbox .clz-middle{ width: 813px; }
 .clz-globalbox .clz-middle{ width: 213px; }
 .clz-box .clz-middle > .clz-left{
-  background: url(/images/toolbox/toolbox-left.png) repeat-y;
+  background: url(/assets/toolbox/toolbox-left.png) repeat-y;
   width: 213px;
   padding: 0px 4px;
 }
 .clz-formbox .clz-middle > .clz-left{ width: 813px; }
 .clz-globalbox .clz-middle > .clz-left{ width: 213px; }
 .clz-box .clz-middle > .clz-left > .clz-main{
-  background: url(/images/toolbox/toolbox-bck.png);
+  background: url(/assets/toolbox/toolbox-bck.png);
   width: 205px;
   padding-bottom: 5px;
   position: relative;
@@ -182,13 +182,13 @@ body.clz-fixed{
   height: 40px;
 }
 .clz-toolbox .clz-menu .clz-menu-sep{
-  background: url(/images/toolbox/icon-set.png) -80px -80px no-repeat;
+  background: url(/assets/toolbox/icon-set.png) -80px -80px no-repeat;
   width: 9px;
   height: 40px;
   margin-top: 4px;
 }
 .clz-toolbox .clz-menu .clz-menu-item{
-  background: url(/images/toolbox/icon-set.png) no-repeat;
+  background: url(/assets/toolbox/icon-set.png) no-repeat;
   width: 40px;
   height: 40px;
   overflow: visible;
@@ -255,7 +255,7 @@ body.clz-fixed{
   cursor: pointer;
 }
 .clz-module-box > * > *{
-  background: url(/images/toolbox/toolbox-set-wide.png) repeat-x;
+  background: url(/assets/toolbox/toolbox-set-wide.png) repeat-x;
   width: 10px;
   height: 10px;
 }
@@ -269,11 +269,11 @@ body.clz-fixed{
   background-position: 0px -56px;
 }
 .clz-module-box > .clz-main{
-  background: url(/images/toolbox/box-left.png) repeat-y;
+  background: url(/assets/toolbox/box-left.png) repeat-y;
   height: 60px;
 }
 .clz-module-box > .clz-main .clz-inner{
-  background: url(/images/toolbox/box-right.png) right repeat-y;
+  background: url(/assets/toolbox/box-right.png) right repeat-y;
   width: 180px;
   padding: 0px 10px;
   height: 60px;
@@ -315,7 +315,7 @@ body.clz-fixed{
   width: 10px;
   height: 40px;
   position: absolute;
-  background: url(/images/home/v-handle.png);
+  background: url(/assets/home/v-handle.png);
   cursor: pointer;
   top: 0px;
 }
@@ -323,7 +323,7 @@ body.clz-fixed{
 
 /*icons*/
 .clz-module-icon{
-  background: url("/images/iconset.png") repeat scroll 0 0 transparent;
+  background: url("/assets/iconset.png") repeat scroll 0 0 transparent;
   height: 40px;
   width: 60px;
   margin-top: 10px;
@@ -392,7 +392,7 @@ body.clz-fixed{
   height: 30px;
 }
 .clz-actions .clz-dbl-button > *{
-  background: url(/images/toolbox/toolbox-set.png);
+  background: url(/assets/toolbox/toolbox-set.png);
   height: 30px;
   width: 5px;
   font-size: 12px;
@@ -432,7 +432,7 @@ body.clz-fixed{
   *zoom: 1;
 }
 .clz-swing{
-  background: url(/images/toolbox/icon-set.png) -40px -80px;
+  background: url(/assets/toolbox/icon-set.png) -40px -80px;
   height: 23px;
   width: 6px;
   margin: 5px 5px;
@@ -482,7 +482,7 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
 }
 .cliiz-module .clz-editing .clz-menu *,
 .clz-walk .clz-setting{
-  background: url(/images/toolbox/icon-set.png) no-repeat;
+  background: url(/assets/toolbox/icon-set.png) no-repeat;
   cursor: pointer;
   width: 20px;
   height: 20px;
@@ -535,7 +535,7 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
 .clz-formbox .clz-field > * > *,
 .clz-formbox .clz-field > .clz-main > .clz-button > *,
 .clz-formbox .clz-field > .clz-block > * > * {
-  background: url(/images/toolbox/toolbox-set.png);
+  background: url(/assets/toolbox/toolbox-set.png);
   width: 5px;
 }
 .clz-formbox .clz-field > .clz-label > *{
@@ -563,7 +563,7 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
   background-position: 0px -110px;
 }
 .clz-formbox .clz-field.clz-disabled > .clz-main > .clz-input > *{
-  background: url(/images/toolbox/toolbox-set.png);
+  background: url(/assets/toolbox/toolbox-set.png);
   width: 5px;
   height: 30px;
 }
@@ -664,21 +664,21 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
   background-position: 0px -420px;
 }
 .clz-formbox .clz-field > .clz-block > .clz-middle{
-  background: #fff url(/images/toolbox/inputbox-left.png) repeat-y;
+  background: #fff url(/assets/toolbox/inputbox-left.png) repeat-y;
   width: 750px;
   height: auto;
 }
 .clz-formbox .clz-field.clz-disabled > .clz-block > .clz-middle{
-  background: #2d2d2d url(/images/toolbox/inputblock-left.png) repeat-y;
+  background: #2d2d2d url(/assets/toolbox/inputblock-left.png) repeat-y;
 }
 .clz-formbox .clz-field > .clz-block > .clz-middle > .clz-main{
-  background: url(/images/toolbox/inputbox-right.png) right repeat-y;
+  background: url(/assets/toolbox/inputbox-right.png) right repeat-y;
   width: 740px;
   height: auto;
   padding: 10px 5px;
 }
 .clz-formbox .clz-field.clz-disabled > .clz-block > .clz-middle > .clz-main{
-  background: url(/images/toolbox/inputblock-right.png) right repeat-y;
+  background: url(/assets/toolbox/inputblock-right.png) right repeat-y;
 }
 .clz-formbox .clz-field > .clz-block > .clz-middle > .clz-main textarea{
   width: 720px;
@@ -830,7 +830,7 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
   border-color: #555;
 }
 .clz-gallery .clz-add-album{
-  background: url(/images/toolbox/add-album.jpg);
+  background: url(/assets/toolbox/add-album.jpg);
   cursor: pointer;
 }
 .clz-gallery .clz-image img{
@@ -854,13 +854,13 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
 .clz-gallery .clz-image .clz-extend .clz-top{
   width: 62px;
   height: 62px;
-  background: url(/images/blocker-thick.png);
+  background: url(/assets/blocker-thick.png);
   margin-top: -5px;
   margin-left: -5px;
 }
 .clz-gallery .clz-image .clz-extend .clz-top .clz-delete{
   position: absolute;
-  background: url(/images/toolbox/icon-set.png) -90px -80px;
+  background: url(/assets/toolbox/icon-set.png) -90px -80px;
   cursor: pointer;
   width: 10px;
   height: 10px;
@@ -880,7 +880,7 @@ body.clz-walkthrough .cliiz-module .clz-editing .clz-menu{
   width: 300px;
   height: 30px;
   color: #eee;
-  background: url(/images/blocker-thick.png);
+  background: url(/assets/blocker-thick.png);
 }
 
 .clz-file{
@@ -1115,4 +1115,4 @@ body.clz-walkthrough{
 }
 
 /* others */
-.clz-player{ background: #000 url(../images/player.jpg) center center no-repeat; }
+.clz-player{ background: #000 url(../assets/player.jpg) center center no-repeat; }

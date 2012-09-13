@@ -5,8 +5,9 @@ class Company < ActiveRecord::Base
   serialize :setting
   validates_uniqueness_of :name
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :frame_id, :domain, :is_locked, :first_edit_done
   
   belongs_to :frame
   has_many :images

@@ -1,6 +1,6 @@
-@import url('/stylesheets/core.css');
+@import url('/assets/core.css');
 body{
-  background: #fff url(../images/inner/back-rep.jpg) center repeat-y;
+  background: #fff url(../assets/inner/back-rep.jpg) center repeat-y;
 }
 h1,
 h2{
@@ -40,7 +40,7 @@ h2{
   vertical-align: top;
 }
 .menu{
-  background: url(../images/inner/header-back-rep.png) repeat-x;
+  background: url(../assets/inner/header-back-rep.png) repeat-x;
   height: 40px;
   text-align: right;
   padding: 5px 20px 15px;
@@ -54,7 +54,7 @@ h2{
   text-decoration: none;
 }
 .menu > * > *{
-  background: url(/images/home/menu-item-set.png) repeat-x;
+  background: url(/assets/home/menu-item-set.png) repeat-x;
   vertical-align: top;
   height: 40px;
   width: 6px;
@@ -92,7 +92,7 @@ h2{
   padding: 0px 20px 0px 4px;
 }
 .language .arrow{
-  background: url(/images/home/box-arrow.png) no-repeat;
+  background: url(/assets/home/box-arrow.png) no-repeat;
   width: 22px;
   height: 17px;
   margin-top: 5px;
@@ -118,10 +118,10 @@ h2{
   width: 152px;
   position: relative;
   height: auto;
-  background: #101719 url(/images/home/menu-item-left.png) repeat-y;
+  background: #101719 url(/assets/home/menu-item-left.png) repeat-y;
 }
 .language.open .list .inner{
-  background: url(/images/home/menu-item-right.png) right repeat-y;
+  background: url(/assets/home/menu-item-right.png) right repeat-y;
   width: 132px;
   line-height: 30px;
   font-size: 14px;
@@ -138,7 +138,7 @@ h2{
 .language.open .bottom *{
   width: 6px;
   height: 5px;
-  background: url(/images/home/menu-item-set.png) repeat-x;
+  background: url(/assets/home/menu-item-set.png) repeat-x;
 }
 .language.open .bottom .left{
   background-position: 0px -200px;
@@ -194,14 +194,14 @@ h2{
   position: relative;
 }
 .plans .features .top{
-  background: url(../images/inner/plan-top.jpg);
+  background: url(../assets/inner/plan-top.jpg);
   height: 36px;
 }
 .plans .features .main{
-  background: url(../images/inner/plan-rep.jpg) repeat-y;
+  background: url(../assets/inner/plan-rep.jpg) repeat-y;
 }
 .plans .features .bottom{
-  background: url(../images/inner/plan-bottom.jpg);
+  background: url(../assets/inner/plan-bottom.jpg);
   height: 80px;
   color: #fff;
   font-size: 20px;
@@ -235,7 +235,7 @@ h2{
   left: 290px;
 }
 .plans .tooltip{
-  background: url(../images/inner/plan-tooltip.png) no-repeat;
+  background: url(../assets/inner/plan-tooltip.png) no-repeat;
   width: 228px;
   height: 50px;
   color: #fff;
@@ -253,7 +253,7 @@ h2{
 /* layouts */
 .layout .frame{
   display: block;
-  background: url(/images/wizard/template-frame.png) -144px 0px no-repeat;
+  background: url(/assets/wizard/template-frame.png) -144px 0px no-repeat;
   height: 144px;
   width: 144px;
   position: relative;
@@ -262,7 +262,7 @@ h2{
 }
 .layout.selected .frame,
 .layout:hover .frame{
-  background: url(/images/wizard/template-frame.png) no-repeat;
+  background: url(/assets/wizard/template-frame.png) no-repeat;
   position: relative;
 }
 .layout img{

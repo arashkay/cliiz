@@ -2,6 +2,8 @@ class Component < ActiveRecord::Base
   
   serialize :setting
 
+  attr_accessible :setting, :component
+
   before_save :set_setting
   belongs_to :component
 

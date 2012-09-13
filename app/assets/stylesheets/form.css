@@ -1,5 +1,5 @@
 .wizard .form .input{
-  background: url(/images/forms/label-left.jpg) no-repeat;
+  background: url(/assets/forms/label-left.jpg) no-repeat;
   margin: 8px 0px;
   height: 25px;
   width: 300px;
@@ -17,18 +17,18 @@
   vertical-align: top;
 }
 .wizard .form .input .right{
-  background: url(/images/forms/input-right.jpg) right no-repeat;
+  background: url(/assets/forms/input-right.jpg) right no-repeat;
   height: 25px;
   width: 298px;
   margin-left: 2px;
 }
 .wizard .form .input .label{
-  background: url(/images/forms/label-right.jpg) right no-repeat;
+  background: url(/assets/forms/label-right.jpg) right no-repeat;
   height: 25px;
   width: 100px;
 }
 .wizard .form .input label{
-  background: url(/images/forms/label-rep.jpg) repeat-x;
+  background: url(/assets/forms/label-rep.jpg) repeat-x;
   height: 25px;
   width: 94px;
   color: #222;
@@ -38,7 +38,7 @@
   padding: 0px 2px;
 }
 .wizard .form .input .main{
-  background: url(/images/forms/input-rep.jpg) repeat-x;
+  background: url(/assets/forms/input-rep.jpg) repeat-x;
   width: 196px;
   height: 25px;
 }
@@ -54,7 +54,7 @@
   background: none;
 }
 .wizard .form .input .display{
-  background: url(/images/forms/input-sep.jpg) right no-repeat;
+  background: url(/assets/forms/input-sep.jpg) right no-repeat;
   width: 169px;
   height: 25px;
   line-height: 24px;
@@ -64,7 +64,7 @@
   padding: 0px 3px;
 }
 .wizard .form .input img{
-  background: url(/images/forms/input-arrow.png) no-repeat;
+  background: url(/assets/forms/input-arrow.png) no-repeat;
   width: 16px;
   height: 15px;
   margin: 5px 0px 0px 3px;
@@ -74,7 +74,7 @@
   background-position: 0px -15px;
 }
 .wizard .form .input .dropbox{
-  background: url(/images/forms/input-drop-top.jpg) no-repeat;
+  background: url(/assets/forms/input-drop-top.jpg) no-repeat;
   width: 200px;
   height: 120px;
   position: absolute;
@@ -82,12 +82,12 @@
   z-index: 7000;
 }
 .wizard .form .input .list{
-  background: url(/images/forms/input-drop-rep.jpg) repeat-y;
+  background: url(/assets/forms/input-drop-rep.jpg) repeat-y;
   width: 200px;
   margin-top: 2px;
 }
 .wizard .form .input .list .option{
-  background: url(/images/forms/input-left.jpg) repeat-y;
+  background: url(/assets/forms/input-left.jpg) repeat-y;
   width: 197px;
   height: 25px;
   margin: 2px 1px 0px;
@@ -104,29 +104,29 @@
   padding: 0px 2px;
 }
 .wizard .form .input .list .option:hover {
-  background-image: url(/images/forms/label-left.jpg);
+  background-image: url(/assets/forms/label-left.jpg);
 }
 .wizard .form .input .list .option:hover .right{
-  background-image: url(/images/forms/label-right.jpg);
+  background-image: url(/assets/forms/label-right.jpg);
 }
 .wizard .form .input .list .option:hover .main{
-  background-image: url(/images/forms/label-rep.jpg);
+  background-image: url(/assets/forms/label-rep.jpg);
 }
 .wizard .form .input .bottom{
-  background: url(/images/forms/input-drop-bottom.jpg) no-repeat;
+  background: url(/assets/forms/input-drop-bottom.jpg) no-repeat;
   width: 200px;
   height: 18px;
   text-align: right;
   padding-top: 2px;
 }
 .wizard .form .input .bottom .up{
-  background: url(/images/forms/input-drop-arrow.png) no-repeat;
+  background: url(/assets/forms/input-drop-arrow.png) no-repeat;
   width: 16px;
   height: 15px;
   cursor: pointer;
 }
 .wizard .form .input .bottom .down{
-  background: url(/images/forms/input-drop-arrow.png) -17px 0px no-repeat;
+  background: url(/assets/forms/input-drop-arrow.png) -17px 0px no-repeat;
   width: 16px;
   height: 15px;
   cursor: pointer;
@@ -142,39 +142,39 @@
   width: 500px;
 }
 .wizard .form .input.dbl{
-  background-image: url(/images/forms/label-dbl-left.jpg);
+  background-image: url(/assets/forms/label-dbl-left.jpg);
   height: 50px;
 }
 .wizard .form .input.solid .right{
-  background-image: url(/images/forms/solid-right.jpg);
+  background-image: url(/assets/forms/solid-right.jpg);
   width: 498px;
 }
 .wizard .form .input.dbl .right{
-  background-image: url(/images/forms/solid-dbl-right.jpg);
+  background-image: url(/assets/forms/solid-dbl-right.jpg);
   height: 50px;
 }
 .wizard .form .input.dbl .label{
-  background-image: url(/images/forms/label-dbl-right.jpg);
+  background-image: url(/assets/forms/label-dbl-right.jpg);
   height: 50px;
 }
 .wizard .form .input.dbl .label label{
-  background-image: url(/images/forms/label-dbl-rep.jpg);
+  background-image: url(/assets/forms/label-dbl-rep.jpg);
   height: 50px;
 }
 .wizard .form .input.solid .main{
-  background-image: url(/images/forms/solid-rep.jpg);
+  background-image: url(/assets/forms/solid-rep.jpg);
   width: 396px;
   color: #000;
 }
 .wizard .form .input.dbl .main{
-  background-image: url(/images/forms/solid-dbl-rep.jpg);
+  background-image: url(/assets/forms/solid-dbl-rep.jpg);
   height: 50px;
 }
 .wizard .form .input.solid span{
   padding: 0px 2px 2px 18px;
   cursor: pointer;
   margin: 5px 7px 3px;
-  background: url(/images/forms/input-checkbox.gif) no-repeat;
+  background: url(/assets/forms/input-checkbox.gif) no-repeat;
 }
 .wizard .form .input.solid span:hover {
   background-position: 0px -30px;
