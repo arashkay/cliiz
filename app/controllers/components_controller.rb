@@ -1,6 +1,6 @@
 class ComponentsController < ApplicationController
   
-  before_filter :is_admin, :except => [:list_addables, :blocks]
+  before_filter :is_admin, :except => [:list_addables, :blocks, :block_for]
 
   def list_addables
     render :json => Component.addables

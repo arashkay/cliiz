@@ -1,4 +1,19 @@
-== Deply
+== Assets
+
+bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile
+tar cvzf assets.tar.gz public/assets/
+# ftp to server to root folder
+mv /home/arashvps/captest/assets.tar.gz /home/arashvps/captest/shared/
+cd /home/arashvps/captest/shared/
+tar zxvf assets.tar.gz
+rm /home/arashvps/captest/shared/assets/* -fr
+mv /home/arashvps/captest/shared/public/assets/* /home/arashvps/captest/shared/assets/
+rm /home/arashvps/captest/shared/public/ -fr
+touch /home/arashvps/captest/current/tmp/restart.txt
+mod -R 777 /home/arashvps/captest/shared/assets/
+
+
+== Deploy
 egrig ex shop khali
 
 cap deploy

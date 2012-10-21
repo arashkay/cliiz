@@ -67,7 +67,7 @@ cliiz.wizard = $.namespace({
       );
     }else if( $('.fn-finished').is(':visible') ){
       $('.fn-wizard').hide();
-      setTimeout( function(){ window.location = "http://"+cliiz.wizard.company.company.name+".cliiz.com" } ,1000 );
+      setTimeout( function(){ window.location = "http://"+cliiz.wizard.company.name+".cliiz.com" } ,1000 );
     }else
       cliiz.wizard.hideLoading();
   },
@@ -218,10 +218,9 @@ cliiz.wizard = $.namespace({
     $('.fn-layout-preview, .fn-layout-preview-block').hide();
   },
   finish: function(){
-    $('.fn-finished .fn-site-name').text(cliiz.wizard.company.company.name);
+    $('.fn-finished .fn-site-name').text(cliiz.wizard.company.name);
     $('.fn-finished a').each(
       function(){
-        console.log($(this).text());
         $(this).attr('href', $(this).text());
       }
     );
