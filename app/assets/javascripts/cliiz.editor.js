@@ -578,7 +578,7 @@ cliiz.gallery = $.namespace({
       }
     );
     $('.fclz-image .fclz-delete').click(
-      function(){
+      function(event){
         var img = $(this).parents('.fclz-image');
         $.send('/panel/gallery/delete', { image: { id: img.attr('fileid') } });
         img.remove();
@@ -604,15 +604,15 @@ cliiz.gallery = $.namespace({
     var scope = $('.fclz-formbox .fclz-files').empty();
     var folder = $('.fclz-templates .fclz-folder').clone();
     var file = $('.fclz-templates .fclz-file').clone();
-    if(d.parent.folder.id)
-      $('.fclz-templates .fclz-folderup').clone().appendTo(scope).attr('folderid', d.parent.folder.folder_id).find('.fclz-info').text(d.parent.folder.name);
+    if(d.parent.id)
+      $('.fclz-templates .fclz-folderup').clone().appendTo(scope).attr('folderid', d.parent.folder_id).find('.fclz-info').text(d.parent.name);
     folder.template( d.folders, { appendTo: scope } );
     var files = file.template( d.files, { appendTo: scope } );
     $('.fclz-folder, .fclz-folderup', scope).unbind().click( function() { 
       var id = $(this).attr('folderid');
       $.send( '/panel/files/'+id+'.json', function(d){ cliiz.gallery.files(d, id) }, true );
     });
-    if(d.parent.folder.folder_id==null) //fix first level sub folder (roots folder) which has parent_id null 
+    if(d.parent.folder_id==null) //fix first level sub folder (roots folder) which has parent_id null 
       $('.fclz-folderup', scope).unbind().click( function() { $.send( '/panel/files.json', cliiz.gallery.files, true ); } ).find('.fclz-info').text('...');
     files.draggable( 
       { 
@@ -636,7 +636,7 @@ cliiz.gallery = $.namespace({
     if(album!=undefined)
       $('.fclz-formbox .fclz-cover').attr( { src: cover } );
     else
-      $('.fclz-formbox .fclz-cover').attr( { src: '/images/blank.gif' } );
+      $('.fclz-formbox .fclz-cover').attr( { src: '/assets/blank.gif' } );
   }
 });
 

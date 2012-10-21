@@ -62,11 +62,11 @@ $(function(){
     <img src='/assets/panel/folderup.png' />
     <div class='clz-info fclz-info'></div>
   </div>
-  <div class='fclz-folder' loop='true' folderid='%#id%' object='folder'>
+  <div class='fclz-folder' loop='true' folderid='%#id%'>
     <img src='/assets/panel/folder.png' />
     <div class='clz-info'>%#name%</div>
   </div>
-  <div class='fclz-image clz-image' loop='true' title='%#title%' isalbum='%#is_album%' fileid='%#id%' object='mod_gallery'>
+  <div class='fclz-image clz-image' loop='true' title='%#title%' isalbum='%#is_album%' fileid='%#id%'>
     <div class='clz-extend'>
       <div class='clz-top'>
         <img src='%#thumb_url%'/>
@@ -79,7 +79,7 @@ $(function(){
     <img class='clz-shadow' src='%#thumb_url%' />
     <img src='%#thumb_url%'/>
   </div>
-  <div class='fclz-file clz-file' loop='true' fileid='%#id%' object='image'>
+  <div class='fclz-file clz-file' loop='true' fileid='%#id%'>
     <img src='%#thumb_url%' />
   </div>
   <%= render :partial => 'general/editor.forms' %>

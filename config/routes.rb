@@ -55,7 +55,7 @@ CliizCom::Application.routes.draw do
     get '/:action', :controller => 'general'
   end
 
-  unless Rails.env=='development'
+  unless %w(development).include? Rails.env
     constraints( { :domain => /[^cliiz.com]/ } ) do
       sites_routes
     end
@@ -69,6 +69,7 @@ CliizCom::Application.routes.draw do
   match '/modules/:action(/:id)' => 'modules'
 
   get '/companies/all' => 'companies#all'
+  get '/companies/menu/:id' => 'companies#menu'
   post '/companies/current' => "companies#current"
   post '/companies/is_new' => "companies#is_new"
   post '/companies/not_registered' => "companies#not_registered"

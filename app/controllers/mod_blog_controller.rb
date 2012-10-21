@@ -7,6 +7,7 @@ class ModBlogController < ApplicationController
     @blog = current_company.blog
     @post.used_component_id = @blog.id unless @blog.blank?
     if @post.save
+      refresh_site!
       redirect_to '/panel/blogging'
     elsif @blog.blank?
       redirect_to '/panel/blogging'
@@ -38,6 +39,7 @@ class ModBlogController < ApplicationController
   def update
     @post = ModBlog.first(:conditions => { :id => params[:id], :used_component_id => current_company.blog.id })
     if @post.blank? || @post.update_attributes(params[:post])
+      refresh_site!
       redirect_to '/panel/blogging'
     else
       render :new
@@ -47,12 +49,14 @@ class ModBlogController < ApplicationController
   def delete
     @blog = current_company.blog
     ModBlog.update_all( 'trashed = true', { :used_component_id => @blog.id, :id => params[:ids] }) unless @blog.blank?
+    refresh_site!
     render :json => true
   end
 
   def restore
     @blog = current_company.blog
     ModBlog.update_all( 'trashed = false', { :used_component_id => @blog.id, :id => params[:ids] }) unless @blog.blank?
+    refresh_site!
     render :json => true
   end
 

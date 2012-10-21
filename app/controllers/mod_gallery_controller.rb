@@ -3,6 +3,7 @@ class ModGalleryController < ApplicationController
   before_filter :authenticate_company!
   
   def create
+    refresh_site!
     @image = ModGallery.new(params[:image])
     @image.used_component_id = current_company.gallery.id
     @image.save
@@ -11,7 +12,7 @@ class ModGalleryController < ApplicationController
 
   def update
     @image = ModGallery.find_by_id_and_used_component_id params[:image][:id], current_company.gallery.id 
-    @image.update_attributes params[:image]
+    @image.update_attributes :title => params[:image][:title]
     render :json => [@image], :methods => :thumb_url
   end
 
@@ -27,6 +28,7 @@ class ModGalleryController < ApplicationController
   end
   
   def delete
+    refresh_site!
     @image = ModGallery.find_by_id_and_used_component_id params[:image][:id], current_company.gallery.id 
     @image.destroy
     render :json => true

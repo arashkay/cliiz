@@ -15,12 +15,14 @@ module CLIIZ
     CONTACT = 'contact'
     BLOG = 'blog'
     GALLERY = 'gallery'
+    LIST = 'list'
     ITEMS = 
       [ [HOME, '/home', 'Home'], 
         [ABOUT, '/about', 'About'], 
         [CONTACT, '/contact', 'Contact'],
         [BLOG, '/blog', 'Blog'],
-        [GALLERY, '/gallery', 'Gallery'] ]
+        [GALLERY, '/gallery', 'Gallery'],
+        [LIST, '/list', 'List'] ]
     DEFAULT = [ITEMS[0], ITEMS[1], ITEMS[2]]
     def self.get_item(item)
       ITEMS[ITEMS.index{ |i| i[0]==item }]
@@ -31,6 +33,8 @@ module CLIIZ
     
     BLOG = 'blog'
     POST = 'post'
+    LIST = 'list'
+    ITEM = 'item'
     POSTFILTER = 'postfilter'
     IMAGE = 'image'
     GALLERY = 'gallery'
@@ -132,6 +136,12 @@ module CLIIZ
           :width => 420,
           :height => 315
         }
+      end
+    end
+
+    class List
+      def self.setting
+        { :with_price => true }
       end
     end
 

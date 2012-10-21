@@ -9,7 +9,7 @@ CliizCom::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -19,6 +19,9 @@ CliizCom::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+
+  config.assets.enabled = false
+
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -47,6 +50,9 @@ CliizCom::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
+  #config.assets.precompile += %w( basic.css core.css form.css locale_fa.css main.css panel.css site_editor_form.css wizard.css cliiz.css datepicker.css inner.css locale_fr.css mini.css site_editor.css toolbox.css )
+  #config.assets.precompile += %w( browser.js cliiz.editor.js core.js file.js panel.js pay.js post.js showtime.js wizard.js core/jquery.datepicker.min.js core/jquery.min.js core/jquery.ui.min.js core/template.js core/editor/jquery.wysiwyg.css core/editor/jquery.wysiwyg.gif core/editor/jquery.wysiwyg.js core/editor/wysiwyg.image.js core/editor/wysiwyg.link.js core/ui/ui.css)
+  config.assets.precompile += ['*.js' , '*.css', '*.png', '*.jpg' '*.gif']
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

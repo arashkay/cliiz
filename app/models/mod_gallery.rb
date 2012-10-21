@@ -1,5 +1,6 @@
 class ModGallery < ActiveRecord::Base
  
+  attr_accessible :image, :image_id, :title
   belongs_to :image
   has_many :mod_galleries, :foreign_key => :parent_id, :dependent => :destroy
   
