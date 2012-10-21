@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      .board{
+        background: url(/assets/underconstruction.jpg);
+        width: 674px;
+        height: 441px;
+        margin: 50px auto;
+      }
+      .message{
+        padding-top: 250px;
+        height: 200px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .message,
+      .submessage{
+        margin: auto;
+        width: 410px;
+        text-align: center;
+        font-family: arial, tahoma;
+        color: #333;
+      }
+      .submessage{
+        font-size: 12px;
+        padding-top: 10px;
+        font-weight: normal;
+      }
+      span{
+        color: #5B84AD;
+      }
+      a{
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='board'>
+      <div class='message'>
+        <p>Hooray! We are working hard to get <span><%=@domain%></span> up and running!</p>
+        <div class='submessage'>
+          Do you need a website too? contact us at <a href='mailto:info@tectual.com.au'><span>info@tectual.com.au</span></a>.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
