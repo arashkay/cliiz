@@ -39,3 +39,22 @@ namespace :deploy do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+before "deploy:symlink", "symlinks:create"
+namespace :symlinks do
+  task :create, :roles => :app do
+    run "cd #{release_path}/public && rm templates -rf"
+    run "cd #{release_path}/public && ln -s #{shared_path}/templates templates"
+    run "cd #{release_path}/public && ln -s #{shared_path}/files files"
+    run "cd #{release_path}/public && ln -s #{shared_path}/assets assets"
+  end
+end
+
+#before "deploy:symlink", "assets:precompile"
+#namespace :assets do
+#  desc "Compile assets"
+#  task :precompile, :roles => :app do
+#    run "cd #{release_path} && rake RAILS_ENV=#{rails_env} assets:precompile"
+#  end
+#end
+
