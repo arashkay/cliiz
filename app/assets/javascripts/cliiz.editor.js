@@ -424,7 +424,6 @@ cliiz.mini = $.namespace({
     );
   },
   refreshedBlock: function(block, data){
-    console.log(data);
     $('[cliiz=block]', block).html(data.content);
   },
   deleted: [],

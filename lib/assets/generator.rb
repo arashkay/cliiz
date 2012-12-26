@@ -81,6 +81,10 @@ class Generator
         infoform_block(component)
       when CLIIZ::COMPONENTS::MAP
         locationmark_block(component)
+      when CLIIZ::COMPONENTS::LISTING
+        list_block(component)
+      when CLIIZ::COMPONENTS::ITEM
+        item_block(component)
       when CLIIZ::COMPONENTS::BLOG
         blog_block(component)
       when CLIIZ::COMPONENTS::POST
@@ -128,6 +132,14 @@ class Generator
  
   def locationmark_block(c)
     ActionController::Base.new.send :render_to_string, '/modules/locationmark/block', :locals => { :setting => setting(c), :uid => c.uid, :company => c.company }
+  end
+
+  def list_block(c)
+    ActionController::Base.new.send :render_to_string, '/modules/list/block', :locals => { :setting => setting(c), :uid => c.uid, :items => ModList.all(:conditions => { :used_component_id => c.id } , :order => 'created_at DESC') }
+  end
+
+  def item_block(c)
+    ActionController::Base.new.send :render_to_string, '/modules/list/item', :locals => { :item => c.extra_data }
   end
 
   def blog_block(c)

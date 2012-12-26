@@ -8,6 +8,8 @@ CliizCom::Application.routes.draw do
     match '/blog/:id/:name.html' => "sites##{action}", :page => 'blog'
     match '/gallery' => "sites##{action}", :page => 'gallery'
     match '/gallery/:id' => "sites##{action}", :page => 'gallery'
+    match '/list' => "sites##{action}", :page => 'list'
+    match '/list/:id' => "sites##{action}", :page => 'list'
   end
 
   match '/designers/how_to_design' => 'general#how_to_design'
@@ -28,6 +30,9 @@ CliizCom::Application.routes.draw do
     post '/gallery/create' => 'mod_gallery#create'
     post '/gallery/update' => 'mod_gallery#update'
     post '/gallery/delete' => 'mod_gallery#delete'
+    resources :listing, :controller => :mod_list do
+      delete '/delete', :action => :delete
+    end
     resources :blogging, :controller => :mod_blog do
       delete '/delete', :action => :delete
       post '/restore', :action => :restore

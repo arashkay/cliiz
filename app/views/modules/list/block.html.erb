@@ -1,0 +1,21 @@
+<div class='cliiz-module' cliiz='package' cliiz-type='listing' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block cliiz-blog' cliiz='block'>
+    <h1>List</h1>
+    <% items.each do |i| %>
+      <div class='cliiz-post'>
+        <div class='cliiz-image'>
+          <img src='<%=i.thumb%>' />
+        </div>
+        <div class='cliiz-detail'>
+          <h2><a href='/list/<%=i.id%>/<%= "#{i.name}".gsub( /[\.\/\$\#\@\!\?]/,'') %>.html'><%= i.name %></a></h2>
+          <div class='cliiz-summary'>
+            <%= i.summary %>
+          </div>
+          <div class='cliiz-info'>
+            <div class='cliiz-more'><a href='/list/<%=i.id%>/<%= "#{i.name}".gsub( /[\.\/\$\#\@\!\?]/,'') %>.html'>more info</a></div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

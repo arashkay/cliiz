@@ -1,6 +1,6 @@
 class ModBlogController < ApplicationController
 
-  before_filter :authenticate_company!, :except => :create
+  before_filter :authenticate_company!
   
   def create
     @post = ModBlog.new(params[:post])

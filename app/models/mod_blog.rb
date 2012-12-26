@@ -6,7 +6,7 @@ class ModBlog < ActiveRecord::Base
   belongs_to :image
 
   def thumb
-    image.blank? ? '/images/noimage100.jpg' : image.entity(:thumb)
+    image.blank? ? '/assets/noimage100.jpg' : image.entity(:thumb)
   end
 
 private

@@ -27,6 +27,8 @@ class UsedComponent < ActiveRecord::Base
             Component.package company, component, CLIIZ::MENU::BLOG
           when CLIIZ::COMPONENTS::GALLERY
             Component.package company, component, CLIIZ::MENU::GALLERY
+          when CLIIZ::COMPONENTS::LISTING
+            Component.package company, component, CLIIZ::MENU::LISTING
         end
       else
         uc.update_attributes :disabled => false
@@ -56,6 +58,10 @@ class UsedComponent < ActiveRecord::Base
           write_attribute :setting, (setting.reject{ |k,v| !%w(address latlng phone fax viewport).include?(k) }).keys_to_sym
         when CLIIZ::COMPONENTS::YOUTUBE
           write_attribute :setting, { :width => setting[:width], :height => setting[:height], :code => setting[:code] }
+        when CLIIZ::COMPONENTS::LISTING
+          write_attribute :setting, setting
+        else
+          write_attribute :setting, setting
       end
     end
   end

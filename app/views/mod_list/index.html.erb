@@ -1,0 +1,37 @@
+<h1>List</h1>
+<div class='box list w748'>
+  <div class='top'></div>
+  <div class='main'>
+    <div class='menu righted'>
+      <div class='left'></div><div class='main'><a href='/panel/listing/new'>New item</a></div><div class='right'></div>
+    </div>
+    <h2>Items</h2>
+    <%if @listing.blank?%>
+      <p>First activate listing package <a href='/panel/edit/home/'>here</a>.</p>
+    <%else%>
+      <%unless @items.blank? %>
+        <div class='fn-list' auto='true'>
+          <div class='row header'>
+            <div class='cell simple w20'></div>
+            <div class='cell w308'>Title</div>
+            <div class='cell w100'>Summary</div>
+          </div>
+          <%@items.each do |i|%>
+          <div class='row fn-row'>
+            <div class='cell simple w20'><input type='checkbox'/><input type='hidden' value="<%=i.id%>"/></div>
+            <div class='cell w200'><a href='/panel/listing/<%=i.id%>/edit'><%= i.name %></a></div>
+            <div class='cell w408'><%= i.summary %></div>
+          </div>
+          <%end%>
+          <div class='menu fn-menu'>
+            <div class='arrow'></div>
+            <div class='left'></div><div class='main'><div class='checkall fn-checkall'><input type='checkbox'/></div><a method='delete' autohide='true' remote='/panel/listing/<%=@listing.id%>/delete'>Delete</a></div><div class='right'></div>
+          </div>
+        </div>
+      <%else%>
+        <p>No item added yet.</p>
+      <%end%>
+    <%end%>
+  </div>
+  <div class='bottom'></div>
+</div>

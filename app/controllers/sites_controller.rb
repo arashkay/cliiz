@@ -10,7 +10,14 @@ class SitesController < ApplicationController
     unless File.exists? cached_file(page)
       components = UsedComponent.all :conditions => { :page => page, :company_id => @company.id }, :order => 'partition, `ordering`'
       case page
-        when 'blog' then
+        when CLIIZ::MENU::LISTING then
+          unless params[:id].blank?
+            components = UsedComponent.all :conditions => ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'list')",  page, @company.id ], :order => 'partition, `ordering`', :joins => :component, :include => :component
+            item = ModList.find(params[:id], :conditions => { :used_component_id => @company.blog.id } )
+            components[0].extra_data = item
+            components[0].component.uname = 'item'
+        end
+        when CLIIZ::MENU::BLOG then
           unless params[:id].blank?
             components = UsedComponent.all :conditions => ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'blog')",  page, @company.id ], :order => 'partition, `ordering`', :joins => :component, :include => :component
             post = ModBlog.find(params[:id], :conditions => { :used_component_id => @company.blog.id } )
@@ -18,7 +25,7 @@ class SitesController < ApplicationController
             components[0].extra_data = post
             components[0].component.uname = 'post'
           end
-        when 'gallery' then
+        when CLIIZ::MENU::GALLERY then
           if !params[:id].blank?
             components = UsedComponent.all :conditions => ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'gallery')",  page, @company.id ], :order => 'partition, `ordering`', :joins => :component, :include => :component
             components[0].extra_data = ModGallery.find(params[:id], :conditions => { :used_component_id => @company.gallery.id } )

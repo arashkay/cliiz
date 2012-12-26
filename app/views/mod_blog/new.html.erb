@@ -17,7 +17,7 @@
       <%end%>
       <input type='hidden' name='post[image_id]' value='<%= @post.image_id%>' />
       <input name="authenticity_token" type="hidden" value='<%= form_authenticity_token %>' />
-      <img class='item-image pointer fn-post-image fn-choose-image' src='<%=@post.image.blank? ? '/assets/noimage100.jpg' : @post.image.entity.url(:thumb)%>' />
+      <img class='item-image pointer fn-post-image fn-choose-image' src='<%=@post.thumb %>' />
       <div class='partial byimage'>
         <label>Title</label><span><input class='input' name='post[title]' value='<%=@post.title%>'/><div class='help inline' tip='Post title'></div></span>
         <label>Publish Date</label><span><input class='input' name='post[publish_date]' value='<%=@post.publish_date.strftime "%m/%d/%Y"%>'/><div class='help inline' tip='This date will be shown to users as publish date'></div></span>

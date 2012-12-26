@@ -2,7 +2,7 @@ class Component < ActiveRecord::Base
   
   serialize :setting
 
-  attr_accessible :setting, :component
+  attr_accessible :setting, :component, :uname, :name, :is_package, :addable, :description
 
   before_save :set_setting
   belongs_to :component
@@ -45,6 +45,8 @@ private
         CLIIZ::COMPONENTS::Gallery.setting
       when CLIIZ::COMPONENTS::YOUTUBE
         CLIIZ::COMPONENTS::Youtube.setting
+      when CLIIZ::COMPONENTS::LISTING
+        CLIIZ::COMPONENTS::Listing.setting
     end
   end
 

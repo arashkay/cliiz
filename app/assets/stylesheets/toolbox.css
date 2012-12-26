@@ -383,6 +383,12 @@ body.clz-fixed{
 .clz-module-box:hover .clz-icon-youtube{
   background-position: -480px 0px;
 }
+.clz-icon-list{
+  background-position: -540px -60px;
+}
+.clz-module-box:hover .clz-icon-list{
+  background-position: -540px 0px;
+}
 
 /*form*/
 .clz-actions{

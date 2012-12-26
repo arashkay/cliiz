@@ -31,6 +31,8 @@ class Company < ActiveRecord::Base
         CLIIZ::MENU::get_item CLIIZ::MENU::BLOG
       when CLIIZ::COMPONENTS::GALLERY
         CLIIZ::MENU::get_item CLIIZ::MENU::GALLERY
+      when CLIIZ::COMPONENTS::LISTING
+        CLIIZ::MENU::get_item CLIIZ::MENU::LISTING
     end
     save
   end
@@ -41,11 +43,15 @@ class Company < ActiveRecord::Base
   end
 
   def blog
-    UsedComponent.first :conditions => { :company_id => id, :components => { :uname => 'blog' } }, :joins => :component
+    UsedComponent.first :conditions => { :company_id => id, :components => { :uname => CLIIZ::COMPONENTS::BLOG } }, :joins => :component
+  end
+
+  def listing
+    UsedComponent.first :conditions => { :company_id => id, :components => { :uname => CLIIZ::COMPONENTS::LISTING } }, :joins => :component
   end
  
   def gallery
-    UsedComponent.first :conditions => { :company_id => id, :components => { :uname => 'gallery' } }, :joins => :component
+    UsedComponent.first :conditions => { :company_id => id, :components => { :uname => CLIIZ::COMPONENTS::GALLERY } }, :joins => :component
   end
 
   # Setup accessible (or protected) attributes for your model
