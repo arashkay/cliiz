@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def after_sign_in_path_for(resource)
+      '/panel/edit'
+    end
+
     def set_locale
       I18n.locale = cookies[:locale] || :en
       cookies[:locale] = I18n.locale

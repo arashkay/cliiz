@@ -4,8 +4,8 @@
   <title>Welcome to Administration Panel</title>
   <meta name="description" content="Free of charge and fastest way to create your website for your small/medium business. In 3 easy steps you have your own website, blog, eshop and more. Also if you want to expand your current website use our on-click addons to enable shops, blogs, forums, user management and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
-  <%= stylesheet_link_tag 'panel' %>
-  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/tip.js", "core/form.watermark.js", "core.js" ,"panel.js" %>
+  <%= stylesheet_link_tag 'panel', 'editor' %>
+  <%= javascript_include_tag "core/jquery.min.js", 'core/jquery.extension.js', "core.js", 'panel.js' %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
@@ -22,36 +22,6 @@
   <%end%>
 </head>
 <body>
-  <div class='upbar'><span class='user'><% if company_signed_in? %><%= current_company.name %><sup>(<%= current_company.email%>)</sup><%end%></span><span class='menu'><% if company_signed_in? %><a href='/companies/sign_out'>logout</a><%end%></span><div class='clear'></div></div>
-  <div class='wrapper'>
-    <div class='container'>
-      <div class='content'>
-        <%= yield %>
-      </div>
-      <div class='gap'></div>
-    </div>
-  </div>
-  <div class='mainmenu fn-mainmenu'>
-    <% if company_signed_in? %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Contacts', :icon => 'contact', :title => 'Collected Contacts', :location => 'contact_books', :url => '/panel/contact_books' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Blog', :icon => 'blog', :title => 'Blog', :location => 'blogging', :url => '/panel/blogging' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Gallery', :icon => 'files', :title => 'Gallery', :location => 'files', :url => '/panel/files' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Setting', :icon => 'setting', :title => 'Setting', :location => 'profile', :url => '/panel/profile' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Web Builder', :icon => 'editing', :title => 'Web Builder', :location => 'editing', :url => '/panel/edit/Home' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Listing', :icon => 'blog', :title => 'Listing', :location => 'listing', :url => '/panel/listing' } %>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Analytic', :icon => 'pool', :title => 'Website Analytic', :location => 'statics', :url => '/panel/statics' } %>
-    <%else%>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Designers', :icon => 'coloring', :title => 'Web Designers', :location => 'designers', :url => '/panel/designers' } %>
-    <%end%>
-      <%= render :partial => '/layouts/menu', :locals => { :name => 'Panel', :icon => 'login', :title => 'Administration Panel', :location => 'panel', :url => '/panel' } %>
-    <div class='submenu fn-submenu hidden'>
-      <div class='arrow'></div>
-      <div class='left'></div><div class='main'></div><div class='right'></div>
-    </div>
-  </div>
-  <div class='fn-blocker blocker hidden'></div>
-  <div class='fn-loading freezer hidden'>
-    <div class='noticebox'><img src='/assets/wizard/loading-circ.gif'/><span>in progress ...</span></div>
-  </div>
+  <%= yield %>
 </body>
 </html>

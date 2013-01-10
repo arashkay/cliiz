@@ -2,17 +2,16 @@
   <div class='cliiz-block' cliiz='block'>
     <div class='cliiz-error' style='display:none;'></div>
     <input name='uid' type='hidden' value='<%=uid%>' />
-    <%(setting[:fields]-["message"]).each do |f|%>
+    <%setting[:fields].each do |k, f|%>
       <div class='cliiz-field'>
-        <label><%=setting[:names][f.to_sym]%></label><input name='<%=f%>' />
+        <% if f[1].to_sym==:multi_line %>
+          <label><%=f[3]%></label><textarea name='field<%=f[0]%>'></textarea>
+        <%else%>
+          <label><%=f[3]%></label><input name='field<%=f[0]%>' />
+        <%end%>
       </div>
     <%end%>
-    <%if setting[:fields].include? "message" %>
-      <div class='cliiz-field'>
-        <label><%=setting[:names][:message]%></label><textarea name='message'></textarea>
-      </div>
-    <%end%>
-    <div class='cliiz-success' style='display:none;'>Thanks for contacting us!</div>
-    <button class='cliiz-button'><%=setting[:names][:submit]%></button>
+    <div class='cliiz-success' style='display:none;'><%=setting[:message]%></div>
+    <button class='cliiz-button'><%=setting[:submit]%></button>
   </div>
 </div>

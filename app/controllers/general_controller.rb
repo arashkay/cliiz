@@ -1,12 +1,11 @@
 class GeneralController < ApplicationController
 
-  before_filter :authenticate_company!, :except => [:index, :panel, :js_config,:notify, :designers, :how_to_design, :plans]
+  before_filter :authenticate_company!, :except => [:index, :panel, :js_config, :notify, :designers, :how_to_design, :plans]
 
   before_filter :is_in_progress, :only => [ :save_domain, :check_domain ]
 
   def index
     @frames = Frame.all :conditions => { :is_private => false }, :order => '`order` DESC'
-    #@components = Component.all :conditions => { :uname => [:sitebuilder, :content, :infoform] }
     render :index, :layout => nil
   end
   
@@ -14,13 +13,13 @@ class GeneralController < ApplicationController
     @frames = Frame.all :conditions => { :is_private => false }, :order => '`order` DESC', :limit => 10
     render :layout => 'main'
   end
-
+  
+  # v2
   def panel
     if company_signed_in?
-      @modules = UsedComponent.all :select => '*, count(id) as total', :conditions => { :company_id => current_company.id }, :group => 'component_id'
-      render 'welcome'
+      redirect_to '/panel/edit'
     else
-      render 'panel'
+      @resource = Company.new
     end
   end
   

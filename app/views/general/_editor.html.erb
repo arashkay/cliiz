@@ -1,9 +1,11 @@
 <script type='text/javascript'>
 $(function(){
-  cliiz.mini.letsWalk = <%= !company.first_edit_done %>
-  cliiz.mini.modules = <%=components.html_safe%>; 
-  cliiz.mini.page= '<%=page%>'; 
-  cliiz.mini.init(); 
+  cliiz.toolbox.defaults.letsWalk = <%= !company.first_edit_done %>
+  cliiz.toolbox.defaults.modules = <%=components.html_safe%>; 
+  cliiz.toolbox.defaults.page= '<%=page%>'; 
+  cliiz.loading = { show: $.noop, hide: $.noop };
+  cliiz.toolbox.defaults.i18n = <%=Hash[i18n.map{|i| [i[0],t("modules.infoform.names.#{i[0]}")]}].to_json.html_safe%>
+  cliiz.toolbox.initialize(); 
 });
 </script>
 <div class='clz-walk fclz-walk'>
@@ -58,118 +60,150 @@ $(function(){
       <div class="clz-setting fclz-setting"></div>
     </div>
   </div>
-  <div class='fclz-folderup'>
-    <img src='/assets/panel/folderup.png' />
-    <div class='clz-info fclz-info'></div>
-  </div>
-  <div class='fclz-folder' loop='true' folderid='%#id%'>
-    <img src='/assets/panel/folder.png' />
-    <div class='clz-info'>%#name%</div>
-  </div>
-  <div class='fclz-image clz-image' loop='true' title='%#title%' isalbum='%#is_album%' fileid='%#id%'>
-    <div class='clz-extend'>
-      <div class='clz-top'>
-        <img src='%#thumb_url%'/>
-        <div class='clz-delete fclz-delete'></div>
-      </div>
-      <div class='clz-main'>
-        <label>Caption</label> <input value='%#title%' /> <button>update</button>
+  <div class='clz-row fclz-field-name'>
+    <label class='clz-label'>Name:</label>
+    <input class='clz-input fclz-name' name='field[][name]' value='' />
+    <label class='clz-label80 clz-aright'>Type:</label>
+    <div class='clz-fixlist'>
+      <div class='clz-fixlist'>
+        <div class='clz-list fclz-types' data-list='[name="field[][type]"]' data-onchange='cliiz.toolbox.module.infoform.typeChange'>
+          <input name='field[][type]' type='hidden' value='' />
+          <span data-selected-value=''>Choose one</span>
+          <div class='clz-droplist' data-dropdown=''>
+            <%Component.default_for('infoform')[:config][:types].each do |type|%>
+              <div data-value='<%=type[0]%>'><%=t "modules.infoform.#{type[0]}"%></div>
+            <%end%>
+          </div>
+        </div>
       </div>
     </div>
-    <img class='clz-shadow' src='%#thumb_url%' />
-    <img src='%#thumb_url%'/>
-  </div>
-  <div class='fclz-file clz-file' loop='true' fileid='%#id%'>
-    <img src='%#thumb_url%' />
+    <label class='clz-label80 clz-aright'>Validation:</label>
+    <div class='clz-fixlist'>
+      <div class='clz-fixlist'>
+        <div class='clz-list fclz-validations' data-list='[name="field[][validation]"]'>
+          <input class='clz-input fclz-validation' type='hidden' name='field[][validation]' value='' />
+          <span data-selected-value=''>Choose one</span>
+          <div class='clz-droplist' data-dropdown=''>
+            <%CLIIZ::COMPONENTS::Form::VALIDATIONS.each do |validation|%>
+              <div data-value='<%=validation%>'><%=t "modules.infoform.validations.#{validation}"%></div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <%= render :partial => 'general/editor.forms' %>
 </div>
-<div class='clz-blocker fclz-blocker'><div class='clz-loading'>loading ...</div></div>
-<!--global-->
-<div class='clz-globalbox fclz-globalbox clz-box clz-at-left'>
-  <div class='clz-middle'>
-    <div class='clz-left'>
-      <div class='clz-main clz-actions clz-inlined'>
-        <div class='clz-swing fclz-swing clz-left'></div>
-        <div class='clz-dbl-button'>
-          <div class='clz-left'></div>
-          <div class='clz-first fclz-close'>Close</div>
-          <div class='clz-sep'></div>
-          <div class='clz-second fclz-publish'>Publish</div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-swing fclz-swing clz-right'></div>
+<!--v2-->
+<div class='clz-form-box fclz-formbox'>
+  <div class='clz-form'>
+    <div class='clz-actions'>
+      <button class='clz-preview fclz-preview'>Preview</button>
+      <button class='clz-close fclz-close'>Close</button>
+    </div>
+    <div class='fclz-forms'></div>
+    <h2>Map</h2>
+    <div class='clz-row'>
+      <label class='clz-label80 clz-aright'>Address</label>
+      <div class='clz-input-block270'>
+        <input class='clz-input270' />
+        <a class='clz-input-button'><span>Locate</span></a>
       </div>
     </div>
-  </div>
-  <div class='clz-footer'>
-    <div class='clz-left'></div>
-    <div class='clz-main'></div>
-    <div class='clz-right'></div>
+    <div class='clz-row300 clz-inlined'>
+      <label class='clz-label80 clz-aright'>Phone</label>
+      <input class='clz-input' name='phone' value='<%= Component.default_for('locationmark')[:phone] %>' />
+    </div>
+    <div class='clz-row300 clz-inlined'>
+      <label class='clz-label80 clz-aright'>Fax</label>
+      <input class='clz-input' name='fax' value='<%= Component.default_for('locationmark')[:fax] %>' />
+    </div>
+    <h3>Map Size</h3>
+    <div class='clz-row clz-inlined'>
+      <label class='clz-label80 clz-aright'>Width</label>
+      <input class='clz-input70' name='width' value='<%= Component.default_for('locationmark')[:viewport][0] %>' />
+      <label class='clz-label clz-aright'> x Height</label>
+      <input class='clz-input70' name='height' value='<%= Component.default_for('locationmark')[:viewport][1] %>' />
+    </div>
+    <input type='hidden' name='latlng' value='<%= Component.default_for('locationmark')[:latlng][0] %>,<%= Component.default_for('locationmark')[:latlng][1] %>' />
   </div>
 </div>
-<!--form-->
-<div class='clz-form-blocker fclz-formblocker' style='display:none;'></div>
-<div class='clz-formbox clz-box fclz-formbox' style='display:none;'>
- <div class='clz-header fclz-header'>
-    <div class='clz-left'></div>
-    <div class='clz-main'>Editor</div>
-    <div class='clz-right'></div>
+<div class='clz-theme-preview fclz-theme-preview'></div>
+<div class='clz-main fclz-toolbox'>
+  <div class='clz-top'>
+    <div class='clz-menu'>
+      <a href='#contacts'>Contact List (24<span>+10</span>)</a>
+      <a href='#files'>File Manager</a>
+      <a href='#analytic'>Site Analytics</a>
+    </div>
+    <div class='clz-session'>
+      Logged in as <span><%= company.name %></span>
+      <a href='/companies/sign_out'>logout</a>
+    </div>
+    <div class='clz-clear'></div>
   </div>
-  <div class='clz-middle'>
-    <div class='clz-left'>
-      <div class='clz-main fclz-forms'>
-      </div>
-      <div class='clz-main clz-actions'>
-        <div class='clz-dbl-button'>
-          <div class='clz-left'></div>
-          <div class='clz-first fclz-cancel'>Cancel</div>
-          <div class='clz-sep'></div>
-          <div class='clz-second fclz-update'>Save</div>
-          <div class='clz-right'></div>
+  <div class='clz-tools'>
+    <button class='clz-publish fclz-publish'>Save changes</button>
+    <div class='clz-items'>
+      <div class='clz-addon-button clz-expandable' data-tool='.fclz-tools' data-arrange='cliiz.toolbox.sizes.expanded'>
+        <div class='clz-info'>
+          <div class='clz-cell'>Add to Page by<br/><span>Drag & Drop</span></div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class='clz-footer'>
-    <div class='clz-left'></div>
-    <div class='clz-main'></div>
-    <div class='clz-right'></div>
-  </div>
-</div>
-<!--toolbox-->
-<div class='clz-toolbox clz-box fclz-toolbox'>
-  <div class='clz-header fclz-header'>
-    <div class='clz-left'></div>
-    <div class='clz-main'><img src='/assets/blank.gif'/>Toolbox</div>
-    <div class='clz-right'></div>
-  </div>
-  <div class='clz-middle'>
-    <div class='clz-left'>
-      <div class='clz-main'>
-        <div class='clz-menu clz-inlined'>
-          <div title='Features' class='clz-menu-item clz-modules-menu' data-toolbox='clz-show-features'><div class='clz-arrow'></div></div>
-          <div class='clz-menu-sep'></div>
-          <div title='Layouts' class='clz-menu-item clz-layouts-menu' data-toolbox='clz-show-layouts'><div class='clz-arrow'></div></div>
-          <div class='clz-menu-sep'></div>
-          <div title='Packages' class='clz-menu-item clz-packages-menu' data-toolbox='clz-show-packages'><div class='clz-arrow'></div></div>
-          <div class='clz-menu-sep'></div>
-          <div title='Setting' class='clz-menu-item clz-setting-menu' data-toolbox='clz-show-setting'><div class='clz-arrow'></div></div>
+      <div class='clz-sitemenu-button' data-tool='' data-arrange='cliiz.toolbox.sizes.normal'></div>
+      <div class='clz-package-button clz-expandable' data-tool='.fclz-packages' data-arrange='cliiz.toolbox.sizes.expanded'>
+        <div class='clz-info'>
+          <div class='clz-cell'><span>Click</span> to Enable<br/>More Packages</div>
         </div>
       </div>
+      <div class='clz-theming-button clz-expandable' data-tool='.fclz-themes' data-arrange='cliiz.toolbox.sizes.extra'>
+        <div class='clz-info'>
+          <div class='clz-cell'>Choose a Category<br/>
+            <div class='clz-list'>
+              <span>Small Business</span>
+              <div class='clz-droplist'>
+                <div>Small & Medium Business</div>
+                <div>New Designs</div>
+                <div>Tradies</div>
+                <div>Beauty</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='clz-setting-button' data-tool='' data-arrange='cliiz.toolbox.sizes.normal'></div>
+    </div>
+    <div class='clz-clear'></div>
+  </div>
+  <div class='clz-submenu fclz-submenu fclz-tools'>
+    <div class='clz-module-button clz-%#uname%-button fclz-module-box' loop='true' data-uname='%#uname%' data-name='%#name%'>
+      <div class='clz-info'>
+        <div class='clz-cell'>%#name%</div>
+      </div>
+      <div class='clz-dragdrop'></div>
     </div>
   </div>
-  <div class='clz-title clz-features-comp'>Features</div>
-  <div class='clz-title clz-layouts-comp'>Layouts</div>
-  <div class='clz-title clz-packages-comp'>Packages</div>
-  <div class='clz-title clz-setting-comp'>Setting</div>
-  <%= render :partial => 'general/editor.features' %>
-  <%= render :partial => 'general/editor.layouts', :locals => { :frames => frames } %>
-  <%= render :partial => 'general/editor.packages', :locals => { :packages => packages, :used_packages => used_packages } %>
-  <%= render :partial => 'general/editor.setting' %>
-  <div class='clz-footer'>
-    <div class='clz-left'></div>
-    <div class='clz-main'></div>
-    <div class='clz-right'></div>
+  <div class='clz-submenu fclz-submenu fclz-packages'>
+    <% packages.each do |p| %>
+      <div class='clz-package-button clz-<%=p.uname%>-button <%= used_packages.include?(p) ? 'clz-enabled' : 'clz-disabled' %> fclz-package' data-uname='<%=p.uname%>' data-name='<%=p.name%>' >
+        <div class='clz-info'>
+          <div class='clz-cell'><%=p.name%></div>
+        </div>
+        <div class='clz-onoff'></div>
+      </div>
+    <%end%>
+  </div>
+  <div class='clz-submenu fclz-submenu fclz-themes'>
+    <div class='clz-themeleft fclz-themeleft'></div>
+    <div class='clz-themeright fclz-themeright'></div>
+    <div class='clz-thememask fclz-thememask'>
+      <div class='clz-themeroller fclz-themeroller'>
+        <% frames.each do |frame| %>
+          <div class='clz-theme fclz-theme' data-id='<%=frame.id%>' style='background: url(<%= frame.image.url(:thumb) %>)' data-preview='<%= frame.image.url(:original) %>'>
+            <div class='clz-marker'></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

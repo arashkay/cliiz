@@ -11,7 +11,7 @@ $.send= function(url, data, callback, error, freeze){
         ? error
         : freeze;
   if(freeze==true)
-    cliiz.panel.showLoading();
+    cliiz.loading.show();
   $.ajax(
     {
       type: 'post',
@@ -20,8 +20,8 @@ $.send= function(url, data, callback, error, freeze){
         token,
         ($.isFunction(data)||data==undefined)? {}: data
       ),
-      success: function(d){ if(cliiz.panel) cliiz.panel.hideLoading(); ($.isFunction(data)? data : (callback||$.noop)).call(this,d) },
-      error: function(d){ if(cliiz.panel) cliiz.panel.hideLoading(); (($.isFunction(data)&&$.isFunction(callback))? callback : (error||$.noop)).call(this,d) }
+      success: function(d){ if(cliiz.loading) cliiz.loading.hide(); ($.isFunction(data)? data : (callback||$.noop)).call(this,d) },
+      error: function(d){ if(cliiz.loading) cliiz.loading.hide(); (($.isFunction(data)&&$.isFunction(callback))? callback : (error||$.noop)).call(this,d) }
     }
   );
 }
@@ -40,7 +40,7 @@ $.parseForm = function(forms){
         d[i.attr('name')] = i.val();
       }
     );
-    cliiz.panel.showLoading();
+    cliiz.loading.show();
     $.send(
       target.attr('remote-url') || f.attr('remote'), d, 
       function(d){ 
@@ -177,46 +177,107 @@ $.fn.editor = function(options){
     controls: {
       insertImage: { visible: false },
       insertTable: { visible: false }
-    }
+    },
+    autoGrow: true
   }
   $.extend(opts, options);
   this.wysiwyg( opts );
 }
-$.fn.checkbox = function( options ){
+// v2
+$.fn.links = function( options ){
   var opt = {
-    onClick: $.noop,
-    option: "span"
+    selector: '[data-url]',
   }
   $.extend( opt, options );
   this.each(
     function(){
-      $(opt.option, this).click( function(){ opt.onClick.call( $(this).toggleClass('selected') ); } );
+      $(opt.selector, this).click(
+        function(event){
+          window.location = $(this).data('url');
+          event.stopPropagation();
+          return false;
+        }
+      );
+    }
+  );
+  return this;
+}
+// v2 
+$.fn.checkboxes = function( options ){
+  var opt = {
+    onClick: $.noop,
+    selector: '[data-checkbox]',
+    selectedClass: 'clz-checked'
+  }
+  $.extend( opt, options );
+  this.each(
+    function(){
+      $(opt.selector, this).click( 
+        function(){ 
+          if( opt.onClick.call( $(this).toggleClass(opt.selectedClass) )!=false ){
+            var obj = $($(this).data('checkbox'));
+            $(this).is('.'+opt.selectedClass) ? obj.prop("checked", true) : obj.removeProp('checked');
+          }
+        } 
+      );
     }
   );
   return this;
 };
-$.fn.list = function( options ){
+$.fn.radios = function( options ){
   var opt = {
-    defaultOption: ':first',
-    display: 'span',
-    arrow: 'img',
-    dropdown: '.dropbox',
-    list: '.list',
-    option: ".option"
-  };
+    onClick: $.noop,
+    selector: '[data-radio]',
+    selectedClass: 'clz-checked'
+  }
   $.extend( opt, options );
   this.each(
     function(){
-      var $this = $(this);
-      var arrow = $(opt.arrow, this);
-      var list = $(opt.list, this);
-      var drop = $(opt.dropdown, this);
-      var display = $(opt.display, this);
-      var options = $(opt.option, this);
-      display.click( function(){ drop.toggle(); } );
-      arrow.click( function(){ drop.toggle(); } );
-      options.click( function(){ $this.attr('val', $(this).attr('val')); drop.hide(); display.text($(this).attr('text')) } );
-      $('>*', list).filter(opt.defaultOption).click();
+      $(opt.selector, this).click( 
+        function(){ 
+          if( opt.onClick.call( $(this).toggleClass(opt.selectedClass) )!=false ){
+            var group = $(this).data('group');
+            $('[data-radio][data-group="'+group+'"]').not(this).removeClass(opt.selectedClass);
+            var obj = $($(this).data('radio'));
+            $(this).is('.'+opt.selectedClass) ? obj.prop("checked", true) : obj.removeProp('checked');
+          }
+        } 
+      );
+    }
+  );
+  return this;
+};
+$.fn.lists = function( options ){
+  var opt = {
+    onClick: $.noop,
+    selector: '[data-list]',
+    dropSelector: '[data-dropdown]',
+    itemSelector: '[data-value]',
+    displaySelector: '[data-selected-value]'
+  }
+  $.extend( opt, options );
+  this.each(
+    function(){
+      $(opt.itemSelector, this).click( 
+        function(){ 
+          if( opt.onClick.call( $(this) )!=false ){
+            var list = $(this).parents(opt.selector);
+            var v = $(this).data('value');
+            $(opt.displaySelector, list).data('selected-value', v).text($(this).text());
+            $(list.data('list')).val(v);
+            var t = $(this).parents(opt.dropSelector).hide();
+            setTimeout(function(){t.removeAttr('style')},100);
+            if(list.data('onchange')!=undefined)
+              eval(list.data('onchange')).call(list, v);
+          }
+        } 
+      );
+      $(opt.selector, this).each( function(){
+        var v = $($(this).data('list'), this).val();
+        if(v=='') return true;
+        var t = $('[data-value="'+v+'"]', this).text();
+        $(opt.displaySelector, this).text(t).data('selected-value', v);
+      });
     }
   );
   return this;

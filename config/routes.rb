@@ -109,6 +109,8 @@ CliizCom::Application.routes.draw do
       post 'upload'
     end
   end
+  #get "company/login" => "devise/sessions#new"
+  #match "companies/sign_in" => "general#panel"
   devise_for :companies
 
   root :to => "general#index"

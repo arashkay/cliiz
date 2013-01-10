@@ -57,24 +57,16 @@ module CLIIZ
     end
 
     class Form
+      VALIDATIONS = [ :email, :phone, :presence ]
       def self.setting
         { 
-          :all_fields => [ "name", "email", "url", "phone", "phone2", "address", "subject", "message" ],
-          :fields => [ "name", "email", "message"],
-          :names => {
-            :name => 'fullname',
-            :email => 'email', 
-            :url => 'website', 
-            :phone => 'cellphone_no', 
-            :phone2 => 'home_no', 
-            :address => 'address', 
-            :subject => 'subject', 
-            :message => 'message',
-            :submit => 'submit'
-          },
+          :fields => { 0 => [ 1, :name, nil, 'Name', nil] , 1 => [ 2, :email, :email, "Email", nil], 2 => [ 3, :multi_line, nil, "Message", nil] }, # { order => [ id, :type, :validation, 'Name', 'Default Value(s)' ] , }
+          :submit => 'Submit',
+          :message => 'Thanks for contacting us!',
           :config => {
             :submit_url => '/modules/submit_form',
-            :js => 'infoform.js'
+            :js => 'infoform.js',
+            :types => [ [:single_line, nil], [:multi_line, nil], [:name, nil], [:email, :email], [:phone, :phone], [:address, nil] ]
           }
         }
       end

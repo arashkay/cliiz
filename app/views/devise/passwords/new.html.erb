@@ -1,12 +1,22 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<div class='loginbox'>
+  <div class='intro'>
+    <h2>Cliiz.com</h2>
+    <p>Easy to use website editor for nontechnical people like you.</p>
+    <p class='providedby'>Provided by tectual.com.au</p>
+  </div>
+  <div class='login'>
+    <h1>ADMINISTRATION</h1>
+    <h2>Forgot your password?</h2>
+    <p>Put your email (which you used at registration time) and we send the reset instruction to it.</p>
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
-
-  <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
-
-  <p><%= f.submit "Send me reset password instructions" %></p>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+      <div class='clz-row300 clz-aright'>
+        <label class='clz-label100 clz-aright'>Email:</label><%= f.email_field :email, :class => 'clz-input' %>
+      </div>
+      <div class='clz-row300 clz-aright'>
+        <button class='clz-active-button'>Reset</button>
+        <button class='clz-secondary-button' data-url='<%=panel_url%>'>Cancel</button>
+      </div>
+    <% end %>
+  </div>
+</div>

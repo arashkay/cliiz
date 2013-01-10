@@ -196,6 +196,7 @@ cliiz.mini = $.namespace({
       : $('.fclz-formbox').css( { top: top } );
     $('.fclz-formbox, .fclz-formblocker').show();
   },
+  // v2
   initialize: {
     gallery: function(block){
       $('.fclz-add-album', this).click( cliiz.gallery.addAlbum );

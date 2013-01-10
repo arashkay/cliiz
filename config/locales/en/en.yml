@@ -22,15 +22,23 @@ en:
     content:
       for: 'Content for'
     infoform:
-      for: 'Form for'
       name: 'Name'
       email: 'Email'
-      url: 'Website'
-      phone: 'Cellphone no.'
-      phone2:  'Home no.'
+      phone: 'Phone'
       address: 'Address'
-      subject: 'Subject'
-      message: 'Message'
+      single_line: 'Single Line'
+      multi_line: 'Multi Line'
+      validations:
+        email: 'Should be Email'
+        phone: 'Should be phone'
+        presence: 'Should be entered'
+      names:
+        name: 'Name'
+        email: 'Email'
+        phone: 'Phone'
+        address: 'Address'
+        single_line: ''
+        multi_line: ''
     files:
       file_browser: 'File browser'
 #basics

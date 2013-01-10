@@ -47,7 +47,7 @@ class UsedComponent < ActiveRecord::Base
         when CLIIZ::COMPONENTS::CONTENT
           write_attribute :setting, { :content => setting[:content] }
         when CLIIZ::COMPONENTS::FORM
-          write_attribute :setting, { :fields => setting[:fields] }.merge({ :names => setting[:names].keys_to_sym })
+          write_attribute :setting, { :fields => setting[:fields].keys_to_int }
         when CLIIZ::COMPONENTS::BLOG
           write_attribute :setting, setting
         when CLIIZ::COMPONENTS::GALLERY

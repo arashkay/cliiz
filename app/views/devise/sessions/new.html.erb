@@ -1,15 +1,23 @@
-<h1>Login</h1>
-<div class='box w308 inline talign'>
-  <div class='top'></div>
-  <div class='main'>
+<div class='loginbox'>
+  <div class='intro'>
+    <h2>Cliiz.com</h2>
+    <p>Easy to use website editor for nontechnical people like you.</p>
+    <p class='providedby'>Provided by tectual.com.au</p>
+  </div>
+  <div class='login'>
+    <h1>ADMINISTRATION</h1>
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <div class='row'><input name='company[email]' marker='.fn-login-user' autosubmit='enter'/><label class='watermark fn-login-user'>Username</label><img src='/assets/blank.gif' class='help small' tip='Username is the email you entered at registeration' /></div>
-      <div class='row'><input name='company[password]' marker='.fn-login-password' type='password' autosubmit='enter'/><label class='watermark fn-login-password'>Password</label></div>
-      <% if devise_mapping.rememberable? -%>
-        <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
-      <% end -%>
-      <button remote-submit='true'>login</button><%= link_to "Forgot password?", new_password_path(resource_name), :class => 'forget' %>
+      <div class='clz-row300 clz-aright'>
+        <label class='clz-label100 clz-aright'>Email:</label><input name='company[email]' class='clz-input'/>
+      </div>
+      <div class='clz-row300 clz-aright'>
+        <label class='clz-label100 clz-aright'>Password:</label><input name='company[password]' type='password' class='clz-input'/>
+      </div>
+      <div class='clz-row300 clz-aright'>
+        <div class='clz-checkbox150 clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' name='company[remember_me]'/><span>Remember Me</span></div>
+        <button class='clz-active-button'>Sign in</button>
+        <button class='clz-secondary-button' data-url='<%=new_password_path(resource_name)%>'>Forget</button>
+      </div>
     <% end %>
   </div>
-  <div class='bottom'></div>
 </div>
