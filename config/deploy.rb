@@ -1,5 +1,5 @@
 set :application, "Cliiz Website Builder"
-set :deploy_to, "/home/arashvps/captest"
+set :deploy_to, "/home/arashvps/webuilder"
 server "ps49055.dreamhost.com", :web, :app, :db, :primary => true
 set :user, "arashvps"
 set :use_sudo, false
@@ -19,7 +19,7 @@ set :scm, "git"
 #set :user, "arashvps"  # The server's user for deploys
 #set :scm_passphrase, "xshape419"  # The deploy user's password
 ssh_options[:forward_agent] = true
-set :branch, "master"
+set :branch, "redesign"
 set :deploy_via, :remote_cache
 
 

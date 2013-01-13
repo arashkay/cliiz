@@ -23,6 +23,7 @@ class ModBlogController < ApplicationController
   def index
     @blog = current_company.blog
     @posts = ModBlog.all :conditions => { :used_component_id => @blog.id, :trashed => false }, :order => 'created_at DESC' unless @blog.blank?
+    render :json => @posts.to_json( :methods => :thumb )
   end
 
   def archive

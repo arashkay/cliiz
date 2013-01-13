@@ -10,6 +10,15 @@ class UsedComponent < ActiveRecord::Base
   before_save :set_id
 
   attr_accessor :extra_data
+  default_scope order('partition, `ordering`')
+
+  def self.all_in_page(page, company_id)
+    where( :page => page, :company_id => company_id )
+  end
+
+  def self.all_in_subpage(page, company_id)
+    where( ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'gallery')",  page, company_id ] ).includes(:component) #.joins(:component)
+  end
 
   def self.disable_package( company, name )
     uc = UsedComponent.first :conditions => ['company_id = ? and components.uname = ?' , company.id, name ], :include => :component

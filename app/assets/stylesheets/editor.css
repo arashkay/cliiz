@@ -203,6 +203,9 @@ body.fixed{
 .clz-main .clz-submenu .clz-blog-button{
   background-image: url(/assets/flat/blog.png);
 }
+.clz-main .clz-submenu .clz-list-button{
+  background-image: url(/assets/flat/listing.png);
+}
 .clz-main .clz-submenu .clz-info{
   display: table;
   height: 60px;
@@ -453,6 +456,7 @@ body .clz-module-button .clz-cell{
   background: #2c9bdb;
 }
 
+.clz-header,
 .clz-row,
 .clz-row300,
 .clz-row400{
@@ -465,12 +469,19 @@ body .clz-module-button .clz-cell{
   display: inline-block;
 }
 
+.clz-pretext{
+  display: inline-block;
+  line-height: 22px;
+  color: #2B9BDB;
+  font-size: 16px;
+}
 .clz-label,
 .clz-label80,
 .clz-label100,
 .clz-label150,
 .clz-label180,
-.clz-label200{
+.clz-label200,
+.clz-label300{
   display: inline-block;
   cursor: pointer;
 }
@@ -489,12 +500,17 @@ body .clz-module-button .clz-cell{
 .clz-label200{
   width: 200px;
 }
+.clz-label300{
+  width: 300px;
+}
 .clz-label *,
+.clz-label80 *,
 .clz-label80 *,
 .clz-label100 *,
 .clz-label150 *,
 .clz-label180 *,
-.clz-label200 *{
+.clz-label200 *,
+.clz-label300 *{
   vertical-align: middle;
 }
 .clz-aright{
@@ -639,6 +655,43 @@ body .clz-module-button .clz-cell{
   text-align: center;
   font-size: 18px;
   cursor: pointer;
+}
+
+/* TABLE */
+.clz-table .clz-row,
+.clz-table .clz-header{
+  position: relative;
+  background: #e1e1e1;
+  margin: 1px 0px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+.clz-table .clz-header{
+  background: #242424;
+  color: #fff;
+}
+.clz-table .clz-checkbox{
+  vertical-align: middle;
+}
+.clz-table .clz-actions{
+  top: auto;
+  bottom: 0px;
+  line-height: 20px;
+  display: none;
+}
+.clz-table .clz-row:hover .clz-actions{
+  display: block;
+}
+.clz-table .clz-actions button{
+  margin: 0px 1px;
+}
+.clz-table .clz-row img {
+  height: 30px;
+  margin: 0 2px;
+  vertical-align: middle;
+  width: 30px;
 }
 
 /* page elements */

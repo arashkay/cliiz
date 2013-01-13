@@ -4,7 +4,7 @@ class Generator
     @scripts = [
       '<link href="/stylesheets/modules_base.css" media="screen" rel="stylesheet" type="text/css">',
       "<script src='/modules/jquery.js' type='text/javascript'></script>",
-      "<script src='/modules/base.js' type='text/javascript'></script>"
+      "<script src='/coreapi/modules/base.js' type='text/javascript'></script>"
     ]
     @company = company
     @scripts << security_tag
@@ -51,7 +51,7 @@ class Generator
       <script src='/assets/core/template.js' type='text/javascript'></script>
       <script src='/assets/core/tip.js' type='text/javascript'></script>
       <script src='/assets/core.js' type='text/javascript'></script>
-      <script src='/javascripts/config.js' type='text/javascript'></script>
+      <script src='/coreapi/javascripts/config.js' type='text/javascript'></script>
       <script src='http://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script>
 
       <script src='/assets/editor.js' type='text/javascript'></script>)

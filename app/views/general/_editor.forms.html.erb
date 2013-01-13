@@ -1,3 +1,12 @@
+  <div formfor='blog'>
+    <h2>Blog</h2>
+    <div class='clz-table fclz-posts'>
+      <div class='clz-header'>
+        <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' name='company[remember_me]'/></div>
+        <label class='clz-label300 clz-pad10'>Title</label>
+      </div>
+    </div>
+  </div>
   <div formfor='content'>
     <h2>Content</h2>
     <p class='clz-description'>Write something interesting for your vistors, add images to your content and make it nicer.</p>
@@ -14,101 +23,33 @@
     </div>
   </div>
   <div formfor='locationmark'>
-    <h2>Mark your store/office</h2>
-    <div class='clz-field'>
-      <div class='clz-label'>
-        <div class='clz-left'></div>
-        <div class='clz-main'><%=t "address"%></div>
-        <div class='clz-right'></div>
-      </div>
-      <div class='clz-main'>
-        <div class='clz-left'></div>
-        <div class='clz-input'><input name='address' value='<%= Component.default_for('locationmark')[:address] %>'/></div>
-        <div class='clz-button fclz-locate'>
-          <div class='clz-left'></div>
-          <div class='clz-main'>Locate</div>
-          <div class='clz-right'></div>
-        </div>
+    <h2>Map</h2>
+    <div class='clz-row'>
+      <label class='clz-label80 clz-aright'>Address</label>
+      <div class='clz-input-block270'>
+        <input class='clz-input270' name='address' value='<%= Component.default_for('locationmark')[:address] %>' />
+        <a class='clz-input-button fclz-locate'><span>Locate</span></a>
       </div>
     </div>
-    <div class='clz-field clz-510'>
-      <div class='clz-label'>
-        <div class='clz-left'></div>
-        <div class='clz-main'>Preview</div>
-        <div class='clz-right'></div>
-      </div>
-      <div class='clz-block'>
-        <div class='clz-top'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-middle'>
-          <div class='clz-main'>
-            <div class="fn-map-preview" style="width: 500px; height: 200px"></div>
-          </div>
-        </div>
-        <div class='clz-bottom'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
-      </div>
+    <div class='clz-row'>
+      <div class="fn-map-preview" style="margin: 10px; width: 600px; height: 350px"></div>
     </div>
-    <div class='clz-inlined'>
-      <div class='clz-field'>
-        <div class='clz-label'>
-          <div class='clz-left'></div>
-          <div class='clz-main'><%=t "phone"%></div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-main'>
-          <div class='clz-left'></div>
-          <div class='clz-input'><input name='phone' value='<%= Component.default_for('locationmark')[:phone] %>'/></div>
-          <div class='clz-right'></div>
-        </div>
-      </div>
-      <div class='clz-field'>
-        <div class='clz-label'>
-          <div class='clz-left'></div>
-          <div class='clz-main'><%=t "fax"%></div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-main'>
-          <div class='clz-left'></div>
-          <div class='clz-input'><input name='fax' value='<%= Component.default_for('locationmark')[:fax] %>'/></div>
-          <div class='clz-right'></div>
-        </div>
-      </div><br/>
-      <div class='clz-field clz-disabled'>
-        <div class='clz-label'>
-          <div class='clz-left'></div>
-          <div class='clz-main'>Map size</div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-main'>
-          <div class='clz-left'></div>
-          <div class='clz-input'>
-            <div class='clz-label'>Width</div>
-            <div class='clz-left'></div>
-            <div class='clz-input'>
-              <input name='width' value='<%= Component.default_for('locationmark')[:viewport][0] %>'/>
-            </div>
-            <div class='clz-right'></div>
-            <div class='clz-label'>px</div>
-            <div class='clz-label'>Height</div>
-            <div class='clz-left'></div>
-            <div class='clz-input'>
-              <input name='height' value='<%= Component.default_for('locationmark')[:viewport][1] %>'/>
-            </div>
-            <div class='clz-right'></div>
-            <div class='clz-label'>px</div>
-          </div>
-          <div class='clz-right'></div>
-        </div>
-      </div>
-      <input type='hidden' name='latlng' value='<%= Component.default_for('locationmark')[:latlng][0] %>,<%= Component.default_for('locationmark')[:latlng][1] %>' />
+    <div class='clz-row300 clz-inlined'>
+      <label class='clz-label80 clz-aright'>Phone</label>
+      <input class='clz-input' name='phone' value='<%= Component.default_for('locationmark')[:phone] %>' />
     </div>
+    <div class='clz-row300 clz-inlined'>
+      <label class='clz-label80 clz-aright'>Fax</label>
+      <input class='clz-input' name='fax' value='<%= Component.default_for('locationmark')[:fax] %>' />
+    </div>
+    <h3>Map Size</h3>
+    <div class='clz-row clz-inlined'>
+      <label class='clz-label80 clz-aright'>Width</label>
+      <input class='clz-input70' name='width' value='<%= Component.default_for('locationmark')[:viewport][0] %>' />
+      <label class='clz-label clz-aright'> x Height</label>
+      <input class='clz-input70' name='height' value='<%= Component.default_for('locationmark')[:viewport][1] %>' />
+    </div>
+    <input type='hidden' name='latlng' value='<%= Component.default_for('locationmark')[:latlng][0] %>,<%= Component.default_for('locationmark')[:latlng][1] %>' />
   </div>
   <div formfor='postfilter'>
     <h2>Latest Post</h2>

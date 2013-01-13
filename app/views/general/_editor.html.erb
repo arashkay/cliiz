@@ -52,6 +52,7 @@ $(function(){
     </div>
   </div>
 </div>
+<!--v2-->
 <div style='display:none;' class='fclz-templates'>
   <div class='clz-player fclz-player'></div>
   <div class="clz-editing">
@@ -59,6 +60,24 @@ $(function(){
       <div class="clz-delete fclz-delete"></div>
       <div class="clz-setting fclz-setting"></div>
     </div>
+  </div>
+  <div class='clz-row fclz-post' loop='true'>
+    <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' value='%#id%' name='company[remember_me]'/></div>
+    <label class='clz-label300 clz-pad10'>
+      <img src='%#thumb%'/>
+      %#title%
+    </label>
+    <div class='clz-actions'>
+      <button class='clz-active-button'>Edit</button>
+      <button class='clz-secondary-button'>Delete</button>
+    </div>
+  </div>
+  <div class='clz-row fclz-menu-item' loop='true'>
+    <label class='clz-label80 clz-aright'>Page Name: </label>
+    <input class='clz-input' name='menu[%#field%][name]' value='' />
+    <label class='clz-label80 clz-aright'>Address: </label> <span class='fclz-path clz-pretext'></span>
+    <input class='clz-input' name='menu[%#field%][url]' value='' />
+    <input type='hidden' name='menu[%#field%][uname]' value='' />
   </div>
   <div class='clz-row fclz-field-name'>
     <label class='clz-label'>Name:</label>
@@ -94,38 +113,30 @@ $(function(){
   </div>
   <%= render :partial => 'general/editor.forms' %>
 </div>
-<!--v2-->
 <div class='clz-form-box fclz-formbox'>
   <div class='clz-form'>
     <div class='clz-actions'>
       <button class='clz-preview fclz-preview'>Preview</button>
-      <button class='clz-close fclz-close'>Close</button>
+      <button class='clz-close fclz-close'>Cancel</button>
     </div>
-    <div class='fclz-forms'></div>
-    <h2>Map</h2>
-    <div class='clz-row'>
-      <label class='clz-label80 clz-aright'>Address</label>
-      <div class='clz-input-block270'>
-        <input class='clz-input270' />
-        <a class='clz-input-button'><span>Locate</span></a>
+    <div class='fclz-forms'>
+      <div formfor='menu'>
+        <h2>Menu</h2>
+        <p class='clz-description'>Add pages in your main menu.</p>
+        <div class='clz-listing fclz-pages'>
+          <% company.setting[:menu].each_with_index do |page, i| %>
+            <div class='clz-row fclz-menu-item'>
+              <label class='clz-label80 clz-aright'>Page Name: </label>
+              <input class='clz-input' name='menu[<%=i%>][name]' value='<%= page[2] %>' />
+              <label class='clz-label80 clz-aright'>Address: </label> <span class='fclz-path clz-pretext'></span>
+              <input class='clz-input' name='menu[<%=i%>][url]' value='<%= page[1].split('/').last %>' />
+              <input type='hidden' name='menu[<%=i%>][uname]' value='<%= page[0] %>' />
+            </div>
+          <%end%>
+          <div class='clz-row-button fclz-add'>+ Add more pages</div>
+        </div>
       </div>
     </div>
-    <div class='clz-row300 clz-inlined'>
-      <label class='clz-label80 clz-aright'>Phone</label>
-      <input class='clz-input' name='phone' value='<%= Component.default_for('locationmark')[:phone] %>' />
-    </div>
-    <div class='clz-row300 clz-inlined'>
-      <label class='clz-label80 clz-aright'>Fax</label>
-      <input class='clz-input' name='fax' value='<%= Component.default_for('locationmark')[:fax] %>' />
-    </div>
-    <h3>Map Size</h3>
-    <div class='clz-row clz-inlined'>
-      <label class='clz-label80 clz-aright'>Width</label>
-      <input class='clz-input70' name='width' value='<%= Component.default_for('locationmark')[:viewport][0] %>' />
-      <label class='clz-label clz-aright'> x Height</label>
-      <input class='clz-input70' name='height' value='<%= Component.default_for('locationmark')[:viewport][1] %>' />
-    </div>
-    <input type='hidden' name='latlng' value='<%= Component.default_for('locationmark')[:latlng][0] %>,<%= Component.default_for('locationmark')[:latlng][1] %>' />
   </div>
 </div>
 <div class='clz-theme-preview fclz-theme-preview'></div>
@@ -150,7 +161,7 @@ $(function(){
           <div class='clz-cell'>Add to Page by<br/><span>Drag & Drop</span></div>
         </div>
       </div>
-      <div class='clz-sitemenu-button' data-tool='' data-arrange='cliiz.toolbox.sizes.normal'></div>
+      <div class='clz-sitemenu-button' data-tool='' data-open-form='menu' data-arrange='cliiz.toolbox.sizes.normal'></div>
       <div class='clz-package-button clz-expandable' data-tool='.fclz-packages' data-arrange='cliiz.toolbox.sizes.expanded'>
         <div class='clz-info'>
           <div class='clz-cell'><span>Click</span> to Enable<br/>More Packages</div>

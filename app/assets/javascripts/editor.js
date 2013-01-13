@@ -5,6 +5,12 @@ $.fn.dto = function(val){
     this.data('cliiz.module.dto', val);
   return this.data('cliiz.module.dto');
 }
+$.fn.vl = function(f, val){
+  f = $(['[name="',f,'"]'].join(''), this);
+  if(val!=undefined)
+    f.val(val);
+  return f.val();
+}
 /*
 cliiz.toolbox.defaults.modules
 cliiz.toolbox.defaults.blocks
@@ -30,7 +36,7 @@ cliiz.toolbox = $.namespace({
     this.init.packages();
     this.init.partitions();
     this.form.init();
-    $.send( '/components/list_addables/', this.init.features, true);
+    $.send( '/coreapi/components/list_addables/', this.init.features, true);
     $('.fclz-publish').click( this.publish );
   },
   init: {
@@ -39,13 +45,13 @@ cliiz.toolbox = $.namespace({
       $('.fclz-themeright').click(cliiz.toolbox.rotateRight);
       $('.fclz-theme').click(
         function(){
-          $.send( '/companies/temp_layout.json', { id: $(this).data('id') }, function(){ location.reload(true) } )
+          $.send( '/coreapi/companies/temp_layout.json', { id: $(this).data('id') }, function(){ location.reload(true) } )
         }
       );
       cliiz.toolbox.themePreview();
     },
     features: function(data){
-      $.send( '/components/blocks/', cliiz.toolbox.init.blocks);
+      $.send( '/coreapi/components/blocks/', cliiz.toolbox.init.blocks);
       $('.fclz-tools').template(data, { keepOrigin: false}).find(cliiz.toolbox.defaults.module).show();
       $.each( data, function(){
           $(cliiz.toolbox.defaults.module+'[data-uname='+this.uname+']').dto(this);
@@ -67,7 +73,7 @@ cliiz.toolbox = $.namespace({
         function(){
           cliiz.loading.show();
           $.send( 
-            ($(this).is('.clz-enabled') ? '/companies/disable_package.json' : '/companies/enable_package.json'),
+            ($(this).is('.clz-enabled') ? '/coreapi/companies/disable_package.json' : '/coreapi/companies/enable_package.json'),
             { name: $(this).data('uname') },
             function(){ location.reload(true) } 
           );
@@ -138,16 +144,14 @@ cliiz.toolbox = $.namespace({
       init: function(block){
         var form = this;
         var dto = block.dto().setting;
-        $('[name=size]', this).val( dto.size );
+        $(this).vl('size', dto.size);
+        $('[data-group=type]:has([value="'+dto.type+'"])', this).click();
       },
-      edit: function(block){
-        var setting = block.dto().setting;
-        $('[name=type]', this).val( [setting.type] );
-      },
+      edit: function(block){},
       update: function(block){
         var form = this;
         var dto = {
-          size: $('[name=size]', this).val(),
+          size: $(this).vl('size'),
           type: $('[name=type]:checked', this).val()
         };
         block.dto().setting = dto;
@@ -260,6 +264,100 @@ cliiz.toolbox = $.namespace({
         if(name.val()=='') name.val(cliiz.toolbox.defaults.i18n[v]);
       }
     },
+    locationmark: {
+      init: function(block){
+        var form = this;
+        var dto = block.dto().setting;
+        $(this).vl( 'latlng', dto.latlng.join(',') );
+        $(this).vl( 'width', dto.viewport[0] );
+        $(this).vl( 'height', dto.viewport[1] );
+        $(this).vl( 'address', dto.address );
+        $(this).vl( 'phone', dto.phone );
+        $(this).vl( 'fax', dto.fax );
+        cliiz.toolbox.module.locationmark.initGoogleMap( form, dto );
+        cliiz.toolbox.module.locationmark.update.call( form, block ); 
+      },
+      edit: function(block){},
+      update: function(block){
+        var dto = { 
+          latlng: $(this).vl('latlng').split(','),
+          viewport: [ $(this).vl('width'), $(this).vl('height')],
+          address: $(this).vl('address'),
+          phone: $(this).vl('phone'),
+          fax: $(this).vl('fax')
+        };
+        block.dto().setting = dto;
+        var $map = $('.cliiz-map', block).width( dto.viewport[0] ).height( dto.viewport[1] );
+        var $win = $('.cliiz-location:hidden', block);
+        pos = new google.maps.LatLng(dto.latlng[0], dto.latlng[1]);
+        var opts = {
+          zoom: 15,
+          center: new google.maps.LatLng(dto.latlng[0], dto.latlng[1]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControl: false,
+          streetViewControl: false
+        };
+        var map = new google.maps.Map($map.get(0), opts);
+        var marker = new google.maps.Marker( );
+        marker.setOptions( { map: map, position: opts.center } );
+        var cnt = $win.clone().show();
+        (dto.address=='')
+          ? $('.cliiz-address', cnt).remove()
+          : $('.cliiz-address span', cnt).text( dto.address );
+        (dto.phone=='')
+          ? $('.cliiz-phone', cnt).remove()
+          : $('.cliiz-phone span', cnt).text( dto.phone );
+        (dto.fax=='')
+          ? $('.cliiz-fax', cnt).remove()
+          : $('.cliiz-fax span', cnt).text( dto.fax );
+        var win = new google.maps.InfoWindow( { content: cnt.get(0), position: opts.center } );
+        win.open( map );
+      },
+      initGoogleMap: function(form, dto){
+        var geocoder = new google.maps.Geocoder();
+        var marker = new google.maps.Marker( { draggable: true } );
+        google.maps.event.addListener(marker, 'dragend', function(){ 
+          $('[name=latlng]', form).val( this.getPosition().lat()+','+this.getPosition().lng() );
+        });
+        var opts = {
+          zoom: 15,
+          center: new google.maps.LatLng(dto.latlng[0], dto.latlng[1]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControl: false,
+          streetViewControl: false
+        };
+        var map = new google.maps.Map($('.fn-map-preview', form).get(0), opts);
+        var decode = function(add){
+          geocoder.geocode( 
+            { address: add },
+            function(res){
+              var pos = res[0].geometry.location;
+              $('[name=latlng]', form).val( pos.lat()+','+pos.lng() );
+              map.panTo( pos );
+              marker.setOptions( { map: map, position: pos } );
+            }
+          );
+        }
+        $('.fclz-locate', form).click(
+          function(){
+            decode( $('[name=address]', form).val() );
+          }
+        ).click();
+        form.bind('onShow', function(){ var c = map.getCenter(); google.maps.event.trigger(map, 'resize'); map.setCenter(c); });
+      }
+    },
+    blog: {
+      init: function(block){
+        $.send( '/coreapi/blogging.json', {_method:'get'}, cliiz.toolbox.module.blog.list );
+      },
+      edit: function(block){
+      },
+      update: function(block){
+      },
+      list: function(data){
+        $('.fclz-templates > .fclz-post').template( data, { appendTo: '.fclz-posts'} );
+      }
+    },
     whatever: {
       init: function(block){
       },
@@ -297,7 +395,7 @@ cliiz.toolbox = $.namespace({
     },
     refresh: function(block){
       $.send(
-        '/components/block_for', 
+        '/coreapi/components/block_for', 
         { id: block.attr('cliiz-uid'), uname: block.dto().component.uname, setting: block.dto().setting }, 
         function(d){ cliiz.toolbox.block.refreshed(block, d) } 
       );
@@ -310,6 +408,8 @@ cliiz.toolbox = $.namespace({
     init: function(){
       $('.fclz-close').click( this.hide );
       $('.fclz-preview').click( this.update );
+      $('[data-open-form]').click( this.showForButton );
+      this.menus.init();
     },
     connect: function( block ){
       var name = block.dto().component.uname;
@@ -318,9 +418,17 @@ cliiz.toolbox = $.namespace({
       form.data('cliiz.block', block);
       cliiz.toolbox.module[name].init.call( form, block );
     },
-    of: function(block){
+    showForButton: function(){
+      cliiz.toolbox.form.toggle( $(['[formfor=',$(this).data('open-form'),']'].join('')) );
+      cliiz.toolbox.form.show();
+    },
+    toggle: function(form){
       $('.fclz-formbox [formfor]').hide(); 
-      var form = block.data('cliiz.form').show();
+      form.show();
+    },
+    of: function(block){
+      var form = block.data('cliiz.form')
+      cliiz.toolbox.form.toggle(form);
       cliiz.toolbox.module[form.attr('formfor')].edit.call(form, block);
       cliiz.toolbox.form.show();
       form.trigger('onShow');
@@ -346,6 +454,19 @@ cliiz.toolbox = $.namespace({
       block.attr('data-edited', true);
       cliiz.toolbox.module[form.attr('formfor')].update.call( form, block ); 
       $('.fclz-close').click(); 
+    },
+    menus: {
+      init: function(){
+        var form = $('[formfor=menu]');
+        $('.fclz-path', form).text(document.location.href.split('panel')[0]);
+        $('.fclz-add', form).click( this.addPage );
+      },
+      addPage: function(){
+        var item = $('.fclz-templates .fclz-menu-item').template( [$(this).parents('.fclz-pages').find('.fclz-menu-item').size()] );
+        console.log(item);
+        $('.fclz-path', item).text(document.location.href.split('panel')[0]);
+        item.insertBefore(this);
+      }
     }
   },
   video: {
@@ -379,7 +500,7 @@ cliiz.toolbox = $.namespace({
         modules[i++] = $(this).data('cliiz.module.dto');
       });
     });
-    $.send( '/used_components/update.json', { modules: modules , removed: cliiz.toolbox.defaults.deleted }, function(){ location.reload(true) } );
+    $.send( '/coreapi/used_components/update.json', { modules: modules , removed: cliiz.toolbox.defaults.deleted }, function(){ location.reload(true) } );
   },
   themePreview: function(){
     $('.fclz-theme').hover( 
