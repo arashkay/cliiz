@@ -604,11 +604,15 @@ cliiz.toolbox = $.namespace({
       init: function(){
         var form = $('[formfor=menu]');
         $('.fclz-add', form).click( this.addPage );
-        $('.fclz-up, .fclz-down', form).click( this.addPage );
+        $('.fclz-up, .fclz-down', form).click( this.move );
       },
       addPage: function(){
         var item = $('.fclz-templates .fclz-menu-item').template( [$(this).parents('.fclz-pages').find('.fclz-menu-item').size()] );
         item.insertBefore(this);
+      },
+      move: function(){
+        var row = $(this).parents('.fclz-menu-item');
+        $(this).is('.fclz-up')? row.insertBefore(row.prev()) : row.insertAfter(row.next(':not(.fclz-add)'));
       }
     }
   },
