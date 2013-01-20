@@ -5,7 +5,7 @@
   <meta name="description" content="Free of charge and fastest way to create a website for your small/medium business. In 3 easy steps you have your own website, blog, photo gallery, eshop and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
   <%= stylesheet_link_tag 'main', "locale_#{locale}" %>
-  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/jquery.mousewheel.min.js", "core/validation.js", "core/tip.js", "core/form.watermark.js", "core.js" , "/javascripts/config.js", "showtime.js", "wizard.js" %>
+  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/jquery.mousewheel.min.js", "core/validation.js", "core/tip.js", "core/form.watermark.js", "core.js" , "/coreapi/javascripts/config.js", "showtime.js", "wizard.js" %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
   <script type="text/javascript">
@@ -240,85 +240,6 @@
         </div>
       </div>
       
-      <div class='step fn-step fn-modules modules' scroll='.fn-scroll' panel='.fn-scrollable' style='display:none;'>
-        <div class='vscrollbar fn-scroll' handle='.fn-handle'><div class='handle fn-handle'></div></div>
-        <div class='scrollable fn-scrollable'>
-          <div class='inputbox'>
-            <div class='top'>
-              <div class='left'></div>
-              <div class='label'><%=t 'modules.sitebuilder.home'%></div>
-              <div class='right'></div>
-            </div>
-            <div class='main'>
-              <div class='inner'>
-                <textarea class='fn-home-content'><h2>Sample Home</h2><h3>Replace it with your own content</h3><p>This is your first page which usually most of your visitors check first.<br/>In order to get your visitors attention, it's essential to have useful information with good presentation here.</p><p><u>Remove all these paragraphs and put your own welcome content here.</u></p></textarea>
-              </div>
-            </div>
-            <div class='bottom'>
-              <div class='left'></div>
-              <div class='main'></div>
-              <div class='right'></div>
-            </div>
-          </div>
-          <div class='inputbox'>
-            <div class='top'>
-              <div class='left'></div>
-              <div class='label'><%=t 'modules.sitebuilder.about'%></div>
-              <div class='right'></div>
-            </div>
-            <div class='main'>
-              <div class='inner'>
-                <textarea class='fn-about-content'><h2>Sample About</h2><h3>Replace it with your own content</h3><p>This content is for about page. Put information which introduces you/your organisation to your potential customers.</p><p><u>Remove all these paragraphs and put your own about content here.</u></p></textarea>
-              </div>
-            </div>
-            <div class='bottom'>
-              <div class='left'></div>
-              <div class='main'></div>
-              <div class='right'></div>
-            </div>
-          </div>
-          <div class='inputbox'>
-            <div class='top'>
-              <div class='left'></div>
-              <div class='label'><%=t 'modules.sitebuilder.contact'%></div>
-              <div class='right'></div>
-            </div>
-            <div class='main'>
-              <div class='inner'>
-                <textarea class='fn-contact-content'><h2>Sample Contact</h2><h3>Replace it with your own content</h3><p>Put your contact information, opening hours and email addresses here.</p><p>In addition you can use below form to create a contact form. Whenever a user fill it, you will receive their information.</p><p><u>Remove all these paragraphs and put your own contact information here.</u></p></textarea>
-              </div>
-            </div>
-            <div class='bottom'>
-              <div class='left'></div>
-              <div class='main'></div>
-              <div class='right'></div>
-            </div>
-          </div>
-          <div class='inputbox'>
-            <div class='top'>
-              <div class='left'></div>
-              <div class='label'><%=t 'modules.sitebuilder.contact_fields'%></div>
-              <div class='right'></div>
-            </div>
-            <div class='main'>
-              <div class='inner fn-fields-list'>
-                <%Component.default_for('infoform')[:all_fields].each do |f|%><span class='checkbox'><input val='<%=f%>' type='checkbox' /><%=t "modules.infoform.#{f}"%></span><%end%>
-              </div>
-            </div>
-            <div class='bottom'>
-              <div class='left'></div>
-              <div class='main'></div>
-              <div class='right'></div>
-            </div>
-          </div>
-          <div class='hidden fn-infoform-all-names'>
-            <%Component.default_for('infoform')[:all_fields].each do |f|%>
-              <input name='<%=f%>' value='<%=t "#{Component.default_for('infoform')[:names][f.to_sym].to_sym}"%>' type='hidden'/>
-            <%end%>
-          </div>
-        </div>
-      </div>
-
       <div class='step fn-step fn-finished finished' style='display:none'>
         <div class='paragraph'>
           <div class='top'></div>

@@ -471,6 +471,7 @@ body .clz-module-button .clz-cell{
 }
 
 .clz-label,
+.clz-label50,
 .clz-label80,
 .clz-label100,
 .clz-label150,
@@ -479,6 +480,9 @@ body .clz-module-button .clz-cell{
 .clz-label300{
   display: inline-block;
   cursor: pointer;
+}
+.clz-label50{
+  width: 50px;
 }
 .clz-label80{
   width: 80px;
@@ -504,6 +508,7 @@ body .clz-module-button .clz-cell{
   font-weight: bold;
 }
 .clz-label *,
+.clz-label50 *,
 .clz-label80 *,
 .clz-label100 *,
 .clz-label150 *,
@@ -779,15 +784,16 @@ body .clz-module-button .clz-cell{
   background: #FCFC8F;
 }
 
-.clz-row .clz-actions{
+.clz-row .clz-ractions{
   top: 1px;
-  right: 0px;
+  left: 0px;
   display: none;
   direction: rtl;
   width: auto;
-  padding-right: 10px;
+  padding-left: 10px;
+  position: absolute;
 }
-.clz-row:hover .clz-actions{ display: inline-block; }
+.clz-row:hover .clz-ractions{ display: inline-block; }
 .clz-updown{
   width: 25px;
   height: 37px;

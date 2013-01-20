@@ -61,11 +61,9 @@ class CompaniesController < ApplicationController
   end
 
   def menu
-    @company = Company.find params[:id]
-    @company.setting[:menu]
-    @company.save
+    current_company.update_menu params[:items]
     refresh_site!
-    redirect_to '/panel'
+    #render :json => Generator.new 
   end
   
   def first_edit_done

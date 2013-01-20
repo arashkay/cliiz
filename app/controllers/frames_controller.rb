@@ -20,7 +20,7 @@ class FramesController < ApplicationController
     components << UsedComponent.mock_website_importance
     current_company.setting = {
       :logo => '/images/blank-logo.png',
-      :menu => [ ['home', '/home', 'Home'], ['about', '/about', 'About'], ['contact', '/contact', 'Contact'] ],
+      :menu => CLIIZ::MENU::ITEMS,
       :facebookpage => 'cliiz.com',
       :display_name => 'Your Site Name'
     }

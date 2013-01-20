@@ -8,11 +8,9 @@ CliizCom::Application.routes.draw do
     match '/modules/submit_form' => 'mod_infoform#create'
     match '/modules/:action(/:id)' => 'modules'
 
+    post '/menu' => 'companies#menu'
     #get '/companies/all' => 'companies#all'
-    #get '/companies/menu/:id' => 'companies#menu'
     #post '/companies/current' => "companies#current"
-    #post '/companies/is_new' => "companies#is_new"
-    #post '/companies/not_registered' => "companies#not_registered"
     #post '/companies/layout' => "companies#frame"
     post '/companies/temp_layout' => "companies#temp_frame"
     post '/companies/enable_package' => "companies#enable_package"
@@ -93,22 +91,29 @@ CliizCom::Application.routes.draw do
     #get '/:action', :controller => 'general'
   end
 
-  unless %w(development).include? Rails.env
-    constraints( { :domain => /[^cliiz.com]/ } ) do
+  if 'development' != Rails.env
+    constraints( { :host => /[^webuilder.com.au]/ } ) do
+      sites_routes
+    end
+  else
+    constraints( { :host => /[^cliiz.com.au]/ } ) do
       sites_routes
     end
   end
  
-  constraints( { :subdomain => /[^(www)]/ } ) do
-    sites_routes
-  end
+  #constraints( { :subdomain => /[^(www)]/ } ) do
+  #  sites_routes
+  #end
 
-  get '/plans(.:format)' => "general#plans"
-  resources :designers do
-    collection do 
-      post 'upload'
-    end
-  end
+  post '/companies/is_new'          => "companies#is_new"
+  post '/companies/not_registered'  => "companies#not_registered"
+  
+  #get '/plans(.:format)' => "general#plans"
+  #resources :designers do
+  #  collection do 
+  #    post 'upload'
+  #  end
+  #end
 
   # SITE ROUTES
   get '/templates/:id/home.html' => "frames#get"

@@ -49,32 +49,40 @@ class Company < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :frame_id, :setting, :domain, :first_edit_done
 
-private
-  def set_setting
-    self.setting = { :menu => CLIIZ::MENU::ITEMS,
-        :display_name       => self.name, 
-        :logo               => nil, 
-        :description        => nil, 
-        :keywords           => nil,
-        :twitter            => nil,
-        :facebookpage       => nil,
-        :google_verify      => nil,
-        :google_analytic    => nil }
+  def update_menu(items)
+    setting[:menu] = items.sort.map{ |i| i[1]['menu'] }.map do |i|
+      page = [ i['uname'], "/#{i['name'].parameterize.underscore}", i['name'], i['disable'] ]
+      page
+    end
+    save
   end
 
-  def default_content
-    [CLIIZ::MENU::HOME,CLIIZ::MENU::CONTACT,CLIIZ::MENU::ABOUT].each do |page|
-      uc = UsedComponent.mock_start
-      uc.company_id = self.id
-      uc.page = page
-      uc.ordering = 1
-      uc.save
-      uc = UsedComponent.mock_features
-      uc.company_id = self.id
-      uc.page = page
-      uc.ordering = 2
-      uc.save
+  private
+    def set_setting
+      self.setting = { :menu => CLIIZ::MENU::ITEMS,
+          :display_name       => self.name, 
+          :logo               => nil, 
+          :description        => nil, 
+          :keywords           => nil,
+          :twitter            => nil,
+          :facebookpage       => nil,
+          :google_verify      => nil,
+          :google_analytic    => nil }
     end
-  end
+
+    def default_content
+      [CLIIZ::MENU::HOME,CLIIZ::MENU::CONTACT,CLIIZ::MENU::ABOUT].each do |page|
+        uc = UsedComponent.mock_start
+        uc.company_id = self.id
+        uc.page = page
+        uc.ordering = 1
+        uc.save
+        uc = UsedComponent.mock_features
+        uc.company_id = self.id
+        uc.page = page
+        uc.ordering = 2
+        uc.save
+      end
+    end
 
 end

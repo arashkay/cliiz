@@ -122,9 +122,9 @@ $(function(){
 <div class='clz-form-box fclz-formbox'>
   <div class='clz-form'>
     <div class='clz-actions'>
+      <button class='clz-preview fclz-save' style='display:none;'>Save</button>
       <button class='clz-preview fclz-preview'>Preview</button>
       <button class='clz-close fclz-close'>Cancel</button>
-      <button class='clz-preview fclz-save' style='display:none;'>Save</button>
       <button class='clz-close fclz-back' style='display:none;'>Back</button>
     </div>
     <div class='fclz-forms'>
@@ -154,11 +154,13 @@ $(function(){
         <div class='clz-listing fclz-pages'>
           <% company.setting[:menu].each_with_index do |page, i| %>
             <div class='clz-row fclz-menu-item <%= 'clz-disabled' if !page[3] %>'>
+              <label class='clz-label50'></label>
               <label class='clz-label80 clz-stressed'><%=page[0].capitalize if CLIIZ::MENU::FROZEN.include? page[0]%></label>
               <label class='clz-label80 clz-aright'>Page Name: </label>
-              <input class='clz-input' name='menu[<%=i%>][name]' value='<%= page[2] %>' />
-              <input type='hidden' name='menu[<%=i%>][uname]' value='<%= page[0] %>' />
-              <div class='clz-actions'>
+              <input class='clz-input' name='menu[name]' value='<%= page[2] %>' />
+              <input type='hidden' name='menu[uname]' value='<%= page[0] %>' />
+              <input type='hidden' name='menu[disable]' value='<%= page[3] %>' />
+              <div class='clz-ractions'>
                 <div class='clz-updown'>
                   <div class='clz-up fclz-up'></div>
                   <div class='clz-down fclz-down'></div>

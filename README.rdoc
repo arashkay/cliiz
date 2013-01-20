@@ -17,5 +17,6 @@ chmod -R 777 /home/arashvps/captest/shared/assets/
 == Deploy
 egrig ex shop khali
 
+cap deploy:setup
 cap deploy
 

@@ -547,7 +547,7 @@ cliiz.toolbox = $.namespace({
       $('.fclz-back').click( function(){ cliiz.toolbox.form.back.call() } );
       $('.fclz-save').click( function(){ cliiz.toolbox.form.save.call() } );
       $('[data-open-form]').click( this.showForButton );
-      this.menus.init();
+      this.menu.init();
     },
     connect: function( block ){
       var name = block.dto().component.uname;
@@ -557,7 +557,9 @@ cliiz.toolbox = $.namespace({
       cliiz.toolbox.module[name].init.call( form, block );
     },
     showForButton: function(){
-      cliiz.toolbox.form.toggle( $(['[formfor=',$(this).data('open-form'),']'].join('')) );
+      var name = $(this).data('open-form');
+      cliiz.toolbox.form.toggle( $(['[formfor=',name,']'].join('')) );
+      cliiz.toolbox.form[name].edit();
       cliiz.toolbox.form.show();
     },
     toggle: function(form){
@@ -600,7 +602,7 @@ cliiz.toolbox = $.namespace({
       if(showMains) $('.fclz-preview, .fclz-close').show();
       if(buttons!='') $(buttons).show();
     },
-    menus: {
+    menu: {
       init: function(){
         var form = $('[formfor=menu]');
         $('.fclz-add', form).click( this.addPage );
@@ -613,6 +615,24 @@ cliiz.toolbox = $.namespace({
       move: function(){
         var row = $(this).parents('.fclz-menu-item');
         $(this).is('.fclz-up')? row.insertBefore(row.prev()) : row.insertAfter(row.next(':not(.fclz-add)'));
+      },
+      edit: function(){
+        cliiz.toolbox.form.save = cliiz.toolbox.form.menu.save;
+        cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+      },
+      save: function(){
+        var menu = [];
+        $('.fclz-forms [formfor=menu] .fclz-menu-item ').each(
+          function(){
+            var row = $(this);
+            menu.push(row.fields( 'menu', ['name', 'uname', 'disable'] ));
+          }
+        );
+        console.log(menu);
+        $.send('/coreapi/menu', { items: menu }, cliiz.toolbox.form.menu.update);
+      },
+      update: function(){
+        cliiz.toolbox.form.hide();
       }
     }
   },
