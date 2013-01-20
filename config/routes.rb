@@ -36,6 +36,7 @@ CliizCom::Application.routes.draw do
         get :archive
       end
     end
+    resources :files
   end
 
   match '/panel' => 'general#panel'

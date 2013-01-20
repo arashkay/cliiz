@@ -1,10 +1,30 @@
+  <div formfor='gallery'>
+    <h2>Gallery</h2>
+    <div class='clz-browser'>
+      <div class='clz-current'>Previously uploaded images</div>
+      <div class='clz-upload'>
+        <span class='clz-upload-button'>
+          <button class='clz-active-button'>Upload new files</button>
+          <input class='fclz-upload' type="file" name="files[]" data-url="/coreapi/files" multiple>
+        </span>
+        <div class='clz-progress fclz-progress'>
+          <div class='clz-bar fclz-bar'></div>
+        </div>
+      </div>
+      <div class='clz-window fclz-window'>
+      </div>
+    </div>
+  </div>
   <div formfor='blog'>
     <h2>Blog</h2>
     <div class='clz-table fclz-posts'>
-      <div class='clz-header'>
+      <div class='clz-header fclz-header'>
         <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' name='company[remember_me]'/></div>
         <label class='clz-label300 clz-pad10'>Title</label>
       </div>
+    </div>
+    <div class='clz-bottom-actions'>
+      <button class='clz-active-button fclz-new-post'>New</button>
     </div>
   </div>
   <div formfor='content'>
@@ -79,67 +99,6 @@
         <input class='clz-input70' name='width' value='<%= Component.default_for('youtube')[:width] %>' />
         <label class='clz-label clz-aright'> x Height</label>
         <input class='clz-input70' name='height' value='<%= Component.default_for('youtube')[:height] %>' />
-      </div>
-    </div>
-  </div>
-  <div formfor='gallery'>
-    <div class='clz-field clz-disabled'>
-      <div class='clz-label'>
-        <div class='clz-left'></div>
-        <div class='clz-main'>Galleries<span class='clz-crumb fclz-gallery-crumb'></span></div>
-        <div class='clz-right'></div>
-      </div>
-      <div class='clz-block'>
-        <div class='clz-top'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-middle'>
-          <div class='clz-main clz-inlined clz-gallery fclz-gallery-browser' scroll='.fclz-scroll' panel='.fclz-images' >
-            <div class='clz-scrollbar fclz-scroll' handle='.fclz-handle'>
-              <div class='clz-handle fclz-handle'></div>
-            </div>
-            <div class='clz-album-image'>
-              <img class='clz-cover fclz-cover' src="/assets/blank.gif"/>
-            </div>
-            <div class='clz-images clz-inlined fclz-images'>
-              <div class='clz-add-album fclz-add-album'></div>
-            </div>
-          </div>
-        </div>
-        <div class='clz-bottom'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
-      </div>
-    </div>
-    <div class='clz-field clz-disabled'>
-      <div class='clz-label'>
-        <div class='clz-left'></div>
-        <div class='clz-main'>File Browser</div>
-        <div class='clz-right'></div>
-      </div>
-      <div class='clz-block'>
-        <div class='clz-top'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
-        <div class='clz-middle'>
-          <div class='clz-main clz-inlined clz-file-browser fclz-file-browser' scroll='.fclz-scroll' panel='.fclz-files' >
-            <div class='clz-scrollbar fclz-scroll' handle='.fclz-handle'>
-              <div class='clz-handle fclz-handle'></div>
-            </div>
-            <div class='clz-files clz-inlined fclz-files'></div>
-          </div>
-        </div>
-        <div class='clz-bottom'>
-          <div class='clz-left'></div>
-          <div class='clz-main'></div>
-          <div class='clz-right'></div>
-        </div>
       </div>
     </div>
   </div>

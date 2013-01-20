@@ -14,10 +14,10 @@ class FilesController < ApplicationController
   end
 
   def index
-    explore
+    folder = Folder.find_for_company( current_company, params[:folder] )
+    @files = Image.where( :folder_id => folder.id )
     respond_to do |format|
-      format.html { render :index }
-      format.json { render(:json => { :files => @files, :folders => @folders, :parent => @parent }, :methods => :thumb_url ) }
+      format.json { render :json => @files.to_json( :methods => :thumb_url ) }
     end
   end
 
@@ -26,13 +26,16 @@ class FilesController < ApplicationController
   end
 
   def create
+    folder = Folder.find_for_company( current_company, params[:folder] )
+    @files = []
     params[:files].each do |file|
       next if file.blank?
-      @file = Image.new :entity => file, :folder_id => params[:file][:folder_id]
-      @file.company = current_company
-      @file.save
+      image = Image.new :entity => file, :folder_id => folder.id
+      image.company = current_company
+      image.save
+      @files << image
     end
-    redirect_to "/panel/files/#{params[:file][:folder_id]}"
+    render :json => @files.to_json( :methods => :thumb_url )
   end
 
   def edit

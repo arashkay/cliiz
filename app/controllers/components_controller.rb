@@ -23,6 +23,10 @@ class ComponentsController < ApplicationController
     gen = Generator.new
     component = UsedComponent.new :company => current_company, :component => Component.find_by_uname(params[:uname])
     component.setting = params[:setting] 
+    case params[:uname]
+      when CLIIZ::COMPONENTS::BLOG
+        component.id = current_company.blog.id
+    end
     render :json => { :content => gen.create_block(component) }
   end
 

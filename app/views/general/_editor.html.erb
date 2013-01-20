@@ -55,28 +55,34 @@ $(function(){
 <!--v2-->
 <div style='display:none;' class='fclz-templates'>
   <div class='clz-player fclz-player'></div>
+  <div class='clz-file fclz-file' loop='true'>
+    <img src='%#thumb_url%' />
+    <div class='clz-actions'>
+      <button class='clz-active-button fclz-select'>Select</button>
+      <button class='clz-attention-button'>Delete</button>
+    </div>
+  </div>
   <div class="clz-editing">
     <div class="clz-menu">
       <div class="clz-delete fclz-delete"></div>
       <div class="clz-setting fclz-setting"></div>
     </div>
   </div>
-  <div class='clz-row fclz-post' loop='true'>
+  <div class='clz-row fclz-post' loop='true' data-dbid='%#id%'>
     <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' value='%#id%' name='company[remember_me]'/></div>
     <label class='clz-label300 clz-pad10'>
       <img src='%#thumb%'/>
       %#title%
     </label>
     <div class='clz-actions'>
-      <button class='clz-active-button'>Edit</button>
-      <button class='clz-secondary-button'>Delete</button>
+      <button class='clz-active-button fclz-edit'>Edit</button>
+      <button class='clz-secondary-button fclz-delete'>Delete</button>
     </div>
   </div>
   <div class='clz-row fclz-menu-item' loop='true'>
+    <label class='clz-label80 clz-aright'><span class='clz-pretext'></span></label> 
     <label class='clz-label80 clz-aright'>Page Name: </label>
     <input class='clz-input' name='menu[%#field%][name]' value='' />
-    <label class='clz-label80 clz-aright'>Address: </label> <span class='fclz-path clz-pretext'></span>
-    <input class='clz-input' name='menu[%#field%][url]' value='' />
     <input type='hidden' name='menu[%#field%][uname]' value='' />
   </div>
   <div class='clz-row fclz-field-name'>
@@ -118,19 +124,46 @@ $(function(){
     <div class='clz-actions'>
       <button class='clz-preview fclz-preview'>Preview</button>
       <button class='clz-close fclz-close'>Cancel</button>
+      <button class='clz-preview fclz-save' style='display:none;'>Save</button>
+      <button class='clz-close fclz-back' style='display:none;'>Back</button>
     </div>
     <div class='fclz-forms'>
+      <div formfor='post'>
+        <h2>Blog Post</h2>
+        <div class='clz-row clz-inlined'>
+          <input type='hidden' name='post[id]' value='' />
+          <label class='clz-label80 clz-aright'>Title: </label>
+          <input class='clz-input' name='post[title]' value='' />
+        </div>
+        <div class='clz-row'>
+          <label class='clz-label80 clz-aright'>Publish Date: </label>
+          <div class='clz-input-block270'>
+            <input class='clz-input' name='post[publish_date]' value='<%=Date.today.strftime "%m/%d/%Y"%>' />
+            <a class='clz-input-date fclz-post-date'></a>
+          </div>
+        </div>
+        <div class='clz-row'>
+          <label class='clz-label80 clz-aright'>Summary: </label>
+          <textarea class='clz-textarea' name='post[summary]'></textarea>
+        </div>
+        <textarea class='fclz-editor' name='post[content]'></textarea>
+      </div>
       <div formfor='menu'>
         <h2>Menu</h2>
         <p class='clz-description'>Add pages in your main menu.</p>
         <div class='clz-listing fclz-pages'>
           <% company.setting[:menu].each_with_index do |page, i| %>
-            <div class='clz-row fclz-menu-item'>
+            <div class='clz-row fclz-menu-item <%= 'clz-disabled' if !page[3] %>'>
+              <label class='clz-label80 clz-stressed'><%=page[0].capitalize if CLIIZ::MENU::FROZEN.include? page[0]%></label>
               <label class='clz-label80 clz-aright'>Page Name: </label>
               <input class='clz-input' name='menu[<%=i%>][name]' value='<%= page[2] %>' />
-              <label class='clz-label80 clz-aright'>Address: </label> <span class='fclz-path clz-pretext'></span>
-              <input class='clz-input' name='menu[<%=i%>][url]' value='<%= page[1].split('/').last %>' />
               <input type='hidden' name='menu[<%=i%>][uname]' value='<%= page[0] %>' />
+              <div class='clz-actions'>
+                <div class='clz-updown'>
+                  <div class='clz-up fclz-up'></div>
+                  <div class='clz-down fclz-down'></div>
+                </div>
+              </div>
             </div>
           <%end%>
           <div class='clz-row-button fclz-add'>+ Add more pages</div>

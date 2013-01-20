@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   
   before_filter :authenticate_company!, :except => [:is_new, :not_registered, :current]
-  before_filter :is_admin, :only => [:all, :menu]
+  before_filter :is_admin, :only => [:all]
   
   def is_new
     render :json => Company.find_by_name(params[:name]).blank?
@@ -62,9 +62,7 @@ class CompaniesController < ApplicationController
 
   def menu
     @company = Company.find params[:id]
-    @company.setting[:menu][0][2] = params[:home] unless params[:home].blank?
-    @company.setting[:menu][1][2] = params[:about] unless params[:about].blank?
-    @company.setting[:menu][2][2] = params[:contact] unless params[:contact].blank?
+    @company.setting[:menu]
     @company.save
     refresh_site!
     redirect_to '/panel'

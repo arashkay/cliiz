@@ -41,10 +41,14 @@ class Generator
     layout = company.setting[:temp_frame_id].blank? ? company.frame : Frame.find( company.setting[:temp_frame_id] )
     edit_scripts = %(
       <link href="/assets/editor.css" media="screen" rel="stylesheet" type="text/css">
+      <link href="/assets/core/ui/ui.css" media="screen" rel="stylesheet" type="text/css">
       <script src='/assets/core/jquery.ui.min.js' type='text/javascript'></script>
+      <script src='/assets/core/jquery.fileupload.js' type='text/javascript'></script>
+      <script src='/assets/core/jquery.datepicker.min.js' type='text/javascript'></script>
       
       <link href='/assets/core/editor/jquery.wysiwyg.css' media='screen' rel='stylesheet' type='text/css' />
       <script src='/assets/core/editor/jquery.wysiwyg.js' type='text/javascript'></script>
+      <script src='/assets/core/editor/wysiwyg.image.js' type='text/javascript'></script>
       <script src='/assets/core/jquery.mousewheel.min.js' type='text/javascript'></script>
       <script src='/assets/core/jquery.extension.js' type='text/javascript'></script>
       <script src='/assets/core/validation.js' type='text/javascript'></script>
@@ -106,16 +110,17 @@ class Generator
   private
  
   def menu(menu_items)
+    menu = menu_items.reject{ |i| !i[3] }
     menu_str = ''
     @doc.css('[data-cliiz=menu]').each do |m|
-      menu_str = item_replace m.css('[data-menu=first]') , menu_items.first
-      mid = menu_items[ 1, menu_items.size-2 ]
+      menu_str = item_replace m.css('[data-menu=first]') , menu.first
+      mid = menu[ 1, menu.size-2 ]
       mid.each { |i| menu_str += item_replace m.css('[data-menu=loop]'), i } unless mid.blank?
-      menu_str += item_replace m.css('[data-menu=last]'), menu_items.last
+      menu_str += item_replace m.css('[data-menu=last]'), menu.last
       m.inner_html = menu_str
     end
     h = {}
-    menu_items.each { |i|  h[i[0]] = i[1] }
+    menu.each { |i|  h[i[0]] = i[1] }
     @doc.css( '[cliiz-link]' ).each do |m|
       item = CLIIZ::MENU.get_item(m.attr('cliiz-link').downcase)
       m.set_attribute('href', h[item[0]]) unless item.blank?
@@ -144,7 +149,7 @@ class Generator
   end
 
   def blog_block(c)
-    ActionController::Base.new.send :render_to_string, '/modules/blog/block', :locals => { :setting => setting(c), :uid => c.uid, :posts => ModBlog.all(:conditions => { :used_component_id => c.id, :trashed =>false} , :order => 'publish_date DESC') }
+    ActionController::Base.new.send :render_to_string, '/modules/blog/block', :locals => { :setting => setting(c), :uid => c.uid, :posts => ModBlog.all_of(c.id) }
   end
 
   def post_block(c)

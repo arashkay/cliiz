@@ -8,11 +8,11 @@ class ModBlogController < ApplicationController
     @post.used_component_id = @blog.id unless @blog.blank?
     if @post.save
       refresh_site!
-      redirect_to '/panel/blogging'
+      render :json => @post.to_json( :methods => [:thumb, :human_publish_date] )
     elsif @blog.blank?
-      redirect_to '/panel/blogging'
+      render :json => CLIIZ::ERRORS::ENABLE_PACKAGE
     else
-      render :new
+      render :json => @post.errors
     end
   end
 
@@ -34,16 +34,16 @@ class ModBlogController < ApplicationController
 
   def edit
     @post = ModBlog.find(params[:id], :conditions => { :used_component_id => current_company.blog.id })
-    render :new
+    render :json => @post.to_json( :methods => [:thumb, :human_publish_date] )
   end
 
   def update
     @post = ModBlog.first(:conditions => { :id => params[:id], :used_component_id => current_company.blog.id })
     if @post.blank? || @post.update_attributes(params[:post])
       refresh_site!
-      redirect_to '/panel/blogging'
+      render :json => @post.to_json( :methods => [:thumb, :human_publish_date] )
     else
-      render :new
+      render :json => @post.errors
     end
   end
 

@@ -9,26 +9,6 @@ module CLIIZ
     FACEBOOK = ''
   end
 
-  module MENU
-    HOME = 'home'
-    ABOUT = 'about'
-    CONTACT = 'contact'
-    BLOG = 'blog'
-    GALLERY = 'gallery'
-    LISTING = 'list'
-    ITEMS = 
-      [ [HOME, '/home', 'Home'], 
-        [ABOUT, '/about', 'About'], 
-        [CONTACT, '/contact', 'Contact'],
-        [BLOG, '/blog', 'Blog'],
-        [GALLERY, '/gallery', 'Gallery'],
-        [LISTING, '/list', 'List'] ]
-    DEFAULT = [ITEMS[0], ITEMS[1], ITEMS[2]]
-    def self.get_item(item)
-      ITEMS[ITEMS.index{ |i| i[0]==item }]
-    end
-  end
-
   module COMPONENTS
     
     BLOG = 'blog'
@@ -138,5 +118,31 @@ module CLIIZ
     end
 
   end
+
+  module MENU
+    HOME = 'home'
+    ABOUT = 'about'
+    CONTACT = 'contact'
+    BLOG = CLIIZ::COMPONENTS::BLOG
+    GALLERY = CLIIZ::COMPONENTS::GALLERY
+    LISTING = CLIIZ::COMPONENTS::LISTING
+    FROZEN = [HOME, ABOUT, CONTACT, BLOG, GALLERY, LISTING]
+    ITEMS = 
+      [ [HOME, '/home', 'Home', true], 
+        [ABOUT, '/about', 'About', true], 
+        [CONTACT, '/contact', 'Contact', true],
+        [BLOG, '/blog', 'Blog', false],
+        [GALLERY, '/gallery', 'Gallery', false],
+        [LISTING, '/list', 'List', false] ]
+    def self.get_item(item)
+      ITEMS[ITEMS.index{ |i| i[0]==item }]
+    end
+  end
+
+  module ERRORS
+    
+    ENABLE_PACKAGE = { :status => :enable_package, :message => 'Please first enable package!' }
+
+  end  
 
 end

@@ -346,7 +346,7 @@ body .clz-module-button .clz-cell{
 }
 .clz-module-shadow{
   border: #2c9bdb 2px dashed;
-  height: 5px;
+  height: 8px;
   margin: 3px 0px;
 }
 .clz-player{
@@ -375,7 +375,8 @@ body .clz-module-button .clz-cell{
   background: #fff;
   padding: 10px 10px 30px;
   -moz-border-radius: 0px 0px 5px 5px;
-  border-radius: 0px 0px 5px 5px
+  border-radius: 0px 0px 5px 5px;
+  font-size: 14px;
 }
 .clz-form .clz-actions{
   position: absolute;
@@ -469,12 +470,6 @@ body .clz-module-button .clz-cell{
   display: inline-block;
 }
 
-.clz-pretext{
-  display: inline-block;
-  line-height: 22px;
-  color: #2B9BDB;
-  font-size: 16px;
-}
 .clz-label,
 .clz-label80,
 .clz-label100,
@@ -503,8 +498,12 @@ body .clz-module-button .clz-cell{
 .clz-label300{
   width: 300px;
 }
+.clz-label.clz-stressed,
+.clz-label80.clz-stressed,
+.clz-label100.clz-stressed{
+  font-weight: bold;
+}
 .clz-label *,
-.clz-label80 *,
 .clz-label80 *,
 .clz-label100 *,
 .clz-label150 *,
@@ -524,6 +523,21 @@ body .clz-module-button .clz-cell{
 }
 .clz-pad20{
   padding-left: 20px;
+}
+.clz-textarea{
+  width: 500px;
+  line-height: 22px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  border-bottom: #2c9bdb 2px solid;
+  border-left: #2c9bdb 2px solid;
+  margin: 0px 3px;
+  padding: 2px;
+  outline: none;
+  height: 120px;
+  vertical-align: top;
+  margin-top: 5px;
 }
 .clz-input,
 .clz-input70,
@@ -545,7 +559,8 @@ body .clz-module-button .clz-cell{
 .clz-input270{
   width: 270px;
 }
-.clz-input-button{
+.clz-input-button,
+.clz-input-date{
   border: none;
   border-left: #2c9bdb 2px solid;
   border-bottom: #2c9bdb 2px solid;
@@ -560,6 +575,14 @@ body .clz-module-button .clz-cell{
   color: #2c9bdb;
   font-size: 12px;
 }
+.clz-input-date{
+  border: none;
+  background: url(/assets/flat/date.png) right 5px no-repeat;
+  height: 20px;
+  border-bottom: #2c9bdb 2px solid;
+  width: 20px;
+  right: 0px;
+}
 .clz-input-block270{
   display: inline-block;
   position: relative;
@@ -571,7 +594,8 @@ body .clz-module-button .clz-cell{
   vertical-align: bottom;
 }
 .clz-active-button,
-.clz-secondary-button{
+.clz-secondary-button,
+.clz-attention-button{
   padding: 3px 8px;
   background: #2c9bdb;
   border: none;
@@ -580,6 +604,9 @@ body .clz-module-button .clz-cell{
 }
 .clz-secondary-button{
   background: #989898;
+}
+.clz-attention-button{
+  background: #BB1938;
 }
 .clz-checkbox,
 .clz-checkbox150,
@@ -616,8 +643,100 @@ body .clz-module-button .clz-cell{
   height: auto;
 }
 
+.clz-browser{
+}
+.clz-browser .clz-current{
+  border: #2c9bdb 2px solid;
+  border-bottom: none;
+  line-height: 35px;
+  float: left;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  padding: 0px 10px 0px 10px;
+}
+.clz-browser .clz-upload{
+  float: left;
+  line-height: 35px;
+  padding-left: 4px;
+}
+.clz-browser .clz-upload .clz-active-button{
+  padding: 6px 10px;
+}
+.clz-browser .clz-window{
+  border: #2c9bdb 2px solid;
+  padding: 5px;
+  height: 300px;
+  clear: both;
+  top: -2px;
+  position: relative;
+  font-size: 0;
+  overflow: auto;
+}
+.clz-browser .clz-file{
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border: #555 2px solid;
+  margin: 2px;
+  position: relative;
+}
+
+.clz-browser .clz-file:hover{
+  border: #2c9bdb 2px solid;
+}
+.clz-browser .clz-file .clz-actions{
+  position: absolute;
+  top: auto;
+  left: -2px;
+  bottom: 0px;
+  display: inline;
+  height: 60px;
+  width: 100px;
+}
+.clz-browser .clz-file .clz-active-button,
+.clz-browser .clz-file .clz-attention-button{
+  display: none;
+  margin: 2px 0px;
+}
+.clz-browser .clz-file:hover .clz-active-button,
+.clz-browser .clz-file:hover .clz-attention-button{
+  display: block;
+}
+.clz-browser .clz-upload-button{
+  overflow: hidden;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+.clz-browser .clz-upload-button input{
+  cursor: pointer;
+  direction: ltr;
+  font-size: 23px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-300px, 0px) scale(3);
+}
+.clz-browser .clz-progress{
+  width: 200px;
+  float: left;
+  height: 3px;
+  background: #aaa;
+  margin: 16px 0px 0px 5px;
+  display: none;
+}
+.clz-browser .clz-progress .clz-bar{
+  height: 3px;
+  background: #2c9bdb ;
+  width: 0%;
+}
+
 .fclz-editor{
   width: 100%;
+  height: 300px;
 }
 .clz-form div.wysiwyg{
   border: none;
@@ -656,6 +775,38 @@ body .clz-module-button .clz-cell{
   font-size: 18px;
   cursor: pointer;
 }
+.clz-row.clz-disabled{
+  background: #FCFC8F;
+}
+
+.clz-row .clz-actions{
+  top: 1px;
+  right: 0px;
+  display: none;
+  direction: rtl;
+  width: auto;
+  padding-right: 10px;
+}
+.clz-row:hover .clz-actions{ display: inline-block; }
+.clz-updown{
+  width: 25px;
+  height: 37px;
+}
+.clz-updown .clz-up,
+.clz-updown .clz-down{
+  height: 18px;
+  width: 25px;
+  background: #2C9BDB url(/assets/flat/move-up.png) center center no-repeat;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  margin-top: 1px;
+  cursor: pointer;
+}
+.clz-updown .clz-down{
+  background-image: url(/assets/flat/move-down.png);
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
 
 /* TABLE */
 .clz-table .clz-row,
@@ -693,7 +844,10 @@ body .clz-module-button .clz-cell{
   vertical-align: middle;
   width: 30px;
 }
-
+.clz-bottom-actions {
+  margin: 15px 0px;
+  text-align: right;
+}
 /* page elements */
 .cliiz-module{
   position: relative;

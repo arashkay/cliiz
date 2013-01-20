@@ -25,21 +25,13 @@ class Company < ActiveRecord::Base
   after_create :default_content
   
   def add_to_menu(name)
-    self.setting[:menu].reject!{ |i| i[0]==name }
-    self.setting[:menu] << case name
-      when CLIIZ::COMPONENTS::BLOG
-        CLIIZ::MENU::get_item CLIIZ::MENU::BLOG
-      when CLIIZ::COMPONENTS::GALLERY
-        CLIIZ::MENU::get_item CLIIZ::MENU::GALLERY
-      when CLIIZ::COMPONENTS::LISTING
-        CLIIZ::MENU::get_item CLIIZ::MENU::LISTING
-    end
+    setting[:menu].detect{ |i| i[0]==name }[3] = true
     save
   end
 
   def remove_from_menu(name)
-    self.setting[:menu].reject!{ |i| i[0]==name }
-    self.save
+    setting[:menu].detect{ |i| i[0]==name }[3] = false
+    save
   end
 
   def blog
@@ -59,7 +51,7 @@ class Company < ActiveRecord::Base
 
 private
   def set_setting
-    self.setting = { :menu => CLIIZ::MENU::DEFAULT,
+    self.setting = { :menu => CLIIZ::MENU::ITEMS,
         :display_name       => self.name, 
         :logo               => nil, 
         :description        => nil, 

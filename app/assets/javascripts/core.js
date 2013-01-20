@@ -175,7 +175,13 @@ $.fn.editor = function(options){
     initialContent: null,
     css: '/stylesheets/basic.css',
     controls: {
-      insertImage: { visible: false },
+      insertImage: { 
+        visible: true, 
+        exec: function(){
+          $('.fclz-forms [formfor]:visible .fclz-editor').wysiwyg('insertImage', '#cliiz-img-placeholder');
+          cliiz.toolbox.module.gallery.load('Gallery', true);
+        } 
+      },
       insertTable: { visible: false }
     },
     autoGrow: true
