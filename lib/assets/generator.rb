@@ -38,7 +38,7 @@ class Generator
   end
 
   def edit_page(type, company, components, security_tag)
-    layout = company.setting[:temp_frame_id].blank? ? company.frame : Frame.find( company.setting[:temp_frame_id] )
+    layout = which_layout company
     edit_scripts = %(
       <link href="/assets/editor.css" media="screen" rel="stylesheet" type="text/css">
       <link href="/assets/core/ui/ui.css" media="screen" rel="stylesheet" type="text/css">
@@ -107,7 +107,18 @@ class Generator
     end
   end
 
+  def generate_menu(company)
+    layout = which_layout company
+    @doc = Nokogiri::HTML get_layout(CLIIZ::MENU::HOME, layout)
+    menu company.setting[:menu]
+    @doc.css('[data-cliiz=menu]').to_html
+  end
+
   private
+
+  def which_layout(company)
+    company.setting[:temp_frame_id].blank? ? company.frame : Frame.find( company.setting[:temp_frame_id] )
+  end
  
   def menu(menu_items)
     menu = menu_items.reject{ |i| !i[3] }

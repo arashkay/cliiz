@@ -63,7 +63,8 @@ class CompaniesController < ApplicationController
   def menu
     current_company.update_menu params[:items]
     refresh_site!
-    #render :json => Generator.new 
+    change_links_to_modify
+    render :json => { :menu => Generator.new.generate_menu(current_company) }
   end
   
   def first_edit_done

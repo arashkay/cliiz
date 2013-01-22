@@ -80,10 +80,22 @@ $(function(){
     </div>
   </div>
   <div class='clz-row fclz-menu-item' loop='true'>
-    <label class='clz-label80 clz-aright'><span class='clz-pretext'></span></label> 
+    <label class='clz-label50'></label>
+    <label class='clz-label80 clz-stressed'>Custom</label> 
     <label class='clz-label80 clz-aright'>Page Name: </label>
-    <input class='clz-input' name='menu[%#field%][name]' value='' />
-    <input type='hidden' name='menu[%#field%][uname]' value='' />
+    <input class='clz-input' name='menu[name]' value='' />
+    <input type='hidden' name='menu[uname]' value='' />
+    <input type='hidden' name='menu[disable]' value='0' />
+    <input type='hidden' name='menu[delete]' value='' />
+    <div class='clz-ractions'>
+      <div class='clz-updown'>
+        <div class='clz-up fclz-up'></div>
+        <div class='clz-down fclz-down'></div>
+      </div>
+    </div>
+    <div class='clz-actions'>
+      <button class='clz-attention-button fclz-delete'>Delete</button>
+    </div>
   </div>
   <div class='clz-row fclz-field-name'>
     <label class='clz-label'>Name:</label>
@@ -132,39 +144,48 @@ $(function(){
         <h2>Blog Post</h2>
         <div class='clz-row clz-inlined'>
           <input type='hidden' name='post[id]' value='' />
-          <label class='clz-label80 clz-aright'>Title: </label>
+          <label class='clz-label100 clz-aright'>Title: </label>
           <input class='clz-input' name='post[title]' value='' />
         </div>
         <div class='clz-row'>
-          <label class='clz-label80 clz-aright'>Publish Date: </label>
+          <label class='clz-label100 clz-aright'>Publish Date: </label>
           <div class='clz-input-block270'>
             <input class='clz-input' name='post[publish_date]' value='<%=Date.today.strftime "%m/%d/%Y"%>' />
             <a class='clz-input-date fclz-post-date'></a>
           </div>
         </div>
         <div class='clz-row'>
-          <label class='clz-label80 clz-aright'>Summary: </label>
+          <label class='clz-label100 clz-aright'>Summary: </label>
           <textarea class='clz-textarea' name='post[summary]'></textarea>
         </div>
         <textarea class='fclz-editor' name='post[content]'></textarea>
       </div>
       <div formfor='menu'>
         <h2>Menu</h2>
-        <p class='clz-description'>Add pages in your main menu.</p>
+        <p class='clz-description'>Add/remove pages in your main menu.</p>
         <div class='clz-listing fclz-pages'>
           <% company.setting[:menu].each_with_index do |page, i| %>
             <div class='clz-row fclz-menu-item <%= 'clz-disabled' if !page[3] %>'>
               <label class='clz-label50'></label>
-              <label class='clz-label80 clz-stressed'><%=page[0].capitalize if CLIIZ::MENU::FROZEN.include? page[0]%></label>
+              <label class='clz-label80 clz-stressed'><%= CLIIZ::MENU::FROZEN.include?(page[0]) ? page[0].capitalize : "Custom"%></label>
               <label class='clz-label80 clz-aright'>Page Name: </label>
               <input class='clz-input' name='menu[name]' value='<%= page[2] %>' />
               <input type='hidden' name='menu[uname]' value='<%= page[0] %>' />
-              <input type='hidden' name='menu[disable]' value='<%= page[3] %>' />
+              <input type='hidden' name='menu[disable]' value='<%= !page[3] %>' />
+              <input type='hidden' name='menu[delete]' value='' />
               <div class='clz-ractions'>
                 <div class='clz-updown'>
                   <div class='clz-up fclz-up'></div>
                   <div class='clz-down fclz-down'></div>
                 </div>
+              </div>
+              <div class='clz-actions'>
+                <% if CLIIZ::MENU::FROZEN.include? page[0] %>
+                  <button class='clz-secondary-button clz-disable fclz-disable'>Disable</button>
+                  <button class='clz-active-button clz-enable fclz-enable'>Enable</button>
+                <%else%>
+                  <button class='clz-attention-button fclz-delete'>Delete</button>
+                <%end%>
               </div>
             </div>
           <%end%>

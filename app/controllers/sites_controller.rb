@@ -44,7 +44,7 @@ class SitesController < ApplicationController
 
   def modify
     components = UsedComponent.all_in_page @page, @company.id
-    @company.setting[:menu].collect!{ |i| i[1] = "/panel/edit#{i[1]}"; i }
+    change_links_to_modify
     render :inline => Generator.new.edit_page( @page, @company, components, csrf_meta_tag).to_html
   end
 

@@ -17,7 +17,7 @@ CliizCom::Application.routes.draw do
     post '/companies/disable_package' => "companies#disable_package"
     #post '/companies/reset_temp_layout' => "companies#reset_temp_frame"
     #post '/used_components/multiple' => "used_components#multiple"
-    #post '/used_components/update' => "used_components#update"
+    post '/used_components/update' => "used_components#update"
 
     #resources :payments
     resources :components, :only => [] do 

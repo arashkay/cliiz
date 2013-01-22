@@ -462,10 +462,16 @@ body .clz-module-button .clz-cell{
 .clz-row300,
 .clz-row400{
   line-height: 35px;
+  font-size: 0px;
 }
 .clz-row300{ width: 300px; }
 .clz-row400{ width: 400px; }
 
+.clz-row *,
+.clz-row300 *,
+.clz-row400 *{
+  font-size: 14px;
+}
 .clz-inlined{
   display: inline-block;
 }
@@ -606,6 +612,7 @@ body .clz-module-button .clz-cell{
   border: none;
   color: #000;
   cursor: pointer;
+  margin: 0px 1px;
 }
 .clz-secondary-button{
   background: #989898;
@@ -783,9 +790,31 @@ body .clz-module-button .clz-cell{
 .clz-row.clz-disabled{
   background: #FCFC8F;
 }
+.clz-row .clz-enable{
+  display: none;
+}
+.clz-row.clz-disabled .clz-disable{
+  display: none;
+}
+.clz-row.clz-disabled .clz-enable{
+  display: inline-block;
+}
+
+.clz-row .clz-actions{
+  top: auto;
+  bottom: 0px;
+  line-height: 20px;
+  display: none;
+}
+.clz-row:hover .clz-actions{
+  display: block;
+}
+.clz-row .clz-actions button{
+  margin: 0px 1px;
+}
 
 .clz-row .clz-ractions{
-  top: 1px;
+  top: 3px;
   left: 0px;
   display: none;
   direction: rtl;

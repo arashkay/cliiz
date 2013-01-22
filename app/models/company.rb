@@ -34,6 +34,10 @@ class Company < ActiveRecord::Base
     save
   end
 
+  def delete_from_menu(name)
+    puts "delete #{name}"
+  end
+
   def blog
     UsedComponent.first :conditions => { :company_id => id, :components => { :uname => CLIIZ::COMPONENTS::BLOG } }, :joins => :component
   end
@@ -51,9 +55,16 @@ class Company < ActiveRecord::Base
 
   def update_menu(items)
     setting[:menu] = items.sort.map{ |i| i[1]['menu'] }.map do |i|
-      page = [ i['uname'], "/#{i['name'].parameterize.underscore}", i['name'], i['disable'] ]
-      page
+      if i['delete']=='true' && !CLIIZ::MENU::FROZEN.include?(i['uname'])
+        delete_from_menu(i['uname']) 
+        nil
+      else
+        name = i['uname'].blank? ? "dynpage-#{items.size-CLIIZ::MENU::FROZEN.size}": i['uname']
+        page = [ name, "/#{i['name'].parameterize.underscore}", i['name'], i['disable']!="true" ]
+        page
+      end
     end
+    setting[:menu].compact!
     save
   end
 

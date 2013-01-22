@@ -606,7 +606,9 @@ cliiz.toolbox = $.namespace({
       init: function(){
         var form = $('[formfor=menu]');
         $('.fclz-add', form).click( this.addPage );
-        $('.fclz-up, .fclz-down', form).click( this.move );
+        $(form).on( 'click', '.fclz-up, .fclz-down', this.move );
+        $(form).on( 'click', '.fclz-delete', this.remove );
+        $(form).on( 'click', '.fclz-disable, .fclz-enable', this.disenable );
       },
       addPage: function(){
         var item = $('.fclz-templates .fclz-menu-item').template( [$(this).parents('.fclz-pages').find('.fclz-menu-item').size()] );
@@ -625,14 +627,25 @@ cliiz.toolbox = $.namespace({
         $('.fclz-forms [formfor=menu] .fclz-menu-item ').each(
           function(){
             var row = $(this);
-            menu.push(row.fields( 'menu', ['name', 'uname', 'disable'] ));
+            menu.push(row.fields( 'menu', ['name', 'uname', 'disable', 'delete'] ));
           }
         );
-        console.log(menu);
         $.send('/coreapi/menu', { items: menu }, cliiz.toolbox.form.menu.update);
       },
-      update: function(){
+      update: function(data){
+        $('[data-cliiz=menu]').html( $(data.menu).html() );
         cliiz.toolbox.form.hide();
+      },
+      remove: function(){
+        var item = $(this).parents('.fclz-menu-item');
+        item.hide().vl('menu[delete]', 'true');
+      },
+      disenable: function(){
+        var item = $(this).parents('.fclz-menu-item');
+        if($(this).is('.fclz-disable'))
+          item.addClass('clz-disabled').vl('menu[disable]', 'true');
+        else
+          item.removeClass('clz-disabled').vl('menu[disable]', 'false');
       }
     }
   },

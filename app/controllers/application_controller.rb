@@ -28,4 +28,8 @@ class ApplicationController < ActionController::Base
       self.request.host.gsub('www.', '').split('.')[0]
     end
 
+    def change_links_to_modify
+      current_company.setting[:menu].collect!{ |i| i[1] = "/panel/edit#{i[1]}"; i }
+    end
+
 end
