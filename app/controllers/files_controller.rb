@@ -14,7 +14,7 @@ class FilesController < ApplicationController
   end
 
   def index
-    folder = Folder.find_for_company( current_company, params[:folder] )
+    folder = current_company.folder( params[:folder] )
     @files = Image.where( :folder_id => folder.id )
     respond_to do |format|
       format.json { render :json => @files.to_json( :methods => :thumb_url ) }
@@ -26,7 +26,7 @@ class FilesController < ApplicationController
   end
 
   def create
-    folder = Folder.find_for_company( current_company, params[:folder] )
+    folder = current_company.folder( params[:folder] )
     @files = []
     params[:files].each do |file|
       next if file.blank?

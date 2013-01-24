@@ -442,49 +442,57 @@ cliiz.toolbox = $.namespace({
       }
     },
     gallery: {
+      currentFolder: null,
       init: function(block){
-        cliiz.toolbox.module.gallery.load('Gallery', false);
-        cliiz.toolbox.form.show();
+        cliiz.toolbox.module.gallery.common();
       },
       edit: function(block){
+        cliiz.toolbox.module.gallery.load('Gallery');
       },
       update: function(block){
+        cliiz.toolbox.block.refresh(block);
       },
-      load: function(folder, forUploading){
-        if(forUploading){
-          cliiz.toolbox.form.buttons(false, '.fclz-back');
-          cliiz.toolbox.form.back = cliiz.toolbox.module.gallery.cancel;
-        }
-        var form = $('.fclz-forms [formfor=gallery]');
+      load: function(folder){
+        $('.fclz-window').empty();
+        cliiz.toolbox.module.gallery.currentFolder = folder;
+        $.send('/coreapi/files', $.extend( { folder: folder, _method: 'get' }, cliiz.toolbox.defaults.token), cliiz.toolbox.module.gallery.list);
+      },
+      browser: function(){
+        cliiz.toolbox.form.buttons(false, '.fclz-back');
+        cliiz.toolbox.form.back = cliiz.toolbox.module.gallery.cancel;
         cliiz.toolbox.defaults.prevForm = $('.fclz-forms [formfor]:visible');
+        var form = $('.fclz-forms [formfor=gallery]');
         if(form.size()==0){
           form = $('.fclz-templates [formfor=gallery]').clone().appendTo('.fclz-forms');
-          $('.fclz-window').on( 'click', '.fclz-select', cliiz.toolbox.module.gallery.select );
-          $('.fclz-upload').fileupload({
-            dataType: 'json',
-            formData: $.extend( { folder: 'Gallery' }, cliiz.toolbox.defaults.token),
-            start: function (e) { $('.fclz-progress').show() },
-            done: function (e, data) { 
-              $('.fclz-progress').hide();
-              cliiz.toolbox.module.gallery.list(data.result) 
-            },
-            progressall: function (e, data) {
-              var progress = parseInt(data.loaded / data.total * 100, 10);
-              $('.fclz-progress').show();
-              $('.fclz-progress .fclz-bar').css( 'width', progress + '%' );
-            }
-          });
+          cliiz.toolbox.module.gallery.common();
         }
         cliiz.toolbox.form.toggle(form);
-        $.send('/coreapi/files', $.extend( { folder: folder, _method: 'get' }, cliiz.toolbox.defaults.token), cliiz.toolbox.module.gallery.list);
+        cliiz.toolbox.module.gallery.load(null);
+      },
+      common: function(){
+        $('.fclz-window').on( 'click', '.fclz-select', cliiz.toolbox.module.gallery.select );
+        $('.fclz-upload').fileupload({
+          dataType: 'json',
+          add: function(e, data){ data.formData = $.extend( { folder: cliiz.toolbox.module.gallery.currentFolder }, cliiz.toolbox.defaults.token); data.submit() },
+          start: function (e) { $('.fclz-progress').show() },
+          done: function (e, data) { 
+            $('.fclz-progress').hide();
+            cliiz.toolbox.module.gallery.list(data.result) 
+          },
+          progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.fclz-progress').show();
+            $('.fclz-progress .fclz-bar').css( 'width', progress + '%' );
+          }
+        });
       },
       list: function(data){
         var file = $('.fclz-templates > .fclz-file').template( data );
         file.prependTo('.fclz-window');
       },
       select: function(){
-        var img = $( 'img', $(this).parents('.fclz-file')).attr('src');
-        cliiz.toolbox.form.toggle(cliiz.toolbox.defaults.prevForm);
+        var img = $( 'img', $(this).parents('.fclz-file')).attr('src').replace('/thumb/', '/original/');
+        cliiz.toolbox.module.gallery.cancel();
         var editor = $('.fclz-forms [formfor]:visible .fclz-editor');
         var cnt = editor.wysiwyg('getContent');
         editor.wysiwyg('setContent', cnt.replace('#cliiz-img-placeholder', img));
@@ -568,6 +576,7 @@ cliiz.toolbox = $.namespace({
     },
     of: function(block){
       var form = block.data('cliiz.form')
+      cliiz.toolbox.form.buttons(true);
       cliiz.toolbox.form.toggle(form);
       cliiz.toolbox.module[form.attr('formfor')].edit.call(form, block);
       cliiz.toolbox.form.show();
@@ -646,6 +655,19 @@ cliiz.toolbox = $.namespace({
           item.addClass('clz-disabled').vl('menu[disable]', 'true');
         else
           item.removeClass('clz-disabled').vl('menu[disable]', 'false');
+      }
+    },
+    setting: {
+      init: function(){
+      },
+      edit: function(data){
+        cliiz.toolbox.form.save = cliiz.toolbox.form.setting.save;
+        cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+      },
+      save: function(){
+        cliiz.toolbox.form.hide();
+      },
+      update: function(data){
       }
     }
   },

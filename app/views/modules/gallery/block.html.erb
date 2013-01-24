@@ -5,20 +5,12 @@
       <i>Gallery is empty!</i>
     <%else%>
       <% items.each do |i| %>
-        <% next if i.image.blank? %>
-        <% url = i.is_album ? "/gallery?category=#{i.id}" : "/gallery/#{i.id}" %>
-        <div class='thumb cliiz-image' imageid='<%=i.id%>' original='<%=i.image.entity.url%>'>
-          <%if i.is_album%>
-            <img class='cliiz-image-shadow' src='<%=i.image.entity.url(:thumb)%>'/>
-          <%end%>
-          <img src='<%=i.image.entity.url(:thumb)%>'/>
+        <div class='thumb cliiz-image' imageid='<%=i.id%>' original='<%=i.entity.url%>'>
+          <img src='<%=i.entity.url(:thumb)%>'/>
           <div class='cliiz-magnified'>
-            <a href='<%=url%>'>
-              <img src='<%=i.image.entity.url(:medium)%>'/>
+            <a href='/gallery/<%=i.id%>'>
+              <img src='<%=i.entity.url(:medium)%>'/>
             </a>
-            <div class='cliiz-info'>
-              <a class='cliiz-title' href='<%=url%>'><%= i.title %></a>
-            </div>
           </div>
         </div>
       <%end%>

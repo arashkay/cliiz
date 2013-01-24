@@ -82,7 +82,7 @@ $(function(){
   <div class='clz-row fclz-menu-item' loop='true'>
     <label class='clz-label50'></label>
     <label class='clz-label80 clz-stressed'>Custom</label> 
-    <label class='clz-label80 clz-aright'>Page Name: </label>
+    <label class='clz-label100 clz-aright'>Display Name </label>
     <input class='clz-input' name='menu[name]' value='' />
     <input type='hidden' name='menu[uname]' value='' />
     <input type='hidden' name='menu[disable]' value='0' />
@@ -98,9 +98,9 @@ $(function(){
     </div>
   </div>
   <div class='clz-row fclz-field-name'>
-    <label class='clz-label'>Name:</label>
+    <label class='clz-label'>Name</label>
     <input class='clz-input fclz-name' name='field[][name]' value='' />
-    <label class='clz-label80 clz-aright'>Type:</label>
+    <label class='clz-label80 clz-aright'>Type</label>
     <div class='clz-fixlist'>
       <div class='clz-fixlist'>
         <div class='clz-list fclz-types' data-list='[name="field[][type]"]' data-onchange='cliiz.toolbox.module.infoform.typeChange'>
@@ -114,7 +114,7 @@ $(function(){
         </div>
       </div>
     </div>
-    <label class='clz-label80 clz-aright'>Validation:</label>
+    <label class='clz-label80 clz-aright'>Validation</label>
     <div class='clz-fixlist'>
       <div class='clz-fixlist'>
         <div class='clz-list fclz-validations' data-list='[name="field[][validation]"]'>
@@ -144,19 +144,23 @@ $(function(){
         <h2>Blog Post</h2>
         <div class='clz-row clz-inlined'>
           <input type='hidden' name='post[id]' value='' />
-          <label class='clz-label100 clz-aright'>Title: </label>
+          <label class='clz-label100 clz-aright'>Title </label>
           <input class='clz-input' name='post[title]' value='' />
         </div>
         <div class='clz-row'>
-          <label class='clz-label100 clz-aright'>Publish Date: </label>
+          <label class='clz-label100 clz-aright'>Publish Date </label>
           <div class='clz-input-block270'>
             <input class='clz-input' name='post[publish_date]' value='<%=Date.today.strftime "%m/%d/%Y"%>' />
             <a class='clz-input-date fclz-post-date'></a>
           </div>
         </div>
         <div class='clz-row'>
-          <label class='clz-label100 clz-aright'>Summary: </label>
+          <label class='clz-label100 clz-aright clz-vtop'>Summary </label>
           <textarea class='clz-textarea' name='post[summary]'></textarea>
+          <div class='clz-post-image'>
+            <img class='fclz-post-image' src='/assets/noimage100.jpg'/>
+            <button class='clz-active-button fclz-change-post-image'>Change image</button>
+          </div>
         </div>
         <textarea class='fclz-editor' name='post[content]'></textarea>
       </div>
@@ -168,7 +172,7 @@ $(function(){
             <div class='clz-row fclz-menu-item <%= 'clz-disabled' if !page[3] %>'>
               <label class='clz-label50'></label>
               <label class='clz-label80 clz-stressed'><%= CLIIZ::MENU::FROZEN.include?(page[0]) ? page[0].capitalize : "Custom"%></label>
-              <label class='clz-label80 clz-aright'>Page Name: </label>
+              <label class='clz-label100 clz-aright'>Display Name </label>
               <input class='clz-input' name='menu[name]' value='<%= page[2] %>' />
               <input type='hidden' name='menu[uname]' value='<%= page[0] %>' />
               <input type='hidden' name='menu[disable]' value='<%= !page[3] %>' />
@@ -190,6 +194,43 @@ $(function(){
             </div>
           <%end%>
           <div class='clz-row-button fclz-add'>+ Add more pages</div>
+        </div>
+      </div>
+      <div formfor='setting'>
+        <h2>Setting</h2>
+        <div class='clz-row'>
+          <label class='clz-label100 clz-aright'>Site Title </label>
+          <input class='clz-input' name='site[display_name]' value='<%= company.setting[:display_name] %>' />
+        </div>
+        <div class='clz-row'>
+          <label class='clz-label100 clz-vtop clz-aright'>Site Description </label>
+          <textarea class='clz-textarea' name='site[description]'><%=company.setting[:description]%></textarea>
+          <div class='clz-post-image'>
+            <img class='fclz-post-image' src='<%=company.setting[:logo].blank? ? "/assets/noimage100.jpg" : company.setting[:logo] %>'/>
+            <button class='clz-active-button fclz-change-post-image'>Change Logo</button>
+          </div>
+        </div>
+        <div class='clz-row'>
+          <label class='clz-label100 clz-aright'>SEO Keywords</label>
+          <input class='clz-input500' name='site[keywords]' value='<%= company.setting[:keywords] %>' />
+        </div>
+        <h3>Social Setting</h3>
+        <div class='clz-row300 clz-inlined'>
+          <label class='clz-label100 clz-aright'>Facebook</label>
+          <input class='clz-input' name='site[facebookpage]' value='<%= company.setting[:facebookpage] %>' />
+        </div>
+        <div class='clz-row300 clz-inlined'>
+          <label class='clz-label100 clz-aright'>Twitter</label>
+          <input class='clz-input' name='site[twitter]' value='<%= company.setting[:twitter] %>' />
+        </div>
+        <h3>Google Setting</h3>
+        <div class='clz-row300 clz-inlined'>
+          <label class='clz-label100 clz-aright'>App ID</label>
+          <input class='clz-input' name='site[google_verify]' value='<%= company.setting[:google_verify] %>' />
+        </div>
+        <div class='clz-row300 clz-inlined'>
+          <label class='clz-label100 clz-aright'>Analytic ID</label>
+          <input class='clz-input' name='site[google_analytic]' value='<%= company.setting[:google_analytic] %>' />
         </div>
       </div>
     </div>
@@ -238,7 +279,7 @@ $(function(){
           </div>
         </div>
       </div>
-      <div class='clz-setting-button' data-tool='' data-arrange='cliiz.toolbox.sizes.normal'></div>
+      <div class='clz-setting-button' data-tool='' data-open-form='setting' data-arrange='cliiz.toolbox.sizes.normal'></div>
     </div>
     <div class='clz-clear'></div>
   </div>

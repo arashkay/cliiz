@@ -26,6 +26,9 @@ class ComponentsController < ApplicationController
     case params[:uname]
       when CLIIZ::COMPONENTS::BLOG
         component.id = current_company.blog.id
+      when CLIIZ::COMPONENTS::GALLERY
+        folder = current_company.folder( 'Gallery' )
+        component.extra_data = Image.where( :folder_id => folder.id )
     end
     render :json => { :content => gen.create_block(component) }
   end

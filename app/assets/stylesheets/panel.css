@@ -16,9 +16,10 @@ body{
   vertical-align: top;
   display: inline-block;
   color: #333;
-  width: 180px;
-  padding: 0px 0px 0px 120px;
-  background: url(/assets/flat/cliiz.png) no-repeat;
+  width: 250px;
+  padding: 60px 20px 0px 5px;
+  font-weight: bold;
+  background: url(/assets/flat/webuilder.png) 0px 20px no-repeat;
   height: 200px;
 }
 .login{

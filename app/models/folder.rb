@@ -8,11 +8,4 @@ class Folder < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   has_many :folders, :dependent => :destroy
 
-  def self.find_for_company( company, name)
-    return nil if name.blank?
-    folder = Folder.where( :company_id => company.id, :name => name ).first()
-    folder = Folder.create( :company_id => company.id, :name => name ) if folder.blank?
-    folder
-  end
-
 end

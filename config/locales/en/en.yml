@@ -32,6 +32,7 @@ en:
         email: 'Should be Email'
         phone: 'Should be phone'
         presence: 'Should be entered'
+        none: 'No validation'
       names:
         name: 'Name'
         email: 'Email'

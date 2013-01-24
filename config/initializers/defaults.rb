@@ -37,7 +37,7 @@ module CLIIZ
     end
 
     class Form
-      VALIDATIONS = [ :email, :phone, :presence ]
+      VALIDATIONS = [ :none, :email, :phone, :presence ]
       def self.setting
         { 
           :fields => { 0 => [ 1, :name, nil, 'Name', nil] , 1 => [ 2, :email, :email, "Email", nil], 2 => [ 3, :multi_line, nil, "Message", nil] }, # { order => [ id, :type, :validation, 'Name', 'Default Value(s)' ] , }

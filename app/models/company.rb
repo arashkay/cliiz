@@ -68,6 +68,13 @@ class Company < ActiveRecord::Base
     save
   end
 
+  def folder(name)
+    return Folder.new if name.blank? || name == 'null'
+    folder = Folder.where( :company_id => id, :name => name ).first()
+    folder = Folder.create( :company_id => id, :name => name ) if folder.blank?
+    folder
+  end
+
   private
     def set_setting
       self.setting = { :menu => CLIIZ::MENU::ITEMS,
