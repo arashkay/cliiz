@@ -150,7 +150,6 @@ cliiz.toolbox = $.namespace({
         $('[cliiz=module]', ui.item.parents('[data-partition]')).attr('data-edited', true);
         return true;
       }
-      console.log('t');
       var name = ui.item.data('uname');
       var dto = { 
         setting: $.extend( true, {}, $('.fclz-tools > [data-uname='+name+']').dto().setting ), 
@@ -383,6 +382,9 @@ cliiz.toolbox = $.namespace({
         );
         var date = $("[name='post[publish_date]']").datepicker();
         $('.fclz-post-date').click( function(){date.focus()} );
+        $('.fclz-change-post-image').click( function(){
+          cliiz.toolbox.module.gallery.browser('post', cliiz.toolbox.module.blog.post.back);
+        });
         $('.fclz-new-post').click( cliiz.toolbox.module.blog.post.form );
         $.send( '/coreapi/blogging.json', {_method:'get'}, cliiz.toolbox.module.blog.list );
         $('.fclz-posts').on( 'click', '.fclz-edit', cliiz.toolbox.module.blog.post.edit );
@@ -393,7 +395,8 @@ cliiz.toolbox = $.namespace({
           if(d.type!=undefined){
             d = { id: '', title: '', summary: '', content: '', human_publish_date: '' }
           }
-          form.fields( 'post', ['id', 'title', 'summary', 'content'], d );
+          form.fields( 'post', ['id', 'title', 'summary', 'content', 'image_id'], d );
+          $('.fclz-post-image').attr('src', d.thumb);
           $('.fclz-editor', form).wysiwyg('setContent', d.content);
           form.vl('post[publish_date]', d.human_publish_date);
           cliiz.toolbox.form.toggle(form);
@@ -406,6 +409,10 @@ cliiz.toolbox = $.namespace({
           var row = $(this).parents('.fclz-post');
           $.send( '/coreapi/blogging/'+row.data('dbid')+'/edit.json', {_method:'get'}, cliiz.toolbox.module.blog.post.form );
         },
+        back: function(){
+          cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+          cliiz.toolbox.form.toggle(cliiz.toolbox.defaults.prevForm);
+        },
         cancel: function(){
           var form = $('[formfor=blog]');
           cliiz.toolbox.form.toggle(form);
@@ -414,7 +421,7 @@ cliiz.toolbox = $.namespace({
         },
         save: function(){
           var form = $('[formfor=post]');
-          var fields = form.fields( 'post', ['id', 'title', 'summary', 'content', 'publish_date'])
+          var fields = form.fields( 'post', ['id', 'title', 'summary', 'content', 'publish_date', 'image_id'])
           if(form.vl('post[id]')==''){
             $.send( '/coreapi/blogging.json', fields, cliiz.toolbox.module.blog.post.saved );
           }else{
@@ -509,6 +516,13 @@ cliiz.toolbox = $.namespace({
           $('.fclz-logo').attr('src', cliiz.toolbox.module.gallery.select.common.call(this));
           $('[formfor=setting]').vl('site[logo]', cliiz.toolbox.module.gallery.select.common.call(this, true));
           cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+        },
+        post: function(){
+          var img = cliiz.toolbox.module.gallery.select.common.call(this);
+          cliiz.toolbox.form.back = cliiz.toolbox.module.blog.post.cancel;
+          $('.fclz-post-image').attr('src', img);
+          $('[formfor=post]').vl('post[image_id]', $(this).parents('.fclz-file').data('dbid'));
+          cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-back');
         }
       },
       cancel: function(){
