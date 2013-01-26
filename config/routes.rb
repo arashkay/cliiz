@@ -9,13 +9,14 @@ CliizCom::Application.routes.draw do
     match '/modules/:action(/:id)' => 'modules'
 
     post '/menu' => 'companies#menu'
+    post '/setting' => 'companies#update_profile'
     #get '/companies/all' => 'companies#all'
     #post '/companies/current' => "companies#current"
     #post '/companies/layout' => "companies#frame"
     post '/companies/temp_layout' => "companies#temp_frame"
     post '/companies/enable_package' => "companies#enable_package"
     post '/companies/disable_package' => "companies#disable_package"
-    #post '/companies/reset_temp_layout' => "companies#reset_temp_frame"
+    post '/companies/reset_temp_layout' => "companies#reset_temp_frame"
     #post '/used_components/multiple' => "used_components#multiple"
     post '/used_components/update' => "used_components#update"
 
@@ -51,7 +52,6 @@ CliizCom::Application.routes.draw do
     scope '/edit' do
       sites_routes('modify')
     end
-    #match '/profile' => 'companies#profile'
     #match '/update_profile' => 'companies#update_profile'
     #match '/first_edit_done' => 'companies#first_edit_done'
     #match '/check_domain' => 'general#check_domain'

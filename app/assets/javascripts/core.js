@@ -179,7 +179,7 @@ $.fn.editor = function(options){
         visible: true, 
         exec: function(){
           $('.fclz-forms [formfor]:visible .fclz-editor').wysiwyg('insertImage', '#cliiz-img-placeholder');
-          cliiz.toolbox.module.gallery.browser();
+          cliiz.toolbox.module.gallery.browser('editor');
         } 
       },
       insertTable: { visible: false }

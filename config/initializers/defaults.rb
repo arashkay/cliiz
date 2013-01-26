@@ -55,8 +55,8 @@ module CLIIZ
     class Map
       def self.setting
         { 
-          :address => 'New York, NY, USA', 
-          :latlng => [ 40.7143528, -74.0059731 ], 
+          :address => 'Sydney Australia', 
+          :latlng => [ -33.8674869, 151.20699020000006 ], 
           :phone => nil, 
           :fax => nil,
           :viewport => [250, 250],

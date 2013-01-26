@@ -46,15 +46,16 @@ class CompaniesController < ApplicationController
 
   def update_profile
     @company = current_company
+    site = params[:setting][:site]
     setting = @company.setting.deep_merge({ 
-        :display_name       => params[:company][:display_name], 
-        :logo               => params[:company][:logo], 
-        :description        => params[:company][:description], 
-        :keywords           => params[:company][:keywords],
-        :twitter            => params[:company][:twitter],
-        :facebookpage       => params[:company][:facebookpage],
-        :google_verify      => params[:company][:google_verify],
-        :google_analytic    => params[:company][:google_analytic]
+        :display_name       => site[:display_name], 
+        :logo               => site[:logo], 
+        :description        => site[:description], 
+        :keywords           => site[:keywords],
+        :twitter            => site[:twitter],
+        :facebookpage       => site[:facebookpage],
+        :google_verify      => site[:google_verify],
+        :google_analytic    => site[:google_analytic]
       })
     refresh_site!
     render :json => @company.update_attributes({ :setting => setting })

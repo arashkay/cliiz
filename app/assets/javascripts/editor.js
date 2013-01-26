@@ -113,6 +113,8 @@ cliiz.toolbox = $.namespace({
           {
             connectWith: '[data-partition]',
             placeholder: "clz-module-shadow",
+            helper: function(){ return $("<div class='clz-drag-clone'>Drag & Drop</div>") },
+            forceHelperSize: true,
             start: function(e, ui){
               $(this).prepend(ui.placeholder);
               $('[data-partition]').trigger('onDeactivate').trigger('onActivate'); 
@@ -457,9 +459,10 @@ cliiz.toolbox = $.namespace({
         cliiz.toolbox.module.gallery.currentFolder = folder;
         $.send('/coreapi/files', $.extend( { folder: folder, _method: 'get' }, cliiz.toolbox.defaults.token), cliiz.toolbox.module.gallery.list);
       },
-      browser: function(){
+      browser: function(target, cancel){
+        cliiz.toolbox.module.gallery.select.current = cliiz.toolbox.module.gallery.select[target];
         cliiz.toolbox.form.buttons(false, '.fclz-back');
-        cliiz.toolbox.form.back = cliiz.toolbox.module.gallery.cancel;
+        cliiz.toolbox.form.back = $.isFunction(cancel)? cancel : cliiz.toolbox.module.gallery.cancel;
         cliiz.toolbox.defaults.prevForm = $('.fclz-forms [formfor]:visible');
         var form = $('.fclz-forms [formfor=gallery]');
         if(form.size()==0){
@@ -470,7 +473,7 @@ cliiz.toolbox = $.namespace({
         cliiz.toolbox.module.gallery.load(null);
       },
       common: function(){
-        $('.fclz-window').on( 'click', '.fclz-select', cliiz.toolbox.module.gallery.select );
+        $('.fclz-window').on( 'click', '.fclz-select', function(){ cliiz.toolbox.module.gallery.select.current.call(this) } );
         $('.fclz-upload').fileupload({
           dataType: 'json',
           add: function(e, data){ data.formData = $.extend( { folder: cliiz.toolbox.module.gallery.currentFolder }, cliiz.toolbox.defaults.token); data.submit() },
@@ -490,12 +493,23 @@ cliiz.toolbox = $.namespace({
         var file = $('.fclz-templates > .fclz-file').template( data );
         file.prependTo('.fclz-window');
       },
-      select: function(){
-        var img = $( 'img', $(this).parents('.fclz-file')).attr('src').replace('/thumb/', '/original/');
-        cliiz.toolbox.module.gallery.cancel();
-        var editor = $('.fclz-forms [formfor]:visible .fclz-editor');
-        var cnt = editor.wysiwyg('getContent');
-        editor.wysiwyg('setContent', cnt.replace('#cliiz-img-placeholder', img));
+      select: {
+        common: function(original){
+          cliiz.toolbox.module.gallery.cancel();
+          var img = $( 'img', $(this).parents('.fclz-file')).attr('src');
+          return original? img.replace('/thumb/', '/original/') : img;
+        },
+        editor: function(){
+          var img = cliiz.toolbox.module.gallery.select.common.call(this, true);
+          var editor = $('.fclz-forms [formfor]:visible .fclz-editor');
+          var cnt = editor.wysiwyg('getContent');
+          editor.wysiwyg('setContent', cnt.replace('#cliiz-img-placeholder', img));
+        },
+        setting: function(){
+          $('.fclz-logo').attr('src', cliiz.toolbox.module.gallery.select.common.call(this));
+          $('[formfor=setting]').vl('site[logo]', cliiz.toolbox.module.gallery.select.common.call(this, true));
+          cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+        }
       },
       cancel: function(){
         cliiz.toolbox.form.buttons(true);
@@ -556,6 +570,7 @@ cliiz.toolbox = $.namespace({
       $('.fclz-save').click( function(){ cliiz.toolbox.form.save.call() } );
       $('[data-open-form]').click( this.showForButton );
       this.menu.init();
+      this.setting.init();
     },
     connect: function( block ){
       var name = block.dto().component.uname;
@@ -659,13 +674,22 @@ cliiz.toolbox = $.namespace({
     },
     setting: {
       init: function(){
+        $('.fclz-change-logo').click( function(){
+          cliiz.toolbox.module.gallery.browser('setting', cliiz.toolbox.form.setting.cancel);
+        });
       },
       edit: function(data){
         cliiz.toolbox.form.save = cliiz.toolbox.form.setting.save;
         cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
       },
       save: function(){
+        var setting = $('[formfor=setting]').fields( 'site', 'display_name description logo keywords facebookpage twitter google_analytic google_verify'.split(' '))
+        $.send('/coreapi/setting', { setting: setting }, cliiz.toolbox.form.setting.update);
         cliiz.toolbox.form.hide();
+      },
+      cancel: function(){
+        cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+        cliiz.toolbox.form.toggle(cliiz.toolbox.defaults.prevForm);
       },
       update: function(data){
       }
@@ -717,6 +741,12 @@ cliiz.toolbox = $.namespace({
   },
   toggle: function(){
     var $this = $(this);
+    if($this.is('.clz-expanded')){
+      $('[data-tool]').removeClass('clz-expanded');
+      $('.fclz-submenu').hide();
+      cliiz.toolbox.rearrange(cliiz.toolbox.sizes.normal);
+      return;
+    }
     $('[data-tool]').not(this).removeClass('clz-expanded');
     $this.addClass('clz-expanded');
     $('.fclz-submenu').not($($this.data('tool'))).hide();

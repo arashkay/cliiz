@@ -206,8 +206,9 @@ $(function(){
           <label class='clz-label100 clz-vtop clz-aright'>Site Description </label>
           <textarea class='clz-textarea' name='site[description]'><%=company.setting[:description]%></textarea>
           <div class='clz-post-image'>
-            <img class='fclz-post-image' src='<%=company.setting[:logo].blank? ? "/assets/noimage100.jpg" : company.setting[:logo] %>'/>
-            <button class='clz-active-button fclz-change-post-image'>Change Logo</button>
+            <img class='fclz-logo' src='<%=company.setting[:logo].blank? ? "/assets/noimage100.jpg" : company.setting[:logo].gsub('original', 'thumb') %>'/>
+            <button class='clz-active-button fclz-change-logo'>Change Logo</button>
+            <input type='hidden' name='site[logo]' value='<%= company.setting[:logo] %>' />
           </div>
         </div>
         <div class='clz-row'>
@@ -225,12 +226,12 @@ $(function(){
         </div>
         <h3>Google Setting</h3>
         <div class='clz-row300 clz-inlined'>
-          <label class='clz-label100 clz-aright'>App ID</label>
-          <input class='clz-input' name='site[google_verify]' value='<%= company.setting[:google_verify] %>' />
-        </div>
-        <div class='clz-row300 clz-inlined'>
           <label class='clz-label100 clz-aright'>Analytic ID</label>
           <input class='clz-input' name='site[google_analytic]' value='<%= company.setting[:google_analytic] %>' />
+        </div>
+        <div class='clz-row300 clz-inlined'>
+          <label class='clz-label100 clz-aright'>Google App ID</label>
+          <input class='clz-input' name='site[google_verify]' value='<%= company.setting[:google_verify] %>' />
         </div>
       </div>
     </div>

@@ -344,6 +344,20 @@ body .clz-module-button .clz-cell{
   font-weight: bold;
   padding: 5px 0px;
 }
+.clz-drag-clone{
+  background: #333;
+  line-height: 30px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0px;
+  cursor: move;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  filter:alpha(opacity=80);
+}
 .clz-module-shadow{
   border: #2c9bdb 2px dashed;
   height: 8px;
@@ -487,6 +501,7 @@ body .clz-module-button .clz-cell{
 .clz-label300{
   display: inline-block;
   cursor: pointer;
+  color: #2C9BDB;
 }
 .clz-label50{
   width: 50px;
