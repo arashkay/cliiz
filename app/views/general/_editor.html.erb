@@ -253,7 +253,12 @@ $(function(){
     <div class='clz-clear'></div>
   </div>
   <div class='clz-tools'>
-    <button class='clz-publish fclz-publish'>Save changes</button>
+    <div class='clz-actions'>
+      <% if !company.setting[:temp_frame_id].nil? %>
+        <button class='clz-restore fclz-restore'>Restore Live Template</button>
+      <%end%>
+      <button class='clz-publish fclz-publish'>Save changes</button>
+    </div>
     <div class='clz-items'>
       <div class='clz-addon-button clz-expandable' data-tool='.fclz-tools' data-arrange='cliiz.toolbox.sizes.expanded'>
         <div class='clz-info'>

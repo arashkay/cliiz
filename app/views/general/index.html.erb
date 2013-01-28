@@ -1,11 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-  <title><%=t 'site.title'%></title>
+  <title>Webuilder.com.au Australian Website Builder</title>
   <meta name="description" content="Free of charge and fastest way to create a website for your small/medium business. In 3 easy steps you have your own website, blog, photo gallery, eshop and more." />
-  <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
-  <%= stylesheet_link_tag 'main', "locale_#{locale}" %>
-  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.ui.min.js", "core/jquery.extension.js", "core/jquery.mousewheel.min.js", "core/validation.js", "core/tip.js", "core/form.watermark.js", "core.js" , "/coreapi/javascripts/config.js", "showtime.js", "wizard.js" %>
+  <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, medium business" /> 
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag "core/jquery.min.js", "core/jquery.extension.js", "core/validation.js", "core.js", 'home.js' %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>
   <script type="text/javascript">
@@ -21,257 +21,38 @@
   <%end%>
 </head>
 <body>
-  <div class='mainbox fn-mainbox'>
-    <div style='display:none;' class='video-screen fn-screen' >
-      <div class='actions'>
-        <object id='player' width="640" height="360">
-          <param name="movie" value="https://www.youtube.com/v/kFVuDaTsQBk?rel=0&showinfo=0&version=3"></param>
-          <param name="allowFullScreen" value="true"></param>
-          <param name="allowScriptAccess" value="always"></param>
-          <embed src="https://www.youtube.com/v/kFVuDaTsQBk?rel=0&showinfo=0&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="360"></embed>
-        </object>
-        <div class='dbl-button'>
-          <div class='left'></div>
-          <div class='first fn-cancel-video'>Back</div>
-          <div class='sep'></div>
-          <div class='second fn-start'>Create your website</div>
-          <div class='right'></div>
-        </div>
-      </div>
-    </div>
-    <div class='menu inlined dbld'>
-      <a class='fn-extend-page'>
-        <span class='left'></span>
-        <span class='main'><%=t 'feature-list' %></span>
-        <span class='right'></span>
-      </a>
-      <a href='/plans.html'>
-        <span class='left'></span>
-        <span class='main'><%=t 'plans' %></span>
-        <span class='right'></span>
-      </a>
-      <div class='language fn-language'>
-        <div class='left'></div>
-        <div class='main'>
-          <img class='arrow' src='/assets/blank.gif' />
-          <span class='fn-name' value='<%= cookies[:locale] %>'><%=t 'site.language' %></span>
-        </div>
-        <div class='right'></div>
-        <div class='drop'>
-          <div class='fn-language-expanded list'>
-            <div class='inner'>
-              <div class='item fn-item' locale='en'>English</div>
-              <div class='item fn-item' locale='fa'>فارسی</div>
-              <div class='item fn-item' locale='fr'>Français</div>
-            </div>
-          </div>
-          <div class='bottom inlined'>
-            <div class='left'></div>
-            <div class='main'></div>
-            <div class='right'></div>
-          </div>
-        </div>
-      </div>
-      <a href='/panel'>
-        <span class='left'></span>
-        <span class='main'><%=t 'login' %></span>
-        <span class='right'></span>
-      </a>
-    </div>
-    <div class='intro fn-intro'>
-      <h1>Make a Professional Looking Website Now!</h1>
-      <div class='main-partition'>
-        <h2>Step 1: Click & Choose Your Design</h2>
-        <div class='frame-partition fn-start'>
-          <div class='layouts'>
-            <% @frames[0..2].each do |f| %>
-            <div class='layout'><div class='frame'><img src='/assets/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
-            <%end%>
-          </div>
-          <div class='scrollbar'><div class='handler'><div class='backward inline'></div><div class='forward inline'></div></div></div>
-        </div>
-        <h2 class='faded'>Step 2: Register Your Website</h2>
-        <img src='/assets/home/text-publish.png'/>
-        <h2 class='faded'>Step 3: Add Your Content</h2>
-        <img src='/assets/home/text-content.png'/>
-      </div>
-      <div class='extra-partition'>
-        <!--
-        <div class='box w340 dark video'>
-          <div class='top'>
-            <div class='left'></div>
-            <div class='main'></div>
-            <div class='right'></div>
-          </div>
-          <div class='main'>
-            <div class='inner'>
-              <h3 class='fn-video'><img src='/assets/home/play.jpg'/>How it works</h3>
-              <img class='fn-video' src='/assets/home/movie.jpg'/>
-            </div>
-          </div>
-          <div class='bottom'>
-            <div class='left'></div>
-            <div class='main'></div>
-            <div class='right'></div>
-          </div>
-        </div>
-        -->
-        <div class='box w340 plans'>
-          <div class='top'>
-            <div class='left'></div>
-            <div class='main'></div>
-            <div class='right'></div>
-          </div>
-          <div class='main'>
-            <div class='inner'>
-              <h2>Don't have time to do it?</h2>
-              <h3>ASK US</h3>
-              <h4>We set up your website for $300</h4>
-            </div>
-          </div>
-          <div class='bottom'>
-            <div class='left'></div>
-            <div class='main'></div>
-            <div class='right'></div>
-          </div>
-        </div>
-      </div>
-      <div class='clear'></div>
-    </div>
-    <div class='footer fn-extend-page'>
-      <div class='compatible'><%=t 'compatible_with' %></div>
-      <div class='footer-menu'><a class='inline'><%=t 'site.links.where_am_i' %></a></div>
-    </div>
-    <div class='fn-loading-intro loading' style='display:none;'><%=t 'wizard.loading.builder'%></div>
-    <div class='wizard fn-wizard' style='display:none'>
-      <div class='box w350 askus'>
-        <div class='top'>
-          <div class='left'></div>
-          <div class='main'></div>
-          <div class='right'></div>
-        </div>
-        <div class='main'>
-          <div class='inner'>
-            <h2>Don't have time to do it? <span>Ask us to do it</span></h2>
-          </div>
-        </div>
-        <div class='bottom'>
-          <div class='left'></div>
-          <div class='main'></div>
-          <div class='right'></div>
-        </div>
-      </div>
-      <div class='step layout-step fn-step fn-layouts'>
-        <h2 class='title'>Step 1: Choose Your Design</h2>
-        <div class='main'>
-          <h3>
-            <span>Categories</span>
-            <span class='fn-chosen chosen'>New Designs</span>
-            <span class='list'>
-              <span class='item selected fn-layout-type' tag='all'><span class='main'>New Designs</span></span>
-              <span class='item fn-layout-type' tag='tradies'><span class='main'>Tradies</span></span>
-              <span class='item fn-layout-type' tag='beauty'><span class='main'>Beauty</span></span>
-              <span class='item fn-layout-type' tag='business'><span class='main'>Business</span></span>
-              <span class='item fn-layout-type' tag=''><span class='main'>ETC</span></span>
-            </span>
-          </h3>
-          <div class='layouts'>
-            <div class='layout-list-mask'>
-              <div class='layout-list fn-layouts-scroll inlined'>
-                <% @frames.each do |f| %>
-                  <div class='layout fn-layout' url='/templates/<%=f.id%>/home.html' layoutid='<%=f.id%>' layoutname='<%=f.name%>' tags='<%=f.tags%>' ><div class='frame'><img src='/assets/blank.gif' style='background:url(<%=f.image.url(:thumb)%>)'/></div></div>
-                <%end%>
-              </div>
-            </div>
-            <div class='fn-layouts-pager scrollbar'><div class='handler fn-handle'><div class='backward inline fn-prev'></div><div class='forward inline fn-next'></div></div></div>
-          </div>
-          <div class='next fn-navigation'>Do you like below design to be your website? <span class='fn-next'>Click here</span></div>
-        </div>
-      </div>
-      <div class='step fn-step fn-basic-info basic-info' style='display:none;'>
-        <div class='fn-basic-form'>
-          <h2 class='title'>Step 2: Register Your Website</h2>
-          <h3>Create an account</h3>
-          <div class='input fn-input' tip='<%=t'wizard.basic.name.tip'%>'>
-            <div class='left'></div>
-            <div class='label'><%=t 'wizard.basic.name.label' %></div>
-            <div class='label-right'></div>
-            <div class='main'>
-              <input name='user[name]' marker='.fn-sitename' format='/^\w{3,}$/ig' />
-            </div>
-            <div class='right'></div>
-            <div class='tooltip'>
-              <div class='arrow shadow'></div>
-              <div class='arrow'></div>
-              <div class='main'><span class='client'><%=t 'wizard.basic.name.error' %></span><span class='server'><%=t 'wizard.basic.name.server_error'%></span></div>
-            </div>
-          </div>
-          <div class='site-url'>http://<span class='fn-site-name sub'>yourname</span><span class='fn-cliiz-domain'>.cliiz</span>.com</div>
-          <div class='description'>You can upload the website at your domain name (ex. http://www.<span class='fn-site-name sub'>yourname</span>.com) after generation.</div>
-          <div class='input fn-input' tip='<%=t'wizard.basic.password.tip'%>'>
-            <div class='left'></div>
-            <div class='label'><%=t 'wizard.basic.password.label' %></div>
-            <div class='label-right'></div>
-            <div class='main'>
-              <input type='password' name='user[password]' marker='.fn-password' boundary='6,'/>
-            </div>
-            <div class='right'></div>
-            <div class='tooltip'>
-              <div class='arrow shadow'></div>
-              <div class='arrow'></div>
-              <div class='main'><span class='client'><%=t 'wizard.basic.password.error' %></span></div>
-            </div>
-          </div>
-          <div class='input fn-input' tip='<%=t'wizard.basic.email.tip'%>'>
-            <div class='left'></div>
-            <div class='label'><%=t 'wizard.basic.email.label' %></div>
-            <div class='label-right'></div>
-            <div class='main'>
-              <input name='user[email]' marker='.fn-email' has_type='email'/>
-            </div>
-            <div class='right'></div>
-            <div class='tooltip'>
-              <div class='arrow shadow'></div>
-              <div class='arrow'></div>
-              <div class='main'><span class='client'><%=t 'wizard.basic.email.error'%></span><span class='server'><%=t 'wizard.basic.email.server_error'%></span></div>
-            </div>
-          </div>
-          <div class='next fn-navigation'>Register your website? <span class='fn-next'>Click here</span></div>
-        </div>
-      </div>
-      
-      <div class='step fn-step fn-finished finished' style='display:none'>
-        <div class='paragraph'>
-          <div class='top'></div>
-          <div class='inner'>
-            <h2><%=t'wizard.finished.congratulation'%></h2>
-            <p><%=t'wizard.finished.confirmation_email'%></p>
-            <h3><%=t'wizard.finished.admin_address'%></h3>
-            <div class='site-url'><a target='_blank' href='#'>http://<span class='fn-site-name sub'></span><span class='fn-cliiz-domain'>.cliiz</span>.com/<span class='sub'>panel</span></a></div>
-            <h3><%=t'wizard.finished.site_address'%></h3>
-            <div class='site-url'><a target='_blank' href='#'>http://<span class='fn-site-name sub'></span><span class='fn-cliiz-domain'>.cliiz</span>.com</a></div>
-          </div>
-          <div class='bottom'></div>
-        </div>
-        <div class='paragraph margintop10'>
-          <div class='top'></div>
-          <div class='inner'>
-            <h2><%=t'wizard.finished.pay'%></h2>
-            <div class='site-url'><a target='_blank' href='#'>http://www.<span class='fn-site-name sub'></span>.com</a></div>
-            <p>
-            <%=(t'wizard.finished.how_to_pay').html_safe%>
-            </p>
-          </div>
-          <div class='bottom'></div>
-        </div>
-      </div>
-    </div>
-    <div class='layout-preview fn-layout-preview hidden'><iframe class='frame fn-frame' src='' frameBorder=0></iframe></div>
-    <div class='upper fn-minimize'>UP</div>
+  <div class='contact'>
+    <span>
+      WE DO<br/>
+      IT FOR <b>$399</b>
+    </span>
+    <div class='number'>1300 230 250<img src='/assets/flat/phone.png'/></div>
   </div>
-  <div class='extrabox fn-extrabox'>
-    <%= render :partial => 'moreinfo' %>
-    <div class='mainFooter'><span>© Tectual ,</span><a href='http://blog.cliiz.com/blog'>Blog</a><a href='/panel'>Your panel</a><a href='/panel/designers'>Designers</a></div>
+  <div class='main'>
+    <div class='logo'></div>
+    <div class='left-partition fn-new'>
+      <h2>Need a Website?</h2>
+      <h3>Step 1: Choose a Name</h3>
+      <div class='row'>
+        <label class='label'>Website Name</label><input name='company[name]' class='input' />
+      </div>
+      <div class='row'>
+        <label class='label'>Password</label><input name='company[password]' class='input' type='password' />
+        <input type='hidden' name='company[password_confirmation]' />
+      </div>
+      <div class='row'>
+        <label class='label'>Current Email</label><input name='company[email]' class='input' />
+      </div>
+      <h3>Step 2: Choose a Plan</h3>
+      <button class='plan'>Free</button>
+      <button class='plan active'>$9.99/mo</button>
+      <button class='plan'>$399</button>
+      <button class='compare'>Compare</button>
+      <h3>Step 3: Go Live</h3>
+      <button class='right-button fn-submit'>Go Live</button>
+    </div>
+    <div class='right-partition'>
+    </div>
   </div>
 </body>
 </html>

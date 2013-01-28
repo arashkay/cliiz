@@ -17,7 +17,8 @@ class UsedComponent < ActiveRecord::Base
   end
 
   def self.all_in_subpage(page, company_id)
-    where( ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'gallery')",  page, company_id ] ).includes(:component) #.joins(:component)
+    #where( ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'gallery')",  page, company_id ] ).includes(:component).joins(:component)
+    where( ["page = ? AND company_id = ?",  page, company_id ] ).includes(:component)
   end
 
   def self.disable_package( company, name )
@@ -56,7 +57,7 @@ class UsedComponent < ActiveRecord::Base
         when CLIIZ::COMPONENTS::CONTENT
           write_attribute :setting, { :content => setting[:content] }
         when CLIIZ::COMPONENTS::FORM
-          write_attribute :setting, { :fields => setting[:fields].keys_to_int }
+          write_attribute :setting, { :fields => setting[:fields].keys_to_int, :submit => CLIIZ::COMPONENTS::Form.setting[:submit], :message => CLIIZ::COMPONENTS::Form.setting[:message] }
         when CLIIZ::COMPONENTS::BLOG
           write_attribute :setting, setting
         when CLIIZ::COMPONENTS::GALLERY

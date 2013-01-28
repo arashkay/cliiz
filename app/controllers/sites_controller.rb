@@ -25,15 +25,11 @@ class SitesController < ApplicationController
           end
         when CLIIZ::MENU::GALLERY then
           if !params[:id].blank?
-          #  components = UsedComponent.all_in_subpage @page, @company.id
-          #  components[0].extra_data = ModGallery.find(params[:id], :conditions => { :used_component_id => @company.gallery.id } )
+            components = UsedComponent.all_in_subpage @page, @company.id
+            components[0].extra_data = ModGallery.find(params[:id], :conditions => { :used_component_id => @company.gallery.id } )
             components[0].component.uname = 'image'
-            folder = current_company.folder( 'Gallery' )
-            components[0].extra_data = Image.where( :folder_id => folder.id, :id => params[:id] ).first
           else
-          #  components[0].extra_data = ModGallery.find( :all, :conditions => { :parent_id => params[:category], :used_component_id => @company.gallery.id }, :include => :image )
-            folder = current_company.folder( 'Gallery' )
-            components[0].extra_data = Image.where( :folder_id => folder.id )
+            components[0].extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
           end
         else
 
@@ -50,8 +46,7 @@ class SitesController < ApplicationController
     components = UsedComponent.all_in_page @page, @company.id
       case @page
         when CLIIZ::MENU::GALLERY then
-          folder = current_company.folder( 'Gallery' )
-          components[0].extra_data = Image.where( :folder_id => folder.id )
+          components[0].extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
       end
     change_links_to_modify
     render :inline => Generator.new.edit_page( @page, @company, components, csrf_meta_tag).to_html

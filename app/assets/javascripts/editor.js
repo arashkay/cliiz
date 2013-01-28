@@ -5,30 +5,7 @@ $.fn.dto = function(val){
     this.data('cliiz.module.dto', val);
   return this.data('cliiz.module.dto');
 }
-$.fn.vl = function(f, val){
-  f = $(['[name="',f,'"]'].join(''), this);
-  if(val!=undefined)
-    f.val(val);
-  return f.val();
-}
-$.fn.fields = function(object, f, d ){
-  var $t = this;
-  if(d!=undefined){
-    $.each( f, function(k,v){
-        $t.vl(object+'['+v+']', d[v]);
-      }
-    );
-    return $t;
-  }else{
-    var d = {};
-    $.each( f, function(k,v){
-        var n = object+'['+v+']';
-        d[n] = $t.vl(n);
-      }
-    );
-    return d;
-  }
-}
+
 /*
 cliiz.toolbox.defaults.modules
 cliiz.toolbox.defaults.blocks
@@ -57,6 +34,7 @@ cliiz.toolbox = $.namespace({
     this.form.init();
     $.send( '/coreapi/components/list_addables/', this.init.features, true);
     $('.fclz-publish').click( this.publish );
+    $('.fclz-restore').click( this.restore );
     this.defaults.token = {};
     this.defaults.token[$('[name=csrf-param]').attr('content') ] = $('[name=csrf-token]').attr('content');
   },
@@ -238,6 +216,7 @@ cliiz.toolbox = $.namespace({
         var form = this;
         $('.fclz-fields .fclz-add', form).click( cliiz.toolbox.module.infoform.addRow );
         cliiz.toolbox.module.infoform.addRows(form, block.dto().setting.fields);
+        cliiz.toolbox.module.infoform.read(this, block);
       },
       addRow: function(){
         var list = $(this).parents('.fclz-fields');
@@ -262,25 +241,20 @@ cliiz.toolbox = $.namespace({
       edit: function(block){
         var form = this;
         var setting = block.dto().setting;
-        return;
-        $.each(
-          setting.fields,
-          function(k,v){
-            $("[name="+v+"]", form).val(setting.names[v]);
-            $('[value='+v+']:not(:checked)', form).click();
-          }
-        );
       },
       update: function(block){
+        cliiz.toolbox.module.infoform.read(this, block);
+        cliiz.toolbox.block.refresh(block);
+      },
+      read: function(form, block){
         var setting = { fields: [] };
-        $('.fclz-field-name', this).each(
+        $('.fclz-field-name', form).each(
           function(){
             var t = $(this);
             setting.fields.push( [ 0, $( '[type=hidden]', t).val(), '', $( '.fclz-name',t).val()] )
           }
         );
         block.dto().setting = setting;
-        cliiz.toolbox.block.refresh(block);
       },
       typeChange: function(v){
         var row = $(this).parents('.fclz-field-name');
@@ -727,6 +701,10 @@ cliiz.toolbox = $.namespace({
         }
       ).remove();
     }
+  },
+  restore: function(){
+    cliiz.loading.show();
+    $.send('/coreapi/restore', function(){ location.reload(true) } );
   },
   publish: function(){
     cliiz.loading.show();

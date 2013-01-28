@@ -1,5 +1,29 @@
 $(function(){
 
+$.fn.vl = function(f, val){
+  f = $(['[name="',f,'"]'].join(''), this);
+  if(val!=undefined)
+    f.val(val);
+  return f.val();
+}
+$.fn.fields = function(object, f, d ){
+  var $t = this;
+  if(d!=undefined){
+    $.each( f, function(k,v){
+        $t.vl(object+'['+v+']', d[v]);
+      }
+    );
+    return $t;
+  }else{
+    var d = {};
+    $.each( f, function(k,v){
+        var n = object+'['+v+']';
+        d[n] = $t.vl(n);
+      }
+    );
+    return d;
+  }
+}
 $.send= function(url, data, callback, error, freeze){
   var token = {};
   token[ $('[name=csrf-param]').attr('content') ] = $('[name=csrf-token]').attr('content');

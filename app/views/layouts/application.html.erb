@@ -1,11 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
   <title>Welcome to Administration Panel</title>
   <meta name="description" content="Free of charge and fastest way to create your website for your small/medium business. In 3 easy steps you have your own website, blog, eshop and more. Also if you want to expand your current website use our on-click addons to enable shops, blogs, forums, user management and more." />
   <meta name="keywords" content="Free website, website, site builder, blog, shop, eshop, photo gallery, small business, cheap, affordable, 3 page, medium business" /> 
   <%= stylesheet_link_tag 'panel', 'editor' %>
-  <%= javascript_include_tag "core/jquery.min.js", 'core/jquery.extension.js', "core.js", 'panel.js' %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
   <% if Rails.env == 'production'%>

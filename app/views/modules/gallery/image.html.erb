@@ -1,6 +1,7 @@
 <div class='cliiz-module cliiz-image'>
   <h1>Gallery</h1>
   <div class='cliiz-image-preview'>
-    <a href='<%=image.entity.url%>' target='_blank'><img src='<%=image.entity.url(:large)%>' /></a>
+    <h2><%=image.title%></h2>
+    <a href='<%=image.image.entity.url%>' target='_blank'><img src='<%=image.image.entity.url(:large)%>' /></a>
   </div>
 </div>

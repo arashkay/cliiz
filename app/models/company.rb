@@ -21,7 +21,7 @@ class Company < ActiveRecord::Base
     :source => :component, 
     :conditions => { :is_package => true }
 
-  before_create :set_setting
+  before_create :set_setting, :set_frame
   after_create :default_content
   
   def add_to_menu(name)
@@ -76,6 +76,10 @@ class Company < ActiveRecord::Base
   end
 
   private
+    def set_frame
+      self.frame_id = Frame.last.id
+    end
+
     def set_setting
       self.setting = { :menu => CLIIZ::MENU::ITEMS,
           :display_name       => self.name, 

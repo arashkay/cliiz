@@ -12,7 +12,6 @@ class UsedComponentsController < ApplicationController
       @company.save
     end
     UsedComponent.delete_all :company_id => current_company.id, :uid => params[:removed] unless params[:removed].blank?
-  
     (params[:modules]||{}).keys.sort.each do |k|
       m = params[:modules][k]
       c = Component.find_by_uname m[:component][:uname]

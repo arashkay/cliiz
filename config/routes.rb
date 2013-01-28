@@ -16,7 +16,7 @@ CliizCom::Application.routes.draw do
     post '/companies/temp_layout' => "companies#temp_frame"
     post '/companies/enable_package' => "companies#enable_package"
     post '/companies/disable_package' => "companies#disable_package"
-    post '/companies/reset_temp_layout' => "companies#reset_temp_frame"
+    post '/restore' => "companies#reset_temp_frame"
     #post '/used_components/multiple' => "used_components#multiple"
     post '/used_components/update' => "used_components#update"
 
