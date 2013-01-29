@@ -26,7 +26,7 @@ cliiz.home = $.namespace({
     $.send( '/companies.json', fields, cliiz.home.submitted );
   },
   submitted: function(){
-    document.location = $('.fn-new [name="company[name]"]').val()+'.webuilder.com.au/panel/edit';
+    document.location = 'http://'$('.fn-new [name="company[name]"]').val()+'.webuilder.com.au/panel/edit';
   }
 });
 
