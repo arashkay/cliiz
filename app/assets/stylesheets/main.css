@@ -20,7 +20,7 @@ body{
   -o-transform:rotate(-7deg); /* Opera */
   width: 300px;
   left: -105px;
-  top: -20px;
+  top: -25px;
   position: fixed;
 }
 .contact b{
@@ -31,6 +31,7 @@ body{
   font-size: 22px;
   line-height: 32px;
   height: 34px;
+  margin-top: 5px;
 }
 .contact .number *{
   vertical-align: middle;
@@ -51,18 +52,16 @@ body{
 .main *{
   text-align: left;
 }
-.left-partition,
-.right-partition{
+.partition{
   border-right: #2B9BDB 3px solid;
   padding-right: 10px;
-  width: 600px;
-  height: 400px;
+  width: 430px;
   display: inline-block;
   vertical-align: top;
+  position: relative;
 }
-.right-partition{
+.partition.right{
   border-right: none;
-  width: 200px
 }
 .label{
   display: inline-block;
@@ -92,9 +91,11 @@ body{
 }
 .plan,
 .compare,
+.read,
+.submit,
 .right-button{
   padding: 5px 25px;
-  background: #2c9bdb;
+  background: #2c9bdb no-repeat;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -102,17 +103,32 @@ body{
   font-weight: bold;
   text-align: center;
 }
+.right-button{
+  background-image: url(/assets/flat/right.png);
+  background-position: 94% center;
+}
 .plan{
   padding: 5px 0px;
   width: 110px;
+  background: #989898;
 }
 .plan.active{
-  background: #989898;
+  background: #2c9bdb;
 }
 .compare{
   color: #2C9BDB;
   background: #fff url(/assets/flat/arrow-down.png) right center no-repeat;
   padding: 3px 20px 3px 0px;
+}
+.read,
+.start{
+  padding: 10px 45px;
+  background-position: 85% center;
+  margin-top: 20px;
+}
+.submit{
+  background-image: url(/assets/flat/button-tick.png); 
+  background-position: 3px center;
 }
 h1,
 h2,
@@ -128,4 +144,148 @@ h2{
 h3{
   font-size: 16px;
   color: #555;
+}
+.expanded .expanded h3{
+  padding: 10px 0px;
+}
+.partition .expanded{
+  display: none;
+}
+.partition .zipped{
+  text-align: center;
+}
+.partition.right .zipped{
+  padding-left: 100px;
+  width: 300px;
+}
+.partition .zipped h2{
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+.partition.left .zipped h2{
+  padding-right: 20px;
+}
+.partition .zipped b{
+  color: #2C9BDB;
+}
+.footer{
+  text-align: center;
+  color: #2C9BDB;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 50px;
+}
+.footer .promo{
+  text-align: center;
+  color: #000;
+}
+
+.list{
+  display: inline;
+  position: relative;
+  overflow: visible;
+  line-height: 22px;
+  font-size: 16px;
+  margin: 0px 2px;
+  font-weight: bold;
+}
+.list span{
+  color: #000;
+  border-bottom: #2c9bdb 3px solid;
+  padding-right: 17px;
+  display: inline-block;
+  cursor: pointer;
+  background: url(/assets/flat/arrow-down.png) right center no-repeat;
+}
+.droplist{
+  background: #222;
+  margin-top: -1px;
+  margin-left: 2px;
+  position: absolute;
+  display: none;
+  z-index: 1004;
+  color: #fff;
+}
+.list:hover .droplist{
+  display: block;
+}
+.droplist > div {
+  border-bottom: #444 1px solid;
+  padding: 5px 25px 3px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.droplist > div:hover {
+  background: #2c9bdb;
+}
+.frames{
+  width: 240px;
+  height: 293px;
+  overflow: hidden;
+}
+.frames .themes{
+  width: 300px;
+  margin-top: 5px;
+}
+.frames .fader{
+  position: absolute;
+  bottom: 0px;
+  width: 260px;
+  top: 25px;
+  background: url(/assets/flat/fader.png) left top no-repeat;
+  z-index: 1;
+  cursor: pointer;
+}
+.frames .theme{
+  border: #747474 2px solid;
+  margin: 3px 2px;
+  cursor: pointer;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  overflow: visible;
+  position: relative;
+}
+.theme:hover {
+  border-color: #2c9bdb;
+}
+.marker{
+  width: 120px;
+  height: 120px;
+}
+.marker:hover {
+  background: url(/assets/flat/tick.png) center center no-repeat;
+}
+.hidden{
+  display: none;
+}
+.features{
+  text-align: center;
+  margin: 40px 0px;
+  font-weight: bold;
+}
+.features .feature{
+  width: 110px;
+  text-align: center;
+  padding-top: 55px;
+  background: center top no-repeat;
+  display: inline-block;
+  margin: 0px 10px;
+  vertical-align: top;
+}
+.feature.update{
+  background-image: url(/assets/flat/update.png);
+}
+.feature.host{
+  background-image: url(/assets/flat/host.png);
+}
+.feature.domain{
+  background-image: url(/assets/flat/domain.png);
+}
+.feature.seo{
+  background-image: url(/assets/flat/seo.png);
+}
+.feature.mobile{
+  background-image: url(/assets/flat/mobile.png);
 }

@@ -1,0 +1,222 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: arial, tahoma;
+  font-size: 12px;
+  color: #393939;
+  background: #d5d5d5; /* change */
+}
+.wrap{
+  font-size: 0px;
+  width: 950px;
+  margin: auto;
+  position: relative;
+}
+.head{
+  position: relative;
+  height: 252px;
+}
+.head .header{
+  background: url(../images/header.jpg) no-repeat;
+  width: 663px;
+  height: 252px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.social a,
+.menu > *,
+.menu .main a,
+.inline{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.head .menu{
+  position: relative;
+}
+.company{
+  width: 290px;
+  height: 118px;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+}
+.company-logo{
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 200px;
+  height: 150px;
+  vertical-align: middle;
+  margin: auto;
+}
+.company-name{
+  color: #2f2f2f; /* change */
+  font-size: 30px;
+  text-align: center;
+  width: 280px;
+  margin: auto;
+}
+.social{
+  background: url(../images/social-rep.jpg);
+  height: 44px;
+  width: 160px;
+  font-size: 0px;
+  padding-top: 14px;
+}
+.social a{
+  background: url(../images/social.png);
+  width: 30px;
+  height: 30px;
+  margin: 0px 2px;
+}
+.social .rss{ background-position: 0px 0px; }
+.social .twitter{ background-position: -33px 0px; }
+.social .facebook{ background-position: -67px 0px; }
+.social .rss:hover { background-position: -133px 0px; }
+.social .twitter:hover { background-position: -166px 0px; }
+.social .facebook:hover { background-position: -200px 0px; }
+
+.menu{
+  margin-top: 20px;
+  position: relative;
+  height: 58px;
+}
+.menu > *{
+  vertical-align: top;
+}
+.menu .left{
+  background: url(../images/menu-left.jpg) ;
+  width: 24px;
+  height: 58px;
+}
+.menu .main{
+  background: url(../images/menu-rep.jpg) ;
+  width: 700px;
+  height: 40px;
+  padding-top: 18px;
+  position: relative;
+}
+.menu .separator{
+  background: url(../images/menu-right.jpg) ;
+  width: 41px;
+  height: 58px;
+}
+.menu .right{
+  background: url(../images/social-right.jpg) ;
+  width: 24px;
+  height: 58px;
+}
+.menu .main a{
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #212121;
+  margin: 0px 10px;
+  padding: 0px 3px 3px;
+  border-bottom: transparent 3px solid;
+}
+.menu .main a.selected{
+  color: #d0152e;
+  border-bottom: #d0152e 3px solid;
+}
+.container{
+  font-size: 12px;
+  width: 950px;
+  margin-top: 10px;
+  background: url(../images/main-rep.jpg) repeat-y;
+}
+.container .top{
+  height: 4px;
+  background: url(../images/main-top.jpg) no-repeat;
+}
+.container .bottom{
+  height: 4px;
+  background: url(../images/main-bottom.jpg) no-repeat;
+}
+.container .main{
+  padding: 20px 15px;
+}
+.footer{
+  padding: 20px 10px 30px;
+  font-size: 12px;
+}
+.footer,
+.footer p,
+.footer div{
+  font-size: 12px;
+}
+.footer h1,
+.footer h2{
+  color: #738eaf; /*change*/
+}
+.footer h3,
+.footer h4,
+.footer h5{
+  color: #2d3e52; /*change*/
+}
+
+/* common-> */
+a{ color: #4d78ad; cursor: pointer; } /*change*/
+a img{ border: none; }
+h1, h2, h3, h4, h5{
+  color: #577090; /*change*/
+  font-size: 14px;
+  margin: 0px;
+  padding: 5px 0px 3px;
+}
+h1 a, h2 a, h3 a{ color: #4d78ad; text-decoration: none; } /*change*/
+h1{ font-size: 20px; }
+h2{
+  font-size: 18px;
+  color: #2d3e52; /*change*/
+}
+h3{
+  font-size: 16px;
+  padding: 5px 0px 3px;
+  color: #aabdd4; /*change*/
+}
+p{
+  margin: 0px;
+  padding: 5px 0px;
+}
+.cliiz-blog .cliiz-detail{
+  position: relative;
+  height: 100px;
+  width: 750px;
+}
+.cliiz-blog .cliiz-info{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+}
+.cliiz-blog .cliiz-post{
+  border-bottom: #577090 1px dashed; /*change*/
+  margin-top: 5px;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+.cliiz-blog .cliiz-date{
+  color: #2d3e52; /*change*/
+}
+.cliiz-blog .cliiz-more{
+  margin-top: 3px;
+  margin-left: 10px; 
+}
+div.cliiz-module div.cliiz-posts div.cliiz-post{
+  width: 335px;
+}
+div.cliiz-module div.cliiz-posts div.cliiz-detail{
+  width: 265px;
+  padding: 0px 0px 10px;
+}
+.footer div.cliiz-module div.cliiz-posts div.cliiz-post{
+  width: 298px;
+}
+.footer div.cliiz-module div.cliiz-posts div.cliiz-detail{
+  width: 233px;
+}
+/* <-common */
+

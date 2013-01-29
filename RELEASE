@@ -1,0 +1,19 @@
+#insideoutpm
+cm = Company.find 129
+cm.setting[:menu] = CLIIZ::MENU::ITEMS
+cm.setting[:menu][1][2] = 'Services'
+cm.setting[:menu][4][3] = true
+cm.save
+
+uc = UsedComponent.where :company_id => cm.id, :component_id => 3
+uc[0].setting = CLIIZ::COMPONENTS::Form.setting
+uc[0].setting.delete :config
+uc[0].setting[2] = [3, :phone, :phone, "Phone", nil]
+uc[0].setting[3] = [4, :address, nil, "Address", nil]
+uc[0].setting[4] = [3, :multi_line, nil, "Message", nil]
+uc[0].save
+
+gs = ModGallery.where :used_component_id => cm.gallery.id
+folder = cm.folder 'Gallery'
+gs.each { |i| im = Image.find(i.image_id); im.folder_id = folder.id; im.save }
+

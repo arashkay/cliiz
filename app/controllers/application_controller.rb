@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+    def firsttime_auto_login
+      company = Company.find_by_name detect_domain
+      sign_in company if(company.sign_in_count==1)
+    end
+
     def after_sign_in_path_for(resource)
       '/panel/edit'
     end

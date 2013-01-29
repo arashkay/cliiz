@@ -30,28 +30,74 @@
   </div>
   <div class='main'>
     <div class='logo'></div>
-    <div class='left-partition fn-new'>
-      <h2>Need a Website?</h2>
-      <h3>Step 1: Choose a Name</h3>
-      <div class='row'>
-        <label class='label'>Website Name</label><input name='company[name]' class='input' />
+    <div class='partition left fn-new expanded'>
+      <div class='expanded fn-main'>
+        <h2>Need a Website?</h2>
+        <h3>Step 1: Choose a Name</h3>
+        <div class='row'>
+          <label class='label'>Website Name</label><input name='company[name]' class='input' />
+        </div>
+        <div class='row'>
+          <label class='label'>Password</label><input name='company[password]' class='input' type='password' />
+          <input type='hidden' name='company[password_confirmation]' />
+        </div>
+        <div class='row'>
+          <label class='label'>Current Email</label><input name='company[email]' class='input' />
+        </div>
+        <h3>Step 2: Choose a Plan</h3>
+        <button class='plan'>Free</button>
+        <button class='plan active'>$9.99/mo</button>
+        <button class='plan'>$399</button>
+        <button class='compare'>Compare</button>
+        <h3>Step 3: Go Live</h3>
+        <button class='submit fn-submit'>Go Live</button>
       </div>
-      <div class='row'>
-        <label class='label'>Password</label><input name='company[password]' class='input' type='password' />
-        <input type='hidden' name='company[password_confirmation]' />
+      <div class='zipped fn-demo'>
+        <h2>NEED <br/>A <br/>WEBSITE?</h2>
+        <h3>Step 1: Choose a Name</h3>
+        <h3>Step 2: Choose a Plan [ <b>Free</b> | <b>$9.99/mo</b> | <b>$399</b> ]</h3>
+        <h3>Step 3: Go Live</h3>
+        <button class='right-button start fn-start'>START</button>
       </div>
-      <div class='row'>
-        <label class='label'>Current Email</label><input name='company[email]' class='input' />
-      </div>
-      <h3>Step 2: Choose a Plan</h3>
-      <button class='plan'>Free</button>
-      <button class='plan active'>$9.99/mo</button>
-      <button class='plan'>$399</button>
-      <button class='compare'>Compare</button>
-      <h3>Step 3: Go Live</h3>
-      <button class='right-button fn-submit'>Go Live</button>
     </div>
-    <div class='right-partition'>
+    <div class='right partition fn-info'>
+      <div class='zipped fn-demo'>
+        <h2>WHY <br/>BUSINESSES <br/>CHOOSE US?</h2>
+        <h3>Who is using us?</h3>
+        <h3>What do you get in your website?</h3>
+        <h3>How much does it cost?</h3>
+        <button class='read'>READ</button>
+      </div>
+    </div>
+    <div class='frames hidden fn-frames'>
+      <div class='list'>
+        <span>Choose A Design</span>
+        <div class='droplist'>
+          <div>S&M Business</div>
+          <div>New Designs</div>
+          <div>Tradies</div>
+          <div>Beauty</div>
+        </div>
+      </div>
+      <div class='fader'></div>
+      <div class='themes'>
+        <% @frames.each do |frame| %>
+          <div class='theme fn-theme' data-id='<%=frame.id%>' style='background: url(<%= frame.image.url(:thumb) %>)' data-preview='<%= frame.image.url(:original) %>'>
+            <div class='marker'></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='footer'>
+      BE A WEBMASTER
+      <div class='promo'>Make a Professional Looking Website</div>
+    </div>
+    <div class='features'>
+      <div class='feature update'>Update <br/>any time</div>
+      <div class='feature host'>Free <br/>Hosting</div>
+      <div class='feature domain'>Free <br/>Domain</div>
+      <div class='feature seo'>Search <br/>Engine Friendly</div>
+      <div class='feature mobile'>Mobile <br/>Friendly</div>
     </div>
   </div>
 </body>

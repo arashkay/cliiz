@@ -15,9 +15,9 @@ body{
   padding-left: 270px;
 }
 .company-logo{
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position: center center;
-  width: 115px;
+  width: 170px;
   height: 115px;
   vertical-align: middle;
 }

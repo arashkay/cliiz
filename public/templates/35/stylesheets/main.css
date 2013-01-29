@@ -67,10 +67,10 @@ body{
   position: relative;
 }
 .company-logo{
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position: center center;
-  width: 115px;
-  height: 115px;
+  width: 200px;
+  height: 125px;
 }
 .company-name{
   color: #e8e8e8;

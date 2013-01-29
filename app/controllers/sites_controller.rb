@@ -1,7 +1,8 @@
 class SitesController < ApplicationController
   
   layout nil
-
+  
+  before_filter :firsttime_auto_login, :only => :modify
   before_filter :authenticate_company!, :only => :modify
   before_filter :detect_site
 
