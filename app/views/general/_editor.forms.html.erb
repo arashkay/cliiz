@@ -14,6 +14,15 @@
       <div class='clz-window fclz-window'>
       </div>
     </div>
+    <div class='fclz-more-options'>
+      <h3>Setting</h3>
+      <div class='clz-row'>
+        <label class='clz-label180'>Image Display</label>
+        <%Component.default_for('gallery')[:config][:display_types].each_with_index do |f,i|%>
+          <div class='clz-radio150' data-radio='[uname=display<%=i%>]' data-group='display'><input type='radio' name='display' uname='display<%=i%>' value='<%=f%>'/><span><%=t "modules.gallery.types.#{f}"%></span></div>
+        <%end%>
+      </div>
+    </div>
   </div>
   <div formfor='blog'>
     <h2>Blog</h2>

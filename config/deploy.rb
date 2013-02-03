@@ -30,14 +30,15 @@ set :deploy_via, :remote_cache
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
-require "bundler/capistrano"
+#require "bundler/capistrano"
 
 namespace :deploy do
   task :start do ; end
-  task :stop do 
-    run "bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
-  end
+  task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    set :bundle_cmd, 'source $HOME/.bash_profile && bundle'
+    #run "cd #{release_path} && bundle"
+    #run "cd #{release_path} && bundle exec rake RAILS_ENV=production RAILS_GROUPS=assets assets:precompile"
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end

@@ -12,25 +12,24 @@ class SitesController < ApplicationController
       case @page
         when CLIIZ::MENU::LISTING then
           unless params[:id].blank?
-            components = UsedComponent.all_in_subpage @page, @company.id
             components[0].extra_data = ModList.find(params[:id], :conditions => { :used_component_id => @company.blog.id } )
             components[0].component.uname = 'item'
         end
         when CLIIZ::MENU::BLOG then
+          blog = components.select { |i| i.component.uname = CLIIZ::COMPONENTS::BLOG }[0]
           unless params[:id].blank?
             post = ModBlog.find(params[:id], :conditions => { :used_component_id => @company.blog.id } )
             post.increment! :view_count
-            components = UsedComponent.all_in_subpage @page, @company.id
-            components[0].extra_data = post
-            components[0].component.uname = 'post'
+            blog.extra_data = post
+            blog.component.uname = 'post'
           end
         when CLIIZ::MENU::GALLERY then
+          gallery = components.select { |i| i.component.uname = CLIIZ::COMPONENTS::GALLERY }[0]
           if !params[:id].blank?
-            components = UsedComponent.all_in_subpage @page, @company.id
-            components[0].extra_data = ModGallery.find(params[:id], :conditions => { :used_component_id => @company.gallery.id } )
-            components[0].component.uname = 'image'
+            gallery.extra_data = ModGallery.find(params[:id], :conditions => { :used_component_id => @company.gallery.id } )
+            gallery.component.uname = 'image'
           else
-            components[0].extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
+            gallery.extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
           end
         else
 
@@ -45,10 +44,11 @@ class SitesController < ApplicationController
 
   def modify
     components = UsedComponent.all_in_page @page, @company.id
-      case @page
-        when CLIIZ::MENU::GALLERY then
-          components[0].extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
-      end
+    case @page
+      when CLIIZ::MENU::GALLERY then
+        gallery = components.select { |i| i.component.uname == CLIIZ::COMPONENTS::GALLERY }[0]
+        gallery.extra_data = ModGallery.find( :all, :conditions => { :used_component_id => @company.gallery.id }, :include => :image )
+    end
     change_links_to_modify
     render :inline => Generator.new.edit_page( @page, @company, components, csrf_meta_tag).to_html
   end

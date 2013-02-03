@@ -28,7 +28,7 @@ class ComponentsController < ApplicationController
         component.id = current_company.blog.id
       when CLIIZ::COMPONENTS::GALLERY
         folder = current_company.folder( 'Gallery' )
-        component.extra_data = Image.where( :folder_id => folder.id )
+        component.extra_data = ModGallery.find( :all, :conditions => { :used_component_id => current_company.gallery.id }, :include => :image )
     end
     render :json => { :content => gen.create_block(component) }
   end

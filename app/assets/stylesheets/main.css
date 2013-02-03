@@ -6,6 +6,9 @@ body{
   color: #000;
   background: #fff;
 }
+body button{
+  font-family: arial, tahoma;
+}
 .contact{
   background: #1C1C1C;
   color: #fff;
@@ -13,11 +16,11 @@ body{
   font-size: 16px;
   text-align: center;
   padding-top: 40px;
-  transform:rotate(-30deg);
-  -ms-transform:rotate(-7deg); /* IE 9 */
+  transform:rotate(-40deg);
+  -ms-transform:rotate(-40deg); /* IE 9 */
   -moz-transform:rotate(-40deg); /* Firefox */
-  -webkit-transform:rotate(-7deg); /* Safari and Chrome */
-  -o-transform:rotate(-7deg); /* Opera */
+  -webkit-transform:rotate(-40deg); /* Safari and Chrome */
+  -o-transform:rotate(-40deg); /* Opera */
   width: 300px;
   left: -105px;
   top: -25px;
@@ -63,6 +66,7 @@ body{
 .partition.right{
   border-right: none;
 }
+.message,
 .label{
   display: inline-block;
   cursor: pointer;
@@ -70,6 +74,15 @@ body{
   width: 100px;
   text-align: right;
   padding: 0px 5px 0px 0px;
+}
+.message{
+  text-align: left;
+  font-weight: bold;
+  display: none;
+}
+.error{
+  color: #BB1938;
+  display: inline-block;
 }
 .row{
   line-height: 35px;
@@ -89,6 +102,9 @@ body{
   padding: 2px;
   outline: none;
 }
+.input.error{
+  border-bottom: #BB1938 2px solid;
+}
 .plan,
 .compare,
 .read,
@@ -102,23 +118,30 @@ body{
   margin: 0px 1px;
   font-weight: bold;
   text-align: center;
+  line-height: 20px;
+  font-size: 14px;
 }
 .right-button{
   background-image: url(/assets/flat/right.png);
   background-position: 94% center;
 }
+.read:hover,
+.submit:hover,
+.right-button:hover{
+  background-color: #1F8AC4;
+}
 .plan{
   padding: 5px 0px;
-  width: 110px;
   background: #989898;
 }
 .plan.active{
   background: #2c9bdb;
 }
+.plan:hover{ background-color: #1F8AC4; }
 .compare{
   color: #2C9BDB;
   background: #fff url(/assets/flat/arrow-down.png) right center no-repeat;
-  padding: 3px 20px 3px 0px;
+  padding: 5px 20px 5px 0px;
 }
 .read,
 .start{
@@ -129,6 +152,52 @@ body{
 .submit{
   background-image: url(/assets/flat/button-tick.png); 
   background-position: 3px center;
+}
+.plans{
+  font-size: 0px;
+}
+.plans .column{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 12px;
+  width: 120px;
+  margin-right: 2px;
+  vertical-align: top;
+}
+.plans .column button{
+  width: 100%;
+  display: block;
+  margin: 0px;
+}
+.plans .column *{
+  text-align: center;
+}
+.plans .description{
+  display: block;
+}
+.plans .explenation{
+  display: none;
+}
+.plans.explained{
+}
+.plans.explained .description{
+  display: none;
+}
+.plans.explained .explenation{
+  display: block;
+}
+.plans.explained .option{
+  width: 100%;
+  line-height: 20px;
+  background: #2C9BDB;
+  padding: 5px 0px;
+  margin: 1px 0px 0px;
+}
+.plans.explained .option.disabled{
+  background: #989898;
+}
+.plans.explained .option.dbl{
+  height: 40px;
 }
 h1,
 h2,
@@ -271,7 +340,7 @@ h3{
   padding-top: 55px;
   background: center top no-repeat;
   display: inline-block;
-  margin: 0px 10px;
+  margin: 0px 10px 50px;
   vertical-align: top;
 }
 .feature.update{

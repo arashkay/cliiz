@@ -13,12 +13,7 @@ class UsedComponent < ActiveRecord::Base
   default_scope order('partition, `ordering`')
 
   def self.all_in_page(page, company_id)
-    where( :page => page, :company_id => company_id )
-  end
-
-  def self.all_in_subpage(page, company_id)
-    #where( ["page = ? AND company_id = ? AND (partition <> 1 OR uname = 'gallery')",  page, company_id ] ).includes(:component).joins(:component)
-    where( ["page = ? AND company_id = ?",  page, company_id ] ).includes(:component)
+    where( :page => page, :company_id => company_id ).includes(:component)
   end
 
   def self.disable_package( company, name )
@@ -61,7 +56,7 @@ class UsedComponent < ActiveRecord::Base
         when CLIIZ::COMPONENTS::BLOG
           write_attribute :setting, setting
         when CLIIZ::COMPONENTS::GALLERY
-          write_attribute :setting, setting
+          write_attribute :setting, { :display => setting[:display] }
         when CLIIZ::COMPONENTS::POSTFILTER
           write_attribute :setting, { :size => setting[:size], :type => setting[:type], :tags => '' }
         when CLIIZ::COMPONENTS::MAP

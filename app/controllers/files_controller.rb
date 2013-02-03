@@ -15,7 +15,7 @@ class FilesController < ApplicationController
 
   def index
     folder = current_company.folder( params[:folder] )
-    @files = Image.where( :folder_id => folder.id )
+    @files = Image.where( :folder_id => folder.id, :company_id => current_company.id )
     respond_to do |format|
       format.json { render :json => @files.to_json( :methods => :thumb_url ) }
     end
@@ -34,9 +34,11 @@ class FilesController < ApplicationController
       image = Image.new :entity => file, :folder_id => folder.id
       image.company = current_company
       image.save
-      gallery_image = ModGallery.new({ :image => image })
-      gallery_image.used_component_id = current_company.gallery.id
-      gallery_image.save
+      if params[:folder]=='Gallery'
+        gallery_image = ModGallery.new({ :image => image })
+        gallery_image.used_component_id = current_company.gallery.id
+        gallery_image.save
+      end
       @files << image
     end
     render :json => @files.to_json( :methods => :thumb_url )

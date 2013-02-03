@@ -151,7 +151,6 @@ cliiz.toolbox = $.namespace({
       },
       edit: function(block){},
       update: function(block){
-        var form = this;
         var dto = {
           size: $(this).vl('size'),
           type: $('[name=type]:checked', this).val()
@@ -428,14 +427,22 @@ cliiz.toolbox = $.namespace({
       currentFolder: null,
       init: function(block){
         cliiz.toolbox.module.gallery.common();
+        var dto = block.dto().setting;
+        $('[data-group=display]:has([value="'+dto.display+'"])', this).click();
       },
       edit: function(block){
         cliiz.toolbox.module.gallery.load('Gallery');
       },
       update: function(block){
+        var dto = {
+          display: $('[name=display]:checked', this).val()
+        };
+        block.dto().setting = dto;
         cliiz.toolbox.block.refresh(block);
       },
       load: function(folder){
+        var setting = $('[formfor=gallery] .fclz-more-options');
+        (folder=='Gallery')?  setting.show() : setting.hide();
         $('.fclz-window').empty();
         cliiz.toolbox.module.gallery.currentFolder = folder;
         $.send('/coreapi/files', $.extend( { folder: folder, _method: 'get' }, cliiz.toolbox.defaults.token), cliiz.toolbox.module.gallery.list);
@@ -712,9 +719,10 @@ cliiz.toolbox = $.namespace({
     var i = 0;
     $('[data-partition]').each(function(){
       var block = $(this);
-      $('[cliiz=module][data-edited]', block).each(function(){
+      $('[data-edited]', block).each(function(){
         $(this).data('cliiz.module.dto').partition = block.attr('data-partition');
         $(this).data('cliiz.module.dto').page = cliiz.toolbox.defaults.page;
+        console.log($(this).data('cliiz.module.dto'))
         modules[i++] = $(this).data('cliiz.module.dto');
       });
     });

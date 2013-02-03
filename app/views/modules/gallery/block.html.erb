@@ -4,18 +4,39 @@
     <% if items.nil? || items.empty? %>
       <i>Gallery is empty!</i>
     <%else%>
-      <% items.each do |i| %>
-        <div class='thumb cliiz-image' imageid='<%=i.id%>' original='<%=i.image.entity.url%>'>
-          <img src='<%=i.image.entity.url(:thumb)%>'/>
-          <div class='cliiz-magnified'>
-            <a href='/gallery/<%=i.id%>'>
-              <img src='<%=i.image.entity.url(:medium)%>'/>
-            </a>
-            <div class='cliiz-info'>
-              <a class='cliiz-title' href='/gallery/<%=i.id%>'><%= i.title %></a>
+      <%if setting[:display]=='basic'%>
+        <% items.each do |i| %>
+          <div class='thumb cliiz-image' imageid='<%=i.id%>' original='<%=i.image.entity.url%>'>
+            <img src='<%=i.image.entity.url(:thumb)%>'/>
+            <div class='cliiz-magnified'>
+              <a href='/gallery/<%=i.id%>'>
+                <img src='<%=i.image.entity.url(:medium)%>'/>
+              </a>
+              <div class='cliiz-info'>
+                <a class='cliiz-title' href='/gallery/<%=i.id%>'><%= i.title %></a>
+              </div>
             </div>
           </div>
-        </div>
+        <%end%>
+      <%else%>
+        <script type="text/javascript" src="/modules/jquery.lightbox.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/modules/lightbox/jquery.lightbox.css" media="screen" />
+        <% items.each do |i| %>
+          <% size = Paperclip::Geometry.from_file "#{Rails.root}/public#{i.image.entity(:medium)}".split('?')[0] %>
+          <a href='<%=i.image.entity.url(:large)%>' data-target='#image<%=i.id%>' class='thumb cliiz-image' imageid='<%=i.id%>' style='width:<%=size.width%>;height:<%=size.height%>' original='<%=i.image.entity.url%>'>
+            <img src='<%=i.image.entity.url(:thumb)%>'/>
+          </a>
+          <div id='image<%=i.id%>' style='display:none'>
+            <a class='cliiz-title'  href='/gallery/<%=i.id%>'><%= i.title %></a>
+          </div>
+        <%end%>
+        <script>$(function(){$('.cliiz-image').lightBox({
+          imageBtnClose: '/modules/lightbox/close.gif',
+          imageLoading: '/modules/lightbox/loading.gif',
+          imageBtnPrev: '/modules/lightbox/prev.gif',
+          imageBtnNext: '/modules/lightbox/next.gif',
+          imageBlank: '/modules/lightbox/blank.gif'
+        });})</script>
       <%end%>
     <%end%>
   </div>

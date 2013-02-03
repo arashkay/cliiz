@@ -17,3 +17,10 @@ gs = ModGallery.where :used_component_id => cm.gallery.id
 folder = cm.folder 'Gallery'
 gs.each { |i| im = Image.find(i.image_id); im.folder_id = folder.id; im.save }
 
+
+
+#uc_gallery = UsedComponent.where :company_id => cm.id, :component_id => 6
+#uc_gallery[0].ordering = 1
+#uc_gallery[0].save
+#ucs = UsedComponent.where(:company_id => cm.id).select { |u| u.ordering==-1 }
+#ucs.each{ |u| u.ordering = 1; u.save }

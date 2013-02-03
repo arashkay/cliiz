@@ -34,21 +34,82 @@
       <div class='expanded fn-main'>
         <h2>Need a Website?</h2>
         <h3>Step 1: Choose a Name</h3>
-        <div class='row'>
-          <label class='label'>Website Name</label><input name='company[name]' class='input' />
+        <div class='row fn-row'>
+          <label class='label'>Website Name</label><input name='company[name]' class='input fn-name' /><label class='message fn-name'>Is Taken!</label>
         </div>
-        <div class='row'>
-          <label class='label'>Password</label><input name='company[password]' class='input' type='password' />
+        <div class='row fn-row'>
+          <label class='label'>Password</label><input name='company[password]' class='input fn-password' type='password' /><label class='message fn-password'>Too short!</label>
           <input type='hidden' name='company[password_confirmation]' />
         </div>
-        <div class='row'>
-          <label class='label'>Current Email</label><input name='company[email]' class='input' />
+        <div class='row fn-row'>
+          <label class='label'>Current Email</label><input name='company[email]' class='input fn-email' /><label class='message fn-email'>Is Registered!</label>
         </div>
         <h3>Step 2: Choose a Plan</h3>
-        <button class='plan'>Free</button>
-        <button class='plan active'>$9.99/mo</button>
-        <button class='plan'>$399</button>
-        <button class='compare'>Compare</button>
+        <div class='plans fn-plans'>
+          <div class='column'>
+            <button class='plan'>Free</button>
+            <div class='description'>356 DAYS</div>
+            <div class='explenation'>
+              <div class='option'>YES</div>
+              <div class='option disabled'>-</div>
+              <div class='option disabled'>5 Pages</div>
+              <div class='option'>YES</div>
+              <div class='option'>Unlimited</div>
+              <div class='option'>YES</div>
+              <div class='option'>YES</div>
+              <div class='option disabled'>-</div>
+              <div class='option disabled dbl'>-</div>
+              <div class='option disabled dbl'>-</div>
+            </div>
+          </div>
+          <div class='column'>
+            <button class='plan active'>$9.99/mo</button>
+            <div class='description'>DO IT YOURSELF</div>
+            <div class='explenation'>
+              <div class='option'>YES</div>
+              <div class='option'>.com or .com.au</div>
+              <div class='option'>Unlimited</div>
+              <div class='option'>YES</div>
+              <div class='option'>Unlimited</div>
+              <div class='option'>YES</div>
+              <div class='option'>YES</div>
+              <div class='option disabled'>-</div>
+              <div class='option disabled dbl'>-</div>
+              <div class='option dbl'>YES</div>
+            </div>
+          </div>
+          <div class='column'>
+            <button class='plan'>$399</button>
+            <div class='description'>RELAX WE DO IT</div>
+            <div class='explenation'>
+              <div class='option'>YES</div>
+              <div class='option'>.com or .com.au</div>
+              <div class='option'>Unlimited</div>
+              <div class='option'>YES</div>
+              <div class='option'>Unlimited</div>
+              <div class='option'>YES</div>
+              <div class='option'>YES</div>
+              <div class='option'>YES</div>
+              <div class='option dbl'>$9.99/mo After First Year</div>
+              <div class='option dbl'>YES</div>
+            </div>
+          </div>
+          <div class='column fn-compare'>
+            <button class='compare'>Compare</button>
+            <div class='explenation'>
+              <div class='option'>Free Hosting</div>
+              <div class='option'>Free Domain</div>
+              <div class='option'>Page</div>
+              <div class='option'>Site Editor</div>
+              <div class='option'>Design Change</div>
+              <div class='option'>Social Integration</div>
+              <div class='option'>Mobile Version</div>
+              <div class='option'>We Build For You</div>
+              <div class='option dbl'>First Year Free</div>
+              <div class='option dbl'>Stop Monthly Fee Anytime</div>
+            </div>
+          </div>
+        </div>
         <h3>Step 3: Go Live</h3>
         <button class='submit fn-submit'>Go Live</button>
       </div>

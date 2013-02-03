@@ -21,6 +21,10 @@ en:
       contact: 'Contact Page'
     content:
       for: 'Content for'
+    gallery:
+      types:
+        basic: 'Simple Preview'
+        fancy: 'Sliding Image'
     infoform:
       name: 'Name'
       email: 'Email'

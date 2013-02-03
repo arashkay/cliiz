@@ -78,7 +78,8 @@ div.cliiz-module div.cliiz-location *{
 div.cliiz-gallery{
   font-size: 0px;
 }
-div.cliiz-module div.cliiz-gallery div.cliiz-image{
+div.cliiz-module div.cliiz-gallery div.cliiz-image,
+div.cliiz-module div.cliiz-gallery a.cliiz-image{
   display: inline-block;
   *display: inline;
   *zoom: 1;
