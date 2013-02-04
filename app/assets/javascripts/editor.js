@@ -5,7 +5,6 @@ $.fn.dto = function(val){
     this.data('cliiz.module.dto', val);
   return this.data('cliiz.module.dto');
 }
-
 /*
 cliiz.toolbox.defaults.modules
 cliiz.toolbox.defaults.blocks
@@ -17,7 +16,6 @@ block           'cliiz.form'        = form
 form            'cliiz.block'       = block
 
 */
-
 cliiz.toolbox = $.namespace({
   defaults: {
     module: '.fclz-module-box',
