@@ -67,6 +67,7 @@ body.fixed{
 .clz-tools .clz-publish,
 .clz-tools .clz-restore,
 .clz-form .clz-close,
+.clz-form .clz-back,
 .clz-form .clz-preview{
   padding: 9px 10px 9px 30px;
   position: relative;
@@ -81,6 +82,9 @@ body.fixed{
 .clz-form .clz-preview{
   background: #cc1e3f url(/assets/flat/up.png) 7px center no-repeat;
 }
+.clz-form .clz-back{
+  background: #cc1e3f url(/assets/flat/left.png) 7px center no-repeat;
+}
 .clz-form .clz-preview{
   background: #2c9bdb url(/assets/flat/button-tick.png) 7px center no-repeat;
 }
@@ -88,6 +92,7 @@ body.fixed{
   background: #2c9bdb url(/assets/flat/up.png) 7px center no-repeat;
 }
 .clz-form .clz-close:hover,
+.clz-form .clz-back:hover,
 .clz-tools .clz-publish:hover {
   background-color: #bb1938;
 }

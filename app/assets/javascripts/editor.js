@@ -479,7 +479,7 @@ cliiz.toolbox = $.namespace({
       },
       list: function(data){
         var file = $('.fclz-templates > .fclz-file').template( data );
-        file.prependTo('.fclz-window');
+        file.prependTo('.fclz-forms .fclz-window');
       },
       select: {
         common: function(original){

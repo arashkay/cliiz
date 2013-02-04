@@ -202,7 +202,7 @@ $.fn.editor = function(options){
       insertImage: { 
         visible: true, 
         exec: function(){
-          $('.fclz-forms [formfor]:visible .fclz-editor').wysiwyg('insertImage', '#cliiz-img-placeholder');
+          $('.fclz-forms [formfor]:visible .fclz-editor').wysiwyg('insertImage', '/assets/flat/blank.gif#cliiz-img-placeholder');
           cliiz.toolbox.module.gallery.browser('editor');
         } 
       },
