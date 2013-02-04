@@ -13,6 +13,8 @@ body{
 }
 .container{
   padding-left: 270px;
+  position: relative;
+  top: -100px;
 }
 .company-logo{
   background-repeat: no-repeat;
@@ -31,10 +33,11 @@ body{
 }
 .menu-wrapper{
   width: 950px;
-  position: absolute;
-  top: 120px;
+  position: relative;
+  top: 125px;
   left: 0px;
   font-size: 0px;
+  z-index: 2;
 }
 .menu-back{
   background: url(../images/menu-rep.png) right;

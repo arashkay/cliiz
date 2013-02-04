@@ -790,13 +790,6 @@ body .clz-module-button .clz-cell{
   border: 2px solid #2C9BDB;
   box-shadow: none;
 }
-.clz-form div.wysiwyg ul.toolbar li.separator{
-  border-left: 2px solid #444;
-}
-.clz-form div.wysiwyg ul.toolbar li.wysiwyg-button-hover, div.wysiwyg ul.toolbar li.active{
-  border: transparent 1px solid;
-  background-color: #2C9BDB;
-}
 
 .clz-site-logo,
 .clz-post-image{

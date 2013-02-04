@@ -206,7 +206,11 @@ $.fn.editor = function(options){
           cliiz.toolbox.module.gallery.browser('editor');
         } 
       },
-      insertTable: { visible: false }
+      insertTable: { visible: false },
+      insertHorizontalRule: { visible: false },
+      code: { visible: false },
+      html: { visible: true }
+
     },
     autoGrow: true
   }
