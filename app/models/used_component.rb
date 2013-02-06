@@ -4,6 +4,7 @@ class UsedComponent < ActiveRecord::Base
   
   belongs_to :company
   belongs_to :component
+  has_many :mod_infoform
 
   serialize :setting
 

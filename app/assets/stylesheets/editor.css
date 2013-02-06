@@ -1,6 +1,34 @@
 body.fixed{
   overflow: hidden;
 }
+.clz-loader{
+  background: url(/assets/flat/blocker.png);
+  z-index: 1100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.clz-loader .clz-icon{
+  background: #fff url(/assets/flat/loader.gif) 30px center no-repeat;
+  width: 200px;
+  padding-top: 80px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -150px;
+  padding: 30px 10px 30px 70px;
+  text-align: center;
+}
+.clz-loader .clz-icon span{
+  color: #2c9bdb;
+  font-size: 24px;
+  font-weight: bold;
+}
 .clz-main{
   font-family: arial, tahoma;
   background: #e3e3e3;
@@ -77,6 +105,9 @@ body.fixed{
   font-size: 12px;
   background: #cc1e3f url(/assets/flat/button-tick.png) 7px center no-repeat;
   cursor: pointer;
+}
+.clz-tools .clz-publish{
+  display: none;
 }
 .clz-form .clz-close,
 .clz-form .clz-preview{
@@ -510,6 +541,7 @@ body .clz-module-button .clz-cell{
 .clz-label150,
 .clz-label180,
 .clz-label200,
+.clz-label250,
 .clz-label300{
   display: inline-block;
   cursor: pointer;
@@ -533,6 +565,9 @@ body .clz-module-button .clz-cell{
 .clz-label200{
   width: 200px;
 }
+.clz-label250{
+  width: 250px;
+}
 .clz-label300{
   width: 300px;
 }
@@ -548,6 +583,7 @@ body .clz-module-button .clz-cell{
 .clz-label150 *,
 .clz-label180 *,
 .clz-label200 *,
+.clz-label250 *,
 .clz-label300 *{
   vertical-align: middle;
 }
@@ -881,6 +917,9 @@ body .clz-module-button .clz-cell{
 }
 
 /* TABLE */
+.clz-table .clz-table-block{
+  padding-bottom: 15px;
+}
 .clz-table .clz-row,
 .clz-table .clz-header{
   position: relative;
@@ -891,8 +930,19 @@ body .clz-module-button .clz-cell{
   font-weight: bold;
   color: #000;
 }
+.clz-table .clz-row.clz-action{
+  background: #444;
+  text-align: center;
+  cursor: pointer;
+}
+.clz-table .clz-row.clz-action:hover{
+  background: #333;
+}
 .clz-table .clz-header{
   background: #242424;
+  color: #fff;
+}
+.clz-table .clz-header *{
   color: #fff;
 }
 .clz-table .clz-checkbox{

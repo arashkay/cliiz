@@ -3,8 +3,10 @@ class ModInfoformController < ApplicationController
   before_filter :authenticate_company!, :except => :create
   
   def create
-    @contact = ModInfoform.new(params[:i])
-    @contact.used_component_id = UsedComponent.find_by_uid(params[:uid]).id
+    uc = UsedComponent.find_by_uid(params[:uid])
+    @contact = ModInfoform.new
+    @contact.used_component_id = uc.id
+    @contact.fields = params[:i]
 
     if @contact.save
       render :json => true, :callback => params[:callback]
@@ -14,7 +16,8 @@ class ModInfoformController < ApplicationController
   end
 
   def all
-    @uc = UsedComponent.all :conditions => { :company_id => current_company.id, :component_id => Component.find_by_uname('infoform').id }
+    @uc = UsedComponent.where( { :company_id => current_company.id, :component_id => Component.find_by_uname('infoform').id } ).includes(:mod_infoform)
+    render :json => @uc, :include => :mod_infoform, :only => [:uid, :setting]
   end
   
   def index
@@ -27,6 +30,7 @@ class ModInfoformController < ApplicationController
     @uc = UsedComponent.find params[:book], :conditions => { :company_id => current_company.id, :component_id => Component.find_by_uname('infoform').id }
     @fields = @uc.setting[:fields]
     @contact = ModInfoform.find params[:id], :conditions => { :used_component_id => @uc.id }, :select => @fields+[:id]
+    @contact.see!
   end
 
   def delete

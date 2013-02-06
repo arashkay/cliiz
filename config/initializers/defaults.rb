@@ -32,7 +32,7 @@ module CLIIZ
 
     class Content
       def self.setting
-        { :content => '<h2>Heading 2</h2><p><i>add some text</i></p>' }
+        { :content => '<h2>Heading 2</h2><p>Start adding your awesome text/images.</p>' }
       end
     end
 
@@ -44,7 +44,7 @@ module CLIIZ
           :submit => 'Submit',
           :message => 'Thanks for contacting us!',
           :config => {
-            :submit_url => '/modules/submit_form',
+            :submit_url => '/coreapi/modules/submit_form',
             :js => 'infoform.js',
             :types => [ [:single_line, nil], [:multi_line, nil], [:name, nil], [:email, :email], [:phone, :phone], [:address, nil] ]
           }

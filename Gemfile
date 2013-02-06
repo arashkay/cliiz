@@ -13,6 +13,7 @@ gem 'devise'
 gem 'paperclip', "~> 2.7"
 gem 'uuidtools'
 gem 'capistrano'
+gem 'aasm'
 
 group :development, :test do
   gem 'ruby-debug'

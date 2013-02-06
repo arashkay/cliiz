@@ -2,8 +2,8 @@
 $(function(){
   cliiz.toolbox.defaults.letsWalk = <%= !company.first_edit_done %>
   cliiz.toolbox.defaults.modules = <%=components.html_safe%>; 
-  cliiz.toolbox.defaults.page= '<%=page%>'; 
-  cliiz.loading = { show: $.noop, hide: $.noop };
+  cliiz.toolbox.defaults.page= '<%=page%>';
+  cliiz.loading = { queue: 0, show: function(){  console.log('a'); cliiz.loading.queue++; $('.fclz-loader').fadeIn('fast'); }, hide: function(){  cliiz.loading.queue--; if( cliiz.loading.queue != 0) return; $('.fclz-loader').fadeOut(); cliiz.loading.queue = 0; console.log('b') } };
   cliiz.toolbox.defaults.i18n = <%=Hash[i18n.map{|i| [i[0],t("modules.infoform.names.#{i[0]}")]}].to_json.html_safe%>
   cliiz.toolbox.initialize(); 
 });
@@ -53,6 +53,11 @@ $(function(){
   </div>
 </div>
 <!--v2-->
+<div class='clz-loader fclz-loader'>
+  <div class='clz-icon'>
+    <span>Processing</span>
+  </div>
+</div>
 <div style='display:none;' class='fclz-templates'>
   <div class='clz-player fclz-player'></div>
   <div class='clz-file fclz-file' loop='true' data-dbid='%#id%'>
@@ -66,6 +71,29 @@ $(function(){
     <div class="clz-menu">
       <div class="clz-delete fclz-delete"></div>
       <div class="clz-setting fclz-setting"></div>
+    </div>
+  </div>
+  <div class='clz-table-block fclz-contact-list'>
+    <div class='clz-header fclz-header'>
+      <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' name='company[remember_me]'/></div>
+      <label class='clz-label250 clz-pad10 fclz-contact-field0'>%#1%</label>
+      <label class='clz-label250 clz-pad10 fclz-contact-field1'>%#2%</label>
+      <label class='clz-label250 clz-pad10 fclz-contact-field2'>%#3%</label>
+    </div>
+    <div class='clz-action clz-row'>
+      <label class='clz-label'>See All Contacts in This List</label>
+    </div>
+  </div>
+  <div class='clz-row fclz-contact' loop='true' data-dbid='%#id%'>
+    <div loop='fields'>
+      <div class='clz-checkbox clz-aleft' data-checkbox='[name="delete"]'><input type='checkbox' value='%#id%' name='delete'/></div>
+      <label class='clz-label250 clz-pad10 fclz-contact-field0'>%#1%</label>
+      <label class='clz-label250 clz-pad10 fclz-contact-field1'>%#2%</label>
+      <label class='clz-label250 clz-pad10 fclz-contact-field2'>%#3%</label>
+      <div class='clz-actions'>
+        <button class='clz-active-button fclz-edit'>View</button>
+        <button class='clz-secondary-button fclz-delete'>Delete</button>
+      </div>
     </div>
   </div>
   <div class='clz-row fclz-post' loop='true' data-dbid='%#id%'>
@@ -165,6 +193,12 @@ $(function(){
         </div>
         <textarea class='fclz-editor' name='post[content]'></textarea>
       </div>
+      <div formfor='contacts'>
+        <h2>Froms</h2>
+        <p class='clz-description'>Here is a list of your forms and whoever contacted you via your website.</p>
+        <div class='clz-table fclz-contacts'>
+        </div>
+      </div>
       <div formfor='menu'>
         <h2>Menu</h2>
         <p class='clz-description'>Add/remove pages in your main menu.</p>
@@ -241,11 +275,10 @@ $(function(){
 <div class='clz-theme-preview fclz-theme-preview'></div>
 <div class='clz-main fclz-toolbox'>
   <div class='clz-top'>
-    <!--<div class='clz-menu'>
-      <a href='#contacts'>Contact List (24<span>+10</span>)</a>
-      <a href='#files'>File Manager</a>
-      <a href='#analytic'>Site Analytics</a>
-    </div>-->
+    <div class='clz-menu'>
+      <a href='/panel/help' target='_blank'>Help</a>
+      <a href='#contacts' data-open-form='contacts'>Contact List (<%=ModInfoform.old_items.count%><span>+<%=ModInfoform.new_items.count%></span>)</a>
+    </div>
     <div class='clz-session'>
       Logged in as <span><%= company.name %></span>
       <a href='/companies/sign_out'>logout</a>

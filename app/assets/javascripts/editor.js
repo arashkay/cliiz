@@ -23,6 +23,7 @@ cliiz.toolbox = $.namespace({
     prevForm: null
   },
   initialize: function(){
+    cliiz.loading.show();
     this.rearrange(this.sizes.normal)
     $('[data-tool]').click(this.toggle);
     $(window).resize(this.resize);
@@ -42,13 +43,14 @@ cliiz.toolbox = $.namespace({
       $('.fclz-themeright').click(cliiz.toolbox.rotateRight);
       $('.fclz-theme').click(
         function(){
-          $.send( '/coreapi/companies/temp_layout.json', { id: $(this).data('id') }, function(){ location.reload(true) } )
+          cliiz.loading.show();
+          $.send( '/coreapi/companies/temp_layout.json', { id: $(this).data('id') }, function(){ location.reload(true) }, true )
         }
       );
       cliiz.toolbox.themePreview();
     },
     features: function(data){
-      $.send( '/coreapi/components/blocks/', cliiz.toolbox.init.blocks);
+      $.send( '/coreapi/components/blocks/', cliiz.toolbox.init.blocks, true);
       $('.fclz-tools').template(data, { keepOrigin: false}).find(cliiz.toolbox.defaults.module).show();
       $.each( data, function(){
           $(cliiz.toolbox.defaults.module+'[data-uname='+this.uname+']').dto(this);
@@ -122,8 +124,7 @@ cliiz.toolbox = $.namespace({
   module: {
     add: function(e, ui){
       if(ui.item.is('[cliiz=module]')){
-        $('[cliiz=module]', this).attr('data-edited', true);
-        $('[cliiz=module]', ui.item.parents('[data-partition]')).attr('data-edited', true);
+        cliiz.toolbox.block.edited( $('[cliiz=module]', ui.item.parents('[data-partition]')) );
         return true;
       }
       var name = ui.item.data('uname');
@@ -132,7 +133,7 @@ cliiz.toolbox = $.namespace({
         component: { uname: name } 
       };
       var block = $(cliiz.toolbox.defaults.blocks[name]).hide().insertAfter(ui.placeholder);
-      $('[cliiz=module]', block.parents('[data-partition]')).attr('data-edited', true);
+      cliiz.toolbox.block.edited( $('[cliiz=module]', block.parents('[data-partition]')) );
       block.dto(dto);
       cliiz.toolbox.block.activate(block.fadeIn('slow'));
     },
@@ -553,6 +554,10 @@ cliiz.toolbox = $.namespace({
     },
     refreshed: function(block, data){
       $('[cliiz=block]', block).html(data.content);
+    },
+    edited: function(block){
+      block.attr('data-edited', true);
+      $('.fclz-publish').fadeIn(1000);
     }
   },
   form: {
@@ -564,6 +569,7 @@ cliiz.toolbox = $.namespace({
       $('[data-open-form]').click( this.showForButton );
       this.menu.init();
       this.setting.init();
+      this.contacts.init();
     },
     connect: function( block ){
       var name = block.dto().component.uname;
@@ -610,7 +616,7 @@ cliiz.toolbox = $.namespace({
     update: function(block){
       var form = $('.fclz-forms [formfor]:visible');
       var block = form.data('cliiz.block');
-      block.attr('data-edited', true);
+      cliiz.toolbox.block.edited( block );
       cliiz.toolbox.module[form.attr('formfor')].update.call( form, block ); 
       $('.fclz-close').click(); 
     },
@@ -686,6 +692,33 @@ cliiz.toolbox = $.namespace({
       },
       update: function(data){
       }
+    },
+    contacts: {
+      init: function(){
+        var form = $('[formfor=contacts]');
+        $.send('/coreapi/contacts/all', { _method: 'get' }, cliiz.toolbox.form.contacts.list, true);
+      },
+      edit: function(data){
+        cliiz.toolbox.form.save = cliiz.toolbox.form.contacts.save;
+        cliiz.toolbox.form.buttons(false, '.fclz-save, .fclz-close');
+      },
+      list: function(data){
+        $.each( data,
+          function(k, v){
+            var block = $('.fclz-templates > .fclz-contact-list').clone();
+            var rows = $('.fclz-templates > .fclz-contact')
+            $.each( [0,1,2], function(m,i){ cliiz.toolbox.form.contacts.setColumn(v.setting.fields[i], block, rows, i); } );
+            rows.template( v.mod_infoform ).insertAfter($('.fclz-header', block));
+            block.appendTo('.fclz-contacts');
+          }
+        );
+      },
+      setColumn: function(column, block, rows, number){
+        if(column)
+          return $('.fclz-contact-field'+number, block).html(column[3]);
+        $('.fclz-contact-field'+number, block).remove();
+        $('.fclz-contact-field'+number, rows).remove();
+      }
     }
   },
   video: {
@@ -709,7 +742,7 @@ cliiz.toolbox = $.namespace({
   },
   restore: function(){
     cliiz.loading.show();
-    $.send('/coreapi/restore', function(){ location.reload(true) } );
+    $.send('/coreapi/restore', function(){ location.reload(true) }, true );
   },
   publish: function(){
     cliiz.loading.show();

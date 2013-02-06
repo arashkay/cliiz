@@ -36,6 +36,10 @@ CliizCom::Application.routes.draw do
       end
     end
     resources :files
+    get  '/contacts/all' => 'mod_infoform#all'
+    resources :contacts, :controller => :mod_infoform do
+      delete '/delete', :action => :delete
+    end
   end
 
   match '/panel' => 'general#panel'
@@ -59,10 +63,6 @@ CliizCom::Application.routes.draw do
     
     #match '/payment/cancel' => 'general#cancel'
     #match '/payment/success' => 'general#success'
-    
-    #match '/contact_books' => 'mod_infoform#all'
-    #match '/contact_books/:id' => 'mod_infoform#index'
-    #match '/contact/:book/:id' => 'mod_infoform#show'
 
     #match '/gallery.json' => 'mod_gallery#all'
     #post '/gallery/create' => 'mod_gallery#create'
@@ -85,9 +85,6 @@ CliizCom::Application.routes.draw do
     #  post '/folder', :action => :create_folder
     #end
     
-    #resources :contacts, :controller => :mod_infoform do
-    #  delete '/delete', :action => :delete
-    #end
     #get '/:action', :controller => 'general'
   end
 
