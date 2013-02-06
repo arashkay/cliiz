@@ -49,11 +49,8 @@ class Generator
       <link href='/assets/core/editor/jquery.wysiwyg.css' media='screen' rel='stylesheet' type='text/css' />
       <script src='/assets/core/editor/jquery.wysiwyg.js' type='text/javascript'></script>
       <script src='/assets/core/editor/wysiwyg.image.js' type='text/javascript'></script>
-      <script src='/assets/core/jquery.mousewheel.min.js' type='text/javascript'></script>
       <script src='/assets/core/jquery.extension.js' type='text/javascript'></script>
-      <script src='/assets/core/validation.js' type='text/javascript'></script>
       <script src='/assets/core/template.js' type='text/javascript'></script>
-      <script src='/assets/core/tip.js' type='text/javascript'></script>
       <script src='/assets/core.js' type='text/javascript'></script>
       <script src='/coreapi/javascripts/config.js' type='text/javascript'></script>
       <script src='http://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script>
