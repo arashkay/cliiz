@@ -557,7 +557,7 @@ cliiz.toolbox = $.namespace({
     },
     edited: function(block){
       block.attr('data-edited', true);
-      $('.fclz-publish').fadeIn(1000);
+      $('.fclz-publish').show();
     }
   },
   form: {
@@ -697,6 +697,8 @@ cliiz.toolbox = $.namespace({
       init: function(){
         var form = $('[formfor=contacts]');
         $.send('/coreapi/contacts/all', { _method: 'get' }, cliiz.toolbox.form.contacts.list, true);
+        $('.fclz-contacts', form).on( 'click', '.fclz-view', cliiz.toolbox.form.contacts.expand );
+        $('.fclz-contacts', form).on( 'click', '.fclz-shrink', cliiz.toolbox.form.contacts.shrink );
       },
       edit: function(data){
         cliiz.toolbox.form.save = cliiz.toolbox.form.contacts.save;
@@ -705,8 +707,10 @@ cliiz.toolbox = $.namespace({
       list: function(data){
         $.each( data,
           function(k, v){
+            if(v.mod_infoform.length==0) return true;
             var block = $('.fclz-templates > .fclz-contact-list').clone();
-            var rows = $('.fclz-templates > .fclz-contact')
+            var rows = $('.fclz-templates > .fclz-contact');
+            cliiz.toolbox.form.contacts.setDetails( v.setting.fields, rows );
             $.each( [0,1,2], function(m,i){ cliiz.toolbox.form.contacts.setColumn(v.setting.fields[i], block, rows, i); } );
             rows.template( v.mod_infoform ).insertAfter($('.fclz-header', block));
             block.appendTo('.fclz-contacts');
@@ -718,6 +722,19 @@ cliiz.toolbox = $.namespace({
           return $('.fclz-contact-field'+number, block).html(column[3]);
         $('.fclz-contact-field'+number, block).remove();
         $('.fclz-contact-field'+number, rows).remove();
+      },
+      setDetails: function(fields, tpl){
+        var details = '';
+        $.each(fields, function(k, v){
+          details += ["<div><label class='clz-label200'>", v[3] ,"</label><label>%#", v[0], "%</label></div>"].join('');
+        });
+        return $('.fclz-details', tpl).html( details )
+      },
+      expand: function(){
+        $(this).parents('.fclz-contact').addClass('clz-detailed');
+      },
+      shrink: function(){
+        $(this).parents('.fclz-contact').removeClass('clz-detailed');
       }
     }
   },
@@ -753,7 +770,6 @@ cliiz.toolbox = $.namespace({
       $('[data-edited]', block).each(function(){
         $(this).data('cliiz.module.dto').partition = block.attr('data-partition');
         $(this).data('cliiz.module.dto').page = cliiz.toolbox.defaults.page;
-        console.log($(this).data('cliiz.module.dto'))
         modules[i++] = $(this).data('cliiz.module.dto');
       });
     });

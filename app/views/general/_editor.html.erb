@@ -3,7 +3,7 @@ $(function(){
   cliiz.toolbox.defaults.letsWalk = <%= !company.first_edit_done %>
   cliiz.toolbox.defaults.modules = <%=components.html_safe%>; 
   cliiz.toolbox.defaults.page= '<%=page%>';
-  cliiz.loading = { queue: 0, show: function(){  console.log('a'); cliiz.loading.queue++; $('.fclz-loader').fadeIn('fast'); }, hide: function(){  cliiz.loading.queue--; if( cliiz.loading.queue != 0) return; $('.fclz-loader').fadeOut(); cliiz.loading.queue = 0; console.log('b') } };
+  cliiz.loading = { queue: 0, show: function(){ cliiz.loading.queue++; $('.fclz-loader').fadeIn('fast'); }, hide: function(){  cliiz.loading.queue--; if( cliiz.loading.queue != 0) return; $('.fclz-loader').fadeOut(); cliiz.loading.queue = 0; } };
   cliiz.toolbox.defaults.i18n = <%=Hash[i18n.map{|i| [i[0],t("modules.infoform.names.#{i[0]}")]}].to_json.html_safe%>
   cliiz.toolbox.initialize(); 
 });
@@ -35,7 +35,7 @@ $(function(){
       </div>
       <div class='clz-step clz-step3'>
         <h5>Edit, delete, move</h5>
-        <p>Use this blue menu on right top of each feature to edit or delete them. Also change the order or position by dragging and dropping them. Click on this icon <img src='/assets/blank.gif' class='clz-setting fclz-next' next-step='clz-step4'/> to open Edit Panel.</p>
+        <p>Use this blue menu on right top of each feature to edit or delete them. Also change the order or position by dragging and dropping them. Click on this icon <a class='clz-setting fclz-next' next-step='clz-step4'/> to open Edit Panel.</a></p>
         <div class='clz-actions'>
           <a class='clz-skip fclz-skip'>Skip</a>
           <a class='clz-next fclz-next' next-step='clz-step4'>Next</a>
@@ -90,9 +90,11 @@ $(function(){
       <label class='clz-label250 clz-pad10 fclz-contact-field0'>%#1%</label>
       <label class='clz-label250 clz-pad10 fclz-contact-field1'>%#2%</label>
       <label class='clz-label250 clz-pad10 fclz-contact-field2'>%#3%</label>
+      <div class='clz-details fclz-details'></div>
       <div class='clz-actions'>
-        <button class='clz-active-button fclz-edit'>View</button>
-        <button class='clz-secondary-button fclz-delete'>Delete</button>
+        <button class='clz-active-button clz-unzip fclz-view'>View</button>
+        <button class='clz-active-button clz-zip fclz-shrink'>Cancel</button>
+        <button class='clz-attention-button fclz-delete'>Delete</button>
       </div>
     </div>
   </div>

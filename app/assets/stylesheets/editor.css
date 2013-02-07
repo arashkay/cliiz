@@ -966,6 +966,29 @@ body .clz-module-button .clz-cell{
   vertical-align: middle;
   width: 30px;
 }
+.clz-table .clz-row .clz-details {
+  display: none;
+}
+.clz-table .clz-row .clz-zip {
+  display: none;
+}
+.clz-table .clz-row.clz-detailed .clz-zip {
+  display: inline;
+}
+.clz-table .clz-row.clz-detailed .clz-unzip {
+  display: none;
+}
+.clz-table .clz-row.clz-detailed .clz-details {
+  display: block;
+  padding: 5px;
+  border-top: #fff 1px solid;
+  margin: 5px 5px 27px;
+}
+.clz-table .clz-row .clz-details,
+.clz-table .clz-row .clz-details *{
+  font-size: 12px;
+  line-height: 18px;
+}
 .clz-bottom-actions {
   margin: 15px 0px;
   text-align: right;

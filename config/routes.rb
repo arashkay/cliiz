@@ -1,6 +1,28 @@
 CliizCom::Application.routes.draw do
 
   devise_for :companies
+  
+  def sites_routes(action='render_page')
+    match '/' => "sites##{action}", :page => nil
+    match '/:page' => "sites##{action}"
+    match '/:page/:id' => "sites##{action}"
+    match '/:page/:id/:name.html' => "sites##{action}"
+  end
+
+  def default_routes
+    post '/companies/is_new'          => "companies#is_new"
+    post '/companies/not_registered'  => "companies#not_registered"
+    get '/templates/:id/home.html' => "frames#get"
+    get '/templates/free' => "frames#list"
+    resources :frames
+    resources :used_components
+    resources :components do 
+      collection do 
+        get 'reinit'
+      end
+    end
+    root :to => "general#index"
+  end
 
   scope '/coreapi' do
     get '/javascripts/config.js' => "general#js_config"
@@ -43,12 +65,6 @@ CliizCom::Application.routes.draw do
   end
 
   match '/panel' => 'general#panel'
-  def sites_routes(action='render_page')
-    match '/' => "sites##{action}", :page => nil
-    match '/:page' => "sites##{action}"
-    match '/:page/:id' => "sites##{action}"
-    match '/:page/:id/:name.html' => "sites##{action}"
-  end
 
   #match '/designers/how_to_design' => 'general#how_to_design'
   #match '/payment/notifier' => 'general#notify'
@@ -89,40 +105,22 @@ CliizCom::Application.routes.draw do
   end
 
   if 'development' != Rails.env
-    constraints( { :host => /[^webuilder.com.au]/ } ) do
-      sites_routes
+    constraints( { :subdomain => /^(webuilder|www.webuilder)$/ } ) do
+      default_routes
     end
+    sites_routes
   else
     constraints( { :host => /[^cliiz.com.au]/ } ) do
       sites_routes
     end
+    default_routes
   end
  
-  #constraints( { :subdomain => /[^(www)]/ } ) do
-  #  sites_routes
-  #end
-
-  post '/companies/is_new'          => "companies#is_new"
-  post '/companies/not_registered'  => "companies#not_registered"
-  
   #get '/plans(.:format)' => "general#plans"
   #resources :designers do
   #  collection do 
   #    post 'upload'
   #  end
   #end
-
-  # SITE ROUTES
-  get '/templates/:id/home.html' => "frames#get"
-  get '/templates/free' => "frames#list"
-  resources :frames
-  resources :used_components
-  resources :components do 
-    collection do 
-      get 'reinit'
-    end
-  end
-
-  root :to => "general#index"
  
 end
