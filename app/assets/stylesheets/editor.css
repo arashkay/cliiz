@@ -410,6 +410,11 @@ body .clz-module-button .clz-cell{
   background: #000 url(/assets/flat/player.jpg) center no-repeat;
 
 }
+.clz-message{
+  text-align: center;
+  font-weight: bold;
+  padding: 30px 50px 30px;
+}
 
 /* form */
 .clz-form-box{
@@ -441,6 +446,14 @@ body .clz-module-button .clz-cell{
   right: 10px;
   width: 300px;
   text-align: right;
+}
+.clz-message .clz-actions{
+  top: auto;
+  bottom: 10px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 10px;
 }
 .clz-form h2,
 .clz-form h3{
@@ -678,7 +691,7 @@ body .clz-module-button .clz-cell{
 .clz-active-button,
 .clz-secondary-button,
 .clz-attention-button{
-  padding: 3px 8px;
+  padding: 6px 8px;
   background: #2c9bdb;
   border: none;
   color: #000;
@@ -994,9 +1007,7 @@ body .clz-module-button .clz-cell{
   text-align: right;
 }
 /* page elements */
-.cliiz-module{
-  position: relative;
-}
+.cliiz-module{ position: relative; }
 .cliiz-module .clz-editing{
   display: none;
   cursor: move;
@@ -1007,9 +1018,7 @@ body .clz-module-button .clz-cell{
   right: 0;
   border: #2c9bdb 5px solid;
 }
-.cliiz-module:hover .clz-editing{
-  display: block;
-}
+.cliiz-module:hover .clz-editing{ display: block; }
 .cliiz-module .clz-menu{
   background: #333;
   position: absolute;
@@ -1032,12 +1041,8 @@ body .clz-module-button .clz-cell{
   margin: 8px 0px 0px 6px;
   vertical-align: top;
 }
-.cliiz-module .clz-menu .clz-setting{
-  background-image: url(/assets/flat/edit.png);
-}
-.cliiz-module .clz-menu .clz-delete{
-  background-image: url(/assets/flat/delete.png);
-}
+.cliiz-module .clz-menu .clz-setting{ background-image: url(/assets/flat/edit.png); }
+.cliiz-module .clz-menu .clz-delete{ background-image: url(/assets/flat/delete.png); }
 .cliiz-module .clz-menu *:hover {
   background-position: 0px -36px;
   border-bottom: #2c9bdb 4px solid;

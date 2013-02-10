@@ -1,5 +1,5 @@
 
-div.wysiwyg { padding: 5px; background: #fff; }
+div.wysiwyg { background: #fff; }
 div.wysiwyg * { margin: 0; padding: 0; }
 
 div.wysiwyg ul.toolbar li.jwysiwyg-custom-command { overflow: hidden; }

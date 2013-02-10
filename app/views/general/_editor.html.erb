@@ -1,6 +1,6 @@
 <script type='text/javascript'>
 $(function(){
-  cliiz.toolbox.defaults.letsWalk = <%= !company.first_edit_done %>
+  cliiz.toolbox.defaults.letsWalk = <%= !company.first_edit_done %>;
   cliiz.toolbox.defaults.modules = <%=components.html_safe%>; 
   cliiz.toolbox.defaults.page= '<%=page%>';
   cliiz.loading = { queue: 0, show: function(){ cliiz.loading.queue++; $('.fclz-loader').fadeIn('fast'); }, hide: function(){  cliiz.loading.queue--; if( cliiz.loading.queue != 0) return; $('.fclz-loader').fadeOut(); cliiz.loading.queue = 0; } };
@@ -76,9 +76,6 @@ $(function(){
   <div class='clz-table-block fclz-contact-list'>
     <div class='clz-header fclz-header'>
       <div class='clz-checkbox clz-aleft' data-checkbox='[name="company[remember_me]"]'><input type='checkbox' name='company[remember_me]'/></div>
-      <label class='clz-label250 clz-pad10 fclz-contact-field0'>%#1%</label>
-      <label class='clz-label250 clz-pad10 fclz-contact-field1'>%#2%</label>
-      <label class='clz-label250 clz-pad10 fclz-contact-field2'>%#3%</label>
     </div>
     <div class='clz-action clz-row'>
       <label class='clz-label'>See All Contacts in This List</label>
@@ -87,9 +84,6 @@ $(function(){
   <div class='clz-row fclz-contact' loop='true' data-dbid='%#id%'>
     <div loop='fields'>
       <div class='clz-checkbox clz-aleft' data-checkbox='[name="delete"]'><input type='checkbox' value='%#id%' name='delete'/></div>
-      <label class='clz-label250 clz-pad10 fclz-contact-field0'>%#1%</label>
-      <label class='clz-label250 clz-pad10 fclz-contact-field1'>%#2%</label>
-      <label class='clz-label250 clz-pad10 fclz-contact-field2'>%#3%</label>
       <div class='clz-details fclz-details'></div>
       <div class='clz-actions'>
         <button class='clz-active-button clz-unzip fclz-view'>View</button>
@@ -128,7 +122,9 @@ $(function(){
     </div>
   </div>
   <div class='clz-row fclz-field-name'>
+    <label class='clz-label50'></label>
     <label class='clz-label'>Name</label>
+    <input class='fclz-index' type='hidden' name='field[][index]' value='' />
     <input class='clz-input fclz-name' name='field[][name]' value='' />
     <label class='clz-label80 clz-aright'>Type</label>
     <div class='clz-fixlist'>
@@ -158,6 +154,12 @@ $(function(){
         </div>
       </div>
     </div>
+    <div class='clz-ractions'>
+      <div class='clz-updown'>
+        <div class='clz-up fclz-up'></div>
+        <div class='clz-down fclz-down'></div>
+      </div>
+    </div>
   </div>
   <%= render :partial => 'general/editor.forms' %>
 </div>
@@ -170,6 +172,15 @@ $(function(){
       <button class='clz-back fclz-back' style='display:none;'>Back</button>
     </div>
     <div class='fclz-forms'>
+      <div formfor='confirmation'>
+        <div class='clz-message'>
+          Do you want to save your changes before going to other pages?
+          <div class='clz-actions'>
+            <button class='clz-secondary-button'>No</button>
+            <button class='clz-active-button'>Yes, Save</button>
+          </div>
+        </div>
+      </div>
       <div formfor='post'>
         <h2>Blog Post</h2>
         <div class='clz-row clz-inlined'>
