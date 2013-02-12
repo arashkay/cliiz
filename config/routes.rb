@@ -30,6 +30,7 @@ CliizCom::Application.routes.draw do
     match '/modules/submit_form' => 'mod_infoform#create'
     match '/modules/:action(/:id)' => 'modules'
 
+    post '/walked' => 'companies#walked'
     post '/menu' => 'companies#menu'
     post '/setting' => 'companies#update_profile'
     #get '/companies/all' => 'companies#all'
@@ -73,7 +74,6 @@ CliizCom::Application.routes.draw do
       sites_routes('modify')
     end
     #match '/update_profile' => 'companies#update_profile'
-    #match '/first_edit_done' => 'companies#first_edit_done'
     #match '/check_domain' => 'general#check_domain'
     #match '/save_domain' => 'general#save_domain'
     

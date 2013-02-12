@@ -8,45 +8,46 @@ $(function(){
   cliiz.toolbox.initialize(); 
 });
 </script>
-<div class='clz-walk fclz-walk' style='display:none'>
-  <div id='fclz-walk-top' class='clz-walktru clz-top'></div>
-  <div id='fclz-walk-left' class='clz-walktru clz-left'></div>
-  <div id='fclz-walk-right' class='clz-walktru clz-right'></div>
-  <div id='fclz-walk-bottom' class='clz-walktru clz-bottom'></div>
-  <div id='fclz-tooltip' class='clz-tooltip'>
-    <div class='clz-arrow clz-shadow'></div>
-    <div class='clz-arrow'></div>
-    <div class='clz-content fclz-content'>
-      <div class='clz-step clz-step1'>
-        <h5>Toolbox</h5>
-        <p>Use this toolbox to change your website content and design. Click on each of these icons to see your options.</p>
-        <div class='clz-actions'>
-          <a class='clz-skip fclz-skip'>Skip</a>
-          <a class='clz-next fclz-next' next-step='clz-step3'>Next</a>
+<div class='clz-walk fclz-walk'>
+  <div class='clz-walktru clz-top fclz-walk-top'></div>
+  <div class='clz-walktru clz-left fclz-walk-left'></div>
+  <div class='clz-walktru clz-right fclz-walk-right'></div>
+  <div class='clz-walktru clz-bottom fclz-walk-bottom'></div>
+  <div class='clz-walktru clz-window'>
+    <div class='clz-hint'>
+      <div class='clz-arrow'></div>
+      <div class='clz-content'>
+        <div class='clz-step clz-step0'>
+          <span>Start Editing Your Website Here</span>
+          <button class='clz-next' next-step='step1'>Next</button>
         </div>
-      </div>
-      <div class='clz-step clz-step2'>
-        <h5>Publish changes</h5>
-        <p>In order to apply your changes, always press Publish button before leaving the page.</p>
-        <div class='clz-actions'>
-          <a class='clz-skip fclz-skip'>Skip</a>
-          <a class='clz-next fclz-next' next-step='clz-step5'>Next</a>
+        <div class='clz-step clz-step1'>
+          <span>Drag and Drop Any of These Items to Page</span>
+          <button class='clz-next' next-step='step2'>Next</button>
         </div>
-      </div>
-      <div class='clz-step clz-step3'>
-        <h5>Edit, delete, move</h5>
-        <p>Use this blue menu on right top of each feature to edit or delete them. Also change the order or position by dragging and dropping them. Click on this icon <a class='clz-setting fclz-next' next-step='clz-step4'/> to open Edit Panel.</a></p>
-        <div class='clz-actions'>
-          <a class='clz-skip fclz-skip'>Skip</a>
-          <a class='clz-next fclz-next' next-step='clz-step4'>Next</a>
+        <div class='clz-step clz-step2'>
+          <span>Add/Remove Pages To Your Website</span>
+          <button class='clz-next' next-step='step3'>Next</button>
         </div>
-      </div>
-      <div class='clz-step clz-step4'>
-        <h5>Edit Panel</h5>
-        <p>Use this panel to customize your features and check changes live on the page after pressing save button.</p>
-        <div class='clz-actions'>
-          <a class='clz-skip fclz-skip'>Skip</a>
-          <a class='clz-next fclz-next' next-step='clz-step2'>Next</a>
+        <div class='clz-step clz-step3'>
+          <span>Enable/Disable Packages (Blog, Gallery ...)</span>
+          <button class='clz-next' next-step='step4'>Next</button>
+        </div>
+        <div class='clz-step clz-step4'>
+          <span>Change Design Whenever You Want</span>
+          <button class='clz-next' next-step='step5'>Next</button>
+        </div>
+        <div class='clz-step clz-step5'>
+          <span>Change Page/Site Settings Here</span>
+          <button class='clz-next' next-step='step6'>Next</button>
+        </div>
+        <div class='clz-step clz-step6'>
+          <span>Always Save Changes Before Leaving</span>
+          <button class='clz-next' next-step='step7'>Start</button>
+        </div>
+        <div class='clz-step clz-step7'>
+          <span>Are You Ready?</span>
+          <button class='clz-next' next-step='step8'>Start</button>
         </div>
       </div>
     </div>
@@ -176,8 +177,8 @@ $(function(){
         <div class='clz-message'>
           Do you want to save your changes before going to other pages?
           <div class='clz-actions'>
-            <button class='clz-secondary-button'>No</button>
             <button class='clz-active-button'>Yes, Save</button>
+            <button class='clz-secondary-button'>No</button>
           </div>
         </div>
       </div>

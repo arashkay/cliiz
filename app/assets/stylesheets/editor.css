@@ -1,6 +1,90 @@
 body.fixed{
   overflow: hidden;
 }
+.clz-walk{
+  display: none;
+}
+.clz-walk.clz-step0,
+.clz-walk.clz-step1,
+.clz-walk.clz-step2,
+.clz-walk.clz-step3,
+.clz-walk.clz-step4,
+.clz-walk.clz-step5,
+.clz-walk.clz-step6,
+.clz-walk.clz-step7{
+  display: block;
+}
+.clz-walktru{
+  display: block;
+  background: url(/assets/flat/blocker.png);
+  z-index: 1099;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.clz-walk .clz-walktru.clz-window{
+  background: none;
+}
+.clz-walk .clz-hint{
+  display: inline;
+  position: fixed;
+  background: #F4BE02;
+  font-size: 16px;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #000;
+}
+.clz-walk .clz-arrow{
+  position: absolute;
+  border: transparent 10px solid;
+  border-bottom-color: #F4BE02;
+  width: 0;
+  top: -20px;
+}
+.clz-walk .clz-step{
+  display: none;
+}
+.clz-walk .clz-walktru.clz-left{ display: none; }
+.clz-walk .clz-walktru.clz-right{ display: none; }
+.clz-walk .clz-walktru.clz-top{ display: none; }
+
+.clz-walk.clz-step0 .clz-walktru.clz-top{ display: block; top: 0px; height: 25px; }
+.clz-walk.clz-step0 .clz-walktru.clz-bottom{ top: 100px; }
+.clz-walk.clz-step0 .clz-hint{ top: 105px; left: 20px; }
+.clz-walk.clz-step0 .clz-step0{ display: block; }
+
+.clz-walk.clz-step1 .clz-walktru.clz-bottom{ top: 172px; }
+.clz-walk.clz-step1 .clz-hint{ top: 180px; left: 20px; }
+.clz-walk.clz-step1 .clz-step1{ display: block; }
+
+.clz-walk.clz-step2 .clz-walktru.clz-bottom{ top: 100px; }
+.clz-walk.clz-step2 .clz-hint{ top: 105px; left: 95px; }
+.clz-walk.clz-step2 .clz-step2{ display: block; }
+
+.clz-walk.clz-step3 .clz-walktru.clz-bottom{ top: 172px; }
+.clz-walk.clz-step3 .clz-hint{ top: 165px; left: 284px; }
+.clz-walk.clz-step3 .clz-step3{ display: block; }
+
+.clz-walk.clz-step4 .clz-walktru.clz-bottom{ top: 240px; }
+.clz-walk.clz-step4 .clz-hint{ top: 240px; left: 350px; }
+.clz-walk.clz-step4 .clz-step4{ display: block; }
+
+.clz-walk.clz-step5 .clz-walktru.clz-bottom{ top: 100px; }
+.clz-walk.clz-step5 .clz-hint{ top: 105px; left: 309px; }
+.clz-walk.clz-step5 .clz-step5{ display: block; }
+
+.clz-walk.clz-step6 .clz-walktru.clz-bottom{ top: 100px; }
+.clz-walk.clz-step6 .clz-hint{ top: 85px; right: 100px; }
+.clz-walk.clz-step6 .clz-hint .clz-arrow{ left: auto; right: 20px; }
+.clz-walk.clz-step6 .clz-step6{ display: block; }
+
+.clz-walk.clz-step7 .clz-walktru.clz-bottom{ top: 0px; }
+.clz-walk.clz-step7 .clz-hint{ top: 30%; left: 50%; margin-left: -200px; }
+.clz-walk.clz-step7 .clz-hint .clz-arrow{ display: none; }
+.clz-walk.clz-step7 .clz-step7{ display: block; }
+
 .clz-loader{
   background: url(/assets/flat/blocker.png);
   z-index: 1100;
@@ -96,6 +180,7 @@ body.fixed{
 .clz-tools .clz-restore,
 .clz-form .clz-close,
 .clz-form .clz-back,
+.clz-walktru .clz-next,
 .clz-form .clz-preview{
   padding: 9px 10px 9px 30px;
   position: relative;
@@ -121,6 +206,12 @@ body.fixed{
 }
 .clz-tools .clz-restore{
   background: #2c9bdb url(/assets/flat/up.png) 7px center no-repeat;
+}
+.clz-walktru .clz-next{
+  background: #2c9bdb url(/assets/flat/right.png) 90% center no-repeat;
+  padding-left: 5px;
+  padding-right: 25px;
+  margin-left: 15px;
 }
 .clz-form .clz-close:hover,
 .clz-form .clz-back:hover,

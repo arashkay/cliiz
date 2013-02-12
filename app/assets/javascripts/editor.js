@@ -39,6 +39,7 @@ cliiz.toolbox = $.namespace({
     $('.fclz-restore').click( this.restore );
     this.defaults.token = {};
     this.defaults.token[$('[name=csrf-param]').attr('content') ] = $('[name=csrf-token]').attr('content');
+    cliiz.toolbox.walk.init();
   },
   init: {
     theming: function(){
@@ -765,6 +766,55 @@ cliiz.toolbox = $.namespace({
             .css( { height: size.h, width: size.w});
         }
       ).remove();
+    }
+  },
+  walk: {
+    init: function(){
+      if(!cliiz.toolbox.defaults.letsWalk) return;
+      $('.fclz-walk [next-step]').click( function(){ cliiz.toolbox.walk[$(this).attr('next-step')](); } );
+      cliiz.toolbox.walk.step0();
+    },
+    change: function(step){
+      $('.fclz-walk').removeClass('clz-step0 clz-step1 clz-step2 clz-step3 clz-step4 clz-step5 clz-step6 clz-step7').addClass(step);
+    },
+    step0: function(){
+      cliiz.toolbox.walk.change('clz-step0');
+    },
+    step1: function(){
+      cliiz.toolbox.walk.change('clz-step1');
+      $('[data-tool=".fclz-tools"]').click();
+    },
+    step2: function(){
+      cliiz.toolbox.walk.change('clz-step2');
+      $('.fclz-submenu').hide();
+      $('[data-tool]').removeClass('clz-expanded');
+      cliiz.toolbox.rearrange(cliiz.toolbox.sizes.normal);
+    },
+    step3: function(){
+      cliiz.toolbox.walk.change('clz-step3');
+      $('[data-tool=".fclz-packages"]').click();
+    },
+    step4: function(){
+      cliiz.toolbox.walk.change('clz-step4');
+      $('[data-tool=".fclz-themes"]').click();
+    },
+    step5: function(){
+      cliiz.toolbox.walk.change('clz-step5');
+      $('.fclz-submenu').hide();
+      $('[data-tool]').removeClass('clz-expanded');
+      cliiz.toolbox.rearrange(cliiz.toolbox.sizes.normal);
+    },
+    step6: function(){
+      cliiz.toolbox.walk.change('clz-step6');
+      $('.fclz-publish').show();
+    },
+    step7: function(){
+      cliiz.toolbox.walk.change('clz-step7');
+      $('.fclz-publish').hide();
+    },
+    step8: function(){
+      cliiz.toolbox.walk.change('clz-step8');
+      $.send('/coreapi/walked');
     }
   },
   restore: function(){

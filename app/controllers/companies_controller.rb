@@ -68,7 +68,7 @@ class CompaniesController < ApplicationController
     render :json => { :menu => Generator.new.generate_menu(current_company) }
   end
   
-  def first_edit_done
+  def walked
     render :json => current_company.update_attribute(:first_edit_done, true)
   end
 
