@@ -1,0 +1,17 @@
+<div class='cliiz-module' remote='<%=setting[:config][:submit_url]%>' cliiz='module' cliiz-type='infoform' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block' cliiz='block'>
+    <div class='cliiz-error' style='display:none;'></div>
+    <input name='uid' type='hidden' value='<%=uid%>' />
+    <%setting[:fields].each do |k, f|%>
+      <div class='cliiz-field'>
+        <% if f[1].to_sym==:multi_line %>
+          <label><%=f[3]%></label><textarea name='field<%=f[0]%>'></textarea>
+        <%else%>
+          <label><%=f[3]%></label><input name='field<%=f[0]%>' />
+        <%end%>
+      </div>
+    <%end%>
+    <div class='cliiz-success' style='display:none;'><%=setting[:message]%></div>
+    <button class='cliiz-button'><%=setting[:submit]%></button>
+  </div>
+</div>

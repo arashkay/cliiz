@@ -1,16 +1,29 @@
 class MobileGenerator
 
   def page(page, company, components, security_tag)
+    @scripts = [
+      security_tag,
+      '<link href="/stylesheets/modules_base.css" media="screen" rel="stylesheet" type="text/css">',
+      "<script src='/modules/jquery.js' type='text/javascript'></script>",
+      "<script src='/coreapi/modules/base.js' type='text/javascript'></script>"
+    ]
     if page.nil?
       menu = company.setting[:menu].reject{ |i| !i[3] }
       content = intro(menu)
     else
       content = ''
+      added_scripts = []
       components.each do |c|
+        unless c.component.setting[:config].blank? || c.component.setting[:config][:js].blank? || added_scripts.include?(c.component.setting[:config][:js])
+          @scripts <<  "<script src='/modules/#{c.component.setting[:config][:js]}' type='text/javascript'></script>"
+          added_scripts << c.component.setting[:config][:js]
+        end
         content += create_block c
       end
+      @scripts <<  "<script src='http://maps.googleapis.com/maps/api/js?sensor=false' type='text/javascript'></script>" if added_scripts.include? 'location.js'
     end
-    layout company, content
+    @scripts = @scripts.join("\n")
+    layout company, content, @scripts
   end
 
   def create_block(component)
@@ -42,8 +55,8 @@ class MobileGenerator
     end
   end
 
-  def layout(company, content)
-    ActionController::Base.new.send :render_to_string, '/layouts/mobile', :locals => { :setting => company.setting, :content => content }
+  def layout(company, content, scripts)
+    ActionController::Base.new.send :render_to_string, '/layouts/mobile', :locals => { :setting => company.setting, :content => content, :scripts => scripts }
   end
 
   def intro(menu)
@@ -55,8 +68,7 @@ class MobileGenerator
   end
       
   def infoform_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/infoform/block', :locals => { :setting => setting(c), :uid => c.uid }
+    ActionController::Base.new.send :render_to_string, '/modules/infoform/mobile', :locals => { :setting => setting(c), :uid => c.uid }
   end
  
   def locationmark_block(c)
@@ -85,30 +97,15 @@ class MobileGenerator
   end
 
   def postfilter_block(c)
-    return ''
-    blog = c.company.blog
-    setting = setting(c)
-    unless blog.blank?
-      case setting[:type]
-        when CLIIZ::COMPONENTS::PostFilter::MOSTREAD
-          posts = ModBlog.all(:conditions => { :used_component_id => blog.id, :trashed =>false}, :limit => setting[:size], :order => 'view_count DESC')
-        when CLIIZ::COMPONENTS::PostFilter::RANDOM
-          posts = ModBlog.all(:conditions => { :used_component_id => blog.id, :trashed =>false}, :limit => setting[:size], :order => 'RAND()')
-        else
-          posts = ModBlog.all(:conditions => { :used_component_id => blog.id, :trashed =>false}, :limit => setting[:size], :order => 'publish_date DESC')
-      end
-    end
-    ActionController::Base.new.send :render_to_string, '/modules/blog/filtered', :locals => { :setting => setting(c), :uid => c.uid, :posts => posts }
+    ''
   end
 
   def gallery_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/gallery/block', :locals => { :setting => setting(c), :uid => c.uid, :items => c.extra_data }
+    ActionController::Base.new.send :render_to_string, '/modules/gallery/mobile', :locals => { :setting => setting(c), :uid => c.uid, :items => c.extra_data }
   end
 
   def image_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/gallery/image', :locals => { :image => c.extra_data }
+    ActionController::Base.new.send :render_to_string, '/modules/gallery/image.mobile', :locals => { :image => c.extra_data }
   end
 
   def youtube_block(c)

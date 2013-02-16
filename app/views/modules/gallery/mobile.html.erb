@@ -1,0 +1,16 @@
+<div class='cliiz-module' data-role="collapsible-set" cliiz='package' cliiz-type='gallery' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block cliiz-gallery' data-role="collapsible" data-collapsed="false" cliiz='block'>
+    <h1>Gallery</h1>
+    <% if items.nil? || items.empty? %>
+      <i>Gallery is empty!</i>
+    <%else%>
+        <% items.each do |i| %>
+          <div class='thumb cliiz-image' imageid='<%=i.id%>' original='<%=i.image.entity.url%>'>
+            <a href='/gallery/<%=i.id%>'>
+                <img src='<%=i.image.entity.url(:thumb)%>'/>
+            </a>
+          </div>
+        <%end%>
+    <%end%>
+  </div>
+</div>
