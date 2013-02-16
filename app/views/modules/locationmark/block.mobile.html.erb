@@ -1,0 +1,20 @@
+<div class='cliiz-module' cliiz='module' cliiz-type='locationmark' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block' cliiz='block'>
+    <div class='cliiz-map' data-latlng='<%=setting[:latlng].join',' %>' style="width: <%=setting[:viewport][0]%>px; height: <%=setting[:viewport][1]%>px"></div>
+    <div class='cliiz-location' style='display:none;'>
+      <h3><%=company.setting[:display_name]%></h3>
+      <div class='cliiz-row cliiz-address'>
+        <label><%=t'address'%>:</label>
+        <span><%=setting[:address]%></span>
+      </div>
+      <div class='cliiz-row cliiz-phone'>
+        <label><%=t'phone'%>:</label>
+        <span><%=setting[:phone]%></span>
+      </div>
+      <div class='cliiz-row cliiz-fax'>
+        <label><%=t'fax'%>:</label>
+        <span><%=setting[:fax]%></span>
+      </div>
+    </div>
+  </div>
+</div>

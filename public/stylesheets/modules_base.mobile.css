@@ -1,0 +1,54 @@
+/* common */
+div.cliiz-module div.cliiz-success{ 
+  font-size: bold; 
+  color: #0D6D15; 
+  background: #67BF6E; 
+  border: #10821A 1px solid; 
+  padding: 3px 5px; 
+  margin: 5px 0px;
+  line-height: 20px; 
+  width: 300px;
+  margin-left: 204px;
+}
+/* POST */
+div.cliiz-module div.cliiz-posts div.cliiz-image,
+div.cliiz-module div.cliiz-posts div.cliiz-detail,
+div.cliiz-module div.cliiz-blog div.cliiz-image,
+div.cliiz-module div.cliiz-blog div.cliiz-detail{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  padding: 3px 5px;
+}
+div.cliiz-module div.cliiz-post h2{
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Location */
+div.cliiz-module div.cliiz-location,
+div.cliiz-module div.cliiz-location *{
+  color: #444;
+}
+/* Gallery */
+div.cliiz-gallery{
+  font-size: 0px;
+}
+div.cliiz-module div.cliiz-gallery div.cliiz-image,
+div.cliiz-module div.cliiz-gallery a.cliiz-image{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  text-align: center;
+  position: relative;
+  margin: 10px 20px;
+}
+div.cliiz-module div.cliiz-image a{
+  display: block;
+  color: #fff;
+}
+div.cliiz-module div.cliiz-image-preview{
+  text-align: center;
+}
+

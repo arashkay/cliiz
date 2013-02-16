@@ -1,0 +1,22 @@
+<div class='cliiz-module' cliiz='package' cliiz-type='blog' cliiz-uid='<%=uid%>'>
+  <div class='cliiz-block cliiz-blog' cliiz='block'>
+    <h1>Blog</h1>
+    <% posts.each do |p| %>
+      <div class='cliiz-post'>
+        <div class='cliiz-image'>
+          <img src='<%=p.thumb%>' />
+        </div>
+        <div class='cliiz-detail'>
+          <h2><a href='/blog/<%=p.id%>/<%= "#{p.title}".gsub( /[\.\/\$\#\@\!\?]/,'') %>.html'><%= p.title %></a></h2>
+          <div class='cliiz-summary'>
+            <%= p.summary %>
+          </div>
+          <div class='cliiz-info'>
+            <div class='cliiz-date'><span><%= p.publish_date.strftime "%a. %d %b %Y" %></span></div>
+            <div class='cliiz-more'><a href='/blog/<%=p.id%>/<%= "#{p.title}".gsub( /[\.\/\$\#\@\!\?]/,'') %>.html'>read more</a></div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

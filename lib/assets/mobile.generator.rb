@@ -3,7 +3,7 @@ class MobileGenerator
   def page(page, company, components, security_tag)
     @scripts = [
       security_tag,
-      '<link href="/stylesheets/modules_base.css" media="screen" rel="stylesheet" type="text/css">',
+      '<link href="/stylesheets/modules_base.mobile.css" media="screen" rel="stylesheet" type="text/css">',
       "<script src='/modules/jquery.js' type='text/javascript'></script>",
       "<script src='/coreapi/modules/base.js' type='text/javascript'></script>"
     ]
@@ -64,16 +64,15 @@ class MobileGenerator
   end
 
   def content_block(c)
-    ActionController::Base.new.send :render_to_string, '/modules/content/mobile', :locals => { :setting => setting(c), :uid => c.uid }
+    ActionController::Base.new.send :render_to_string, '/modules/content/block.mobile', :locals => { :setting => setting(c), :uid => c.uid }
   end
       
   def infoform_block(c)
-    ActionController::Base.new.send :render_to_string, '/modules/infoform/mobile', :locals => { :setting => setting(c), :uid => c.uid }
+    ActionController::Base.new.send :render_to_string, '/modules/infoform/block.mobile', :locals => { :setting => setting(c), :uid => c.uid }
   end
  
   def locationmark_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/locationmark/block', :locals => { :setting => setting(c), :uid => c.uid, :company => c.company }
+    ActionController::Base.new.send :render_to_string, '/modules/locationmark/block.mobile', :locals => { :setting => setting(c), :uid => c.uid, :company => c.company }
   end
 
   def list_block(c)
@@ -87,13 +86,11 @@ class MobileGenerator
   end
 
   def blog_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/blog/block', :locals => { :setting => setting(c), :uid => c.uid, :posts => ModBlog.all_of(c.id) }
+    ActionController::Base.new.send :render_to_string, '/modules/blog/block.mobile', :locals => { :setting => setting(c), :uid => c.uid, :posts => ModBlog.all_of(c.id) }
   end
 
   def post_block(c)
-    return ''
-    ActionController::Base.new.send :render_to_string, '/modules/blog/post', :locals => { :post => c.extra_data }
+    ActionController::Base.new.send :render_to_string, '/modules/blog/post.mobile', :locals => { :post => c.extra_data }
   end
 
   def postfilter_block(c)
@@ -101,7 +98,7 @@ class MobileGenerator
   end
 
   def gallery_block(c)
-    ActionController::Base.new.send :render_to_string, '/modules/gallery/mobile', :locals => { :setting => setting(c), :uid => c.uid, :items => c.extra_data }
+    ActionController::Base.new.send :render_to_string, '/modules/gallery/block.mobile', :locals => { :setting => setting(c), :uid => c.uid, :items => c.extra_data }
   end
 
   def image_block(c)
