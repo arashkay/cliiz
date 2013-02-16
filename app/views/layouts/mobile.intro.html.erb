@@ -1,0 +1,7 @@
+<ul data-role="listview" data-inset="true">
+  <% menu.each do |m| %>
+    <li>
+      <a href="<%=m[1]%>" data-transition="slide"><%=m[2]%></a>
+    </li>
+  <%end%>
+</ul>

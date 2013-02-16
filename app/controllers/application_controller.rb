@@ -30,7 +30,14 @@ class ApplicationController < ActionController::Base
     end
     
     def detect_domain
-      self.request.host.gsub('www.', '').split('.')[0]
+      subs = self.request.host.gsub('www.', '').split('.')
+      if subs[0] == 'mobile'
+        @is_mobile = true
+        subs[1]
+      else
+        @is_mobile = false
+        subs[0]
+      end
     end
 
     def change_links_to_modify

@@ -75,6 +75,12 @@ class Company < ActiveRecord::Base
     folder
   end
 
+  def upgrade
+    first_edit_done = false
+    save
+    CompanyMailer.upgrade_email(self).deliver
+  end
+
   private
     def set_frame
       self.frame_id = Frame.last.id

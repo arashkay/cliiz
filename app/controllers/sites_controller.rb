@@ -34,9 +34,13 @@ class SitesController < ApplicationController
         else
 
       end
-      cnt = Generator.new.page( @page, @company, @company.frame, components, csrf_meta_tag).to_html
-      cache_page cnt, cached_file_name(@page)
-      render :inline => cnt
+      if @is_mobile
+        render :inline => MobileGenerator.new.page( (params[:page].nil? ? nil : @page), @company, components, csrf_meta_tag)
+      else
+        cnt = Generator.new.page( @page, @company, @company.frame, components, csrf_meta_tag).to_html
+        cache_page cnt, cached_file_name(@page)
+        render :inline => cnt
+      end
     else
       render :file => cached_file(@page), :layout => false
     end

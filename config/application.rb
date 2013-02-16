@@ -67,3 +67,4 @@ end
 
 require 'lib/assets/extensions.rb'
 require 'lib/assets/generator.rb'
+require 'lib/assets/mobile.generator.rb'
