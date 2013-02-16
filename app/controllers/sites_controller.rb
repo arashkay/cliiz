@@ -36,12 +36,12 @@ class SitesController < ApplicationController
 
       end
       if @is_mobile
-        render :inline => MobileGenerator.new.page( (params[:page].nil? ? nil : @page), @company, components, csrf_meta_tag)
+        cnt = MobileGenerator.new.page( (params[:page].nil? ? nil : @page), @company, components, csrf_meta_tag)
       else
         cnt = Generator.new.page( @page, @company, @company.frame, components, csrf_meta_tag).to_html
-        cache_page cnt, cached_file_name(@page)
-        render :inline => cnt
       end
+      cache_page cnt, cached_file_name(@page)
+      render :inline => cnt
     else
       render :file => cached_file(@page), :layout => false
     end
@@ -61,7 +61,7 @@ class SitesController < ApplicationController
 private
   
   def cached_file_name(page)
-    "#{@domain}/#{page}#{params[:id]||''}"
+    "#{@domain}/#{(@is_mobile ? 'mobile/' : '')}#{page}#{params[:id]||''}"
   end
 
   def cached_file(page)
