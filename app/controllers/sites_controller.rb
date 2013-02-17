@@ -8,7 +8,7 @@ class SitesController < ApplicationController
   before_filter :detect_site
 
   def render_page
-    unless Rails.env!='development' && File.exists?(cached_file @page)
+    unless File.exists?(cached_file @page)
       components = UsedComponent.all_in_page @page, @company.id
       case @page
         when CLIIZ::MENU::LISTING then
@@ -61,11 +61,11 @@ class SitesController < ApplicationController
 private
   
   def cached_file_name(page)
-    "#{@domain}/#{(@is_mobile ? 'mobile/' : '')}#{page}#{params[:id]||''}"
+    "#{@domain}/#{(@is_mobile ? 'mobile/' : '')}#{@original_page.nil? ? '_' : page}#{params[:id]||''}"
   end
 
   def cached_file(page)
-    "#{Rails.root}/cache/#{cached_file_name(@original_page.nil? ? '_' : page)}.html"
+    "#{Rails.root}/cache/#{cached_file_name(page)}.html"
   end
   
   def detect_site
