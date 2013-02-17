@@ -36,7 +36,7 @@ class SitesController < ApplicationController
 
       end
       if @is_mobile
-        cnt = MobileGenerator.new.page( (params[:page].nil? ? nil : @page), @company, components, csrf_meta_tag)
+        cnt = MobileGenerator.new.page( @original_page, @company, components, csrf_meta_tag)
       else
         cnt = Generator.new.page( @page, @company, @company.frame, components, csrf_meta_tag).to_html
       end
@@ -65,7 +65,7 @@ private
   end
 
   def cached_file(page)
-    "#{Rails.root}/cache/#{cached_file_name(page)}.html"
+    "#{Rails.root}/cache/#{cached_file_name(@original_page.nil? ? '_' : page)}.html"
   end
   
   def detect_site
@@ -87,7 +87,12 @@ private
       page = "/#{params[:page].downcase}"
       page = @company.setting[:menu].detect{ |i| i[1]==page }
     end
-    (page.nil? ? @company.setting[:menu][0] : page)[0]
+    if page.nil?
+      @original_page = nil
+      @company.setting[:menu][0][0]
+    else
+      @original_page = page[0]
+    end
   end
 
   def csrf_meta_tag
