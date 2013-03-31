@@ -81,7 +81,7 @@ body.fixed{
 .clz-walk.clz-step6 .clz-step6{ display: block; }
 
 .clz-walk.clz-step7 .clz-walktru.clz-bottom{ top: 0px; }
-.clz-walk.clz-step7 .clz-hint{ top: 30%; left: 50%; margin-left: -200px; }
+.clz-walk.clz-step7 .clz-hint{ top: 30%; left: 50%; margin-left: -100px; }
 .clz-walk.clz-step7 .clz-hint .clz-arrow{ display: none; }
 .clz-walk.clz-step7 .clz-step7{ display: block; }
 

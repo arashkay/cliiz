@@ -33,9 +33,9 @@ class ModInfoformController < ApplicationController
     @contact.see!
   end
 
-  def delete
-    @uc = UsedComponent.find params[:contact_id], :conditions => { :company_id => current_company.id, :component_id => Component.find_by_uname('infoform').id }
-    ModInfoform.destroy_all({ :used_component_id => @uc.id, :id => params[:ids] }) unless @uc.blank?
+  def destroy
+    @uc_ids = UsedComponent.where( { :company_id => current_company.id, :component_id => Component.find_by_uname('infoform').id } ).map(&:id)
+    ModInfoform.destroy_all({ :used_component_id => @uc_ids, :id => params[:id] }) unless @uc_ids.blank?
     render :json => true
   end
 

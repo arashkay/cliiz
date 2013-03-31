@@ -711,6 +711,7 @@ cliiz.toolbox = $.namespace({
         $.send('/coreapi/contacts/all', { _method: 'get' }, cliiz.toolbox.form.contacts.list, true);
         $('.fclz-contacts', form).on( 'click', '.fclz-view', cliiz.toolbox.form.contacts.expand );
         $('.fclz-contacts', form).on( 'click', '.fclz-shrink', cliiz.toolbox.form.contacts.shrink );
+        $('.fclz-contacts', form).on( 'click', '.fclz-delete', cliiz.toolbox.form.contacts.remove );
       },
       edit: function(data){
         cliiz.toolbox.form.save = cliiz.toolbox.form.contacts.save;
@@ -746,6 +747,11 @@ cliiz.toolbox = $.namespace({
       },
       shrink: function(){
         $(this).parents('.fclz-contact').removeClass('clz-detailed');
+      },
+      remove: function(){
+        var id = $(this).parents('.fclz-contact').data('dbid');
+        $.send('/coreapi/contacts/'+id, { _method: 'delete' });
+        $(this).parents('.fclz-contact').remove();
       }
     }
   },
@@ -770,7 +776,7 @@ cliiz.toolbox = $.namespace({
   },
   walk: {
     init: function(){
-      if(!cliiz.toolbox.defaults.letsWalk) return;
+      if(!cliiz.toolbox.defaults.letsWalk) return $('.fclz-walk').remove();
       $('.fclz-walk [next-step]').click( function(){ cliiz.toolbox.walk[$(this).attr('next-step')](); } );
       cliiz.toolbox.walk.step0();
     },
