@@ -9,6 +9,11 @@ body{
 body button{
   font-family: arial, tahoma;
 }
+p{
+  margin: 0;
+  padding: 2px 0;
+  color: #2C9BDB;
+}
 .contact{
   background: #1C1C1C;
   color: #fff;
@@ -21,6 +26,9 @@ body button{
   -moz-transform:rotate(-40deg); /* Firefox */
   -webkit-transform:rotate(-40deg); /* Safari and Chrome */
   -o-transform:rotate(-40deg); /* Opera */
+  -moz-box-shadow: 0 0 5px 0 #000;
+  -webkit-box-shadow: 0 0 5px 0 #000;
+  box-shadow: 0 0 5px 0 #000;
   width: 300px;
   left: -105px;
   top: -25px;
@@ -149,9 +157,13 @@ body button{
   background-position: 85% center;
   margin-top: 20px;
 }
+.right .start{
+  margin: 10px 0;
+}
 .submit{
   background-image: url(/assets/flat/button-tick.png); 
-  background-position: 3px center;
+  background-position: 6px center;
+  width: 120px;
 }
 .plans{
   font-size: 0px;
@@ -215,7 +227,7 @@ h3{
   color: #555;
 }
 .expanded .expanded h3{
-  padding: 10px 0px;
+  padding: 20px 0px 10px;
 }
 .partition .expanded{
   display: none;
@@ -243,7 +255,7 @@ h3{
   color: #2C9BDB;
   font-size: 20px;
   font-weight: bold;
-  padding-top: 50px;
+  padding-bottom: 30px;
 }
 .footer .promo{
   text-align: center;
@@ -331,8 +343,13 @@ h3{
 }
 .features{
   text-align: center;
-  margin: 40px 0px;
+  margin: 50px 0 0;
   font-weight: bold;
+  background: #eee;
+  padding: 20px 0 20px;
+  -moz-box-shadow: 0 0 5px 0 #000;
+  -webkit-box-shadow: 0 0 5px 0 #000;
+  box-shadow: 0 0 5px 0 #000;
 }
 .features .feature{
   width: 110px;
@@ -340,7 +357,7 @@ h3{
   padding-top: 55px;
   background: center top no-repeat;
   display: inline-block;
-  margin: 0px 10px 50px;
+  margin: 0px 15px 50px;
   vertical-align: top;
 }
 .feature.update{

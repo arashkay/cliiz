@@ -127,6 +127,7 @@ module CLIIZ
     GALLERY = CLIIZ::COMPONENTS::GALLERY
     LISTING = CLIIZ::COMPONENTS::LISTING
     FROZEN = [HOME, ABOUT, CONTACT, BLOG, GALLERY, LISTING]
+    PACKAGES = [BLOG, GALLERY, LISTING]
     ITEMS = 
       [ [HOME, '/home', 'Home', true], 
         [ABOUT, '/about', 'About', true], 

@@ -19,8 +19,10 @@ class UsedComponent < ActiveRecord::Base
 
   def self.disable_package( company, name )
     uc = UsedComponent.first :conditions => ['company_id = ? and components.uname = ?' , company.id, name ], :include => :component
-    uc.update_attributes :disabled => true unless uc.blank?
-    company.remove_from_menu uc.component.uname
+    unless uc.blank?
+      uc.update_attributes :disabled => true
+      company.remove_from_menu uc.component.uname
+    end
   end
 
   def self.enable_package( company, name )

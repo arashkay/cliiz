@@ -59,6 +59,9 @@ class Company < ActiveRecord::Base
         delete_from_menu(i['uname']) 
         nil
       else
+        if CLIIZ::MENU::PACKAGES.include?(i['uname'])
+          (i['disable']!="true") ? UsedComponent.enable_package( self, i['uname'] ) : UsedComponent.disable_package( self, i['uname'] )
+        end
         name = i['uname'].blank? ? "dynpage-#{items.size-CLIIZ::MENU::FROZEN.size}": i['uname']
         page = [ name, "/#{i['name'].parameterize.underscore}", i['name'], i['disable']!="true" ]
         page
