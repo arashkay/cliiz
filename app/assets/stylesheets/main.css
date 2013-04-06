@@ -375,3 +375,66 @@ h3{
 .feature.mobile{
   background-image: url(/assets/flat/mobile.png);
 }
+
+.extra-testi{
+  color: #2C9BDB;
+  font-weight: bold;
+  font-size: 14px;
+}
+.extra-testi span{
+  cursor: pointer;
+}
+.client{
+  margin: 5px 0px;
+  width: 600px;
+  padding: 8px;
+  border-left: transparent 6px solid;
+}
+.client:hover {
+  background: #111;
+  border-left: #2C9BDB 6px solid;
+}
+.client.hidden{
+  display: none;
+}
+.client .img{
+  border: #2C9BDB 1px solid;
+  width: 100px;
+  height: 75px;
+  vertical-align: top;
+  float: left;
+}
+.client .detail{
+  float: right;
+  vertical-align: top;
+  padding-left: 10px;
+  width: 480px;
+  position: relative;
+}
+.client a, .client b{
+  color: #2C9BDB;
+  text-decoration: none;
+  font-weight: bold;
+  position: absolute;
+  font-size: 14px;
+}
+.client b{
+  left: 10px;
+  top: 0px;
+}
+.client a{
+  right: 10px;
+  top: 0px;
+}
+.client p{
+  margin-top: 18px;
+  padding-right: 5px;
+  font-size: 12px;
+  color: #333;
+}
+.client:hover p{
+  color:#eee
+}
+.client .clear{
+  clear: both;
+}

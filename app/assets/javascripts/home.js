@@ -5,6 +5,7 @@ $(function(){
 cliiz.home = $.namespace({
   init: function(){
     $('.fn-submit').click(cliiz.home.submit);
+    $('.fn-extra-testi').click(cliiz.home.clients);
     $('[name="company[password]"]').change(
       function(){
         $('[name="company[password_confirmation]"]').val($(this).val());
@@ -15,6 +16,10 @@ cliiz.home = $.namespace({
     $('.fn-plans .fn-plan').click(this.plan);
     $('.fn-compare').hover(this.compare, this.choose);
     $('.fn-name, .fn-email, .fn-password').keypress( function(){ $('.error', $(this).parents('.fn-row')).removeClass('error'); } );
+  },
+  clients: function(){
+    $('.fn-extra-testi').hide();
+    $('.fn-client').show();
   },
   plan: function(){
     $('.fn-plan').removeClass('active');
