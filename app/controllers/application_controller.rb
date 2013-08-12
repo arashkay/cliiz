@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  #golshan's edit
   before_filter :set_locale
 
   protected
