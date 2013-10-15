@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: cliiz.com_development
+  database: cliiz2013 #cliiz.com_development
   pool: 5
   username: root
   password: root

@@ -16,8 +16,6 @@ set :use_sudo, false
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 set :repository, "git@github.com:tectual/cliiz.git"  # Your clone URL
 set :scm, "git"
-#set :user, "arashvps"  # The server's user for deploys
-#set :scm_passphrase, "xshape419"  # The deploy user's password
 ssh_options[:forward_agent] = true
 set :branch, "redesign"
 set :deploy_via, :remote_cache

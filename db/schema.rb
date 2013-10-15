@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915080135) do
+ActiveRecord::Schema.define(:version => 20130205054458) do
 
   create_table "companies", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false
@@ -111,16 +111,10 @@ ActiveRecord::Schema.define(:version => 20120915080135) do
 
   create_table "mod_infoforms", :force => true do |t|
     t.integer  "used_component_id"
-    t.string   "name"
-    t.string   "email"
-    t.string   "url"
-    t.string   "phone"
-    t.string   "phone2"
-    t.string   "address"
-    t.string   "subject"
-    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "fields"
+    t.string   "state"
   end
 
   add_index "mod_infoforms", ["used_component_id"], :name => "fk_mod_infoforms_1"
